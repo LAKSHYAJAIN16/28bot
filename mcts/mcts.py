@@ -1,4 +1,8 @@
-import random, math, copy
+import random, math, copy, os, json, sys
+from datetime import datetime
+from contextlib import nullcontext
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from .log_utils import log_event as _log_game_event, Tee as _TeeStdout, open_game_log as _open_game_log
 
 # Optional NN support for hybrid MCTS
 try:
@@ -6,11 +10,18 @@ try:
     import torch.nn as nn
     import torch.nn.functional as F
     HAS_TORCH = True
+    try:
+        # Prefer higher precision matmul kernels when available (PyTorch 2+)
+        torch.set_float32_matmul_precision("high")
+    except Exception:
+        pass
 except Exception:
     HAS_TORCH = False
 
 # Ensure global is defined before any function references
 NN_EVAL = None
+
+LOG_DIR_GAMES = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "logs", "game28", "mcts_games"))
 
 # =========================
 # Card Game 28 Environment
@@ -129,12 +140,14 @@ class TwentyEightEnv:
                     current_bidder = p
                     consecutive_passes = 0
                     bidding_started = True
-                    print(f"Bid: Player {p} proposes {proposal} (min_allowed={min_allowed}) – suit_scores={dbg['suit_to_points'] if dbg else {}} chosen={dbg['chosen_suit'] if dbg else None} p30={dbg['p30_points'] if dbg else None} avg={dbg['avg_points'] if dbg else None}")
+                    if self.debug:
+                        print(f"Bid: Player {p} proposes {proposal} (min_allowed={min_allowed}) – suit_scores={dbg['suit_to_points'] if dbg else {}} chosen={dbg['chosen_suit'] if dbg else None} p30={dbg['p30_points'] if dbg else None} avg={dbg['avg_points'] if dbg else None}")
                 else:
                     consecutive_passes += 1
                     if idx < 4:
                         first_cycle_passes += 1
-                    print(f"Pass: Player {p} (min_allowed={min_allowed}) – analysis={dbg}")
+                    if self.debug:
+                        print(f"Pass: Player {p} (min_allowed={min_allowed}) – analysis={dbg}")
                 # If a bid has started, end when three subsequent passes occur
                 if bidding_started and consecutive_passes == 3:
                     break
@@ -146,13 +159,15 @@ class TwentyEightEnv:
             if current_bidder is None:
                 current_bidder = order[0]
                 current_high = 16
-                print(f"Forced bid: All players passed. Player {current_bidder} takes minimum bid {current_high}.")
+                if self.debug:
+                    print(f"Forced bid: All players passed. Player {current_bidder} takes minimum bid {current_high}.")
             self.bidder = current_bidder
             self.bid_value = current_high
             # Bidder chooses trump based on their exact 4-card auction hand
             self.trump_suit = agents[self.bidder].choose_trump(self.first_four_hands[self.bidder], self.bid_value)
             choose_dbg = getattr(agents[self.bidder], 'last_choose_debug', None)
-            print(f"Auction winner: Player {self.bidder} with bid {self.bid_value}; chooses trump {self.trump_suit} – details={choose_dbg}")
+            if self.debug:
+                print(f"Auction winner: Player {self.bidder} with bid {self.bid_value}; chooses trump {self.trump_suit} – details={choose_dbg}")
         # Concealed phase with a face-down trump card from bidder
         self.phase = "concealed"
         trump_cards_in_bidder = [c for c in self.hands[self.bidder] if card_suit(c) == self.trump_suit]
@@ -545,6 +560,94 @@ def mcts_plan(env, state, iterations=50):
     best_action = max(pi.items(), key=lambda kv: kv[1])[0]
     return best_action, pi
 
+def _determinize_state_for_player(state, perspective_player):
+    """Create a determinized full-information state from the perspective of one player.
+
+    Keeps the player's own hand fixed and randomly assigns all other unknown cards
+    to opponents, consistent only with hand sizes and the current trick. If trump
+    is concealed, assigns a random trump card as the face-down card.
+    """
+    # Start from a deep copy
+    det_state = copy.deepcopy(state)
+    hands = det_state["hands"]
+    my_hand = hands[perspective_player][:]
+    # Build pool of unknown cards: full deck minus my hand minus current trick cards
+    try:
+        deck = FULL_DECK
+    except NameError:
+        deck = [r + s for r in ["7","8","9","10","J","Q","K","A"] for s in SUITS]
+    pool = set(deck)
+    for c in my_hand:
+        if c in pool:
+            pool.remove(c)
+    for _, c in det_state.get("current_trick", []):
+        if c in pool:
+            pool.remove(c)
+    # If phase is concealed, we do not know the face-down trump card identity; sample one
+    trump_suit = det_state.get("trump", None)
+    bidder = det_state.get("bidder", 0)
+    if det_state.get("phase", "concealed") == "concealed" and trump_suit in SUITS:
+        trump_candidates = [c for c in pool if c.endswith(trump_suit)]
+        sampled_face_down = random.choice(trump_candidates) if trump_candidates else None
+        det_state["face_down_trump"] = sampled_face_down
+        if sampled_face_down and sampled_face_down in pool:
+            pool.remove(sampled_face_down)
+    # Assign other players' hands randomly according to target sizes
+    # Note: We ignore original opponents' cards entirely to avoid perfect info leakage
+    remaining = list(pool)
+    random.shuffle(remaining)
+    idx = 0
+    for p in range(4):
+        if p == perspective_player:
+            hands[p] = my_hand[:]
+            continue
+        target = len(hands[p])
+        assigned = remaining[idx: idx + target]
+        hands[p] = assigned[:]
+        idx += target
+    return det_state
+
+def ismcts_plan(env, state, iterations=50, samples=8):
+    """Information-Set MCTS via determinization.
+
+    For the acting player, sample multiple consistent full deals (determinizations),
+    run MCTS on each, and aggregate the visit distributions.
+    """
+    acting_player = state["turn"]
+    aggregate = {}
+    last_best = None
+    for _ in range(max(1, samples)):
+        det_state = _determinize_state_for_player(state, acting_player)
+        # Build a determinized environment from det_state
+        d_env = copy.deepcopy(env)
+        d_env.hands = copy.deepcopy(det_state["hands"])
+        d_env.current_trick = copy.deepcopy(det_state["current_trick"])
+        d_env.scores = det_state["scores"][:]
+        d_env.turn = det_state["turn"]
+        d_env.trump_suit = det_state["trump"]
+        d_env.phase = det_state.get("phase", getattr(d_env, "phase", "revealed"))
+        d_env.bidder = det_state.get("bidder", getattr(d_env, "bidder", 0))
+        d_env.face_down_trump_card = det_state.get("face_down_trump", getattr(d_env, "face_down_trump_card", None))
+        d_env.bid_value = det_state.get("bid_value", getattr(d_env, "bid_value", 16))
+        d_env.last_exposer = det_state.get("last_exposer", getattr(d_env, "last_exposer", None))
+        d_env.exposure_trick_index = det_state.get("exposure_trick_index", getattr(d_env, "exposure_trick_index", None))
+        d_env.debug = False
+        best, pi = mcts_plan(d_env, det_state, iterations)
+        last_best = best
+        for a, p in pi.items():
+            aggregate[a] = aggregate.get(a, 0.0) + p
+    if not aggregate:
+        # fallback to last_best or any valid move
+        if last_best is not None:
+            return last_best, {}
+        hand = state["hands"][state["turn"]]
+        valid = env.valid_moves(hand)
+        return (valid[0] if valid else None), {}
+    total = sum(aggregate.values())
+    pi_agg = {a: (w / total) for a, w in aggregate.items()} if total > 0 else aggregate
+    best_action = max(pi_agg.items(), key=lambda kv: kv[1])[0]
+    return best_action, pi_agg
+
 def _percentile(values, q):
     if not values:
         return 0.0
@@ -619,6 +722,7 @@ class MonteCarloBiddingAgent:
                 "chosen_suit": None,
                 "avg_points": 0.0,
                 "p30_points": 0.0,
+                "std_points": 0.0,
                 "proposed": None,
                 "current_high": current_high_bid,
             }
@@ -629,27 +733,59 @@ class MonteCarloBiddingAgent:
         for s in present_suits:
             pts = self._simulate_points_for_suit(my_first_four, s, my_seat, first_player)
             suit_to_points[s] = pts
-        # Choose suit with highest average expected points
-        def avg_pts(s):
-            p = suit_to_points[s]
-            return sum(p)/max(1,len(p))
-        best_suit = max(present_suits, key=avg_pts)
-        pts = suit_to_points[best_suit]
-        avg_points = sum(pts)/max(1,len(pts))
-        # Min allowed per auction state
-        min_allowed = 16 if current_high_bid < 16 else current_high_bid + 1
-        if avg_points > min_allowed:
-            final_prop = min(28, int(math.ceil(avg_points)))
-        else:
-            final_prop = None
+        # Risk-averse scoring per suit
+        def stats(values):
+            n = max(1, len(values))
+            mean = sum(values) / n
+            var = sum((v - mean) ** 2 for v in values) / n
+            std = math.sqrt(var)
+            return mean, std
+        # Tighten raise rule: require larger raise early
+        raise_delta = 2 if current_high_bid < 20 else 1
+        min_allowed = 16 if current_high_bid < 16 else current_high_bid + raise_delta
+        # Filter suits that meet conservative thresholds
+        candidates = []
+        for s in present_suits:
+            pts = suit_to_points[s]
+            avg_points, std_points = stats(pts)
+            p30 = _percentile(pts, 0.3)
+            conf_mean = avg_points - 0.75 * std_points
+            ok = (p30 >= min_allowed) and (conf_mean >= min_allowed)
+            if ok:
+                # Conservative bid mapping: floor of max(p30, avg-1)
+                bid_raw = max(p30, avg_points - 1.0)
+                bid_s = int(math.floor(bid_raw))
+                bid_s = max(min_allowed, min(28, bid_s))
+                candidates.append((s, bid_s, avg_points, std_points, p30))
+        if not candidates:
+            # No safe raise → pass
+            self.last_debug = {
+                "present_suits": present_suits,
+                "suit_to_points": suit_to_points,
+                "chosen_suit": None,
+                "avg_points": 0.0,
+                "p30_points": 0.0,
+                "std_points": 0.0,
+                "proposed": None,
+                "current_high": current_high_bid,
+                "min_allowed": min_allowed,
+                "reason": "no_suit_meets_thresholds",
+            }
+            return None
+        # Pick by highest p30, then by avg
+        candidates.sort(key=lambda t: (t[4], t[2]))
+        best_suit, final_prop, avg_points, std_points, p30 = candidates[-1]
         self.last_debug = {
             "present_suits": present_suits,
             "suit_to_points": suit_to_points,
             "chosen_suit": best_suit,
             "avg_points": avg_points,
-            "p30_points": _percentile(pts, 0.3),
+            "p30_points": p30,
+            "std_points": std_points,
             "proposed": final_prop,
             "current_high": current_high_bid,
+            "min_allowed": min_allowed,
+            "raise_delta": raise_delta,
         }
         return final_prop
 
@@ -680,47 +816,229 @@ class MonteCarloBiddingAgent:
 def play_games(num_games=3, iterations=50):
     results_all=[]
     series_game_score = [0, 0]
-    for g in range(1,num_games+1):
-        print(f"\n===== GAME {g} =====")
-        first_player = 0
-        env = TwentyEightEnv()
-        env.debug = True
-        state = env.reset(initial_trump=None, first_player=first_player)
-        done=False
-        for i,hand in enumerate(env.hands):
-            print(f"Player {i} hand : ",hand)
-        # Show the exact first four cards used during the auction
-        for i in range(4):
-            print(f"Player {i} (auction 4 cards): {env.first_four_hands[i]}")
-        print(f"Auction winner (bidder): Player {env.bidder} with bid {getattr(env,'bid_value',16)}")
-        print(f"Bidder sets concealed trump suit: {state['trump']}")
-        print(f"Phase: {state['phase']}, bidder concealed card: {env.face_down_trump_card}")
-        print("")
-        while not done:
-            current_player = state['turn']  # store actual player
-            move = policy_move(env, iterations)
-            state, _, done, winner, trick_points = env.step(move)
-            print(f"Player {current_player} plays {move}")
-            if winner is not None:
-                print(f"Player {winner} won the hand: {trick_points} points\n")  # blank line after hand
-            if getattr(env, 'invalid_round', False):
-                print("Round declared invalid: trump never exposed by end of 7th trick.")
-                break
-        print(f"Game {g} final points: Team A={state['scores'][0]}, Team B={state['scores'][1]}")
-        # print(f"Game {g} cumulative game score (+1/-1 on bid): Team A={state['game_score'][0]}, Team B={state['game_score'][1]}")
-        # Update series cumulative score across games
-        series_game_score[0] += state['game_score'][0]
-        series_game_score[1] += state['game_score'][1]
-        print(f"Series cumulative game score so far: Team A={series_game_score[0]}, Team B={series_game_score[1]}")
-        results_all.append(state['scores'])
+    for g in range(1, num_games + 1):
+        # Prepare per-game log file and tee console output
+        os.makedirs(LOG_DIR_GAMES, exist_ok=True)
+        game_log_path, ts = _open_game_log(g)
+        _orig_stdout, _orig_stderr = sys.stdout, sys.stderr
+        with open(game_log_path, "a", encoding="utf-8") as _fh:
+            sys.stdout = _TeeStdout(_fh, _orig_stdout)
+            sys.stderr = _TeeStdout(_fh, _orig_stderr)
+            try:
+                print(f"\n===== GAME {g} ({ts}) =====")
+                first_player = 0
+                env = TwentyEightEnv()
+                env.debug = True
+                state = env.reset(initial_trump=None, first_player=first_player)
+                # Log game start configuration (JSONL)
+                _log_game_event(
+                    "game_start",
+                    {
+                        "game_id": g,
+                        "first_player": first_player,
+                        "first_four_hands": env.first_four_hands,
+                        "bidder": env.bidder,
+                        "bid_value": getattr(env, "bid_value", 16),
+                        "trump": env.trump_suit,
+                        "phase": state.get("phase"),
+                        "concealed_trump_card": env.face_down_trump_card,
+                        "log_file": os.path.relpath(
+                            game_log_path,
+                            os.path.normpath(os.path.join(os.path.dirname(__file__), "..")),
+                        ),
+                        "timestamp": ts,
+                    },
+                )
+                done = False
+                for i, hand in enumerate(env.hands):
+                    print(f"Player {i} hand : ", hand)
+                # Show the exact first four cards used during the auction
+                for i in range(4):
+                    print(f"Player {i} (auction 4 cards): {env.first_four_hands[i]}")
+                print(
+                    f"Auction winner (bidder): Player {env.bidder} with bid {getattr(env,'bid_value',16)}"
+                )
+                print(f"Bidder sets concealed trump suit: {state['trump']}")
+                print(
+                    f"Phase: {state['phase']}, bidder concealed card: {env.face_down_trump_card}"
+                )
+                print("")
+                while not done:
+                    current_player = state["turn"]  # store actual player
+                    move = policy_move(env, iterations)
+                    state, _, done, winner, trick_points = env.step(move)
+                    print(f"Player {current_player} plays {move}")
+                    if winner is not None:
+                        print(
+                            f"Player {winner} won the hand: {trick_points} points\n"
+                        )  # blank line after hand
+                    if getattr(env, "invalid_round", False):
+                        print(
+                            "Round declared invalid: trump never exposed by end of 7th trick."
+                        )
+                        break
+                print(
+                    f"Game {g} final points: Team A={state['scores'][0]}, Team B={state['scores'][1]}"
+                )
+                # Update series cumulative score across games
+                series_game_score[0] += state["game_score"][0]
+                series_game_score[1] += state["game_score"][1]
+                print(
+                    f"Series cumulative game score so far: Team A={series_game_score[0]}, Team B={series_game_score[1]}"
+                )
+                results_all.append(state["scores"])
+                # Log game end outcome (JSONL)
+                _log_game_event(
+                    "game_end",
+                    {
+                        "game_id": g,
+                        "scores": state["scores"],
+                        "game_score_delta": state["game_score"],
+                        "invalid_round": getattr(env, "invalid_round", False),
+                        "exposure_trick_index": getattr(env, "exposure_trick_index", None),
+                        "last_exposer": getattr(env, "last_exposer", None),
+                        "log_file": os.path.relpath(
+                            game_log_path,
+                            os.path.normpath(os.path.join(os.path.dirname(__file__), "..")),
+                        ),
+                        "timestamp": ts,
+                    },
+                )
+                print(f"Log saved to: {game_log_path}")
+            finally:
+                # Restore original streams regardless of errors
+                sys.stdout = _orig_stdout
+                sys.stderr = _orig_stderr
     print("\nAll game results:", results_all)
-    print(f"Final series cumulative game score: Team A={series_game_score[0]}, Team B={series_game_score[1]}")
+    print(
+        f"Final series cumulative game score: Team A={series_game_score[0]}, Team B={series_game_score[1]}"
+    )
+
+def run_single_game(game_id: int, iterations: int, first_player: int = 0):
+    """Run a single simulated game with full console logging mirrored to a per-game log file.
+
+    Returns (scores, game_score) where scores is [teamA_points, teamB_points] and
+    game_score is [teamA_delta, teamB_delta].
+    """
+    os.makedirs(LOG_DIR_GAMES, exist_ok=True)
+    game_log_path, ts = _open_game_log(game_id)
+    _orig_stdout, _orig_stderr = sys.stdout, sys.stderr
+    with open(game_log_path, "a", encoding="utf-8") as _fh:
+        sys.stdout = _TeeStdout(_fh, _orig_stdout)
+        sys.stderr = _TeeStdout(_fh, _orig_stderr)
+        try:
+            print(f"\n===== GAME {game_id} ({ts}) =====")
+            env = TwentyEightEnv()
+            env.debug = True
+            state = env.reset(initial_trump=None, first_player=first_player)
+            _log_game_event(
+                "game_start",
+                {
+                    "game_id": game_id,
+                    "first_player": first_player,
+                    "first_four_hands": env.first_four_hands,
+                    "bidder": env.bidder,
+                    "bid_value": getattr(env, "bid_value", 16),
+                    "trump": env.trump_suit,
+                    "phase": state.get("phase"),
+                    "concealed_trump_card": env.face_down_trump_card,
+                    "log_file": os.path.relpath(
+                        game_log_path,
+                        os.path.normpath(os.path.join(os.path.dirname(__file__), "..")),
+                    ),
+                    "timestamp": ts,
+                },
+            )
+            for i, hand in enumerate(env.hands):
+                print(f"Player {i} hand : ", hand)
+            for i in range(4):
+                print(f"Player {i} (auction 4 cards): {env.first_four_hands[i]}")
+            print(
+                f"Auction winner (bidder): Player {env.bidder} with bid {getattr(env,'bid_value',16)}"
+            )
+            print(f"Bidder sets concealed trump suit: {state['trump']}")
+            print(
+                f"Phase: {state['phase']}, bidder concealed card: {env.face_down_trump_card}"
+            )
+            print("")
+            done = False
+            while not done:
+                current_player = state["turn"]
+                move = policy_move(env, iterations)
+                state, _, done, winner, trick_points = env.step(move)
+                print(f"Player {current_player} plays {move}")
+                if winner is not None:
+                    print(f"Player {winner} won the hand: {trick_points} points\n")
+                if getattr(env, "invalid_round", False):
+                    print("Round declared invalid: trump never exposed by end of 7th trick.")
+                    break
+            print(
+                f"Game {game_id} final points: Team A={state['scores'][0]}, Team B={state['scores'][1]}"
+            )
+            _log_game_event(
+                "game_end",
+                {
+                    "game_id": game_id,
+                    "scores": state["scores"],
+                    "game_score_delta": state["game_score"],
+                    "invalid_round": getattr(env, "invalid_round", False),
+                    "exposure_trick_index": getattr(env, "exposure_trick_index", None),
+                    "last_exposer": getattr(env, "last_exposer", None),
+                    "log_file": os.path.relpath(
+                        game_log_path,
+                        os.path.normpath(os.path.join(os.path.dirname(__file__), "..")),
+                    ),
+                    "timestamp": ts,
+                },
+            )
+            print(f"Log saved to: {game_log_path}")
+            return state["scores"], state["game_score"]
+        finally:
+            sys.stdout = _orig_stdout
+            sys.stderr = _orig_stderr
+
+def play_games_concurrent(num_games: int = 4, iterations: int = 50, max_workers: int | None = None):
+    """Run multiple games concurrently using separate processes.
+
+    Note: On Windows, call this inside an `if __name__ == "__main__":` guard.
+    """
+    if max_workers is None:
+        try:
+            max_workers = max(1, os.cpu_count() or 1)
+        except Exception:
+            max_workers = 1
+    print(f"Spawning up to {max_workers} worker processes for {num_games} games...")
+    results: dict[int, tuple[list[int], list[int]]] = {}
+    with ProcessPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(run_single_game, g, iterations, 0): g for g in range(1, num_games + 1)
+        }
+        for fut in as_completed(futures):
+            g = futures[fut]
+            try:
+                scores, game_score = fut.result()
+                results[g] = (scores, game_score)
+                print(f"Game {g} finished. Scores={scores}, game_score_delta={game_score}")
+            except Exception as e:
+                print(f"Game {g} failed: {e}")
+    # Aggregate
+    ordered = [results[g][0] for g in sorted(results.keys())]
+    series = [0, 0]
+    for g in sorted(results.keys()):
+        gs = results[g][1]
+        series[0] += gs[0]
+        series[1] += gs[1]
+    print("\nAll game results (ordered):", ordered)
+    print(
+        f"Final series cumulative game score: Team A={series[0]}, Team B={series[1]}"
+    )
+    return ordered, series
 
 def policy_move(env, iterations):
     state = env.get_state()
-    # Run a modest MCTS to get candidates
-    move = mcts_search(env, state, iterations)
-    # Use the heuristic rollout policy to score all valid moves quickly
+    # Use ISMCTS (imperfect information) to get candidates
+    move, _ = ismcts_plan(env, state, iterations=max(10, iterations // 5), samples=8)
+    # Use the heuristic rollout policy to score all valid moves quickly for tie-break
     hand = env.hands[state["turn"]]
     valid = env.valid_moves(hand)
     if not valid:
@@ -741,7 +1059,8 @@ def policy_move(env, iterations):
     return move
 
 if __name__=="__main__":
-    play_games(num_games=10, iterations=5000)
+    from .runner import play_games
+    play_games(num_games=100, iterations=10000)
 
 DECK_RANKS_FULL = ["7","8","9","10","J","Q","K","A"]
 FULL_DECK = [r+s for r in DECK_RANKS_FULL for s in SUITS]
@@ -801,8 +1120,23 @@ class PolicyValueNet(nn.Module):
 
 class NNEvaluator:
     def __init__(self):
-        self.device = torch.device("cpu")
-        self.model = PolicyValueNet().to(self.device)
+        if torch.cuda.is_available():
+            self.device = torch.device("cuda")
+            try:
+                torch.backends.cudnn.benchmark = True
+            except Exception:
+                pass
+        elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+            self.device = torch.device("mps")
+        else:
+            self.device = torch.device("cpu")
+        model = PolicyValueNet().to(self.device)
+        # Optional compile for PyTorch 2+
+        try:
+            model = torch.compile(model, mode="reduce-overhead")
+        except Exception:
+            pass
+        self.model = model
         self.model.eval()
 
     def predict(self, state, valid_actions):
@@ -891,23 +1225,36 @@ def train_policy_value(episodes=10, iterations=200, batch_size=64, epochs=2, lr=
             buffer.add(state_vec, pi_vec, value)
     # Train
     model = NN_EVAL.model
+    device = getattr(NN_EVAL, "device", torch.device("cpu"))
     model.train()
     opt = torch.optim.Adam(model.parameters(), lr=lr)
+    use_cuda_amp = (device.type == "cuda")
+    scaler = torch.cuda.amp.GradScaler(enabled=use_cuda_amp)
     losses = []
     for _ in range(epochs):
         xs, ps, vs = buffer.sample(batch_size)
         if not xs:
             break
-        x = torch.tensor(xs, dtype=torch.float32)
-        p_target = torch.tensor(ps, dtype=torch.float32)
-        v_target = torch.tensor(vs, dtype=torch.float32).unsqueeze(1)
-        logits, v_pred = model(x)
-        policy_loss = F.cross_entropy(logits, torch.argmax(p_target, dim=1))
-        value_loss = F.mse_loss(v_pred, v_target)
-        loss = policy_loss + value_loss
-        opt.zero_grad()
-        loss.backward()
-        opt.step()
-        losses.append(float(loss.item()))
+        x = torch.tensor(xs, dtype=torch.float32, pin_memory=use_cuda_amp).to(device, non_blocking=True)
+        p_target = torch.tensor(ps, dtype=torch.float32, pin_memory=use_cuda_amp).to(device, non_blocking=True)
+        v_target = torch.tensor(vs, dtype=torch.float32, pin_memory=use_cuda_amp).unsqueeze(1).to(device, non_blocking=True)
+        opt.zero_grad(set_to_none=True)
+        if use_cuda_amp:
+            with torch.cuda.amp.autocast(dtype=torch.float16):
+                logits, v_pred = model(x)
+                policy_loss = F.cross_entropy(logits, torch.argmax(p_target, dim=1))
+                value_loss = F.mse_loss(v_pred, v_target)
+                loss = policy_loss + value_loss
+            scaler.scale(loss).backward()
+            scaler.step(opt)
+            scaler.update()
+        else:
+            logits, v_pred = model(x)
+            policy_loss = F.cross_entropy(logits, torch.argmax(p_target, dim=1))
+            value_loss = F.mse_loss(v_pred, v_target)
+            loss = policy_loss + value_loss
+            loss.backward()
+            opt.step()
+        losses.append(float(loss.detach().cpu().item()))
     model.eval()
     print(f"Training done. Avg loss: {sum(losses)/len(losses) if losses else 0:.4f}")

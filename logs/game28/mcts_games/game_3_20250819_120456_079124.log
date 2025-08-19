@@ -1,0 +1,76 @@
+
+===== GAME 3 (20250819_120456_079124) =====
+Pass: Player 0 (min_allowed=16) – analysis={'present_suits': ['H', 'S'], 'suit_to_points': {'H': [16, 17, 7, 18], 'S': [17, 13, 0, 0]}, 'chosen_suit': 'H', 'avg_points': 14.5, 'p30_points': 7, 'proposed': None, 'current_high': 0}
+Pass: Player 1 (min_allowed=16) – analysis={'present_suits': ['H', 'D', 'C'], 'suit_to_points': {'H': [7, 14, 12, 13], 'D': [0, 11, 28, 16], 'C': [2, 16, 14, 4]}, 'chosen_suit': 'D', 'avg_points': 13.75, 'p30_points': 0, 'proposed': None, 'current_high': 0}
+Pass: Player 2 (min_allowed=16) – analysis={'present_suits': ['H', 'D', 'S'], 'suit_to_points': {'H': [15, 0, 7, 14], 'D': [19, 12, 16, 0], 'S': [0, 17, 18, 0]}, 'chosen_suit': 'D', 'avg_points': 11.75, 'p30_points': 0, 'proposed': None, 'current_high': 0}
+Bid: Player 3 proposes 18 (min_allowed=16) – suit_scores={'H': [19, 15, 17, 0], 'D': [13, 25, 0, 11], 'C': [12, 14, 28, 15], 'S': [22, 7, 14, 14]} chosen=C p30=12 avg=17.25
+Pass: Player 0 (min_allowed=19) – analysis={'present_suits': ['H', 'S'], 'suit_to_points': {'H': [14, 6, 0, 13], 'S': [18, 18, 15, 17]}, 'chosen_suit': 'S', 'avg_points': 17.0, 'p30_points': 15, 'proposed': None, 'current_high': 18}
+Bid: Player 1 proposes 20 (min_allowed=19) – suit_scores={'H': [18, 10, 26, 25], 'D': [15, 11, 6, 10], 'C': [10, 7, 16, 27]} chosen=H p30=10 avg=19.75
+Pass: Player 2 (min_allowed=21) – analysis={'present_suits': ['H', 'D', 'S'], 'suit_to_points': {'H': [15, 0, 10, 0], 'D': [12, 14, 13, 18], 'S': [0, 19, 18, 8]}, 'chosen_suit': 'D', 'avg_points': 14.25, 'p30_points': 12, 'proposed': None, 'current_high': 20}
+Pass: Player 3 (min_allowed=21) – analysis={'present_suits': ['H', 'D', 'C', 'S'], 'suit_to_points': {'H': [13, 14, 0, 15], 'D': [25, 0, 16, 27], 'C': [8, 16, 14, 15], 'S': [17, 18, 21, 8]}, 'chosen_suit': 'D', 'avg_points': 17.0, 'p30_points': 0, 'proposed': None, 'current_high': 20}
+Pass: Player 0 (min_allowed=21) – analysis={'present_suits': ['H', 'S'], 'suit_to_points': {'H': [0, 6, 19, 11], 'S': [16, 10, 15, 10]}, 'chosen_suit': 'S', 'avg_points': 12.75, 'p30_points': 10, 'proposed': None, 'current_high': 20}
+Auction winner: Player 1 with bid 20; chooses trump D – details={'chosen': 'D', 'estimates': {'H': 6, 'D': 7, 'C': 3}}
+Player 0 hand :  ['9H', 'KS', 'QH', '10S', '9S', '8C', 'AH', '9C']
+Player 1 hand :  ['KC', '7H', '8H', '7C', '8S', '10C', 'QC']
+Player 2 hand :  ['QS', '7D', 'JH', '8D', '7S', 'QD', '10D', 'JC']
+Player 3 hand :  ['JS', 'JD', '10H', 'AC', 'KH', 'KD', 'AD', 'AS']
+Player 0 (auction 4 cards): ['9H', 'KS', 'QH', '10S']
+Player 1 (auction 4 cards): ['KC', '7H', '9D', '8H']
+Player 2 (auction 4 cards): ['QS', '7D', 'JH', '8D']
+Player 3 (auction 4 cards): ['JS', 'JD', '10H', 'AC']
+Auction winner (bidder): Player 1 with bid 20
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: 9D
+
+Player 0 plays AH
+Player 1 plays 7H
+Player 2 plays JH
+Player 3 plays 10H
+Player 2 won the hand: 5 points
+
+Player 2 plays QS
+Player 3 plays AS
+Player 0 plays 9S
+Player 1 plays 8S
+Player 0 won the hand: 3 points
+
+Player 0 plays 9H
+Player 1 plays 8H
+-- Phase 2 begins: Trump revealed as D by Player 2 on trick 3 --
+Player 2 plays 7D
+Player 3 plays KH
+Player 2 won the hand: 2 points
+
+Player 2 plays 8D
+Player 3 plays AD
+Player 0 plays KS
+Player 1 plays 9D
+Player 1 won the hand: 3 points
+
+Player 1 plays KC
+Player 2 plays JC
+Player 3 plays AC
+Player 0 plays 8C
+Player 2 won the hand: 4 points
+
+Player 2 plays 7S
+Player 3 plays JS
+Player 0 plays 10S
+Player 1 plays 7C
+Player 3 won the hand: 4 points
+
+Player 3 plays JD
+Player 0 plays QH
+Player 1 plays 10C
+Player 2 plays QD
+Player 3 won the hand: 4 points
+
+Player 3 plays KD
+Player 0 plays 9C
+Player 1 plays QC
+Player 2 plays 10D
+Player 2 won the hand: 3 points
+
+Game 3 final points: Team A=17, Team B=11
+Series cumulative game score so far: Team A=1, Team B=-2
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_3_20250819_120456_079124.log

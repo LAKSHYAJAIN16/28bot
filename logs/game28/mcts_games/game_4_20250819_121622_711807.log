@@ -1,0 +1,72 @@
+
+===== GAME 4 (20250819_121622_711807) =====
+Pass: Player 0 (min_allowed=16) – analysis={'present_suits': ['H', 'D'], 'suit_to_points': {'H': [13, 5, 19, 15], 'D': [15, 10, 25, 14]}, 'chosen_suit': 'D', 'avg_points': 16.0, 'p30_points': 10, 'proposed': None, 'current_high': 0}
+Bid: Player 1 proposes 18 (min_allowed=16) – suit_scores={'H': [0, 23, 12, 13], 'D': [7, 9, 11, 9], 'C': [28, 21, 5, 17], 'S': [14, 13, 12, 0]} chosen=C p30=5 avg=17.75
+Pass: Player 2 (min_allowed=19) – analysis={'present_suits': ['H', 'C', 'S'], 'suit_to_points': {'H': [9, 20, 9, 0], 'C': [10, 9, 6, 13], 'S': [9, 10, 25, 15]}, 'chosen_suit': 'S', 'avg_points': 14.75, 'p30_points': 9, 'proposed': None, 'current_high': 18}
+Pass: Player 3 (min_allowed=19) – analysis={'present_suits': ['H', 'C', 'S'], 'suit_to_points': {'H': [0, 9, 6, 19], 'C': [18, 0, 22, 5], 'S': [0, 25, 0, 15]}, 'chosen_suit': 'C', 'avg_points': 11.25, 'p30_points': 0, 'proposed': None, 'current_high': 18}
+Pass: Player 0 (min_allowed=19) – analysis={'present_suits': ['H', 'D'], 'suit_to_points': {'H': [15, 0, 0, 12], 'D': [24, 0, 17, 19]}, 'chosen_suit': 'D', 'avg_points': 15.0, 'p30_points': 0, 'proposed': None, 'current_high': 18}
+Auction winner: Player 1 with bid 18; chooses trump S – details={'chosen': 'S', 'estimates': {'H': 3, 'D': 7, 'C': 3, 'S': 9}}
+Player 0 hand :  ['AD', '9H', '7D', 'QD', '7S', '10H', 'QH', '10D']
+Player 1 hand :  ['KH', '8C', '9D', '7H', '8S', 'KS', 'AH']
+Player 2 hand :  ['AC', 'JH', 'AS', 'QS', 'JC', '9S', 'KC', 'QC']
+Player 3 hand :  ['8H', '10C', '9C', '10S', 'JD', '8D', '7C', 'KD']
+Player 0 (auction 4 cards): ['AD', '9H', '7D', 'QD']
+Player 1 (auction 4 cards): ['JS', 'KH', '8C', '9D']
+Player 2 (auction 4 cards): ['AC', 'JH', 'AS', 'QS']
+Player 3 (auction 4 cards): ['8H', '10C', '9C', '10S']
+Auction winner (bidder): Player 1 with bid 18
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: JS
+
+Player 0 plays 7D
+Player 1 plays 9D
+-- Phase 2 begins: Trump revealed as S by Player 2 on trick 1 --
+Player 2 plays QS
+Player 3 plays JD
+Player 2 won the hand: 5 points
+
+Player 2 plays AC
+Player 3 plays 10C
+Player 0 plays 7S
+Player 1 plays 8C
+Player 0 won the hand: 2 points
+
+Player 0 plays 9H
+Player 1 plays KH
+Player 2 plays JH
+Player 3 plays 8H
+Player 2 won the hand: 5 points
+
+Player 2 plays KC
+Player 3 plays 9C
+Player 0 plays AD
+Player 1 plays 7H
+Player 3 won the hand: 3 points
+
+Player 3 plays 10S
+Player 0 plays QD
+Player 1 plays 8S
+Player 2 plays AS
+Player 2 won the hand: 2 points
+
+Player 2 plays JC
+Player 3 plays 7C
+Player 0 plays 10H
+Player 1 plays AH
+Player 2 won the hand: 5 points
+
+Player 2 plays 9S
+Player 3 plays 8D
+Player 0 plays QH
+Player 1 plays KS
+Player 2 won the hand: 2 points
+
+Player 2 plays QC
+Player 3 plays KD
+Player 0 plays 10D
+Player 1 plays JS
+Player 1 won the hand: 4 points
+
+Game 4 final points: Team A=21, Team B=7
+Series cumulative game score so far: Team A=2, Team B=-2
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_4_20250819_121622_711807.log

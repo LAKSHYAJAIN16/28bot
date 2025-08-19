@@ -1,0 +1,71 @@
+
+===== GAME 5 (20250819_122918_833023) =====
+Bid: Player 0 proposes 21 (min_allowed=16) – suit_scores={'H': [26, 11, 14, 0], 'D': [0, 18, 25, 24], 'C': [12, 0, 19, 16], 'S': [26, 12, 22, 23]} chosen=S p30=12 avg=20.75
+Pass: Player 1 (min_allowed=22) – analysis={'present_suits': ['H', 'D', 'S'], 'suit_to_points': {'H': [8, 20, 20, 20], 'D': [0, 20, 0, 0], 'S': [0, 9, 11, 19]}, 'chosen_suit': 'H', 'avg_points': 17.0, 'p30_points': 8, 'proposed': None, 'current_high': 21}
+Pass: Player 2 (min_allowed=22) – analysis={'present_suits': ['H', 'C', 'S'], 'suit_to_points': {'H': [5, 16, 6, 14], 'C': [18, 0, 0, 0], 'S': [21, 0, 10, 22]}, 'chosen_suit': 'S', 'avg_points': 13.25, 'p30_points': 0, 'proposed': None, 'current_high': 21}
+Pass: Player 3 (min_allowed=22) – analysis={'present_suits': ['H', 'D', 'C'], 'suit_to_points': {'H': [17, 19, 0, 21], 'D': [8, 11, 0, 0], 'C': [23, 20, 27, 15]}, 'chosen_suit': 'C', 'avg_points': 21.25, 'p30_points': 15, 'proposed': None, 'current_high': 21}
+Auction winner: Player 0 with bid 21; chooses trump C – details={'chosen': 'C', 'estimates': {'H': 5, 'D': 7, 'C': 9, 'S': 9}}
+Player 0 hand :  ['JS', '10H', '9D', 'AS', 'KH', 'JH', '9H']
+Player 1 hand :  ['10D', '7S', 'QD', 'AH', '7D', 'KD', 'QS', '8D']
+Player 2 hand :  ['7H', '9C', '10S', 'KS', 'QH', 'KC', 'JD', '8S']
+Player 3 hand :  ['7C', '8H', '10C', 'AD', '9S', 'QC', 'AC', '8C']
+Player 0 (auction 4 cards): ['JS', '10H', '9D', 'JC']
+Player 1 (auction 4 cards): ['10D', '7S', 'QD', 'AH']
+Player 2 (auction 4 cards): ['7H', '9C', '10S', 'KS']
+Player 3 (auction 4 cards): ['7C', '8H', '10C', 'AD']
+Auction winner (bidder): Player 0 with bid 21
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: JC
+
+Player 0 plays JS
+Player 1 plays 7S
+Player 2 plays 10S
+Player 3 plays 9S
+Player 0 won the hand: 6 points
+
+Player 0 plays JH
+Player 1 plays AH
+Player 2 plays 7H
+Player 3 plays 8H
+Player 0 won the hand: 4 points
+
+Player 0 plays 10H
+Player 1 plays 10D
+Player 2 plays QH
+-- Phase 2 begins: Trump revealed as C by Player 3 on trick 3 --
+Player 3 plays 7C
+Player 3 won the hand: 2 points
+
+Player 3 plays 10C
+Player 0 plays JC
+Player 1 plays QD
+Player 2 plays 9C
+Player 0 won the hand: 6 points
+
+Player 0 plays 9D
+Player 1 plays 7D
+Player 2 plays JD
+Player 3 plays AD
+Player 2 won the hand: 6 points
+
+Player 2 plays KS
+Player 3 plays QC
+Player 0 plays AS
+Player 1 plays QS
+Player 3 won the hand: 1 points
+
+Player 3 plays AC
+Player 0 plays KH
+Player 1 plays KD
+Player 2 plays KC
+Player 3 won the hand: 1 points
+
+Player 3 plays 8C
+Player 0 plays 9H
+Player 1 plays 8D
+Player 2 plays 8S
+Player 3 won the hand: 2 points
+
+Game 5 final points: Team A=22, Team B=6
+Series cumulative game score so far: Team A=3, Team B=-2
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_5_20250819_122918_833023.log

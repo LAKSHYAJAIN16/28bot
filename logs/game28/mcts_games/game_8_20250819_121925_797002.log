@@ -1,0 +1,71 @@
+
+===== GAME 8 (20250819_121925_797002) =====
+Bid: Player 0 proposes 18 (min_allowed=16) – suit_scores={'D': [0, 0, 0, 11], 'C': [8, 27, 18, 16], 'S': [0, 15, 15, 10]} chosen=C p30=8 avg=17.25
+Pass: Player 1 (min_allowed=19) – analysis={'present_suits': ['H', 'D', 'C', 'S'], 'suit_to_points': {'H': [15, 0, 16, 15], 'D': [9, 19, 10, 0], 'C': [21, 8, 21, 18], 'S': [0, 0, 16, 3]}, 'chosen_suit': 'C', 'avg_points': 17.0, 'p30_points': 8, 'proposed': None, 'current_high': 18}
+Pass: Player 2 (min_allowed=19) – analysis={'present_suits': ['H', 'S'], 'suit_to_points': {'H': [10, 16, 16, 0], 'S': [0, 25, 0, 19]}, 'chosen_suit': 'S', 'avg_points': 11.0, 'p30_points': 0, 'proposed': None, 'current_high': 18}
+Pass: Player 3 (min_allowed=19) – analysis={'present_suits': ['H', 'D'], 'suit_to_points': {'H': [13, 14, 18, 19], 'D': [20, 15, 20, 17]}, 'chosen_suit': 'D', 'avg_points': 18.0, 'p30_points': 15, 'proposed': None, 'current_high': 18}
+Auction winner: Player 0 with bid 18; chooses trump D – details={'chosen': 'D', 'estimates': {'D': 8, 'C': 3, 'S': 3}}
+Player 0 hand :  ['KC', '7D', '8S', 'JC', '7H', '9H', '10S']
+Player 1 hand :  ['QS', 'QD', 'QH', '9C', 'KH', 'AS', '10C', '8C']
+Player 2 hand :  ['KS', '8H', 'JS', 'AH', 'AC', 'QC', 'JD', '9S']
+Player 3 hand :  ['JH', '9D', '10H', '8D', '7S', 'KD', '7C', 'AD']
+Player 0 (auction 4 cards): ['KC', '10D', '7D', '8S']
+Player 1 (auction 4 cards): ['QS', 'QD', 'QH', '9C']
+Player 2 (auction 4 cards): ['KS', '8H', 'JS', 'AH']
+Player 3 (auction 4 cards): ['JH', '9D', '10H', '8D']
+Auction winner (bidder): Player 0 with bid 18
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: 10D
+
+Player 0 plays 10S
+Player 1 plays QS
+Player 2 plays KS
+Player 3 plays 7S
+Player 0 won the hand: 1 points
+
+Player 0 plays JC
+Player 1 plays 9C
+Player 2 plays AC
+Player 3 plays 7C
+Player 0 won the hand: 6 points
+
+Player 0 plays KC
+Player 1 plays 10C
+Player 2 plays QC
+-- Phase 2 begins: Trump revealed as D by Player 3 on trick 3 --
+Player 3 plays AD
+Player 3 won the hand: 2 points
+
+Player 3 plays JH
+Player 0 plays 7H
+Player 1 plays QH
+Player 2 plays 8H
+Player 3 won the hand: 3 points
+
+Player 3 plays 9D
+Player 0 plays 7D
+Player 1 plays QD
+Player 2 plays JD
+Player 2 won the hand: 5 points
+
+Player 2 plays JS
+Player 3 plays 10H
+Player 0 plays 8S
+Player 1 plays AS
+Player 2 won the hand: 5 points
+
+Player 2 plays AH
+Player 3 plays 8D
+Player 0 plays 9H
+Player 1 plays KH
+Player 3 won the hand: 3 points
+
+Player 3 plays KD
+Player 0 plays 10D
+Player 1 plays 8C
+Player 2 plays 9S
+Player 0 won the hand: 3 points
+
+Game 8 final points: Team A=20, Team B=8
+Series cumulative game score so far: Team A=3, Team B=-2
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_8_20250819_121925_797002.log
