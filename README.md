@@ -1,2 +1,2 @@
 # AI for Indian Card Games
-AI to beat my grandfather at 28.
+only way to beat my grandfather at card games was to build AI dont judge me
