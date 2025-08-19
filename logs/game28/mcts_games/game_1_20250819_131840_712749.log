@@ -1,0 +1,66 @@
+
+===== GAME 1 (20250819_131840_712749) =====
+Pass (locked): Player 0 (min_allowed=16) – analysis={'present_suits': ['H', 'D', 'C', 'S'], 'suit_to_points': {'H': [8, 4, 15, 7], 'D': [11, 0, 0, 0], 'C': [0, 5, 11, 0], 'S': [0, 20, 21, 15]}, 'chosen_suit': None, 'avg_points': 14.0, 'p30_points': 15, 'std_points': 8.396427811873332, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'raise_delta': 2, 'reason': 'Pass: No suit meets thresholds. Best suit S has p30=15.00, conf_mean=9.80 below min_allowed=16 (current_high=0, raise_delta=2). Failed checks for best suit: conf_mean 9.80 < 15.', 'suit_failed_checks': {'H': {'avg': 8.5, 'std': 4.031128874149275, 'p30': 7, 'conf_mean': 6.484435562925363, 'failed': ['p30 7.00 < 15', 'conf_mean 6.48 < 15']}, 'D': {'avg': 2.75, 'std': 4.763139720814412, 'p30': 0, 'conf_mean': 0.3684301395927938, 'failed': ['p30 0.00 < 15', 'conf_mean 0.37 < 15']}, 'C': {'avg': 4.0, 'std': 4.527692569068709, 'p30': 0, 'conf_mean': 1.7361537154656457, 'failed': ['p30 0.00 < 15', 'conf_mean 1.74 < 15']}, 'S': {'avg': 14.0, 'std': 8.396427811873332, 'p30': 15, 'conf_mean': 9.801786094063335, 'failed': ['conf_mean 9.80 < 15']}}}
+Pass (locked): Player 1 (min_allowed=16) – analysis={'present_suits': ['D', 'C', 'S'], 'suit_to_points': {'D': [15, 12, 25, 0], 'C': [7, 7, 7, 0], 'S': [16, 0, 0, 19]}, 'chosen_suit': None, 'avg_points': 13.0, 'p30_points': 12, 'std_points': 8.916277250063503, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'raise_delta': 2, 'reason': 'Pass: No suit meets thresholds. Best suit D has p30=12.00, conf_mean=8.54 below min_allowed=16 (current_high=0, raise_delta=2). Failed checks for best suit: p30 12.00 < 15, conf_mean 8.54 < 15.', 'suit_failed_checks': {'D': {'avg': 13.0, 'std': 8.916277250063503, 'p30': 12, 'conf_mean': 8.54186137496825, 'failed': ['p30 12.00 < 15', 'conf_mean 8.54 < 15']}, 'C': {'avg': 5.25, 'std': 3.031088913245535, 'p30': 7, 'conf_mean': 3.7344555433772326, 'failed': ['p30 7.00 < 15', 'conf_mean 3.73 < 15']}, 'S': {'avg': 8.75, 'std': 8.814051281902097, 'p30': 0, 'conf_mean': 4.342974359048951, 'failed': ['p30 0.00 < 15', 'conf_mean 4.34 < 15']}}}
+Pass (locked): Player 2 (min_allowed=16) – analysis={'present_suits': ['H', 'C', 'S'], 'suit_to_points': {'H': [0, 16, 24, 0], 'C': [0, 8, 0, 20], 'S': [17, 17, 6, 18]}, 'chosen_suit': None, 'avg_points': 14.5, 'p30_points': 17, 'std_points': 4.924428900898052, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'raise_delta': 2, 'reason': 'Pass: No suit meets thresholds. Best suit S has p30=17.00, conf_mean=12.04 below min_allowed=16 (current_high=0, raise_delta=2). Failed checks for best suit: conf_mean 12.04 < 15.', 'suit_failed_checks': {'H': {'avg': 10.0, 'std': 10.392304845413264, 'p30': 0, 'conf_mean': 4.803847577293368, 'failed': ['p30 0.00 < 15', 'conf_mean 4.80 < 15']}, 'C': {'avg': 7.0, 'std': 8.18535277187245, 'p30': 0, 'conf_mean': 2.907323614063775, 'failed': ['p30 0.00 < 15', 'conf_mean 2.91 < 15']}, 'S': {'avg': 14.5, 'std': 4.924428900898052, 'p30': 17, 'conf_mean': 12.037785549550975, 'failed': ['conf_mean 12.04 < 15']}}}
+Pass (locked): Player 3 (min_allowed=16) – analysis={'present_suits': ['D', 'C', 'S'], 'suit_to_points': {'D': [9, 5, 7, 0], 'C': [0, 20, 9, 20], 'S': [15, 14, 15, 15]}, 'chosen_suit': None, 'avg_points': 14.75, 'p30_points': 15, 'std_points': 0.4330127018922193, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'raise_delta': 2, 'reason': 'Pass: No suit meets thresholds. Best suit S has p30=15.00, conf_mean=14.53 below min_allowed=16 (current_high=0, raise_delta=2). Failed checks for best suit: conf_mean 14.53 < 15.', 'suit_failed_checks': {'D': {'avg': 5.25, 'std': 3.344772040064913, 'p30': 5, 'conf_mean': 3.5776139799675435, 'failed': ['p30 5.00 < 15', 'conf_mean 3.58 < 15']}, 'C': {'avg': 12.25, 'std': 8.37779804005802, 'p30': 9, 'conf_mean': 8.061100979970991, 'failed': ['p30 9.00 < 15', 'conf_mean 8.06 < 15']}, 'S': {'avg': 14.75, 'std': 0.4330127018922193, 'p30': 15, 'conf_mean': 14.53349364905389, 'failed': ['conf_mean 14.53 < 15']}}}
+Forced bid: All players passed. Player 0 takes minimum bid 16.
+Auction winner: Player 0 with bid 16; chooses trump D – details={'chosen': 'D', 'estimates': {'H': 3, 'D': 5, 'C': 3, 'S': 3}}
+Player 0 hand :  ['7C', 'QS', 'QH', '10H', '9H', '8D', '9C']
+Player 1 hand :  ['KC', 'AS', 'QD', 'AD', 'JS', '7D', '7H', '10S']
+Player 2 hand :  ['7S', '8H', 'JC', 'QC', 'KH', '8C', '8S', '10C']
+Player 3 hand :  ['KD', 'KS', '9S', 'AC', 'JH', 'JD', '9D', 'AH']
+Player 0 (auction 4 cards): ['7C', 'QS', '10D', 'QH']
+Player 1 (auction 4 cards): ['KC', 'AS', 'QD', 'AD']
+Player 2 (auction 4 cards): ['7S', '8H', 'JC', 'QC']
+Player 3 (auction 4 cards): ['KD', 'KS', '9S', 'AC']
+Auction winner (bidder): Player 0 with bid 16
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: 10D
+
+Player 0 plays 9C
+Player 1 plays KC
+Player 2 plays JC
+Player 3 plays AC
+Player 2 won the hand: 6 points
+
+Player 2 plays 8H
+Player 3 plays JH
+Player 0 plays QH
+Player 1 plays 7H
+Player 3 won the hand: 3 points
+
+Player 3 plays KS
+Player 0 plays QS
+Player 1 plays AS
+Player 2 plays 7S
+Player 1 won the hand: 1 points
+
+Player 1 plays QD
+Player 2 plays QC
+Player 3 plays KD
+Player 0 plays 8D
+Player 3 won the hand: 0 points
+
+Player 3 plays JD
+Player 0 plays 9H
+Player 1 plays 7D
+Player 2 plays KH
+Player 3 won the hand: 5 points
+
+Player 3 plays 9S
+Player 0 plays 7C
+Player 1 plays 10S
+Player 2 plays 8S
+Player 3 won the hand: 3 points
+
+Player 3 plays 9D
+Player 0 plays 10H
+Player 1 plays AD
+Player 2 plays 8C
+Player 3 won the hand: 4 points
+
+Round declared invalid: trump never exposed by end of 7th trick.
+Game 1 final points: Team A=0, Team B=0
+Series cumulative game score so far: Team A=0, Team B=0
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_1_20250819_131840_712749.log

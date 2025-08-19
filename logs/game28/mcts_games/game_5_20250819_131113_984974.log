@@ -1,0 +1,72 @@
+
+===== GAME 5 (20250819_131113_984974) =====
+Pass (locked): Player 0 (min_allowed=16) – analysis={'present_suits': ['C', 'S'], 'suit_to_points': {'C': [10, 0, 10, 10], 'S': [22, 0, 22, 8]}, 'chosen_suit': None, 'avg_points': 7.5, 'p30_points': 10, 'std_points': 4.330127018922194, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'reason': 'no_suit_meets_thresholds'}
+Pass (locked): Player 1 (min_allowed=16) – analysis={'present_suits': ['H', 'D', 'C', 'S'], 'suit_to_points': {'H': [19, 0, 17, 20], 'D': [14, 20, 8, 21], 'C': [23, 8, 0, 10], 'S': [9, 20, 15, 11]}, 'chosen_suit': None, 'avg_points': 14.0, 'p30_points': 17, 'std_points': 8.154753215150045, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'reason': 'no_suit_meets_thresholds'}
+Pass (locked): Player 2 (min_allowed=16) – analysis={'present_suits': ['H', 'C', 'S'], 'suit_to_points': {'H': [0, 20, 16, 0], 'C': [16, 12, 12, 19], 'S': [11, 10, 14, 23]}, 'chosen_suit': None, 'avg_points': 14.75, 'p30_points': 12, 'std_points': 2.947456530637899, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'reason': 'no_suit_meets_thresholds'}
+Pass (locked): Player 3 (min_allowed=16) – analysis={'present_suits': ['H', 'D'], 'suit_to_points': {'H': [12, 22, 13, 9], 'D': [10, 17, 14, 24]}, 'chosen_suit': None, 'avg_points': 16.25, 'p30_points': 14, 'std_points': 5.11737237261468, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'reason': 'no_suit_meets_thresholds'}
+Forced bid: All players passed. Player 0 takes minimum bid 16.
+Auction winner: Player 0 with bid 16; chooses trump C – details={'chosen': 'C', 'estimates': {'C': 9, 'S': 5}}
+Player 0 hand :  ['8C', '7C', '10S', '7S', 'JC', 'QH', '10C']
+Player 1 hand :  ['8S', '8H', 'QC', '9D', 'QD', 'JS', 'KH', 'QS']
+Player 2 hand :  ['9S', '10H', 'AS', 'AC', '7D', 'JH', '9H', '9C']
+Player 3 hand :  ['KD', '10D', 'AH', '8D', 'AD', '7H', 'KS', 'JD']
+Player 0 (auction 4 cards): ['8C', '7C', 'KC', '10S']
+Player 1 (auction 4 cards): ['8S', '8H', 'QC', '9D']
+Player 2 (auction 4 cards): ['9S', '10H', 'AS', 'AC']
+Player 3 (auction 4 cards): ['KD', '10D', 'AH', '8D']
+Auction winner (bidder): Player 0 with bid 16
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: KC
+
+Player 0 plays 10S
+Player 1 plays QS
+Player 2 plays 9S
+Player 3 plays KS
+Player 2 won the hand: 3 points
+
+Player 2 plays AS
+Player 3 plays KD
+Player 0 plays 7S
+Player 1 plays 8S
+Player 2 won the hand: 1 points
+
+Player 2 plays AC
+Player 3 plays 10D
+Player 0 plays 8C
+Player 1 plays QC
+Player 2 won the hand: 2 points
+
+Player 2 plays 7D
+Player 3 plays 8D
+-- Phase 2 begins: Trump revealed as C by Player 0 on trick 4 --
+Player 0 plays 7C
+Player 1 plays 9D
+Player 0 won the hand: 2 points
+
+Player 0 plays JC
+Player 1 plays 8H
+Player 2 plays 9C
+Player 3 plays AH
+Player 0 won the hand: 6 points
+
+Player 0 plays QH
+Player 1 plays KH
+Player 2 plays 10H
+Player 3 plays 7H
+Player 2 won the hand: 1 points
+
+Player 2 plays JH
+Player 3 plays AD
+Player 0 plays 10C
+Player 1 plays QD
+Player 0 won the hand: 5 points
+
+Player 0 plays KC
+Player 1 plays JS
+Player 2 plays 9H
+Player 3 plays JD
+Player 0 won the hand: 8 points
+
+Game 5 final points: Team A=28, Team B=0
+Series cumulative game score so far: Team A=6, Team B=0
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_5_20250819_131113_984974.log

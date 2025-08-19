@@ -37,4 +37,11 @@ def suit_trump_strength(hand: list[str], suit: str) -> int:
     has_nine = any(card_rank(c) == "9" for c in suit_cards)
     return 3 * count + rank_power_sum + 2 * point_sum + (5 if has_jack else 0) + (3 if has_nine else 0)
 
+# Trick-taking strength order (highest first): J > 9 > A > 10 > K > Q > 8 > 7
+_TRICK_STRENGTH_ORDER = ["7", "8", "Q", "K", "10", "A", "9", "J"]  # low -> high indices
+_RANK_TO_TRICK_STRENGTH = {r: i for i, r in enumerate(_TRICK_STRENGTH_ORDER)}
+
+def trick_rank_index(card: str) -> int:
+    return _RANK_TO_TRICK_STRENGTH[card_rank(card)]
+
 

@@ -1,0 +1,73 @@
+
+===== GAME 3 (20250819_140110_165757) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 17 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: C
+    proposed_bid: 17
+    overall: avg=16.75  p30=17.00  std=1.79
+    suit_stats:
+      H: pts=[0, 13, 21, 18]  avg=13.00  p30=13.00  std=8.03
+      D: pts=[8, 6, 0, 9]  avg=5.75  p30=6.00  std=3.49
+      C: pts=[17, 14, 19, 17]  avg=16.75  p30=17.00  std=1.79
+      S: pts=[0, 22, 24, 20]  avg=16.50  p30=20.00  std=9.63
+    reason: Bid: Suit C meets thresholds (p30=17.00, conf_mean=15.86 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)
+Pass (locked): Player 1 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=17  min_allowed=18  raise_delta=1
+    overall: avg=16.00  p30=15.00  std=3.24
+    suit_stats:
+      H: pts=[9, 7, 9, 0]  avg=6.25  p30=7.00  std=3.70
+      D: pts=[21, 16, 12, 15]  avg=16.00  p30=15.00  std=3.24
+      S: pts=[6, 8, 0, 0]  avg=3.50  p30=0.00  std=3.57
+    failed_checks:
+      H: p30 7.00 < 17; conf_mean 4.40 < 17
+      D: p30 15.00 < 17; conf_mean 14.38 < 17
+      S: p30 0.00 < 17; conf_mean 1.71 < 17
+    reason: Pass: No suit meets thresholds. Best suit D has p30=15.00, conf_mean=14.38 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 15.00 < 17, conf_mean 14.38 < 17.
+Pass (locked): Player 2 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=17  min_allowed=18  raise_delta=1
+    overall: avg=15.50  p30=13.00  std=5.55
+    suit_stats:
+      H: pts=[18, 13, 0, 19]  avg=12.50  p30=13.00  std=7.57
+      D: pts=[13, 25, 13, 11]  avg=15.50  p30=13.00  std=5.55
+      S: pts=[13, 0, 14, 22]  avg=12.25  p30=13.00  std=7.89
+    failed_checks:
+      H: p30 13.00 < 17; conf_mean 8.72 < 17
+      D: p30 13.00 < 17; conf_mean 12.73 < 17
+      S: p30 13.00 < 17; conf_mean 8.31 < 17
+    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=12.73 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 13.00 < 17, conf_mean 12.73 < 17.
+Pass (locked): Player 3 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, C
+    current_high=17  min_allowed=18  raise_delta=1
+    overall: avg=12.25  p30=11.00  std=1.30
+    suit_stats:
+      H: pts=[0, 9, 11, 10]  avg=7.50  p30=9.00  std=4.39
+      C: pts=[11, 14, 11, 13]  avg=12.25  p30=11.00  std=1.30
+    failed_checks:
+      H: p30 9.00 < 17; conf_mean 5.31 < 17
+      C: p30 11.00 < 17; conf_mean 11.60 < 17
+    reason: Pass: No suit meets thresholds. Best suit C has p30=11.00, conf_mean=11.60 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 11.00 < 17, conf_mean 11.60 < 17.
+
+AUCTION WINNER: Player 0 with bid 17; chooses trump S 
+Details={'chosen': 'S', 'estimates': {'H': 3, 'D': 3, 'C': 3, 'S': 9}}
+Player 0 hand :  ['8D', '7H', '8C', 'JD', 'QH', 'AD', '8S']
+Player 1 hand :  ['9S', '7D', '10H', 'AS', '10C', 'AH', 'QS', 'QC']
+Player 2 hand :  ['JH', '10D', '10S', '7S', '9C', 'AC', 'JC', '9D']
+Player 3 hand :  ['8H', '7C', 'KH', 'KC', 'KD', '9H', 'KS', 'QD']
+Player 0 (auction 4 cards): ['8D', '7H', 'JS', '8C']
+Player 1 (auction 4 cards): ['9S', '7D', '10H', 'AS']
+Player 2 (auction 4 cards): ['JH', '10D', '10S', '7S']
+Player 3 (auction 4 cards): ['8H', '7C', 'KH', 'KC']
+Auction winner (bidder): Player 0 with bid 17
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: JS
+
+Player 0 plays AD

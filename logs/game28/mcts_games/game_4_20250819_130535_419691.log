@@ -1,0 +1,3 @@
+
+===== GAME 4 (20250819_130535_419691) =====
+Pass (locked): Player 0 (min_allowed=16) – analysis={'present_suits': ['H', 'D', 'C'], 'suit_to_points': {'H': [4, 4, 14, 25], 'D': [5, 12, 19, 21], 'C': [8, 10, 18, 8]}, 'chosen_suit': None, 'avg_points': 0.0, 'p30_points': 0.0, 'std_points': 0.0, 'proposed': None, 'current_high': 0, 'min_allowed': 16, 'reason': 'no_suit_meets_thresholds'}

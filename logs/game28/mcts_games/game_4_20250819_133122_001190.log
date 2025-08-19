@@ -1,0 +1,44 @@
+
+===== GAME 4 (20250819_133122_001190) =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=2
+    overall: avg=8.00  p30=9.00  std=4.85
+    suit_stats:
+      D: pts=[0, 9, 10, 13]  avg=8.00  p30=9.00  std=4.85
+      C: pts=[3, 10, 0, 12]  avg=6.25  p30=3.00  std=4.92
+      S: pts=[14, 7, 14, 7]  avg=10.50  p30=7.00  std=3.50
+    failed_checks:
+      D: p30 9.00 < 15; conf_mean 5.58 < 15
+      C: p30 3.00 < 15; conf_mean 3.79 < 15
+      S: p30 7.00 < 15; conf_mean 8.75 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=9.00, conf_mean=5.58 below min_allowed=16 (current_high=0, raise_delta=2). Failed checks for best suit: p30 9.00 < 15, conf_mean 5.58 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=2
+    overall: avg=16.00  p30=14.00  std=3.16
+    suit_stats:
+      H: pts=[0, 5, 10, 0]  avg=3.75  p30=0.00  std=4.15
+      C: pts=[19, 12, 6, 12]  avg=12.25  p30=12.00  std=4.60
+      S: pts=[14, 12, 20, 18]  avg=16.00  p30=14.00  std=3.16
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 1.68 < 15
+      C: p30 12.00 < 15; conf_mean 9.95 < 15
+      S: p30 14.00 < 15; conf_mean 14.42 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=14.00, conf_mean=14.42 below min_allowed=16 (current_high=0, raise_delta=2). Failed checks for best suit: p30 14.00 < 15, conf_mean 14.42 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=2
+    overall: avg=14.00  p30=14.00  std=8.83
+    suit_stats:
+      H: pts=[24, 18, 0, 14]  avg=14.00  p30=14.00  std=8.83
+      D: pts=[17, 14, 9, 14]  avg=13.50  p30=14.00  std=2.87
+      C: pts=[3, 0, 0, 8]  avg=2.75  p30=0.00  std=3.27
+    failed_checks:
+      H: p30 14.00 < 15; conf_mean 9.58 < 15
+      D: p30 14.00 < 15; conf_mean 12.06 < 15
+      C: p30 0.00 < 15; conf_mean 1.12 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=14.00, conf_mean=9.58 below min_allowed=16 (current_high=0, raise_delta=2). Failed checks for best suit: p30 14.00 < 15, conf_mean 9.58 < 15.

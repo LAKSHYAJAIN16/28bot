@@ -1,6 +1,6 @@
 import copy
 import random
-from .constants import FULL_DECK, SUITS
+from .constants import FULL_DECK, SUITS, card_suit
 from .mcts_core import mcts_plan
 
 
@@ -8,6 +8,16 @@ def determinize_state_for_player(state, perspective_player):
     det_state = copy.deepcopy(state)
     hands = det_state["hands"]
     my_hand = hands[perspective_player][:]
+    # Infer simple voids from the current trick: if a player couldn't follow lead suit, mark them void in lead suit
+    void_suits_by_player = {p: set() for p in range(4)}
+    trick = det_state.get("current_trick", [])
+    if trick:
+        lead_suit = card_suit(trick[0][1])
+        seen_players = set()
+        for p_idx, card in trick:
+            seen_players.add(p_idx)
+            if card_suit(card) != lead_suit:
+                void_suits_by_player[p_idx].add(lead_suit)
     try:
         deck = FULL_DECK
     except NameError:
@@ -26,15 +36,29 @@ def determinize_state_for_player(state, perspective_player):
             pool.discard(sampled_face_down)
     remaining = list(pool)
     random.shuffle(remaining)
-    idx = 0
+    # Assign respecting simple void constraints and light suit-bias as much as possible
     for p in range(4):
         if p == perspective_player:
             hands[p] = my_hand[:]
+            continue
+        target = len(hands[p])
+        disallowed = void_suits_by_player.get(p, set())
+        # Prefer cards not in disallowed suits; slight bias toward suits player has already shown (lead suit counts unavailable at determinization scope)
+        prefer = [c for c in remaining if card_suit(c) not in disallowed]
+        if len(prefer) >= target:
+            assigned = prefer[:target]
+            hands[p] = assigned
+            for c in assigned:
+                remaining.remove(c)
         else:
-            target = len(hands[p])
-            assigned = remaining[idx : idx + target]
-            hands[p] = assigned[:]
-            idx += target
+            # Take what we can from preferred, then fill from remaining
+            take = prefer
+            for c in take:
+                remaining.remove(c)
+            needed = target - len(take)
+            filler = remaining[:needed]
+            hands[p] = take + filler
+            del remaining[:needed]
     return det_state
 
 

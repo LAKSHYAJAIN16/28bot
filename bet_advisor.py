@@ -18,6 +18,9 @@ import sys
 import copy
 import random
 from typing import Dict, List, Tuple
+import math
+import os
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 # Use the project's MCTS modules for ISMCTS-based evaluation
 from mcts.constants import SUITS, RANKS, CARD_POINTS, card_suit, card_rank, card_value, rank_index
@@ -28,6 +31,15 @@ from mcts.ismcts import ismcts_plan
 SUITS = SUITS
 RANKS = RANKS
 CARD_POINTS = CARD_POINTS
+
+# Speed/accuracy presets
+FAST_MODE = False
+VERBOSE = False  # Toggle detailed prints
+DEFAULT_STAGE1_SAMPLES = 1 if FAST_MODE else 3
+DEFAULT_STAGE1_ITERS = 40 if FAST_MODE else 100
+DEFAULT_STAGE2_SAMPLES = 3 if FAST_MODE else 6
+DEFAULT_STAGE2_ITERS = 90 if FAST_MODE else 200
+TOP_K_SUIT_HEAVY = 1 if FAST_MODE else 2
 
 
 def parse_cards(raw: str) -> List[str]:
@@ -77,12 +89,18 @@ def _percentile(values: List[float], q: float) -> float:
     if not values:
         return 0.0
     s = sorted(values)
-    k = max(0, min(len(s) - 1, int(q * (len(s) - 1))))
+    k = max(0, min(len(s) - 1, int(q * len(s))))
     return s[k]
 
 
 def simulate_points_for_suit_ismcts(my_first_four: List[str], suit: str, my_seat: int = 0, first_player: int = 0,
-                                    num_samples: int = 6, base_iterations: int = 200) -> List[int]:
+                                    num_samples: int = DEFAULT_STAGE2_SAMPLES, base_iterations: int = DEFAULT_STAGE2_ITERS,
+                                    playout_tricks: int | None = None) -> List[int]:
+    # Stabilize sampling for reproducibility per (hand, suit)
+    try:
+        random.seed(hash((tuple(my_first_four), suit)))
+    except Exception:
+        pass
     all_ranks = ["7", "8", "9", "10", "J", "Q", "K", "A"]
     full_deck = [r + s for r in all_ranks for s in SUITS]
     remaining = [c for c in full_deck if c not in my_first_four]
@@ -106,6 +124,12 @@ def simulate_points_for_suit_ismcts(my_first_four: List[str], suit: str, my_seat
         env.trump_suit = suit
         env.phase = "concealed"
         env.debug = False
+        # Initialize belief fields expected by get_state/resolve_trick
+        env.void_suits_by_player = [set() for _ in range(4)]
+        env.lead_suit_counts = [{s: 0 for s in SUITS} for _ in range(4)]
+        # Mark quick evaluation only in FAST mode
+        if FAST_MODE:
+            env.quick_eval = True
         trump_cards = [c for c in env.hands[env.bidder] if card_suit(c) == env.trump_suit]
         env.face_down_trump_card = max(trump_cards, key=rank_index) if trump_cards else None
         if env.face_down_trump_card:
@@ -120,63 +144,265 @@ def simulate_points_for_suit_ismcts(my_first_four: List[str], suit: str, my_seat
         moves_done = 0
         safety_moves_cap = 8 * 4 + 2
         while not done and moves_done < safety_moves_cap:
-            iters = max(10, base_iterations // 5)
-            move, _ = ismcts_plan(env, state, iterations=iters, samples=6)
+            # Use heavier planning on bidder team turns; lighter otherwise
+            iters = max(8, base_iterations // 5) if env.turn % 2 == my_seat % 2 else max(6, base_iterations // 12)
+            move, _ = ismcts_plan(env, state, iterations=iters, samples=3)
             state, _, done, _, _ = env.step(move)
             moves_done += 1
+            # Optional partial playout: stop early and rely on rollout thereafter
+            if playout_tricks is not None:
+                # Each trick is 4 moves; break after reaching threshold
+                if state.get("exposure_trick_index") or (moves_done // 4) >= playout_tricks:
+                    break
         bidder_team = 0 if my_seat % 2 == 0 else 1
         team_points.append(state["scores"][bidder_team])
     return team_points
 
 
 def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
-                       num_samples: int = 6, base_iterations: int = 200) -> Tuple[int, str, Dict[str, Dict[str, float]]]:
+                       num_samples: int = DEFAULT_STAGE2_SAMPLES, base_iterations: int = DEFAULT_STAGE2_ITERS) -> Tuple[int, str, Dict[str, Dict[str, float]], Dict]:
     present_suits = [s for s in SUITS if any(card_suit(c) == s for c in first_four_cards)]
+    suit_to_points: Dict[str, List[int]] = {}
     if not present_suits:
-        return 0, "H", {s: {"avg": 0.0, "p30": 0.0, "std": 0.0} for s in SUITS}
+        debug = {
+            "present_suits": [],
+            "suit_to_points": suit_to_points,
+            "chosen_suit": None,
+            "avg_points": 0.0,
+            "p30_points": 0.0,
+            "std_points": 0.0,
+            "proposed": None,
+            "current_high": current_high_bid,
+            "min_allowed": 16,
+            "raise_delta": 1,
+            "reason": "Pass: No suits present in first four cards.",
+        }
+        return 0, "H", {s: {"avg": 0.0, "p30": 0.0, "std": 0.0} for s in SUITS}, debug
 
     suit_stats: Dict[str, Dict[str, float]] = {}
-    for s in present_suits:
-        pts = simulate_points_for_suit_ismcts(first_four_cards, s, my_seat=0, first_player=0,
-                                              num_samples=num_samples, base_iterations=base_iterations)
-        n = max(1, len(pts))
-        mean = sum(pts) / n
-        var = sum((v - mean) ** 2 for v in pts) / n
-        std = var ** 0.5
+    # Stage 1: quick screening for all present suits
+    stage1_points: Dict[str, List[int]] = {}
+    if len(present_suits) > 1:
+        max_workers = min(len(present_suits), max(1, (os.cpu_count() or 1)))
+        with ProcessPoolExecutor(max_workers=max_workers) as ex:
+            futures = {
+                ex.submit(_simulate_points_for_suit_worker, first_four_cards, s, 0, 0, DEFAULT_STAGE1_SAMPLES, DEFAULT_STAGE1_ITERS): s
+                for s in present_suits
+            }
+            for fut in as_completed(futures):
+                s = futures[fut]
+                try:
+                    stage1_points[s] = fut.result()
+                except Exception:
+                    stage1_points[s] = simulate_points_for_suit_ismcts(
+                        first_four_cards, s, my_seat=0, first_player=0,
+                        num_samples=DEFAULT_STAGE1_SAMPLES, base_iterations=DEFAULT_STAGE1_ITERS
+                    )
+    else:
+        s = present_suits[0]
+        stage1_points[s] = simulate_points_for_suit_ismcts(
+            first_four_cards, s, my_seat=0, first_player=0,
+            num_samples=DEFAULT_STAGE1_SAMPLES, base_iterations=DEFAULT_STAGE1_ITERS
+        )
+
+    # Rank suits by stage1 p30 then avg
+    def stage1_stat(s: str):
+        pts = stage1_points.get(s, [])
+        if not pts:
+            return (0.0, 0.0)
+        n = len(pts)
+        mean = sum(pts)/n
         p30 = _percentile(pts, 0.3)
+        return (p30, mean)
+    top_suits = sorted(present_suits, key=lambda s: stage1_stat(s))[-max(1, TOP_K_SUIT_HEAVY):]
+
+    # Stage 2: heavy evaluation for top suits only
+    if len(top_suits) > 1:
+        max_workers = min(len(top_suits), max(1, (os.cpu_count() or 1)))
+        with ProcessPoolExecutor(max_workers=max_workers) as ex:
+            futures = {
+                ex.submit(_simulate_points_for_suit_worker, first_four_cards, s, 0, 0, num_samples, base_iterations): s
+                for s in top_suits
+            }
+            for fut in as_completed(futures):
+                s = futures[fut]
+                try:
+                    suit_to_points[s] = fut.result()
+                except Exception:
+                    suit_to_points[s] = simulate_points_for_suit_ismcts(
+                        first_four_cards, s, my_seat=0, first_player=0,
+                        num_samples=num_samples, base_iterations=base_iterations
+                    )
+    else:
+        s = top_suits[0]
+        suit_to_points[s] = simulate_points_for_suit_ismcts(
+            first_four_cards, s, my_seat=0, first_player=0,
+            num_samples=num_samples, base_iterations=base_iterations
+        )
+    # Non-top suits keep stage1 stats
+    for s in present_suits:
+        if s not in suit_to_points:
+            suit_to_points[s] = stage1_points.get(s, [])
+
+    # Build stats for each suit from collected samples
+    for s in present_suits:
+        pts = suit_to_points.get(s, [])
+        n = max(1, len(pts))
+        mean = (sum(pts) / n) if pts else 0.0
+        var = (sum((v - mean) ** 2 for v in pts) / n) if pts else 0.0
+        std = var ** 0.5
+        p30 = _percentile(pts, 0.3) if pts else 0.0
         suit_stats[s] = {"avg": mean, "std": std, "p30": p30}
 
     # Conservative thresholds
-    raise_delta = 2 if current_high_bid < 20 else 1
+    # Sequential bidding: always raise by +1 minimum; direct 20 allowed if strong
+    raise_delta = 1
     min_allowed = 16 if current_high_bid < 16 else current_high_bid + raise_delta
 
-    candidates: List[Tuple[str, int, float, float, float]] = []
+    candidates: List[Tuple[str, int, float, float, float, float]] = []
+    suit_failed_checks: Dict[str, Dict[str, object]] = {}
     for s in present_suits:
         avg_points = suit_stats[s]["avg"]
         std_points = suit_stats[s]["std"]
         p30 = suit_stats[s]["p30"]
-        conf_mean = avg_points - 0.75 * std_points
-        # Allow direct jump to 20 anytime current_high < 20 if strength supports it
-        ok = (p30 >= min_allowed and conf_mean >= min_allowed) or (
-            current_high_bid < 20 and p30 >= 20 and conf_mean >= 20
-        )
+        conf_mean = avg_points - 0.5 * std_points
+        ok = (p30 >= (min_allowed - 1)) and (conf_mean >= (min_allowed - 1))
         if ok:
             bid_raw = max(p30, avg_points - 1.0)
             bid_s = int(max(min_allowed, min(28, int(bid_raw))))
-            # Normalize to 20 if we crossed 20 and current_high < 20 to reflect direct jump rule
-            if current_high_bid < 20 and bid_s < 20 and (p30 >= 20 or conf_mean >= 20):
-                bid_s = 20
-            candidates.append((s, bid_s, avg_points, std_points, p30))
+            candidates.append((s, bid_s, avg_points, std_points, p30, conf_mean))
+        else:
+            failed = []
+            if p30 < (min_allowed - 1):
+                failed.append(f"p30 {p30:.2f} < {min_allowed - 1}")
+            if conf_mean < (min_allowed - 1):
+                failed.append(f"conf_mean {conf_mean:.2f} < {min_allowed - 1}")
+            suit_failed_checks[s] = {
+                "avg": avg_points,
+                "std": std_points,
+                "p30": p30,
+                "conf_mean": conf_mean,
+                "failed": failed,
+            }
 
     if not candidates:
-        # No safe raise → pass with the best suit suggestion for info
         best_suit = max(present_suits, key=lambda s: (suit_stats[s]["p30"], suit_stats[s]["avg"]))
-        return 0, best_suit, suit_stats
+        det = suit_failed_checks.get(best_suit)
+        best_mean = det["avg"] if det else 0.0
+        best_std = det["std"] if det else 0.0
+        best_p30 = det["p30"] if det else 0.0
+        best_conf = det["conf_mean"] if det else 0.0
+        reason_text = (
+            f"Pass: No suit meets thresholds. Best suit {best_suit} has p30={best_p30:.2f}, "
+            f"conf_mean={best_conf:.2f} below min_allowed={min_allowed} (current_high={current_high_bid}, raise_delta=+1). "
+            f"Failed checks for best suit: {', '.join(det['failed']) if det and det['failed'] else 'n/a'}."
+        )
+        debug = {
+            "present_suits": present_suits,
+            "suit_to_points": suit_to_points,
+            "chosen_suit": None,
+            "avg_points": best_mean,
+            "p30_points": best_p30,
+            "std_points": best_std,
+            "proposed": None,
+            "current_high": current_high_bid,
+            "min_allowed": min_allowed,
+            "raise_delta": 1,
+            "reason": reason_text,
+            "suit_failed_checks": suit_failed_checks,
+        }
+        return 0, best_suit, suit_stats, debug
 
     candidates.sort(key=lambda t: (t[4], t[2]))
-    best_suit, final_prop, avg_points, std_points, p30 = candidates[-1]
-    return final_prop, best_suit, suit_stats
+    best_suit, final_prop, avg_points, std_points, p30, conf_mean = candidates[-1]
+    reason_text = (
+        f"Bid: Suit {best_suit} meets thresholds (p30={p30:.2f}, conf_mean={conf_mean:.2f} >= min_allowed={min_allowed}); "
+        f"conservative mapping max(p30, avg-1) -> {final_prop}. (current_high={current_high_bid}, raise_delta=+1)"
+    )
+    debug = {
+        "present_suits": present_suits,
+        "suit_to_points": suit_to_points,
+        "chosen_suit": best_suit,
+        "avg_points": avg_points,
+        "p30_points": p30,
+        "std_points": std_points,
+        "proposed": final_prop,
+        "current_high": current_high_bid,
+        "min_allowed": min_allowed,
+        "raise_delta": 1,
+        "reason": reason_text,
+    }
+    return final_prop, best_suit, suit_stats, debug
 
+
+def _format_bidding_debug(dbg: dict) -> str:
+    try:
+        lines = []
+        present_suits = dbg.get("present_suits", [])
+        min_allowed = dbg.get("min_allowed")
+        current_high = dbg.get("current_high")
+        raise_delta = dbg.get("raise_delta")
+        chosen_suit = dbg.get("chosen_suit")
+        proposed = dbg.get("proposed")
+        reason = dbg.get("reason")
+        lines.append("  bidding analysis:")
+        if present_suits:
+            lines.append(f"    present_suits: {', '.join(present_suits)}")
+        meta = []
+        if current_high is not None:
+            meta.append(f"current_high={current_high}")
+        if min_allowed is not None:
+            meta.append(f"min_allowed={min_allowed}")
+        if raise_delta is not None:
+            meta.append(f"raise_delta={raise_delta}")
+        if meta:
+            lines.append("    " + "  ".join(meta))
+        if chosen_suit is not None:
+            lines.append(f"    chosen_suit: {chosen_suit}")
+        if proposed is not None:
+            lines.append(f"    proposed_bid: {proposed}")
+        if "avg_points" in dbg or "p30_points" in dbg or "std_points" in dbg:
+            lines.append(
+                "    overall: "
+                + f"avg={dbg.get('avg_points', 0):.2f}  p30={dbg.get('p30_points', 0):.2f}  std={dbg.get('std_points', 0):.2f}"
+            )
+        stp = dbg.get("suit_to_points") or {}
+        if stp:
+            lines.append("    suit_stats:")
+            for s, pts in stp.items():
+                if not pts:
+                    lines.append(f"      {s}: pts=[]")
+                    continue
+                n = len(pts)
+                mean = sum(pts) / n
+                var = sum((v - mean) ** 2 for v in pts) / n
+                std = math.sqrt(var)
+                q = sorted(pts)
+                k = max(0, min(len(q) - 1, int(0.3 * len(q))))
+                p30 = q[k]
+                preview = ", ".join(str(x) for x in pts[:6]) + (" ..." if len(pts) > 6 else "")
+                lines.append(
+                    f"      {s}: pts=[{preview}]  avg={mean:.2f}  p30={p30:.2f}  std={std:.2f}"
+                )
+        sf = dbg.get("suit_failed_checks")
+        if sf:
+            lines.append("    failed_checks:")
+            for s, det in sf.items():
+                failed = det.get("failed") or []
+                if failed:
+                    lines.append(f"      {s}: " + "; ".join(failed))
+        if reason:
+            lines.append("    reason: " + str(reason))
+        return "\n".join(lines)
+    except Exception:
+        return "  (failed to format bidding analysis)"
+
+
+def _simulate_points_for_suit_worker(my_first_four, suit, my_seat, first_player, num_samples, base_iterations):
+    return simulate_points_for_suit_ismcts(
+        my_first_four, suit, my_seat=my_seat, first_player=first_player,
+        num_samples=num_samples, base_iterations=base_iterations
+    )
 
 def _prompt_cards() -> List[str]:
     while True:
@@ -209,8 +435,8 @@ def main() -> int:
     cards = _prompt_cards()
     current_high = _prompt_current_high()
 
-    suggested, trump, stats = propose_bid_ismcts(cards, current_high_bid=current_high,
-                                                 num_samples=6, base_iterations=200)
+    suggested, trump, stats, dbg = propose_bid_ismcts(cards, current_high_bid=current_high,
+                                                      num_samples=6, base_iterations=200)
 
     print(f"\nYour auction cards: {', '.join(cards)}")
     print(f"Current high bid:  {current_high if current_high > 0 else 'None'}")
@@ -220,12 +446,14 @@ def main() -> int:
             d = stats[s]
             print(f"  {s}: {d['avg']:.2f} / {d['p30']:.2f} / {d['std']:.2f}")
     if suggested == 0:
-        raise_delta = 2 if current_high < 20 else 1
+        raise_delta = 1
         min_allowed = 16 if current_high < 16 else current_high + raise_delta
         print(f"\nRecommendation: PASS (min allowed to raise was {min_allowed}; direct 20 allowed if strong)")
+        print(_format_bidding_debug(dbg))
     else:
         stakes = 2 if suggested >= 20 else 1
         print(f"\nRecommendation: BID {suggested} and choose trump = {trump} (stakes = {stakes})")
+        print(_format_bidding_debug(dbg))
     return 0
 
 

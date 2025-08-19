@@ -1,7 +1,7 @@
 import copy
 import math
 import random
-from .constants import RANKS, FULL_DECK, SUITS, card_suit, card_value, rank_index
+from .constants import RANKS, FULL_DECK, SUITS, card_suit, card_value, rank_index, trick_rank_index
 
 
 class MCTSNode:
@@ -38,12 +38,12 @@ def _winner_so_far(sim_env):
     winning_card, winner = sim_env.current_trick[0][1], sim_env.current_trick[0][0]
     if sim_env.phase == "concealed":
         for player, card in sim_env.current_trick[1:]:
-            if card_suit(card) == lead_suit and rank_index(card) > rank_index(winning_card):
+            if card_suit(card) == lead_suit and trick_rank_index(card) > trick_rank_index(winning_card):
                 winning_card, winner = card, player
     else:
         for player, card in sim_env.current_trick[1:]:
             win_suit = card_suit(winning_card)
-            if card_suit(card) == win_suit and rank_index(card) > rank_index(winning_card):
+            if card_suit(card) == win_suit and trick_rank_index(card) > trick_rank_index(winning_card):
                 winning_card, winner = card, player
             elif sim_env.trump_suit is not None and card_suit(card) == sim_env.trump_suit and win_suit != sim_env.trump_suit:
                 winning_card, winner = card, player
@@ -98,7 +98,10 @@ def heuristic_rollout(sim_env):
     return sim_env.scores[0] - sim_env.scores[1]
 
 
-def estimate_trick_win_prob(env, acting_player, action, samples=6):
+def estimate_trick_win_prob(env, acting_player, action, samples=10):
+    # Allow ultra-fast mode for bulk/offline computations
+    if hasattr(env, "quick_eval") and env.quick_eval:
+        samples = min(samples, 2)
     wins = 0
     for _ in range(samples):
         sim = copy.deepcopy(env)
