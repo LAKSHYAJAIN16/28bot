@@ -1,6 +1,7 @@
 import copy
 import math
 import random
+from dataclasses import dataclass
 from .constants import RANKS, FULL_DECK, SUITS, card_suit, card_value, rank_index, trick_rank_index
 
 
@@ -25,10 +26,17 @@ class MCTSNode:
         return max(self.children, key=lambda c: c.visits)
 
 
-def select(node):
+def select(node, c_puct: float = 1.0):
     while node.children:
-        node = max(node.children, key=lambda c: c.uct_score())
+        node = max(node.children, key=lambda c: c.uct_score(c_puct))
     return node
+
+
+@dataclass
+class SearchConfig:
+    # mode: "regular" uses classic short-horizon prior; "long_bias" uses long-game bias
+    mode: str = "regular"
+    c_puct: float = 1.0
 
 
 def _winner_so_far(sim_env):
@@ -122,7 +130,7 @@ def estimate_trick_win_prob(env, acting_player, action, samples=10):
     return wins / max(1, samples)
 
 
-def compute_action_prior(env, action):
+def _compute_action_prior_regular(env, action):
     current_player = env.turn
     base = rank_index(action) / (len(RANKS) - 1)
     points = card_value(action) / 3.0
@@ -144,7 +152,52 @@ def compute_action_prior(env, action):
     return max(0.01, min(1.0, prior))
 
 
-def expand(node, env):
+def _compute_action_prior_longbias(env, action):
+    current_player = env.turn
+    base = rank_index(action) / (len(RANKS) - 1)
+    points = card_value(action) / 3.0
+    is_trump = (card_suit(action) == env.trump_suit)
+    def long_game_bias() -> float:
+        bias = 0.0
+        if not env.current_trick:
+            suit_len = sum(1 for c in env.hands[current_player] if card_suit(c) == card_suit(action))
+            if not is_trump:
+                bias += 0.2 * (suit_len / 8.0)
+            if env.phase == "concealed" and is_trump:
+                bias -= 0.2
+        else:
+            pts_on_table = sum(card_value(c) for _, c in env.current_trick)
+            if is_trump and env.phase == "concealed" and pts_on_table < 2:
+                bias -= 0.15
+            else:
+                bias += 0.05
+        return max(-0.3, min(0.3, bias))
+    if env.current_trick:
+        win_prob = estimate_trick_win_prob(env, current_player, action, samples=4)
+        prior = 0.3 * win_prob + 0.25 * base + 0.25 * points + 0.2 * (long_game_bias() + 0.3)
+        if env.phase == "concealed":
+            lead_suit = card_suit(env.current_trick[0][1])
+            has_lead = any(card_suit(c) == lead_suit for c in env.hands[current_player])
+            if not has_lead and is_trump and win_prob < 0.45:
+                prior *= 0.4
+    else:
+        hand = env.hands[current_player]
+        suit_len = sum(1 for c in hand if card_suit(c) == card_suit(action))
+        prior = 0.35 * base + 0.25 * points + 0.2 * (suit_len / 8.0) + 0.2 * (long_game_bias() + 0.3)
+        if env.phase == "concealed" and is_trump:
+            prior *= 0.5
+    return max(0.01, min(1.0, prior))
+
+
+def compute_action_prior(env, action, config: SearchConfig | None = None):
+    cfg = config or SearchConfig()
+    if cfg.mode == "long_bias":
+        return _compute_action_prior_longbias(env, action)
+    # default: regular
+    return _compute_action_prior_regular(env, action)
+
+
+def expand(node, env, config: SearchConfig | None = None):
     hand = node.state["hands"][node.state["turn"]]
     tried = [c.action for c in node.children]
     temp_env = copy.deepcopy(env)
@@ -163,7 +216,7 @@ def expand(node, env):
     valid = temp_env.valid_moves(hand)
     if not valid:
         return None
-    priors = {a: compute_action_prior(temp_env, a) for a in valid}
+    priors = {a: compute_action_prior(temp_env, a, config) for a in valid}
     max_prior = max(priors.values()) if priors else 1.0
     for action in valid:
         if action not in tried:
@@ -205,11 +258,11 @@ def simulate_from_state(env, state):
     return heuristic_rollout(sim_env)
 
 
-def mcts_search(env, state, iterations=50):
+def mcts_search(env, state, iterations=50, config: SearchConfig | None = None):
     root = MCTSNode(state)
     for _ in range(iterations):
-        node = select(root)
-        child = expand(node, env)
+        node = select(root, (config.c_puct if config else 1.0))
+        child = expand(node, env, config)
         if child is None:
             child = node
         reward = simulate_from_state(env, child.state)
@@ -224,11 +277,11 @@ def backpropagate(node, reward):
         node = node.parent
 
 
-def mcts_plan(env, state, iterations=50):
+def mcts_plan(env, state, iterations=50, config: SearchConfig | None = None):
     root = MCTSNode(state)
     for _ in range(iterations):
-        node = select(root)
-        child = expand(node, env)
+        node = select(root, (config.c_puct if config else 1.0))
+        child = expand(node, env, config)
         if child is None:
             child = node
         reward = simulate_from_state(env, child.state)

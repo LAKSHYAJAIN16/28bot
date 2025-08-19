@@ -1,7 +1,7 @@
 import copy
 import random
 from .constants import FULL_DECK, SUITS, card_suit
-from .mcts_core import mcts_plan
+from .mcts_core import mcts_plan, SearchConfig
 
 
 def determinize_state_for_player(state, perspective_player):
@@ -62,7 +62,7 @@ def determinize_state_for_player(state, perspective_player):
     return det_state
 
 
-def ismcts_plan(env, state, iterations=50, samples=8):
+def ismcts_plan(env, state, iterations=50, samples=8, config: SearchConfig | None = None):
     acting_player = state["turn"]
     aggregate = {}
     last_best = None
@@ -81,7 +81,7 @@ def ismcts_plan(env, state, iterations=50, samples=8):
         d_env.last_exposer = det_state.get("last_exposer", getattr(d_env, "last_exposer", None))
         d_env.exposure_trick_index = det_state.get("exposure_trick_index", getattr(d_env, "exposure_trick_index", None))
         d_env.debug = False
-        best, pi = mcts_plan(d_env, det_state, iterations)
+        best, pi = mcts_plan(d_env, det_state, iterations, config)
         last_best = best
         for a, p in pi.items():
             aggregate[a] = aggregate.get(a, 0.0) + p

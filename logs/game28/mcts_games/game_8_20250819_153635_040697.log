@@ -1,0 +1,30 @@
+
+===== GAME 8 (20250819_153635_040697) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.00  p30=14.00  std=5.24
+    suit_stats:
+      H: pts=[8, 25, 5, 13]  avg=12.75  p30=8.00  std=7.63
+      C: pts=[21, 14, 7, 18]  avg=15.00  p30=14.00  std=5.24
+      S: pts=[20, 0, 13, 0]  avg=8.25  p30=0.00  std=8.61
+    failed_checks:
+      H: p30 8.00 < 15; conf_mean 8.94 < 15
+      C: p30 14.00 < 15; conf_mean 12.38 < 15
+      S: p30 0.00 < 15; conf_mean 3.94 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=14.00, conf_mean=12.38 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 12.38 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.75  p30=16.00  std=4.66
+    suit_stats:
+      D: pts=[18, 10, 16, 23]  avg=16.75  p30=16.00  std=4.66
+      S: pts=[21, 0, 0, 0]  avg=5.25  p30=0.00  std=9.09
+    failed_checks:
+      D: conf_mean 14.42 < 15
+      S: p30 0.00 < 15; conf_mean 0.70 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=16.00, conf_mean=14.42 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: conf_mean 14.42 < 15.

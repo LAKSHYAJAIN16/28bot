@@ -1,15 +1,135 @@
 import os
 import sys
+import itertools
+import json
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from .env28 import TwentyEightEnv
 from .policy import policy_move
 from .log_utils import log_event as _log_game_event, Tee as _TeeStdout, open_game_log as _open_game_log
+from .constants import SUITS, RANKS, card_suit
 
 
 LOG_DIR_GAMES = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "logs", "game28", "mcts_games"))
 
+# Precompute sink (append-only JSONL) and in-memory de-dup set using suit-permutation-invariant keys
+_PRECOMP_OUT_PATH = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "precomputed_bets.jsonl"))
+_precomp_seen_keys: set[tuple[str, ...]] | None = None
 
-def play_games(num_games=3, iterations=50):
+
+def _rank_key(card: str) -> int:
+    # card like 'JH' or '10D'
+    rank = card[:-1]
+    return RANKS.index(rank)
+
+
+def _canonical_key(cards: list[str]) -> tuple[str, ...]:
+    # Suit-permutation invariance: map suits by all permutations and pick lexicographically smallest normalized tuple
+    best: tuple[str, ...] | None = None
+    for perm in itertools.permutations(SUITS):
+        suit_map = {s: perm[i] for i, s in enumerate(SUITS)}
+        mapped = [c[:-1] + suit_map[c[-1]] for c in cards]
+        mapped_sorted = sorted(mapped, key=lambda c: (_rank_key(c), SUITS.index(card_suit(c))))
+        tup = tuple(mapped_sorted)
+        if best is None or tup < best:
+            best = tup
+    return best if best is not None else tuple(sorted(cards))
+
+
+def _ensure_precomp_seen_loaded() -> None:
+    global _precomp_seen_keys
+    if _precomp_seen_keys is not None:
+        return
+    _precomp_seen_keys = set()
+    try:
+        with open(_PRECOMP_OUT_PATH, "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    obj = json.loads(line)
+                    four = obj.get("four_cards") or obj.get("four") or []
+                    if four and isinstance(four, list):
+                        key = _canonical_key(four)
+                        _precomp_seen_keys.add(key)
+                except Exception:
+                    continue
+    except FileNotFoundError:
+        # no file yet
+        pass
+
+
+def _maybe_append_precomputed(
+    four_cards: list[str],
+    bidder_bid: int | None = None,
+    trump: str | None = None,
+    dbg: dict | None = None,
+) -> None:
+    _ensure_precomp_seen_loaded()
+    assert _precomp_seen_keys is not None
+    key = _canonical_key(four_cards)
+    if key in _precomp_seen_keys:
+        return
+    suit_stats: dict[str, dict[str, float]] = {}
+    analysis: dict | None = None
+    # Fast path: use provided debug from in-game bidder if available
+    if isinstance(dbg, dict) and dbg.get("suit_to_points"):
+        stp = dbg.get("suit_to_points") or {}
+        for s, pts in stp.items():
+            n = max(1, len(pts))
+            mean = sum(pts)/n
+            p30 = sorted(pts)[max(0, min(len(pts)-1, int(0.3*len(pts))))] if pts else 0.0
+            var = sum((v-mean)**2 for v in pts)/n if pts else 0.0
+            suit_stats[s] = {"avg": mean, "p30": p30, "std": var**0.5}
+        analysis = dbg
+        bid = bidder_bid
+    else:
+        # Compute stats and recommendation using advisor's heavy settings at baseline (current_high=0)
+        try:
+            from bet_advisor import (
+                simulate_points_for_suit_ismcts,
+                propose_bid_ismcts,
+            )
+        except Exception:
+            return
+        present_suits = [s for s in SUITS if any(card_suit(c) == s for c in four_cards)]
+        stage1: dict[str, tuple[float, float]] = {}
+        for s in present_suits:
+            pts = simulate_points_for_suit_ismcts(four_cards, s, my_seat=0, first_player=0,
+                                                  num_samples=2, base_iterations=80, playout_tricks=4)
+            n = max(1, len(pts))
+            p30 = sorted(pts)[max(0, min(len(pts)-1, int(0.3*len(pts))))] if pts else 0.0
+            stage1[s] = (sum(pts)/n, p30)
+        top = sorted(present_suits, key=lambda s: (stage1[s][1], stage1[s][0]))[-max(1, 2):]
+        suit_to_points: dict[str, list[float]] = {}
+        for s in present_suits:
+            if s in top:
+                pts = simulate_points_for_suit_ismcts(four_cards, s, my_seat=0, first_player=0,
+                                                      num_samples=6, base_iterations=220)
+            else:
+                pts = simulate_points_for_suit_ismcts(four_cards, s, my_seat=0, first_player=0,
+                                                      num_samples=2, base_iterations=80, playout_tricks=4)
+            suit_to_points[s] = pts
+            n = max(1, len(pts))
+            mean = sum(pts)/n
+            p30 = sorted(pts)[max(0, min(len(pts)-1, int(0.3*len(pts))))] if pts else 0.0
+            var = sum((v-mean)**2 for v in pts)/n if pts else 0.0
+            suit_stats[s] = {"avg": mean, "p30": p30, "std": var**0.5}
+        bid, trump, _suit_stats_unused, analysis = propose_bid_ismcts(
+            four_cards, current_high_bid=0, num_samples=6, base_iterations=220
+        )
+    rec = {
+        "four_cards": sorted(four_cards, key=lambda c: (card_suit(c), c)),
+        "suit_stats": suit_stats,
+        "recommendation": {"bid": bidder_bid if bidder_bid is not None else bid, "trump": trump},
+        "analysis": analysis,
+    }
+    try:
+        with open(_PRECOMP_OUT_PATH, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        _precomp_seen_keys.add(key)
+    except Exception:
+        pass
+
+
+def play_games(num_games=3, iterations=50, search_mode: str = "regular"):
     results_all = []
     series_game_score = [0, 0]
     for g in range(1, num_games + 1):
@@ -59,7 +179,7 @@ def play_games(num_games=3, iterations=50):
                 print("")
                 while not done:
                     current_player = state["turn"]
-                    move = policy_move(env, iterations)
+                    move = policy_move(env, iterations, search_mode)
                     state, _, done, winner, trick_points = env.step(move)
                     print(f"Player {current_player} plays {move}")
                     if winner is not None:
@@ -103,7 +223,7 @@ def play_games(num_games=3, iterations=50):
     )
 
 
-def run_single_game(game_id: int, iterations: int, first_player: int = 0):
+def run_single_game(game_id: int, iterations: int, first_player: int = 0, search_mode: str = "regular"):
     os.makedirs(LOG_DIR_GAMES, exist_ok=True)
     game_log_path, ts = _open_game_log(game_id)
     _orig_stdout, _orig_stderr = sys.stdout, sys.stderr
@@ -149,7 +269,7 @@ def run_single_game(game_id: int, iterations: int, first_player: int = 0):
             done = False
             while not done:
                 current_player = state["turn"]
-                move = policy_move(env, iterations)
+                move = policy_move(env, iterations, search_mode)
                 state, _, done, winner, trick_points = env.step(move)
                 print(f"Player {current_player} plays {move}")
                 if winner is not None:
@@ -184,7 +304,7 @@ def run_single_game(game_id: int, iterations: int, first_player: int = 0):
             sys.stderr = _orig_stderr
 
 
-def play_games_concurrent(num_games: int = 4, iterations: int = 50, max_workers: int | None = None):
+def play_games_concurrent(num_games: int = 4, iterations: int = 50, max_workers: int | None = None, search_mode: str = "regular"):
     if max_workers is None:
         try:
             max_workers = max(1, os.cpu_count() or 1)
@@ -193,7 +313,7 @@ def play_games_concurrent(num_games: int = 4, iterations: int = 50, max_workers:
     print(f"Spawning up to {max_workers} worker processes for {num_games} games...")
     results: dict[int, tuple[list[int], list[int]]] = {}
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(run_single_game, g, iterations, 0): g for g in range(1, num_games + 1)}
+        futures = {executor.submit(run_single_game, g, iterations, 0, search_mode): g for g in range(1, num_games + 1)}
         for fut in as_completed(futures):
             g = futures[fut]
             try:

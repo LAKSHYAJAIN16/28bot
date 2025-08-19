@@ -23,7 +23,7 @@ class MonteCarloBiddingAgent:
         self.last_debug = None
         self.last_choose_debug = None
 
-    def _simulate_points_for_suit(self, my_first_four, suit, my_seat, first_player):
+    def _simulate_points_for_suit(self, my_first_four, suit, my_seat, first_player, playout_tricks: int | None = None):
         # Lazy import to avoid circular import during env initialization
         from .env28 import TwentyEightEnv
         all_ranks = ["7", "8", "9", "10", "J", "Q", "K", "A"]
@@ -52,6 +52,7 @@ class MonteCarloBiddingAgent:
             # Initialize belief fields expected by get_state
             env.void_suits_by_player = [set() for _ in range(4)]
             env.lead_suit_counts = [{s: 0 for s in SUITS} for _ in range(4)]
+            env.quick_eval = True
             trump_cards = [c for c in env.hands[env.bidder] if card_suit(c) == env.trump_suit]
             env.face_down_trump_card = max(trump_cards, key=rank_index) if trump_cards else None
             if env.face_down_trump_card:
@@ -67,10 +68,12 @@ class MonteCarloBiddingAgent:
             safety_moves_cap = 8 * 4 + 2
             while not done and moves_done < safety_moves_cap:
                 # Imperfect-information planning for bidding simulation
-                iters = max(10, self.mcts_iterations // 3)
-                move, _ = ismcts_plan(env, state, iterations=iters, samples=12)
+                iters = max(8, self.mcts_iterations // 5) if env.turn % 2 == my_seat % 2 else max(6, self.mcts_iterations // 12)
+                move, _ = ismcts_plan(env, state, iterations=iters, samples=6)
                 state, _, done, _, _ = env.step(move)
                 moves_done += 1
+                if playout_tricks is not None and (moves_done // 4) >= playout_tricks:
+                    break
             bidder_team = 0 if my_seat % 2 == 0 else 1
             team_points.append(state["scores"][bidder_team])
         return team_points
@@ -90,25 +93,53 @@ class MonteCarloBiddingAgent:
             }
             return None
 
-        suit_to_points = {}
-        # Parallelize per-suit simulations
+        # Stage 1: quick screening
+        stage1_points = {}
         max_workers = min(len(present_suits), max(1, (os.cpu_count() or 1)))
         if len(present_suits) > 1:
             with ProcessPoolExecutor(max_workers=max_workers) as ex:
                 futures = {
-                    ex.submit(_simulate_points_for_suit_worker, my_first_four, s, my_seat, first_player, self.num_samples, self.mcts_iterations): s
+                    ex.submit(_simulate_points_for_suit_worker, my_first_four, s, my_seat, first_player, 2, max(60, self.mcts_iterations)): s
                     for s in present_suits
+                }
+                for fut in as_completed(futures):
+                    s = futures[fut]
+                    try:
+                        stage1_points[s] = fut.result()
+                    except Exception:
+                        stage1_points[s] = self._simulate_points_for_suit(my_first_four, s, my_seat, first_player, playout_tricks=4)
+        else:
+            s = present_suits[0]
+            stage1_points[s] = self._simulate_points_for_suit(my_first_four, s, my_seat, first_player, playout_tricks=4)
+        def stage1_stat(suit: str):
+            pts = stage1_points.get(suit, [])
+            if not pts:
+                return (0.0, 0.0)
+            n = len(pts)
+            return (_percentile(pts, 0.3), sum(pts)/n)
+        top_k = 2
+        top_suits = sorted(present_suits, key=lambda su: stage1_stat(su))[-max(1, top_k):]
+        # Stage 2: heavy for top suits
+        suit_to_points = {}
+        if len(top_suits) > 1:
+            with ProcessPoolExecutor(max_workers=min(len(top_suits), max_workers)) as ex:
+                futures = {
+                    ex.submit(_simulate_points_for_suit_worker, my_first_four, s, my_seat, first_player, max(6, self.num_samples), max(220, self.mcts_iterations)): s
+                    for s in top_suits
                 }
                 for fut in as_completed(futures):
                     s = futures[fut]
                     try:
                         suit_to_points[s] = fut.result()
                     except Exception:
-                        # Fallback to sequential if a worker fails
                         suit_to_points[s] = self._simulate_points_for_suit(my_first_four, s, my_seat, first_player)
         else:
-            s = present_suits[0]
+            s = top_suits[0]
             suit_to_points[s] = self._simulate_points_for_suit(my_first_four, s, my_seat, first_player)
+        # Non-top suits keep stage1
+        for s in present_suits:
+            if s not in suit_to_points:
+                suit_to_points[s] = stage1_points.get(s, [])
 
         def stats(values):
             n = max(1, len(values))
