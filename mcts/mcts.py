@@ -623,6 +623,7 @@ class MonteCarloBiddingAgent:
                 "current_high": current_high_bid,
             }
             return None
+            
         # Evaluate each present suit via Monte Carlo
         suit_to_points = {}
         for s in present_suits:
