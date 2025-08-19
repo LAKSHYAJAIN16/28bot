@@ -10,34 +10,6 @@ The only way to beat my grandfather at 28 (an indian card game) was to create a 
 - Detailed Logs + JSONL summaries, explanations for bid actions.
 ---
 
-## Quickstart
-
-1) Environment
-- Python 3.10+
-- Recommended: create a virtualenv
-
-2) Install packages (minimal)
-- Pure-Python core; optional PyTorch if you later add neural nets
-
-3) Run games
-```bash
-python run_game.py
-```
-Edit the CONFIG block at the top to set number of games, MCTS iterations, concurrency, and search mode.
-
-4) Bet advisor (interactive)
-```bash
-python bet_advisor.py
-```
-Enter your 4 cards and the current high bid; it will recommend a bid and trump with detailed analysis.
-
-5) Precompute bids (append-only)
-```bash
-python precompute_bets.py
-```
-This will append new canonical 4-card hands to `precomputed_bets.jsonl`, skipping any already present.
-
----
 
 ## Project Structure
 ### Internal Components
@@ -51,7 +23,7 @@ This will append new canonical 4-card hands to `precomputed_bets.jsonl`, skippin
 - `mcts/log_utils.py` – Logger utilities.
 
 ### Directly Accessible
-- `bet_advisor.py` – Interactive advisor; input hand and it will give you the optimial bid
+- `bet_advisor.py` – Bidding logic; input hand and it will give you the optimial bid
 - `precompute_bets.py` – Precomputation code to generate the optimial bids for the hand.
 - `run_game.py` – Entry-point to simulate games with a simple config block
 - `precomputed_bets.jsonl` – Append-only store of suit stats and recommendations per canonical hand
@@ -77,29 +49,28 @@ When run, you’ll see per-game console output tee’d to log files and a final 
 
 ## Bidding (MonteCarloBiddingAgent)
 
-Pipeline designed for accuracy and speed:
+Designed for accuracy and speed:
 
-- Stage 1 (quick screening + filtering)
-  - For each suit present in the 4-card hand, run a few partial simulations parallely, using `multithreading`
-  - Compute 30th percentile (p30) performance along with mean performance for better evaluation. 
+- Stage 1 (quick screen)
+  - For each suit in the 4-card hand, run a few partial ISMCTS simulations in parallel
+  - Compute the 30th percentile (p30) and mean performance.
 
-- Stage 2 (heavy evaluation)
-  - Select top suits based on results from quick screening.
-  - Use more samples/iterations and full playouts
-  - Compute per-suit stats: avg points, bottom 30 performance, standard deviation.
+- Stage 2 (heavy eval)
+  - Keep the top suits from Stage 1
+  - Run more samples/iterations with full playouts
+  - Record per-suit stats: avg, p30, std
 
 - Decision rule
-  - Thresholds: require p30 >= (min_allowed − 1) AND (avg − 0.5·std) >= (min_allowed − 1)
-  - Proposed bid = floor(max(p30, avg−1)), clipped to [min_allowed, 28]
-  - Stakes doubling at ≥ 20
+  - Require: p30 ≥ (min_allowed − 1) AND (avg − 0.5·std) ≥ (min_allowed − 1)
+  - Proposed bid = floor(max(p30, avg − 1)), clipped to [min_allowed, 28]
+  - Stakes double at ≥ 20 (environment enforces this)
 
-- Precomputation Dictionary
-  - Before simulating, the agent looks up `precomputed_bets.jsonl`
-  - If stats are found, it can compute a bid immediately with identical thresholds, skipping simulations
-  - All bidding computations are automatically added to the `precomputed_bets.jsonl`
+- Precomputed shortcut
+  - Looks up `precomputed_bets.jsonl` via a suit-canonical key and, if present, uses those stats directly
+  - Gameplay and the precompute script both enrich this file over time
 
 - Trump choice
-  - After winning auction, trump is selected based on the suit leading to the most points.
+  - After winning the auction, pick the suit that is estimated to yield the most points
 ---
 
 ## Gameplay
@@ -121,8 +92,11 @@ Parameters are accessible via `run_game.py` (`ITERATIONS`) and `mcts/policy.py` 
 ---
 
 ## Precomputation (`precompute_bets.py`)
-- We store/evaluate only one representative per equivalence class (S4 orbit). This cuts work by roughly 15–20× in practice (upper bound 24×), since most hands have no nontrivial symmetries.
-- basically C(4,32) goes down to 2k
+- Canonicalization: hands that differ only by a suit relabel are equivalent; we evaluate a single representative per S4 class
+  - Cuts work by ~15–20× in practice (max 24×). C(32,4) ≈ 36k distinct sets shrink to ~2k canonical keys
+- Append-only: loads existing JSONL and skips already-computed hands
+- Two-stage evaluation: mirrors in-game pipeline with heavier budgets for top suits
+- Progress debug: prints visited count, unique totals, dedup ratio, elapsed time, and rates
 
 ---
 
