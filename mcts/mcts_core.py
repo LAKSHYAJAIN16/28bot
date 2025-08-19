@@ -73,11 +73,13 @@ def heuristic_rollout(sim_env):
             same_suit = [c for c in valid if card_suit(c) == lead_suit]
             trumps = [c for c in valid if card_suit(c) == sim_env.trump_suit]
             non_points = [c for c in valid if card_value(c) == 0]
+            high_points = [c for c in valid if card_value(c) > 0]
             if leader_team is not None and leader_team == my_team:
                 if same_suit:
                     action = min(same_suit, key=rank_index)
                 else:
-                    action = min(non_points, key=rank_index) if non_points else min(valid, key=rank_index)
+                    # Partner winning: dump points safely if off-suit
+                    action = max(high_points, key=rank_index) if high_points else (min(non_points, key=rank_index) if non_points else min(valid, key=rank_index))
             else:
                 chosen = None
                 if same_suit:
@@ -85,7 +87,9 @@ def heuristic_rollout(sim_env):
                     if higher:
                         chosen = min(higher, key=rank_index)
                 if chosen is None:
-                    if trumps and (sim_env.phase == "revealed" or not same_suit):
+                    # Consider trump only if revealed or off-suit AND points justify exposure
+                    pts_on_table = sum(card_value(c) for _, c in sim_env.current_trick)
+                    if trumps and (sim_env.phase == "revealed" or not same_suit) and (pts_on_table >= 2):
                         if win_card and card_suit(win_card) == sim_env.trump_suit:
                             over = [c for c in trumps if rank_index(c) > rank_index(win_card)]
                             chosen = min(over, key=rank_index) if over else min(trumps, key=rank_index)
@@ -212,6 +216,11 @@ def expand(node, env, config: SearchConfig | None = None):
     temp_env.bid_value = node.state.get("bid_value", getattr(temp_env, "bid_value", 16))
     temp_env.last_exposer = node.state.get("last_exposer", getattr(temp_env, "last_exposer", None))
     temp_env.exposure_trick_index = node.state.get("exposure_trick_index", getattr(temp_env, "exposure_trick_index", None))
+    # propagate belief fields if available
+    if "void_suits_by_player" in node.state:
+        temp_env.void_suits_by_player = [set(s) for s in node.state["void_suits_by_player"]]
+    if "lead_suit_counts" in node.state:
+        temp_env.lead_suit_counts = copy.deepcopy(node.state["lead_suit_counts"])
     temp_env.debug = False
     valid = temp_env.valid_moves(hand)
     if not valid:
@@ -232,6 +241,10 @@ def expand(node, env, config: SearchConfig | None = None):
             sim_env.bid_value = node.state.get("bid_value", getattr(sim_env, "bid_value", 16))
             sim_env.last_exposer = node.state.get("last_exposer", getattr(sim_env, "last_exposer", None))
             sim_env.exposure_trick_index = node.state.get("exposure_trick_index", getattr(sim_env, "exposure_trick_index", None))
+            if "void_suits_by_player" in node.state:
+                sim_env.void_suits_by_player = [set(s) for s in node.state["void_suits_by_player"]]
+            if "lead_suit_counts" in node.state:
+                sim_env.lead_suit_counts = copy.deepcopy(node.state["lead_suit_counts"])
             sim_env.debug = False
             state, _, _, _, _ = sim_env.step(action)
             child = MCTSNode(state, parent=node, action=action)

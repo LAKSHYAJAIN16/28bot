@@ -8,8 +8,14 @@ def determinize_state_for_player(state, perspective_player):
     det_state = copy.deepcopy(state)
     hands = det_state["hands"]
     my_hand = hands[perspective_player][:]
-    # Infer simple voids from the current trick: if a player couldn't follow lead suit, mark them void in lead suit
+    # Use tracked voids if available; otherwise infer simple voids from current trick
     void_suits_by_player = {p: set() for p in range(4)}
+    if "void_suits_by_player" in det_state:
+        try:
+            for p in range(4):
+                void_suits_by_player[p] = set(det_state["void_suits_by_player"][p])
+        except Exception:
+            pass
     trick = det_state.get("current_trick", [])
     if trick:
         lead_suit = card_suit(trick[0][1])
@@ -36,15 +42,19 @@ def determinize_state_for_player(state, perspective_player):
             pool.discard(sampled_face_down)
     remaining = list(pool)
     random.shuffle(remaining)
-    # Assign respecting simple void constraints and light suit-bias as much as possible
+    # Assign respecting void constraints and light suit-bias informed by lead_suit_counts when available
+    lead_counts = det_state.get("lead_suit_counts")
     for p in range(4):
         if p == perspective_player:
             hands[p] = my_hand[:]
             continue
         target = len(hands[p])
         disallowed = void_suits_by_player.get(p, set())
-        # Prefer cards not in disallowed suits; slight bias toward suits player has already shown (lead suit counts unavailable at determinization scope)
         prefer = [c for c in remaining if card_suit(c) not in disallowed]
+        # Bias toward suits with higher historical leads for that player (proxy for long suits)
+        if isinstance(lead_counts, list) and p < len(lead_counts) and isinstance(lead_counts[p], dict):
+            suit_bias_order = sorted(SUITS, key=lambda s: lead_counts[p].get(s, 0), reverse=True)
+            prefer.sort(key=lambda c: suit_bias_order.index(card_suit(c)) if card_suit(c) in suit_bias_order else len(SUITS))
         if len(prefer) >= target:
             assigned = prefer[:target]
             hands[p] = assigned

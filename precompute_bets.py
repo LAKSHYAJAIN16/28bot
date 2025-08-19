@@ -9,6 +9,9 @@ Run:
 
 import itertools
 import json
+import math
+import os
+import time
 from typing import List
 
 from mcts.constants import FULL_DECK, card_suit, RANKS, SUITS as SUITS_CONST
@@ -47,20 +50,46 @@ def canonical_key(cards: List[str]) -> tuple:
 
 def main() -> int:
     all_cards = FULL_DECK
+    total_raw = math.comb(len(all_cards), 4)
     combos = itertools.combinations(all_cards, 4)
-    count = 0
+    count_unique = 0  # number of NEW unique entries written in this run
     seen = set()
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    # Load existing precomputed entries and seed the seen-set to avoid recomputing
+    pre_existing = 0
+    try:
+        with open(OUT_PATH, "r", encoding="utf-8") as f_in:
+            for line in f_in:
+                try:
+                    obj = json.loads(line)
+                    four = obj.get("four_cards") or obj.get("four")
+                    if isinstance(four, list):
+                        seen.add(canonical_key(four))
+                except Exception:
+                    continue
+        pre_existing = len(seen)
+    except FileNotFoundError:
+        pre_existing = 0
+    visited_raw = 0
+    t0 = time.perf_counter()
+    print(f"Starting precompute (append mode): raw_combos={total_raw}, existing_unique={pre_existing}, OUT_PATH={os.path.abspath(OUT_PATH)}")
+    # Append new results to the existing JSONL
+    with open(OUT_PATH, "a", encoding="utf-8") as f:
         for comb in combos:
-            if LIMIT and count >= LIMIT:
+            visited_raw += 1
+            if LIMIT and count_unique >= LIMIT:
                 break
             first_four = normalize_four(list(comb))
             key = canonical_key(first_four)
             if key in seen:
+                if visited_raw % 5000 == 0:
+                    elapsed = time.perf_counter() - t0
+                    rate_v = visited_raw / max(1e-6, elapsed)
+                    total_unique = pre_existing + count_unique
+                    dedup_ratio = total_unique / max(1, visited_raw)
+                    print(f"visited={visited_raw}/{total_raw} unique_total={total_unique} (new={count_unique}) dedup={dedup_ratio:.3f} elapsed={elapsed:.1f}s visited_rate={rate_v:.1f}/s")
                 continue
             seen.add(key)
-            # Accuracy-first: do our own two-stage evaluation heavier than advisor defaults
-            # Stage 1: quick p30/avg for all present suits
+            # Accuracy-first: two-stage evaluation
             present_suits = [s for s in SUITS if any(card_suit(c) == s for c in first_four)]
             stage1 = {}
             for s in present_suits:
@@ -69,7 +98,6 @@ def main() -> int:
                 n = max(1, len(pts))
                 stage1[s] = (sum(pts)/n, sorted(pts)[max(0, min(len(pts)-1, int(0.3*len(pts))))])
             top = sorted(present_suits, key=lambda s: (stage1[s][1], stage1[s][0]))[-max(1, HEAVY_TOP_K):]
-            # Stage 2: heavy for top suits
             suit_stats = {}
             suit_to_points = {}
             for s in present_suits:
@@ -97,10 +125,17 @@ def main() -> int:
                 "analysis": dbg,
             }
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
-            count += 1
-            if count % 500 == 0:
-                print(f"Processed {count} combos...")
-    print(f"Done. Wrote {count} combos to {OUT_PATH}")
+            count_unique += 1
+            if count_unique % 100 == 0:
+                elapsed = time.perf_counter() - t0
+                rate_u = count_unique / max(1e-6, elapsed)
+                rate_v = visited_raw / max(1e-6, elapsed)
+                total_unique = pre_existing + count_unique
+                dedup_ratio = total_unique / max(1, visited_raw)
+                print(f"unique_total={total_unique} (new={count_unique}) visited={visited_raw}/{total_raw} dedup={dedup_ratio:.3f} elapsed={elapsed:.1f}s unique_rate={rate_u:.2f}/s visited_rate={rate_v:.1f}/s")
+    elapsed = time.perf_counter() - t0
+    total_unique = pre_existing + count_unique
+    print(f"Done. Appended {count_unique} new unique combos to {OUT_PATH} (unique_total={total_unique}). Total visited raw={visited_raw}/{total_raw}. Elapsed={elapsed:.1f}s, new_unique_rate={(count_unique/max(1e-6,elapsed)):.2f}/s")
     return 0
 
 

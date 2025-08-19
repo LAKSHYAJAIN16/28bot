@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bet Advisor for Twenty-Eight (28) – Standalone
+Bet Advisor for Twenty-Eight (28) - Standalone
 
 Usage:
   - Run: python bet_advisor.py

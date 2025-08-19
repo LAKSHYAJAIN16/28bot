@@ -60,6 +60,12 @@ class TwentyEightEnv:
                 proposal = agents[p].propose_bid(self.first_four_hands[p], current_high, my_seat=p, first_player=first_player)
                 min_allowed = 16 if current_high < 16 else current_high + 1
                 dbg = getattr(agents[p], "last_debug", None)
+                # Enrich precomputed bets incrementally for each player's first-four
+                try:
+                    from .runner import _maybe_append_precomputed
+                    _maybe_append_precomputed(self.first_four_hands[p], bidder_bid=proposal, trump=None, dbg=dbg)
+                except Exception:
+                    pass
                 if proposal is not None and 16 <= proposal <= 28 and proposal >= min_allowed:
                     current_high = proposal
                     current_bidder = p
@@ -91,6 +97,13 @@ class TwentyEightEnv:
             self.round_stakes = 2 if self.bid_value >= 20 else 1
             self.trump_suit = agents[self.bidder].choose_trump(self.first_four_hands[self.bidder], self.bid_value)
             choose_dbg = getattr(agents[self.bidder], "last_choose_debug", None)
+            # Opportunistically persist this first-four to precomputed JSONL if new
+            try:
+                from .runner import _maybe_append_precomputed
+                bidder_dbg = getattr(agents[self.bidder], "last_debug", None)
+                _maybe_append_precomputed(self.first_four_hands[self.bidder], bidder_bid=self.bid_value, trump=self.trump_suit, dbg=bidder_dbg)
+            except Exception:
+                pass
             if self.debug:
                 print(
                     f"\nAUCTION WINNER: Player {self.bidder} with bid {self.bid_value}; chooses trump {self.trump_suit} "
@@ -168,6 +181,12 @@ class TwentyEightEnv:
                         f"-- Phase 2 begins: Trump revealed as {self.trump_suit} by Player {self.last_exposer} on trick {self.exposure_trick_index} --"
                     )
 
+        # Track suit leads for coordination
+        try:
+            if not self.current_trick:
+                self.lead_suit_counts[self.turn][card_suit(card)] += 1
+        except Exception:
+            pass
         self.hands[self.turn].remove(card)
         self.current_trick.append((self.turn, card))
         self.turn = (self.turn + 1) % 4

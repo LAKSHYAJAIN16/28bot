@@ -2,6 +2,8 @@ import copy
 import math
 import random
 import os
+import itertools
+import json
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from .constants import SUITS, card_suit, card_rank, card_value, rank_index, suit_trump_strength
 from .ismcts import ismcts_plan
@@ -22,6 +24,62 @@ class MonteCarloBiddingAgent:
         self.mcts_iterations = mcts_iterations
         self.last_debug = None
         self.last_choose_debug = None
+        # Lazy-loaded precomputed map: canonical_key -> suit_stats
+        self._precomp_map: dict[tuple[str, ...], dict[str, dict[str, float]]] | None = None
+
+    @staticmethod
+    def _rank_key(card: str) -> int:
+        r = card[:-1]
+        try:
+            from .constants import RANKS
+            return RANKS.index(r)
+        except Exception:
+            order = ["7","8","9","10","J","Q","K","A"]
+            return order.index(r)
+
+    @staticmethod
+    def _canonical_key(cards: list[str]) -> tuple[str, ...]:
+        from .constants import SUITS as SUITS_CONST
+        best: tuple[str, ...] | None = None
+        for perm in itertools.permutations(SUITS_CONST):
+            suit_map = {s: perm[i] for i, s in enumerate(SUITS_CONST)}
+            mapped = [c[:-1] + suit_map[c[-1]] for c in cards]
+            mapped_sorted = sorted(mapped, key=lambda c: (MonteCarloBiddingAgent._rank_key(c), SUITS.index(card_suit(c))))
+            tup = tuple(mapped_sorted)
+            if best is None or tup < best:
+                best = tup
+        return best if best is not None else tuple(sorted(cards))
+
+    def _load_precomputed(self) -> None:
+        if self._precomp_map is not None:
+            return
+        self._precomp_map = {}
+        path = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "precomputed_bets.jsonl"))
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        obj = json.loads(line)
+                        four = obj.get("four_cards") or obj.get("four")
+                        ss = obj.get("suit_stats")
+                        if isinstance(four, list) and isinstance(ss, dict):
+                            key = self._canonical_key(four)
+                            self._precomp_map[key] = ss
+                    except Exception:
+                        continue
+        except FileNotFoundError:
+            pass
+
+    def _lookup_precomputed_stats(self, my_first_four: list[str]) -> dict[str, dict[str, float]] | None:
+        self._load_precomputed()
+        assert self._precomp_map is not None
+        key = self._canonical_key(my_first_four)
+        stats = self._precomp_map.get(key)
+        if not stats:
+            return None
+        # Filter to only suits present in hand
+        present_suits = {card_suit(c) for c in my_first_four}
+        return {s: v for s, v in stats.items() if s in present_suits}
 
     def _simulate_points_for_suit(self, my_first_four, suit, my_seat, first_player, playout_tricks: int | None = None):
         # Lazy import to avoid circular import during env initialization
@@ -92,6 +150,91 @@ class MonteCarloBiddingAgent:
                 "current_high": current_high_bid,
             }
             return None
+
+        # Fast path: use precomputed suit stats if available
+        pre_ss = self._lookup_precomputed_stats(my_first_four)
+        if pre_ss:
+            raise_delta = 1
+            min_allowed = 16 if current_high_bid < 16 else current_high_bid + raise_delta
+            candidates = []
+            suit_failed_checks = {}
+            for s in present_suits:
+                det = pre_ss.get(s)
+                if not det:
+                    continue
+                avg_points = float(det.get("avg", 0.0))
+                std_points = float(det.get("std", 0.0))
+                p30 = float(det.get("p30", 0.0))
+                conf_mean = avg_points - 0.5 * std_points
+                ok = (p30 >= (min_allowed - 1)) and (conf_mean >= (min_allowed - 1))
+                if ok:
+                    bid_raw = max(p30, avg_points - 1.0)
+                    bid_s = int(math.floor(bid_raw))
+                    bid_s = max(min_allowed, min(28, bid_s))
+                    candidates.append((s, bid_s, avg_points, std_points, p30, conf_mean))
+                else:
+                    failed = []
+                    if p30 < (min_allowed - 1):
+                        failed.append(f"p30 {p30:.2f} < {min_allowed - 1}")
+                    if conf_mean < (min_allowed - 1):
+                        failed.append(f"conf_mean {conf_mean:.2f} < {min_allowed - 1}")
+                    suit_failed_checks[s] = {
+                        "avg": avg_points,
+                        "std": std_points,
+                        "p30": p30,
+                        "conf_mean": conf_mean,
+                        "failed": failed,
+                    }
+            if not candidates:
+                def suit_key(s):
+                    det = pre_ss.get(s) or {}
+                    return (float(det.get("p30", 0.0)), float(det.get("avg", 0.0)))
+                best_s = max(present_suits, key=suit_key)
+                det = pre_ss.get(best_s) or {}
+                best_mean = float(det.get("avg", 0.0))
+                best_std = float(det.get("std", 0.0))
+                best_p30 = float(det.get("p30", 0.0))
+                best_conf = best_mean - 0.5 * best_std
+                reason_text = (
+                    f"Pass: No suit meets thresholds. Best suit {best_s} has p30={best_p30:.2f}, "
+                    f"conf_mean={best_conf:.2f} below min_allowed={min_allowed} (current_high={current_high_bid}, raise_delta=+1). "
+                    f"Failed checks for best suit: {', '.join((suit_failed_checks.get(best_s) or {}).get('failed', [])) or 'n/a'}."
+                )
+                self.last_debug = {
+                    "present_suits": present_suits,
+                    "suit_to_points": {},
+                    "chosen_suit": None,
+                    "avg_points": best_mean,
+                    "p30_points": best_p30,
+                    "std_points": best_std,
+                    "proposed": None,
+                    "current_high": current_high_bid,
+                    "min_allowed": min_allowed,
+                    "raise_delta": raise_delta,
+                    "reason": reason_text,
+                    "suit_failed_checks": suit_failed_checks,
+                }
+                return None
+            candidates.sort(key=lambda t: (t[4], t[2]))
+            best_suit, final_prop, avg_points, std_points, p30, conf_mean = candidates[-1]
+            reason_text = (
+                f"Bid (precomputed): Suit {best_suit} meets thresholds (p30={p30:.2f}, conf_mean={conf_mean:.2f} >= min_allowed={min_allowed}); "
+                f"conservative mapping max(p30, avg-1) -> {final_prop}. (current_high={current_high_bid}, raise_delta=+1)"
+            )
+            self.last_debug = {
+                "present_suits": present_suits,
+                "suit_to_points": {},
+                "chosen_suit": best_suit,
+                "avg_points": avg_points,
+                "p30_points": p30,
+                "std_points": std_points,
+                "proposed": final_prop,
+                "current_high": current_high_bid,
+                "min_allowed": min_allowed,
+                "raise_delta": raise_delta,
+                "reason": reason_text,
+            }
+            return final_prop
 
         # Stage 1: quick screening
         stage1_points = {}
