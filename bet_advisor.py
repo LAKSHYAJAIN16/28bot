@@ -27,19 +27,18 @@ from mcts.constants import SUITS, RANKS, CARD_POINTS, card_suit, card_rank, card
 from mcts.env28 import TwentyEightEnv
 from mcts.ismcts import ismcts_plan
 
-
 SUITS = SUITS
 RANKS = RANKS
 CARD_POINTS = CARD_POINTS
 
 # Speed/accuracy presets
-FAST_MODE = False
-VERBOSE = False  # Toggle detailed prints
-DEFAULT_STAGE1_SAMPLES = 1 if FAST_MODE else 3
-DEFAULT_STAGE1_ITERS = 40 if FAST_MODE else 100
-DEFAULT_STAGE2_SAMPLES = 3 if FAST_MODE else 6
-DEFAULT_STAGE2_ITERS = 90 if FAST_MODE else 200
-TOP_K_SUIT_HEAVY = 1 if FAST_MODE else 2
+FAST_MODE = True
+VERBOSE = True  # Toggle detailed prints
+DEFAULT_STAGE1_SAMPLES = 1 if FAST_MODE else 2
+DEFAULT_STAGE1_ITERS = 100 if FAST_MODE else 100
+DEFAULT_STAGE2_SAMPLES = 40 if FAST_MODE else 80
+DEFAULT_STAGE2_ITERS = 300 if FAST_MODE else 400
+TOP_K_SUIT_HEAVY = 1    
 
 
 def parse_cards(raw: str) -> List[str]:
@@ -161,7 +160,9 @@ def simulate_points_for_suit_ismcts(my_first_four: List[str], suit: str, my_seat
 
 def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
                        num_samples: int = DEFAULT_STAGE2_SAMPLES, base_iterations: int = DEFAULT_STAGE2_ITERS) -> Tuple[int, str, Dict[str, Dict[str, float]], Dict]:
-    present_suits = [s for s in SUITS if any(card_suit(c) == s for c in first_four_cards)]
+    # Suit presence and counts in the 4-card hand
+    suit_counts = {s: sum(1 for c in first_four_cards if card_suit(c) == s) for s in SUITS}
+    present_suits = [s for s in SUITS if suit_counts[s] > 0]
     suit_to_points: Dict[str, List[int]] = {}
     if not present_suits:
         debug = {
@@ -180,14 +181,27 @@ def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
         return 0, "H", {s: {"avg": 0.0, "p30": 0.0, "std": 0.0} for s in SUITS}, debug
 
     suit_stats: Dict[str, Dict[str, float]] = {}
-    # Stage 1: quick screening for all present suits
+    # Stage 1 elimination per heuristic:
+    # - If the 4-card hand is a 2/2 split across two suits, run Stage 1 only on those two suits and pick the best
+    # - Otherwise, skip Stage 1 entirely and run Stage 2 directly on the suit(s) with the highest count
     stage1_points: Dict[str, List[int]] = {}
-    if len(present_suits) > 1:
-        max_workers = min(len(present_suits), max(1, (os.cpu_count() or 1)))
+    max_count = max(suit_counts[s] for s in present_suits)
+    top_count_suits = [s for s in present_suits if suit_counts[s] == max_count]
+    if max_count == 2 and len(top_count_suits) == 2:
+        # 2/2 case: quick Stage 1 on both, choose best for heavy eval
+        max_workers = min(2, max(1, (os.cpu_count() or 1)))
         with ProcessPoolExecutor(max_workers=max_workers) as ex:
             futures = {
-                ex.submit(_simulate_points_for_suit_worker, first_four_cards, s, 0, 0, DEFAULT_STAGE1_SAMPLES, DEFAULT_STAGE1_ITERS): s
-                for s in present_suits
+                ex.submit(
+                    _simulate_points_for_suit_worker,
+                    first_four_cards,
+                    s,
+                    0,
+                    0,
+                    DEFAULT_STAGE1_SAMPLES,
+                    DEFAULT_STAGE1_ITERS,
+                ): s
+                for s in top_count_suits
             }
             for fut in as_completed(futures):
                 s = futures[fut]
@@ -195,26 +209,26 @@ def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
                     stage1_points[s] = fut.result()
                 except Exception:
                     stage1_points[s] = simulate_points_for_suit_ismcts(
-                        first_four_cards, s, my_seat=0, first_player=0,
-                        num_samples=DEFAULT_STAGE1_SAMPLES, base_iterations=DEFAULT_STAGE1_ITERS
+                        first_four_cards,
+                        s,
+                        my_seat=0,
+                        first_player=0,
+                        num_samples=DEFAULT_STAGE1_SAMPLES,
+                        base_iterations=DEFAULT_STAGE1_ITERS,
                     )
+        def stage1_stat(s: str):
+            pts = stage1_points.get(s, [])
+            if not pts:
+                return (0.0, 0.0)
+            n = len(pts)
+            mean = sum(pts) / n
+            p30 = _percentile(pts, 0.3)
+            return (p30, mean)
+        best = max(top_count_suits, key=lambda s: stage1_stat(s))
+        top_suits = [best]
     else:
-        s = present_suits[0]
-        stage1_points[s] = simulate_points_for_suit_ismcts(
-            first_four_cards, s, my_seat=0, first_player=0,
-            num_samples=DEFAULT_STAGE1_SAMPLES, base_iterations=DEFAULT_STAGE1_ITERS
-        )
-
-    # Rank suits by stage1 p30 then avg
-    def stage1_stat(s: str):
-        pts = stage1_points.get(s, [])
-        if not pts:
-            return (0.0, 0.0)
-        n = len(pts)
-        mean = sum(pts)/n
-        p30 = _percentile(pts, 0.3)
-        return (p30, mean)
-    top_suits = sorted(present_suits, key=lambda s: stage1_stat(s))[-max(1, TOP_K_SUIT_HEAVY):]
+        # Not a 2/2 split: skip Stage 1, go straight to heavy for suits with the highest count
+        top_suits = top_count_suits[:]
 
     # Stage 2: heavy evaluation for top suits only
     if len(top_suits) > 1:
@@ -239,7 +253,7 @@ def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
             first_four_cards, s, my_seat=0, first_player=0,
             num_samples=num_samples, base_iterations=base_iterations
         )
-    # Non-top suits keep stage1 stats
+    # Fill non-top suits with Stage 1 results if computed; otherwise empty
     for s in present_suits:
         if s not in suit_to_points:
             suit_to_points[s] = stage1_points.get(s, [])
@@ -380,7 +394,7 @@ def _format_bidding_debug(dbg: dict) -> str:
                 q = sorted(pts)
                 k = max(0, min(len(q) - 1, int(0.3 * len(q))))
                 p30 = q[k]
-                preview = ", ".join(str(x) for x in pts[:6]) + (" ..." if len(pts) > 6 else "")
+                preview = ", ".join(str(x) for x in pts)
                 lines.append(
                     f"      {s}: pts=[{preview}]  avg={mean:.2f}  p30={p30:.2f}  std={std:.2f}"
                 )

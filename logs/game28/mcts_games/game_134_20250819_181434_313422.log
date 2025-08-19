@@ -1,0 +1,13 @@
+
+===== GAME 134 (20250819_181434_313422) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=6.83  p30=2.00  std=6.84
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 2.56 < 15
+      D: p30 2.00 < 15; conf_mean 3.41 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=2.00, conf_mean=3.41 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 2.00 < 15, conf_mean 3.41 < 15.

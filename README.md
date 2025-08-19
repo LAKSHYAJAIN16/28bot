@@ -1,9 +1,9 @@
 # 28 (Twenty-Eight) ISMCTS Bot
 
-The only way to beat my grandfather at 28 (an indian card game) was to create a strong, modular AI built around an incomplete monte carlo search tree.
+### AI designed to beat my grandfather at 28 (it was the only way). 28bot is a strong, modular AI built that uses an incomplete monte carlo search tree and a neural network.
 
 ### Highlights
-- Conservative, human-like bidding with two-stage suit evaluation and multiprocessing.
+- Conservative, human-like bidding with accurate two-stage evaluation and multiprocessing.
 - Precomputation pipeline that precomputes the ideal bids for certain hands (canonization that takes total permutations down to just ~2k)
 - Enhanced Monte Carlo Search Tree that is void-aware (keeps track of the cards not played yet), and is information imperfect (AI does not know the cards that the other players have)
 - Optional long-horizon “long_bias” search mode for better trump timing and resource conservation, reward structure designed to mimic human play.
@@ -35,9 +35,7 @@ Edit `run_game.py`:
 - `ITERATIONS`: MCTS iterations per move
 - `CONCURRENT`: run games in parallel processes
 - `MAX_WORKERS`: cap process count (None = auto)
-- `SEARCH_MODE`: `"regular"` (default behavior) or `"long_bias"` (more long-term bias)
-
-When run, you’ll see per-game console output tee’d to log files and a final summary. Concurrency uses `ProcessPoolExecutor` for performance and safety.
+- `SEARCH_MODE`: `"regular"` (default behavior) or  `"long_bias"` (more long-term bias)
 ---
 
 ## Logs and Where to Find Them
@@ -91,35 +89,28 @@ Parameters are accessible via `run_game.py` (`ITERATIONS`) and `mcts/policy.py` 
 
 ---
 
+## NNEt Training (optional)
+
+- What it is
+  - `mcts/train_mcts_nnet.py` sketches a self-play training loop for a policy+value model to guide ISMCTS.
+  - Self-play supplies targets: visit-count policies (for bidding/play) and final value (stakes applied).
+
+- How to run (example)
+  - `python -m mcts.train_mcts_nnet` or `python mcts/train_mcts_nnet.py`
+  - Configure epochs, batch size, device (GPU if available), AMP, and optional `torch.compile` inside the script.
+
+- Outputs and logs
+  - Checkpoints like `pv_cycle_*.pt`
+  - Metrics in `training.log`; you can wire TensorBoard if desired
+
+- Integration
+  - Swap handcrafted priors/rollouts for network priors/values in `mcts_core` once trained (code is structured for drop-in).
+
+---
+
 ## Precomputation (`precompute_bets.py`)
 - Canonicalization: hands that differ only by a suit relabel are equivalent; we evaluate a single representative per S4 class
   - Cuts work by ~15–20× in practice (max 24×). C(32,4) ≈ 36k distinct sets shrink to ~2k canonical keys
 - Append-only: loads existing JSONL and skips already-computed hands
 - Two-stage evaluation: mirrors in-game pipeline with heavier budgets for top suits
 - Progress debug: prints visited count, unique totals, dedup ratio, elapsed time, and rates
-
----
-
-## Performance Tips
-- Increase `ITERATIONS` for stronger play (diminishing returns apply)
-- Use `CONCURRENT=True` in `run_game.py` to run many games in parallel
-- Keep `precomputed_bets.jsonl` growing (precompute script + runtime enrichment) to accelerate bidding
-- Choose `SEARCH_MODE="long_bias"` for improved trump timing and resource conservation
-- For offline precomputation, run on multicore machines; consider splitting the combo space manually if needed
-
----
-
-## Extending / Other Games
-The engine layout is reusable for related trick-taking games: 29, Court Piece (Rang), Tarneeb/Hokm, Euchre, Call Break, Spades, Hearts, Oh Hell, and more. Bridge/Skat/Pinochle are longer-term targets that benefit from the same ISMCTS/belief pipeline.
-
----
-
-## Troubleshooting
-- Empty or tiny `precomputed_bets.jsonl`? Run `precompute_bets.py` and simulate games to enrich
-- Logs not written? Ensure `logs/game28/mcts_games` exists (it’s auto-created) and the process has write permissions
-- Performance slow? Lower `ITERATIONS`, reduce Stage 2 budgets, or enable precomputed shortcut
-
----
-
-## Notes
-This codebase currently uses handcrafted priors/rollouts. It is structured to be upgraded to a learned policy+value network guiding ISMCTS (with batching/caching) without large refactors.

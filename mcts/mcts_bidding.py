@@ -236,14 +236,20 @@ class MonteCarloBiddingAgent:
             }
             return final_prop
 
-        # Stage 1: quick screening
-        stage1_points = {}
-        max_workers = min(len(present_suits), max(1, (os.cpu_count() or 1)))
-        if len(present_suits) > 1:
+        # Stage 1 elimination heuristic:
+        # - If the 4-card hand is 2/2 across two suits, run Stage 1 only on those two suits and pick the best
+        # - Otherwise, skip Stage 1 and go straight to Stage 2 for suits with the highest count
+        suit_counts = {s: sum(1 for c in my_first_four if card_suit(c) == s) for s in present_suits}
+        max_count = max(suit_counts.values()) if suit_counts else 0
+        top_count_suits = [s for s in present_suits if suit_counts[s] == max_count]
+        stage1_points: dict[str, list[int]] = {}
+        max_workers = min(len(top_count_suits), max(1, (os.cpu_count() or 1)))
+        if max_count == 2 and len(top_count_suits) == 2:
+            # 2/2 case: quick screen both, then pick best by (p30, mean)
             with ProcessPoolExecutor(max_workers=max_workers) as ex:
                 futures = {
                     ex.submit(_simulate_points_for_suit_worker, my_first_four, s, my_seat, first_player, 2, max(60, self.mcts_iterations)): s
-                    for s in present_suits
+                    for s in top_count_suits
                 }
                 for fut in as_completed(futures):
                     s = futures[fut]
@@ -251,17 +257,17 @@ class MonteCarloBiddingAgent:
                         stage1_points[s] = fut.result()
                     except Exception:
                         stage1_points[s] = self._simulate_points_for_suit(my_first_four, s, my_seat, first_player, playout_tricks=4)
+            def stage1_stat(suit: str):
+                pts = stage1_points.get(suit, [])
+                if not pts:
+                    return (0.0, 0.0)
+                n = len(pts)
+                return (_percentile(pts, 0.3), sum(pts)/n)
+            best = max(top_count_suits, key=lambda su: stage1_stat(su))
+            top_suits = [best]
         else:
-            s = present_suits[0]
-            stage1_points[s] = self._simulate_points_for_suit(my_first_four, s, my_seat, first_player, playout_tricks=4)
-        def stage1_stat(suit: str):
-            pts = stage1_points.get(suit, [])
-            if not pts:
-                return (0.0, 0.0)
-            n = len(pts)
-            return (_percentile(pts, 0.3), sum(pts)/n)
-        top_k = 2
-        top_suits = sorted(present_suits, key=lambda su: stage1_stat(su))[-max(1, top_k):]
+            # Not a 2/2 split: heavy only on suits with the highest count
+            top_suits = top_count_suits[:]
         # Stage 2: heavy for top suits
         suit_to_points = {}
         if len(top_suits) > 1:
@@ -279,7 +285,7 @@ class MonteCarloBiddingAgent:
         else:
             s = top_suits[0]
             suit_to_points[s] = self._simulate_points_for_suit(my_first_four, s, my_seat, first_player)
-        # Non-top suits keep stage1
+        # Non-top suits keep stage1 if computed (only in 2/2), else remain empty
         for s in present_suits:
             if s not in suit_to_points:
                 suit_to_points[s] = stage1_points.get(s, [])
@@ -379,18 +385,54 @@ class MonteCarloBiddingAgent:
             chosen = max(SUITS, key=lambda s: -SUITS.index(s))
             self.last_choose_debug = {"chosen": chosen, "estimates": {}}
             return chosen
-        best_s, best_e = None, -1
-        estimates = {}
+
+        # Prefer precomputed averages if available
+        estimates: dict[str, float] = {}
+        pre_ss = self._lookup_precomputed_stats(my_first_four)
+        missing: list[str] = []
         for s in present_suits:
-            count = sum(1 for c in my_first_four if card_suit(c) == s)
-            pts = sum(card_value(c) for c in my_first_four if card_suit(c) == s)
-            est = 3 * count + 2 * pts
-            estimates[s] = est
-            if est > best_e:
-                best_e = est
-                best_s = s
-        self.last_choose_debug = {"chosen": best_s, "estimates": estimates}
-        return best_s
+            if pre_ss and s in pre_ss:
+                try:
+                    estimates[s] = float(pre_ss[s].get("avg", 0.0))
+                except Exception:
+                    estimates[s] = 0.0
+            else:
+                missing.append(s)
+
+        # For missing suits, run heavier ISMCTS evaluation and use average points
+        if missing:
+            max_workers = min(len(missing), max(1, (os.cpu_count() or 1)))
+            if len(missing) > 1:
+                with ProcessPoolExecutor(max_workers=max_workers) as ex:
+                    futures = {
+                        ex.submit(
+                            _simulate_points_for_suit_worker,
+                            my_first_four,
+                            s,
+                            0,
+                            0,
+                            max(6, self.num_samples),
+                            max(220, self.mcts_iterations),
+                        ): s
+                        for s in missing
+                    }
+                    for fut in as_completed(futures):
+                        s = futures[fut]
+                        try:
+                            pts = fut.result()
+                        except Exception:
+                            pts = self._simulate_points_for_suit(my_first_four, s, 0, 0)
+                        n = max(1, len(pts))
+                        estimates[s] = sum(pts) / n
+            else:
+                s = missing[0]
+                pts = self._simulate_points_for_suit(my_first_four, s, 0, 0)
+                n = max(1, len(pts))
+                estimates[s] = sum(pts) / n
+
+        best_suit = max(present_suits, key=lambda s: estimates.get(s, 0.0))
+        self.last_choose_debug = {"chosen": best_suit, "estimates": estimates}
+        return best_suit
 
 
 def _simulate_points_for_suit_worker(my_first_four, suit, my_seat, first_player, num_samples, mcts_iterations):

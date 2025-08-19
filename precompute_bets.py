@@ -20,7 +20,7 @@ from bet_advisor import propose_bid_ismcts, simulate_points_for_suit_ismcts, SUI
 # Predefined output configuration
 OUT_PATH = "precomputed_bets.jsonl"
 LIMIT = 0  # 0 = all combinations
-HEAVY_TOP_K = 2  # heavy-evaluate top K suits
+HEAVY_TOP_K = 1  # heavy-evaluate top K suits
 HEAVY_SAMPLES = max(DEFAULT_STAGE2_SAMPLES, 6)
 HEAVY_ITERS = max(DEFAULT_STAGE2_ITERS, 220)
 

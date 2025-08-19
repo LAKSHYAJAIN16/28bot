@@ -13,7 +13,7 @@ Logs:
 from __future__ import annotations
 
 # ===== CONFIG =====
-NUM_GAMES: int = 100             # how many games to play
+NUM_GAMES: int = 300             # how many games to play
 ITERATIONS: int = 500            # MCTS iterations per move
 CONCURRENT: bool = False          # run games in parallel using multiple processes
 MAX_WORKERS: int | None = None    # None => auto (cpu_count)
