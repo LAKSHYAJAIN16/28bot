@@ -17,6 +17,7 @@ import numpy as np
 from typing import List, Dict, Tuple, Optional
 from scipy.optimize import minimize
 import glob
+from sklearn.model_selection import train_test_split
 
 from mcts.constants import SUITS, RANKS, card_suit, card_rank, card_value, rank_index, trick_rank_index
 
@@ -24,8 +25,9 @@ from mcts.constants import SUITS, RANKS, card_suit, card_rank, card_value, rank_
 class GameDataExtractor:
     """Extract training data from game logs."""
     
-    def __init__(self, logs_dir: str = "logs/game28/mcts_games"):
+    def __init__(self, logs_dir: str = "logs/game28/mcts_games", training_log: str = "training.log"):
         self.logs_dir = logs_dir
+        self.training_log = training_log
         
     def extract_game_data(self, log_file: str) -> Optional[Dict]:
         """Extract data from a single game log file."""
@@ -118,38 +120,70 @@ class GameDataExtractor:
             return None
     
     def extract_all_games(self) -> List[Dict]:
-        """Extract data from all game log files."""
-        log_files = glob.glob(os.path.join(self.logs_dir, "*.log"))
-        games_data = []
+        """Extract data from training.log which contains both game_start and game_end events."""
+        games_data = {}
         
-        for log_file in log_files:
-            game_data = self.extract_game_data(log_file)
-            if game_data:
-                games_data.append(game_data)
+        try:
+            with open(self.training_log, 'r') as f:
+                for line in f:
+                    if line.strip():
+                        data = json.loads(line)
+                        
+                        if data.get('event') == 'game_start':
+                            game_id = data['game_id']
+                            games_data[game_id] = {
+                                'game_id': game_id,
+                                'hands': {
+                                    0: data['first_four_hands'][0],
+                                    1: data['first_four_hands'][1], 
+                                    2: data['first_four_hands'][2],
+                                    3: data['first_four_hands'][3]
+                                },
+                                'bidder': data['bidder'],
+                                'bid_value': data['bid_value'],
+                                'trump_suit': data['trump'],
+                                'team_a_points': None,
+                                'team_b_points': None
+                            }
+                        
+                        elif data.get('event') == 'game_end' and 'scores' in data:
+                            game_id = data['game_id']
+                            if game_id in games_data:
+                                team_a_final, team_b_final = data['scores']
+                                games_data[game_id]['team_a_points'] = team_a_final
+                                games_data[game_id]['team_b_points'] = team_b_final
+                                
+        except Exception as e:
+            print(f"Error reading training.log: {e}")
         
-        print(f"Extracted data from {len(games_data)} games")
-        return games_data
+        # Only keep games that have both start and end data
+        complete_games = [game for game in games_data.values() 
+                         if game['team_a_points'] is not None and game['team_b_points'] is not None]
+        
+        print(f"Extracted complete data from {len(complete_games)} games")
+        return complete_games
 
 
 class AnalyticalModelTrainer:
     """Train analytical model coefficients using game data."""
     
-    def __init__(self, games_data: List[Dict]):
+    def __init__(self, games_data: List[Dict], regularization_strength: float = 0.1):
         self.games_data = games_data
+        self.regularization_strength = regularization_strength
         
-        # Current coefficients (from bet_advisor.py)
+        # Current coefficients (from bet_advisor.py) - more conservative initial values
         self.coefficients = {
-            'base_points_multiplier': 1.0,
-            'trump_base_value': 1.5,
+            'base_points_multiplier': 0.1,
+            'trump_base_value': 1.0,
             'high_trump_bonus': 0.5,
-            'trump_length_bonus': 0.5,
-            'suit_base_multiplier': 2.0,
+            'trump_length_bonus': 0.3,
+            'suit_base_multiplier': 1.5,
             'suit_length_bonus': 0.5,
-            'suit_high_card_bonus': 1.0,
-            'non_trump_penalty': 0.7,
-            'suit_flexibility': 0.3,
+            'suit_high_card_bonus': 0.5,
+            'non_trump_penalty': 0.8,
+            'suit_flexibility': 0.2,
             'balance_bonus': 1.0,
-            'trump_control_bonus': 1.5
+            'trump_control_bonus': 0.5
         }
     
     def calculate_expected_points_analytical(self, hand_4_cards: List[str], trump_suit: str) -> float:
@@ -244,14 +278,13 @@ class AnalyticalModelTrainer:
         return suit_flexibility + balance_bonus + trump_control_bonus
     
     def objective_function(self, params):
-        """Objective function to minimize: combination of MSE and relative error."""
+        """Objective function to minimize: MSE + L2 regularization."""
         # Update coefficients with current parameters
         param_names = list(self.coefficients.keys())
         for i, name in enumerate(param_names):
             self.coefficients[name] = params[i]
         
         total_error = 0.0
-        total_relative_error = 0.0
         num_predictions = 0
         
         for game in self.games_data:
@@ -273,20 +306,14 @@ class AnalyticalModelTrainer:
                 # Add to error
                 error = (predicted_team_points - actual_team_points) ** 2
                 total_error += error
-                
-                # Add relative error (avoid division by zero)
-                if abs(actual_team_points) > 0.1:
-                    relative_error = abs(predicted_team_points - actual_team_points) / abs(actual_team_points)
-                    total_relative_error += relative_error
-                
                 num_predictions += 1
         
         mse = total_error / num_predictions if num_predictions > 0 else float('inf')
-        avg_relative_error = total_relative_error / num_predictions if num_predictions > 0 else float('inf')
         
-        # Combine MSE and relative error
-        combined_loss = mse + 10.0 * avg_relative_error
-        return combined_loss
+        # Add L2 regularization to prevent overfitting
+        l2_penalty = self.regularization_strength * sum(param**2 for param in params)
+        
+        return mse + l2_penalty
     
     def train(self):
         """Train the model coefficients."""
@@ -296,28 +323,16 @@ class AnalyticalModelTrainer:
         initial_params = list(self.coefficients.values())
         param_names = list(self.coefficients.keys())
         
-        # Bounds for parameters (all positive, reasonable ranges)
-        bounds = [
-            (0.1, 5.0),   # base_points_multiplier
-            (0.1, 5.0),   # trump_base_value
-            (0.1, 2.0),   # high_trump_bonus
-            (0.1, 2.0),   # trump_length_bonus
-            (0.1, 5.0),   # suit_base_multiplier
-            (0.1, 2.0),   # suit_length_bonus
-            (0.1, 3.0),   # suit_high_card_bonus
-            (0.1, 1.0),   # non_trump_penalty
-            (0.1, 1.0),   # suit_flexibility
-            (0.1, 3.0),   # balance_bonus
-            (0.1, 3.0),   # trump_control_bonus
-        ]
+        # No bounds - let the model find optimal values naturally
+        bounds = None
         
-        # Optimize
+        # Optimize using SLSQP without bounds
         result = minimize(
             self.objective_function,
             initial_params,
-            method='L-BFGS-B',
+            method='SLSQP',
             bounds=bounds,
-            options={'maxiter': 1000}
+            options={'maxiter': 500}
         )
         
         if result.success:
@@ -399,8 +414,8 @@ class AnalyticalModelTrainer:
 
 def main():
     """Main training function."""
-    print("Analytical Model Coefficient Training")
-    print("=====================================")
+    print("Analytical Model Coefficient Training (with regularization)")
+    print("==========================================================")
     
     # Extract game data
     extractor = GameDataExtractor()
@@ -410,8 +425,12 @@ def main():
         print("No valid game data found!")
         return
     
-    # Train model
-    trainer = AnalyticalModelTrainer(games_data)
+    # Split data for validation
+    train_data, val_data = train_test_split(games_data, test_size=0.2, random_state=42)
+    print(f"Training on {len(train_data)} games, validating on {len(val_data)} games")
+    
+    # Train model with stronger regularization to prevent overfitting
+    trainer = AnalyticalModelTrainer(train_data, regularization_strength=0.5)
     
     # Evaluate before training
     print("\nBefore training:")
@@ -424,6 +443,16 @@ def main():
         # Evaluate after training
         print("\nAfter training:")
         trainer.evaluate()
+        
+        # Validate on held-out data
+        print("\nValidation on held-out data:")
+        val_trainer = AnalyticalModelTrainer(val_data)
+        val_trainer.coefficients = optimized_coefficients
+        val_metrics = val_trainer.evaluate()
+        
+        print(f"\nValidation MAE: {val_metrics['mae']:.2f}")
+        print(f"Validation MSE: {val_metrics['mse']:.2f}")
+        print(f"Validation Correlation: {val_metrics['correlation']:.3f}")
         
         # Save optimized coefficients
         with open('optimized_analytical_coefficients.json', 'w') as f:

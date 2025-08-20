@@ -213,13 +213,38 @@ def simulate_points_for_suit_ismcts(my_first_four: List[str], suit: str, my_seat
     return team_points
 
 
+def load_optimized_coefficients() -> Dict[str, float]:
+    """Load optimized coefficients from JSON file."""
+    try:
+        with open('optimized_analytical_coefficients.json', 'r') as f:
+            import json
+            return json.load(f)
+    except FileNotFoundError:
+        # Fallback to default coefficients if file doesn't exist
+        return {
+            'base_points_multiplier': -0.0089,
+            'trump_base_value': 0.7549,
+            'high_trump_bonus': 0.8354,
+            'trump_length_bonus': 0.3050,
+            'suit_base_multiplier': 2.5290,
+            'suit_length_bonus': 1.8479,
+            'suit_high_card_bonus': -1.0000,
+            'non_trump_penalty': 1.0000,
+            'suit_flexibility': -0.1666,
+            'balance_bonus': 3.0000,
+            'trump_control_bonus': -1.0000
+        }
+
 def calculate_expected_points_analytical(hand_4_cards: List[str], trump_suit: str) -> float:
     """
     Calculate expected points using analytical trick-winning probability model.
     This is much more accurate and stable than ISMCTS simulations for strong hands.
     """
+    # Load optimized coefficients
+    coefficients = load_optimized_coefficients()
+    
     # Calculate base points from cards in hand
-    base_points = sum(card_value(card) for card in hand_4_cards) * 0.1000  # Optimized coefficient
+    base_points = sum(card_value(card) for card in hand_4_cards) * coefficients['base_points_multiplier']
     
     # Calculate trump control value
     trump_cards = [card for card in hand_4_cards if card_suit(card) == trump_suit]
@@ -246,17 +271,20 @@ def calculate_trump_control_value(trump_cards: List[str], trump_suit: str) -> fl
     if not trump_cards:
         return 0.0
     
+    # Load optimized coefficients
+    coefficients = load_optimized_coefficients()
+    
     # Count high trumps (J, 9, A, 10)
     high_trumps = [card for card in trump_cards if card_rank(card) in ['J', '9', 'A', '10']]
     
     # Base value: each trump card is worth extra points
-    base_value = len(trump_cards) * 0.1000  # Optimized coefficient
+    base_value = len(trump_cards) * coefficients['trump_base_value']
     
     # High trump bonus: J=3, 9=2, A=1, 10=1
-    high_trump_bonus = sum(card_value(card) for card in high_trumps) * 0.8122  # Optimized coefficient
+    high_trump_bonus = sum(card_value(card) for card in high_trumps) * coefficients['high_trump_bonus']
     
     # Trump length bonus: having multiple trumps is very valuable
-    length_bonus = len(trump_cards) * (len(trump_cards) - 1) * 0.5910  # Optimized coefficient
+    length_bonus = len(trump_cards) * (len(trump_cards) - 1) * coefficients['trump_length_bonus']
     
     return base_value + high_trump_bonus + length_bonus
 
@@ -266,35 +294,41 @@ def calculate_suit_trick_potential(suit_cards: List[str], suit: str, trump_suit:
     if not suit_cards:
         return 0.0
     
+    # Load optimized coefficients
+    coefficients = load_optimized_coefficients()
+    
     # Calculate card strength in this suit
     card_strengths = [trick_rank_index(card) for card in suit_cards]
     max_strength = max(card_strengths)
     
     # Base value: probability of winning tricks in this suit
     # Higher cards have better chance of winning
-    base_value = sum(strength / 8.0 for strength in card_strengths) * 0.4705  # Optimized coefficient
+    base_value = sum(strength / 8.0 for strength in card_strengths) * coefficients['suit_base_multiplier']
     
     # Length bonus: having multiple cards in same suit is valuable
-    length_bonus = len(suit_cards) * 1.7751  # Optimized coefficient
+    length_bonus = len(suit_cards) * coefficients['suit_length_bonus']
     
     # High card bonus: J, 9, A, 10 are especially valuable
     high_cards = [card for card in suit_cards if card_rank(card) in ['J', '9', 'A', '10']]
-    high_card_bonus = len(high_cards) * 0.1000  # Optimized coefficient
+    high_card_bonus = len(high_cards) * coefficients['suit_high_card_bonus']
     
     # Trump competition: if this isn't trump suit, we compete with trump
     if suit != trump_suit:
         # Non-trump suits are worth less due to trump competition
-        base_value *= 1.0000  # Optimized coefficient (no penalty)
-        length_bonus *= 1.0000  # Optimized coefficient (no penalty)
+        base_value *= coefficients['non_trump_penalty']
+        length_bonus *= coefficients['non_trump_penalty']
     
     return base_value + length_bonus + high_card_bonus
 
 
 def calculate_team_coordination_bonus(hand_4_cards: List[str], trump_suit: str) -> float:
     """Calculate bonus from team coordination potential."""
+    # Load optimized coefficients
+    coefficients = load_optimized_coefficients()
+    
     # Having multiple suits gives flexibility
     suits_present = set(card_suit(card) for card in hand_4_cards)
-    suit_flexibility = len(suits_present) * 0.6202  # Optimized coefficient
+    suit_flexibility = len(suits_present) * coefficients['suit_flexibility']
     
     # Having balanced hand (not all in one suit) is good for coordination
     suit_counts = {}
@@ -305,12 +339,12 @@ def calculate_team_coordination_bonus(hand_4_cards: List[str], trump_suit: str) 
     balance_bonus = 0.0
     if len(suit_counts) >= 2:
         # Balanced hand is good for team coordination
-        balance_bonus = 0.1000  # Optimized coefficient
+        balance_bonus = coefficients['balance_bonus']
     
     # Having trump control helps team coordination
     trump_control_bonus = 0.0
     if any(card_suit(card) == trump_suit for card in hand_4_cards):
-        trump_control_bonus = 1.5854  # Optimized coefficient
+        trump_control_bonus = coefficients['trump_control_bonus']
     
     return suit_flexibility + balance_bonus + trump_control_bonus
 
@@ -347,8 +381,9 @@ def propose_bid_analytical(hand_4_cards: List[str], current_high_bid: int = 0) -
     # Calculate expected points for each suit using analytical model
     suit_to_points = {}
     for suit in present_suits:
-        points = simulate_points_for_suit_analytical(hand_4_cards, suit, num_samples=DEFAULT_ANALYTICAL_SAMPLES)
-        suit_to_points[suit] = points
+        points_list = simulate_points_for_suit_analytical(hand_4_cards, suit, num_samples=DEFAULT_ANALYTICAL_SAMPLES)
+        avg_points = sum(points_list) / len(points_list)
+        suit_to_points[suit] = [avg_points]  # Store as single-item list for compatibility
     
     # Calculate statistics
     def stats(values):
@@ -369,10 +404,9 @@ def propose_bid_analytical(hand_4_cards: List[str], current_high_bid: int = 0) -
     
     # Calculate bid using conservative approach
     mean, std = stats(suit_to_points[best_suit])
-    p30 = sorted(suit_to_points[best_suit])[max(0, min(len(suit_to_points[best_suit])-1, int(0.3*len(suit_to_points[best_suit]))))]
     
-    # Conservative bidding: use p30 or mean - 0.5*std, whichever is lower
-    conservative_estimate = min(p30, mean - 0.5 * std)
+    # For analytical model, use the mean directly (no need for conservative adjustment)
+    conservative_estimate = mean
     
     # Determine bid
     min_allowed = 16 if current_high_bid < 16 else current_high_bid + 1
@@ -390,8 +424,6 @@ def propose_bid_analytical(hand_4_cards: List[str], current_high_bid: int = 0) -
         "suit_to_points": suit_to_points,
         "chosen_suit": best_suit,
         "avg_points": mean,
-        "p30_points": p30,
-        "std_points": std,
         "proposed": proposed_bid,
         "current_high": current_high_bid,
         "min_allowed": min_allowed,
@@ -698,15 +730,12 @@ def main() -> int:
     print("\n=== ANALYTICAL ANALYSIS ===")
     analytical_bid, analytical_trump, analytical_stats, analytical_dbg = propose_bid_analytical(cards, current_high_bid=current_high)
     
-    print("Analytical suit stats (avg / p30 / std):")
+    print("Analytical suit stats (avg points):")
     for s in SUITS:
         if s in analytical_stats:
             d = analytical_stats[s]
             mean = sum(d) / len(d)
-            p30 = sorted(d)[max(0, min(len(d)-1, int(0.3*len(d))))]
-            var = sum((v - mean) ** 2 for v in d) / len(d)
-            std = math.sqrt(var)
-            print(f"  {s}: {mean:.2f} / {p30:.2f} / {std:.2f}")
+            print(f"  {s}: {mean:.2f}")
     
     if analytical_bid == 0:
         min_allowed = 16 if current_high < 16 else current_high + 1
