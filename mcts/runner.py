@@ -179,11 +179,18 @@ def play_games(num_games=3, iterations=50, search_mode: str = "regular"):
                 print("")
                 while not done:
                     current_player = state["turn"]
-                    move = policy_move(env, iterations, search_mode)
-                    state, _, done, winner, trick_points = env.step(move)
-                    print(f"Player {current_player} plays {move}")
-                    if winner is not None:
-                        print(f"Player {winner} won the hand: {trick_points} points\n")
+                    try:
+                        move = policy_move(env, iterations, search_mode)
+                        state, _, done, winner, trick_points = env.step(move)
+                        print(f"Player {current_player} plays {move}")
+                        if winner is not None:
+                            print(f"Player {winner} won the hand: {trick_points} points\n")
+                    except ValueError as e:
+                        if "Game is already finished" in str(e):
+                            print(f"Game finished: {e}")
+                            break
+                        else:
+                            raise
                     if getattr(env, "invalid_round", False):
                         print("Round declared invalid: trump never exposed by end of 7th trick.")
                         break
@@ -269,9 +276,16 @@ def run_single_game(game_id: int, iterations: int, first_player: int = 0, search
             done = False
             while not done:
                 current_player = state["turn"]
-                move = policy_move(env, iterations, search_mode)
-                state, _, done, winner, trick_points = env.step(move)
-                print(f"Player {current_player} plays {move}")
+                try:
+                    move = policy_move(env, iterations, search_mode)
+                    state, _, done, winner, trick_points = env.step(move)
+                    print(f"Player {current_player} plays {move}")
+                except ValueError as e:
+                    if "Game is already finished" in str(e):
+                        print(f"Game finished: {e}")
+                        break
+                    else:
+                        raise
                 if winner is not None:
                     print(f"Player {winner} won the hand: {trick_points} points\n")
                 if getattr(env, "invalid_round", False):

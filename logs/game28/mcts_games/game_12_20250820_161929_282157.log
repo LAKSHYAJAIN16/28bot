@@ -1,0 +1,16 @@
+
+===== GAME 12 (20250820_161929_282157) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=13.50  p30=12.00  std=3.84
+    suit_stats:
+      D: pts=[10, 12, 12, 20]  avg=13.50  p30=12.00  std=3.84
+      S: pts=[15, 9]  avg=12.00  p30=9.00  std=3.00
+    failed_checks:
+      D: p30 12.00 < 15; conf_mean 11.58 < 15
+      S: p30 9.00 < 15; conf_mean 10.50 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=12.00, conf_mean=11.58 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 11.58 < 15.

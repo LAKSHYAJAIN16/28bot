@@ -1,0 +1,40 @@
+
+===== GAME 3 (20250820_161914_175003) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 19 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: H
+    proposed_bid: 19
+    overall: avg=20.75  p30=19.00  std=5.21
+    suit_stats:
+      H: pts=[19, 13, 26, 25]  avg=20.75  p30=19.00  std=5.21
+      C: pts=[]
+    reason: Bid: Suit H meets thresholds (p30=19.00, conf_mean=18.14 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 19. (current_high=0, raise_delta=+1)
+Pass (locked): Player 1 (min_allowed=20)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=19  min_allowed=20  raise_delta=1
+    overall: avg=10.67  p30=4.00  std=6.75
+    failed_checks:
+      H: p30 0.00 < 19; conf_mean 2.57 < 19
+      D: p30 3.00 < 19; conf_mean 4.32 < 19
+      C: p30 4.00 < 19; conf_mean 7.29 < 19
+      S: p30 0.00 < 19; conf_mean 1.94 < 19
+    reason: Pass: No suit meets thresholds. Best suit C has p30=4.00, conf_mean=7.29 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 4.00 < 19, conf_mean 7.29 < 19.
+Pass (locked): Player 2 (min_allowed=20)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=19  min_allowed=20  raise_delta=1
+    overall: avg=15.25  p30=13.00  std=2.86
+    suit_stats:
+      S: pts=[12, 13, 19, 17]  avg=15.25  p30=13.00  std=2.86
+      H: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 0.00 < 19; conf_mean 0.00 < 19
+      C: p30 0.00 < 19; conf_mean 0.00 < 19
+      S: p30 13.00 < 19; conf_mean 13.82 < 19
+    reason: Pass: No suit meets thresholds. Best suit S has p30=13.00, conf_mean=13.82 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 13.00 < 19, conf_mean 13.82 < 19.

@@ -105,5 +105,3 @@ def ismcts_plan(env, state, iterations=50, samples=8, config: SearchConfig | Non
     pi_agg = {a: (w / total) for a, w in aggregate.items()} if total > 0 else aggregate
     best_action = max(pi_agg.items(), key=lambda kv: kv[1])[0]
     return best_action, pi_agg
-
-

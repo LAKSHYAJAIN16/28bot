@@ -1,0 +1,13 @@
+{
+  "base_points_multiplier": 0.1,
+  "trump_base_value": 0.1,
+  "high_trump_bonus": 0.8122148094783246,
+  "trump_length_bonus": 0.5909628307908341,
+  "suit_base_multiplier": 0.47048516832722215,
+  "suit_length_bonus": 1.775091863389324,
+  "suit_high_card_bonus": 0.1,
+  "non_trump_penalty": 1.0,
+  "suit_flexibility": 0.1,
+  "balance_bonus": 3.0,
+  "trump_control_bonus": 0.1
+}

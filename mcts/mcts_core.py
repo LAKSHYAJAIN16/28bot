@@ -64,7 +64,11 @@ def heuristic_rollout(sim_env):
         hand = sim_env.hands[sim_env.turn]
         valid = sim_env.valid_moves(hand)
         if not valid:
-            break
+            # If no valid moves and hand is empty, game is finished
+            if not hand:
+                break
+            # If hand has cards but no valid moves, something is wrong
+            raise ValueError(f"No valid moves for hand {hand} at turn {sim_env.turn}")
         if sim_env.current_trick:
             lead_suit = card_suit(sim_env.current_trick[0][1])
             winner_so_far, win_card = _winner_so_far(sim_env)
@@ -224,7 +228,11 @@ def expand(node, env, config: SearchConfig | None = None):
     temp_env.debug = False
     valid = temp_env.valid_moves(hand)
     if not valid:
-        return None
+        # If no valid moves and hand is empty, game is finished
+        if not hand:
+            return None
+        # If hand has cards but no valid moves, something is wrong
+        raise ValueError(f"No valid moves for hand {hand} at turn {node.state['turn']}")
     priors = {a: compute_action_prior(temp_env, a, config) for a in valid}
     max_prior = max(priors.values()) if priors else 1.0
     for action in valid:
@@ -291,6 +299,10 @@ def backpropagate(node, reward):
 
 
 def mcts_plan(env, state, iterations=50, config: SearchConfig | None = None):
+    # Check if game is already finished
+    if state.get("done", False) or all(len(hand) == 0 for hand in state.get("hands", [])):
+        raise ValueError("Game is already finished")
+    
     root = MCTSNode(state)
     for _ in range(iterations):
         node = select(root, (config.c_puct if config else 1.0))
@@ -300,6 +312,16 @@ def mcts_plan(env, state, iterations=50, config: SearchConfig | None = None):
         reward = simulate_from_state(env, child.state)
         backpropagate(child, reward)
     valid = env.valid_moves(state["hands"][state["turn"]])
+    
+    # Handle case where there are no valid moves
+    if not valid:
+        # Return a default move if possible, otherwise raise an error
+        if state["hands"][state["turn"]]:
+            default_move = state["hands"][state["turn"]][0]
+            return default_move, {default_move: 1.0}
+        else:
+            raise ValueError("No valid moves available and no cards in hand")
+    
     visits = {a: 0 for a in valid}
     for ch in root.children:
         if ch.action in visits:
@@ -310,6 +332,13 @@ def mcts_plan(env, state, iterations=50, config: SearchConfig | None = None):
             visits[a] = 1
         total = len(visits)
     pi = {a: v / total for a, v in visits.items()}
+    
+    # Handle case where pi is empty
+    if not pi:
+        # Fallback to uniform distribution over valid moves
+        for a in valid:
+            pi[a] = 1.0 / len(valid)
+    
     best_action = max(pi.items(), key=lambda kv: kv[1])[0]
     return best_action, pi
 

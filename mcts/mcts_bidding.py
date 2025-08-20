@@ -127,9 +127,20 @@ class MonteCarloBiddingAgent:
             while not done and moves_done < safety_moves_cap:
                 # Imperfect-information planning for bidding simulation
                 iters = max(8, self.mcts_iterations // 5) if env.turn % 2 == my_seat % 2 else max(6, self.mcts_iterations // 12)
-                move, _ = ismcts_plan(env, state, iterations=iters, samples=6)
-                state, _, done, _, _ = env.step(move)
-                moves_done += 1
+                try:
+                    move, _ = ismcts_plan(env, state, iterations=iters, samples=6)
+                    state, _, done, _, _ = env.step(move)
+                    moves_done += 1
+                except Exception as e:
+                    # If ISMCTS fails, fall back to random play
+                    valid_moves = env.valid_moves(state["hands"][state["turn"]])
+                    if valid_moves:
+                        move = random.choice(valid_moves)
+                        state, _, done, _, _ = env.step(move)
+                        moves_done += 1
+                    else:
+                        # If no valid moves, break out of the loop
+                        break
                 if playout_tricks is not None and (moves_done // 4) >= playout_tricks:
                     break
             bidder_team = 0 if my_seat % 2 == 0 else 1
