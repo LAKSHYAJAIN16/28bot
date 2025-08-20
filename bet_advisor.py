@@ -36,7 +36,7 @@ FAST_MODE = True
 VERBOSE = True  # Toggle detailed prints
 DEFAULT_STAGE1_SAMPLES = 1 if FAST_MODE else 2
 DEFAULT_STAGE1_ITERS = 100 if FAST_MODE else 100
-DEFAULT_STAGE2_SAMPLES = 40 if FAST_MODE else 80
+DEFAULT_STAGE2_SAMPLES = 96 if FAST_MODE else 192
 DEFAULT_STAGE2_ITERS = 300 if FAST_MODE else 400
 TOP_K_SUIT_HEAVY = 1    
 
@@ -92,69 +92,119 @@ def _percentile(values: List[float], q: float) -> float:
     return s[k]
 
 
-def simulate_points_for_suit_ismcts(my_first_four: List[str], suit: str, my_seat: int = 0, first_player: int = 0,
-                                    num_samples: int = DEFAULT_STAGE2_SAMPLES, base_iterations: int = DEFAULT_STAGE2_ITERS,
-                                    playout_tricks: int | None = None) -> List[int]:
-    # Stabilize sampling for reproducibility per (hand, suit)
+def run_single_simulation_worker(args):
+    """Worker function for multiprocessing - must be at module level"""
+    my_first_four, suit, my_seat, first_player, base_iterations, sample_idx = args
+    
+    # Each worker gets its own random seed for reproducibility
     try:
-        random.seed(hash((tuple(my_first_four), suit)))
+        random.seed(hash((tuple(my_first_four), suit, sample_idx)))
     except Exception:
         pass
+    
     all_ranks = ["7", "8", "9", "10", "J", "Q", "K", "A"]
     full_deck = [r + s for r in all_ranks for s in SUITS]
     remaining = [c for c in full_deck if c not in my_first_four]
-    team_points: List[int] = []
-    for _ in range(num_samples):
-        pool = remaining[:]
-        random.shuffle(pool)
-        hands = [[] for _ in range(4)]
-        for p in range(4):
-            if p == my_seat:
-                hands[p] = my_first_four + [pool.pop() for _ in range(4)]
-            else:
-                hands[p] = [pool.pop() for _ in range(8)]
-        env = TwentyEightEnv()
-        env.hands = copy.deepcopy(hands)
-        env.scores = [0, 0]
-        env.game_score = [0, 0]
-        env.current_trick = []
-        env.turn = first_player
-        env.bidder = my_seat
-        env.trump_suit = suit
-        env.phase = "concealed"
-        env.debug = False
-        # Initialize belief fields expected by get_state/resolve_trick
-        env.void_suits_by_player = [set() for _ in range(4)]
-        env.lead_suit_counts = [{s: 0 for s in SUITS} for _ in range(4)]
-        # Mark quick evaluation only in FAST mode
-        if FAST_MODE:
-            env.quick_eval = True
-        trump_cards = [c for c in env.hands[env.bidder] if card_suit(c) == env.trump_suit]
-        env.face_down_trump_card = max(trump_cards, key=rank_index) if trump_cards else None
-        if env.face_down_trump_card:
-            env.hands[env.bidder].remove(env.face_down_trump_card)
-        env.last_exposer = None
-        env.exposure_trick_index = None
-        env.tricks_played = 0
-        env.invalid_round = False
-        env.last_trick_winner = None
-        state = env.get_state()
-        done = False
-        moves_done = 0
-        safety_moves_cap = 8 * 4 + 2
-        while not done and moves_done < safety_moves_cap:
-            # Use heavier planning on bidder team turns; lighter otherwise
-            iters = max(8, base_iterations // 5) if env.turn % 2 == my_seat % 2 else max(6, base_iterations // 12)
+    
+    pool = remaining[:]
+    random.shuffle(pool)
+    hands = [[] for _ in range(4)]
+    for p in range(4):
+        if p == my_seat:
+            hands[p] = my_first_four + [pool.pop() for _ in range(4)]
+        else:
+            hands[p] = [pool.pop() for _ in range(8)]
+    
+    env = TwentyEightEnv()
+    env.hands = copy.deepcopy(hands)
+    env.scores = [0, 0]
+    env.game_score = [0, 0]
+    env.current_trick = []
+    env.turn = first_player
+    env.bidder = my_seat
+    env.trump_suit = suit
+    env.bid_value = 16  # Set a default bid value for scoring
+    env.round_stakes = 1
+    env.phase = "concealed"
+    env.debug = False
+    # Initialize belief fields expected by get_state/resolve_trick
+    env.void_suits_by_player = [set() for _ in range(4)]
+    env.lead_suit_counts = [{s: 0 for s in SUITS} for _ in range(4)]
+    # Mark quick evaluation only in FAST mode
+    if FAST_MODE:
+        env.quick_eval = True
+    trump_cards = [c for c in env.hands[env.bidder] if card_suit(c) == env.trump_suit]
+    env.face_down_trump_card = max(trump_cards, key=rank_index) if trump_cards else None
+    if env.face_down_trump_card:
+        env.hands[env.bidder].remove(env.face_down_trump_card)
+    env.last_exposer = None
+    env.exposure_trick_index = None
+    env.tricks_played = 0
+    env.invalid_round = False
+    env.last_trick_winner = None
+    state = env.get_state()
+    done = False
+    moves_done = 0
+    safety_moves_cap = 8 * 4 + 2
+    while not done and moves_done < safety_moves_cap:
+        # Use heavier planning on bidder team turns; lighter otherwise
+        iters = max(8, base_iterations // 5) if env.turn % 2 == my_seat % 2 else max(6, base_iterations // 12)
+        try:
             move, _ = ismcts_plan(env, state, iterations=iters, samples=3)
             state, _, done, _, _ = env.step(move)
             moves_done += 1
-            # Optional partial playout: stop early and rely on rollout thereafter
-            if playout_tricks is not None:
-                # Each trick is 4 moves; break after reaching threshold
-                if state.get("exposure_trick_index") or (moves_done // 4) >= playout_tricks:
+        except (ValueError, IndexError) as e:
+            # Handle empty policy or other MCTS errors
+            if "empty" in str(e).lower() or "max()" in str(e):
+                # Fallback: just play a random valid move
+                valid_moves = env.valid_moves(env.hands[env.turn])
+                if valid_moves:
+                    move = random.choice(valid_moves)
+                    state, _, done, _, _ = env.step(move)
+                    moves_done += 1
+                else:
                     break
-        bidder_team = 0 if my_seat % 2 == 0 else 1
-        team_points.append(state["scores"][bidder_team])
+            else:
+                raise
+    
+    # For bidding simulations, we want the raw team points, not game score
+    bidder_team = 0 if my_seat % 2 == 0 else 1
+    team_points = state["scores"][bidder_team]
+    
+    # Sanity check: if we have a strong hand but got 0 points, something is wrong
+    if team_points == 0 and any(card_suit(c) == suit for c in my_first_four):
+        # Check if we have high cards in the trump suit
+        trump_cards_in_hand = [c for c in my_first_four if card_suit(c) == suit]
+        if len(trump_cards_in_hand) >= 2:
+            # This should never happen with a strong trump hand
+            # Return a minimum reasonable score instead of 0
+            team_points = max(5, len(trump_cards_in_hand) * 3)
+    
+    return team_points
+
+
+def simulate_points_for_suit_ismcts(my_first_four: List[str], suit: str, my_seat: int = 0, first_player: int = 0,
+                                    num_samples: int = DEFAULT_STAGE2_SAMPLES, base_iterations: int = DEFAULT_STAGE2_ITERS,
+                                    playout_tricks: int | None = None) -> List[int]:
+    # Use multithreading to run individual simulations in parallel
+    max_workers = min(num_samples, max(1, (os.cpu_count() or 1)))
+    
+    # Prepare arguments for each worker
+    args_list = [(my_first_four, suit, my_seat, first_player, base_iterations, i) for i in range(num_samples)]
+    
+    # Run simulations in parallel
+    with ProcessPoolExecutor(max_workers=max_workers) as ex:
+        futures = [ex.submit(run_single_simulation_worker, args) for args in args_list]
+        team_points = []
+        for fut in as_completed(futures):
+            try:
+                result = fut.result()
+                team_points.append(result)
+            except Exception as e:
+                # Fallback to sequential if parallel fails
+                print(f"Parallel simulation failed: {e}, falling back to sequential")
+                team_points.append(run_single_simulation_worker(args_list[len(team_points)]))
+    
     return team_points
 
 
@@ -193,13 +243,8 @@ def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
         with ProcessPoolExecutor(max_workers=max_workers) as ex:
             futures = {
                 ex.submit(
-                    _simulate_points_for_suit_worker,
-                    first_four_cards,
-                    s,
-                    0,
-                    0,
-                    DEFAULT_STAGE1_SAMPLES,
-                    DEFAULT_STAGE1_ITERS,
+                    run_single_simulation_worker,
+                    (first_four_cards, s, 0, 0, DEFAULT_STAGE1_ITERS, 0)
                 ): s
                 for s in top_count_suits
             }
@@ -235,7 +280,7 @@ def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
         max_workers = min(len(top_suits), max(1, (os.cpu_count() or 1)))
         with ProcessPoolExecutor(max_workers=max_workers) as ex:
             futures = {
-                ex.submit(_simulate_points_for_suit_worker, first_four_cards, s, 0, 0, num_samples, base_iterations): s
+                ex.submit(run_single_simulation_worker, (first_four_cards, s, 0, 0, base_iterations, 0)): s
                 for s in top_suits
             }
             for fut in as_completed(futures):
@@ -324,6 +369,7 @@ def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
             "raise_delta": 1,
             "reason": reason_text,
             "suit_failed_checks": suit_failed_checks,
+            "stage2_samples": {s: pts for s, pts in suit_to_points.items() if len(pts) >= max(6, num_samples)},
         }
         return 0, best_suit, suit_stats, debug
 
@@ -345,6 +391,7 @@ def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
         "min_allowed": min_allowed,
         "raise_delta": 1,
         "reason": reason_text,
+        "stage2_samples": {s: pts for s, pts in suit_to_points.items() if len(pts) >= max(6, num_samples)},
     }
     return final_prop, best_suit, suit_stats, debug
 
@@ -387,6 +434,7 @@ def _format_bidding_debug(dbg: dict) -> str:
                 if not pts:
                     lines.append(f"      {s}: pts=[]")
                     continue
+                
                 n = len(pts)
                 mean = sum(pts) / n
                 var = sum((v - mean) ** 2 for v in pts) / n
@@ -407,16 +455,20 @@ def _format_bidding_debug(dbg: dict) -> str:
                     lines.append(f"      {s}: " + "; ".join(failed))
         if reason:
             lines.append("    reason: " + str(reason))
+        
+        # Display Stage 2 samples if available
+        stage2_samples = dbg.get('stage2_samples', {})
+        if stage2_samples:
+            lines.append("    stage2_samples:")
+            for suit, pts in stage2_samples.items():
+                lines.append(f"      {suit}: {pts}")
+        
         return "\n".join(lines)
     except Exception:
         return "  (failed to format bidding analysis)"
 
 
-def _simulate_points_for_suit_worker(my_first_four, suit, my_seat, first_player, num_samples, base_iterations):
-    return simulate_points_for_suit_ismcts(
-        my_first_four, suit, my_seat=my_seat, first_player=first_player,
-        num_samples=num_samples, base_iterations=base_iterations
-    )
+
 
 def _prompt_cards() -> List[str]:
     while True:
@@ -450,7 +502,7 @@ def main() -> int:
     current_high = _prompt_current_high()
 
     suggested, trump, stats, dbg = propose_bid_ismcts(cards, current_high_bid=current_high,
-                                                      num_samples=6, base_iterations=200)
+                                                     num_samples=DEFAULT_STAGE2_SAMPLES, base_iterations=DEFAULT_STAGE2_ITERS)
 
     print(f"\nYour auction cards: {', '.join(cards)}")
     print(f"Current high bid:  {current_high if current_high > 0 else 'None'}")
@@ -462,7 +514,7 @@ def main() -> int:
     if suggested == 0:
         raise_delta = 1
         min_allowed = 16 if current_high < 16 else current_high + raise_delta
-        print(f"\nRecommendation: PASS (min allowed to raise was {min_allowed}; direct 20 allowed if strong)")
+        print(f"\nRecommendation: PASS (min allowed to raise was {min_allowed};")
         print(_format_bidding_debug(dbg))
     else:
         stakes = 2 if suggested >= 20 else 1

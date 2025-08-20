@@ -376,6 +376,7 @@ class MonteCarloBiddingAgent:
             "min_allowed": min_allowed,
             "raise_delta": raise_delta,
             "reason": reason_text,
+            "stage2_samples": {s: pts for s, pts in suit_to_points.items() if len(pts) >= max(6, self.num_samples)},
         }
         return final_prop
 

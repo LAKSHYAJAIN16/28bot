@@ -1,0 +1,122 @@
+
+===== GAME 11 (20250819_184115_862717) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 18 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: S
+    proposed_bid: 18
+    overall: avg=17.50  p30=18.00  std=1.50
+    suit_stats:
+      S: pts=[15, 18, 18, 19]  avg=17.50  p30=18.00  std=1.50
+      H: pts=[4, 0]  avg=2.00  p30=0.00  std=2.00
+    reason: Bid: Suit S meets thresholds (p30=18.00, conf_mean=16.75 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 18. (current_high=0, raise_delta=+1)
+Pass (locked): Player 1 (min_allowed=19)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=18  min_allowed=19  raise_delta=1
+    overall: avg=9.50  p30=9.00  std=6.02
+    suit_stats:
+      C: pts=[16, 0, 13, 9]  avg=9.50  p30=9.00  std=6.02
+      H: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 0.00 < 18; conf_mean 0.00 < 18
+      C: p30 9.00 < 18; conf_mean 6.49 < 18
+      S: p30 0.00 < 18; conf_mean 0.00 < 18
+    reason: Pass: No suit meets thresholds. Best suit C has p30=9.00, conf_mean=6.49 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 9.00 < 18, conf_mean 6.49 < 18.
+Pass (locked): Player 2 (min_allowed=19)
+  bidding analysis:
+    present_suits: D, S
+    current_high=18  min_allowed=19  raise_delta=1
+    overall: avg=13.75  p30=12.00  std=6.65
+    suit_stats:
+      D: pts=[22, 4, 17, 12]  avg=13.75  p30=12.00  std=6.65
+      S: pts=[0, 16]  avg=8.00  p30=0.00  std=8.00
+    failed_checks:
+      D: p30 12.00 < 18; conf_mean 10.43 < 18
+      S: p30 0.00 < 18; conf_mean 4.00 < 18
+    reason: Pass: No suit meets thresholds. Best suit D has p30=12.00, conf_mean=10.43 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 12.00 < 18, conf_mean 10.43 < 18.
+Pass (locked): Player 3 (min_allowed=19)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=18  min_allowed=19  raise_delta=1
+    overall: avg=9.25  p30=10.00  std=5.63
+    suit_stats:
+      H: pts=[12, 0, 15, 10]  avg=9.25  p30=10.00  std=5.63
+      D: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 10.00 < 18; conf_mean 6.44 < 18
+      D: p30 0.00 < 18; conf_mean 0.00 < 18
+      S: p30 0.00 < 18; conf_mean 0.00 < 18
+    reason: Pass: No suit meets thresholds. Best suit H has p30=10.00, conf_mean=6.44 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 10.00 < 18, conf_mean 6.44 < 18.
+
+AUCTION WINNER: Player 0 with bid 18; chooses trump H 
+Details={'chosen': 'H', 'estimates': {'S': 8.5, 'H': 8.666666666666666}}
+Player 0 hand :  ['8H', 'QS', 'AS', 'QC', '8D', 'JS', 'AD']
+Player 1 hand :  ['JH', '7C', 'KC', '8S', 'KH', '10C', '9D', '9S']
+Player 2 hand :  ['7D', 'KS', '7S', 'KD', '8C', 'JC', '10D', '9C']
+Player 3 hand :  ['9H', '10S', 'QH', 'JD', 'AC', '7H', '10H', 'QD']
+Player 0 (auction 4 cards): ['8H', 'QS', 'AH', 'AS']
+Player 1 (auction 4 cards): ['JH', '7C', 'KC', '8S']
+Player 2 (auction 4 cards): ['7D', 'KS', '7S', 'KD']
+Player 3 (auction 4 cards): ['9H', '10S', 'QH', 'JD']
+Auction winner (bidder): Player 0 with bid 18
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: AH
+
+Player 0 plays QS
+Player 1 plays 8S
+Player 2 plays KS
+Player 3 plays 10S
+Player 3 won the hand: 1 points
+
+Player 3 plays 9H
+Player 0 plays 8H
+Player 1 plays JH
+Player 2 plays 7D
+Player 1 won the hand: 5 points
+
+Player 1 plays 7C
+Player 2 plays 8C
+Player 3 plays AC
+Player 0 plays QC
+Player 3 won the hand: 1 points
+
+Player 3 plays QH
+Player 0 plays AS
+Player 1 plays KH
+Player 2 plays 7S
+Player 1 won the hand: 1 points
+
+Player 1 plays KC
+Player 2 plays JC
+Player 3 plays JD
+Player 0 plays 8D
+Player 2 won the hand: 6 points
+
+Player 2 plays KD
+Player 3 plays QD
+Player 0 plays AD
+Player 1 plays 9D
+Player 1 won the hand: 3 points
+
+Player 1 plays 10C
+Player 2 plays 9C
+-- Phase 2 begins: Trump revealed as H by Player 3 on trick 7 --
+Player 3 plays 7H
+Player 0 plays JS
+Player 3 won the hand: 6 points
+
+Player 3 plays 10H
+Player 0 plays AH
+Player 1 plays 9S
+Player 2 plays 10D
+Player 0 won the hand: 5 points
+
+Game 11 final points: Team A=11, Team B=17
+Series cumulative game score so far: Team A=-1, Team B=-1
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_11_20250819_184115_862717.log

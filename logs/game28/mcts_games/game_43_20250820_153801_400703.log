@@ -1,0 +1,123 @@
+
+===== GAME 43 (20250820_153801_400703) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.25  p30=9.00  std=7.33
+    suit_stats:
+      H: pts=[26, 8, 18, 9]  avg=15.25  p30=9.00  std=7.33
+      C: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 9.00 < 15; conf_mean 11.59 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=9.00, conf_mean=11.59 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 9.00 < 15, conf_mean 11.59 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=6.75  p30=6.00  std=2.59
+    suit_stats:
+      S: pts=[13, 0, 19, 0]  avg=8.00  p30=0.00  std=8.28
+      D: pts=[6, 11, 6, 4]  avg=6.75  p30=6.00  std=2.59
+    failed_checks:
+      D: p30 6.00 < 15; conf_mean 5.46 < 15
+      S: p30 0.00 < 15; conf_mean 3.86 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=6.00, conf_mean=5.46 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 6.00 < 15, conf_mean 5.46 < 15.
+Bid: Player 2 proposes 16 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: H
+    proposed_bid: 16
+    overall: avg=16.25  p30=16.00  std=2.17
+    suit_stats:
+      H: pts=[13, 19, 16, 17]  avg=16.25  p30=16.00  std=2.17
+      D: pts=[]
+      C: pts=[]
+    reason: Bid: Suit H meets thresholds (p30=16.00, conf_mean=15.17 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)
+Pass (locked): Player 3 (min_allowed=17)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=16  min_allowed=17  raise_delta=1
+    overall: avg=17.25  p30=19.00  std=10.28
+    suit_stats:
+      H: pts=[19, 26, 24, 0]  avg=17.25  p30=19.00  std=10.28
+      D: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: conf_mean 12.11 < 16
+      D: p30 0.00 < 16; conf_mean 0.00 < 16
+      C: p30 0.00 < 16; conf_mean 0.00 < 16
+    reason: Pass: No suit meets thresholds. Best suit H has p30=19.00, conf_mean=12.11 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: conf_mean 12.11 < 16.
+
+AUCTION WINNER: Player 2 with bid 16; chooses trump D 
+Details={'chosen': 'D', 'estimates': {'C': 7.5, 'H': 12.166666666666666, 'D': 13.166666666666666}}
+Player 0 hand :  ['JS', 'QC', '9H', '10H', '8D', '9S', '8S', '7C']
+Player 1 hand :  ['KS', 'AD', '10S', '7D', 'KH', '8C', 'QS', '7S']
+Player 2 hand :  ['10C', '7H', 'AH', 'AS', '10D', 'KC', 'JC']
+Player 3 hand :  ['JH', 'AC', 'QD', 'QH', '9D', '9C', '8H', 'JD']
+Player 0 (auction 4 cards): ['JS', 'QC', '9H', '10H']
+Player 1 (auction 4 cards): ['KS', 'AD', '10S', '7D']
+Player 2 (auction 4 cards): ['10C', '7H', 'KD', 'AH']
+Player 3 (auction 4 cards): ['JH', 'AC', 'QD', 'QH']
+Auction winner (bidder): Player 2 with bid 16
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: KD
+
+Player 0 plays JS
+Player 1 plays KS
+Player 2 plays AS
+Player 3 plays JH
+Player 0 won the hand: 7 points
+
+Player 0 plays QC
+Player 1 plays 8C
+Player 2 plays 10C
+Player 3 plays AC
+Player 3 won the hand: 2 points
+
+Player 3 plays QD
+Player 0 plays 8D
+Player 1 plays AD
+Player 2 plays 10D
+Player 1 won the hand: 2 points
+
+Player 1 plays 10S
+Player 2 plays 7H
+Player 3 plays QH
+Player 0 plays 9S
+Player 0 won the hand: 3 points
+
+Player 0 plays 9H
+Player 1 plays KH
+Player 2 plays AH
+Player 3 plays 8H
+Player 0 won the hand: 3 points
+
+Player 0 plays 10H
+-- Phase 2 begins: Trump revealed as D by Player 1 on trick 6 --
+Player 1 plays 7D
+Player 2 plays KC
+Player 3 plays 9D
+Player 3 won the hand: 3 points
+
+Player 3 plays 9C
+Player 0 plays 7C
+Player 1 plays QS
+Player 2 plays JC
+Player 2 won the hand: 5 points
+
+Player 2 plays KD
+Player 3 plays JD
+Player 0 plays 8S
+Player 1 plays 7S
+Player 3 won the hand: 3 points
+
+Game 43 final points: Team A=18, Team B=10
+Series cumulative game score so far: Team A=-2, Team B=-4
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_43_20250820_153801_400703.log

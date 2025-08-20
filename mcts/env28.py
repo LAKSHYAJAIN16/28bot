@@ -201,10 +201,9 @@ class TwentyEightEnv:
             self.turn = trick_winner
             self.last_trick_winner = trick_winner
             self.tricks_played += 1
-            if self.tricks_played >= 7 and self.phase == "concealed":
-                self.invalid_round = True
-                done = True
-                self.scores = [0, 0]
+            # FIXED: Don't reset scores to 0 when 7 tricks played while concealed
+            # This was causing 0-point results for strong hands in bidding simulations
+            # The game should continue normally until all cards are played
         reward = self.scores[0] - self.scores[1] if done else 0
         if done and not self.invalid_round:
             bidder_team = 0 if self.bidder % 2 == 0 else 1

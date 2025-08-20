@@ -1,4 +1,4 @@
-# 28 (Twenty-Eight) ISMCTS Bot
+# 28 (Twenty-Eight) Bot
 
 ### AI designed to beat my grandfather at 28 (it was the only way). 28bot is a strong, modular AI built that uses an incomplete monte carlo search tree and a neural network.
 
