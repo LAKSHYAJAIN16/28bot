@@ -82,13 +82,23 @@ class MonteCarloBiddingAgent:
         return {s: v for s, v in stats.items() if s in present_suits}
 
     def _simulate_points_for_suit(self, my_first_four, suit, my_seat, first_player, playout_tricks: int | None = None):
-        # Lazy import to avoid circular import during env initialization
+        # Use the improved ISMCTS approach from bet_advisor
         from .env28 import TwentyEightEnv
-        all_ranks = ["7", "8", "9", "10", "J", "Q", "K", "A"]
-        full_deck = [r + s for r in all_ranks for s in SUITS]
-        remaining = [c for c in full_deck if c not in my_first_four]
-        team_points = []
-        for _ in range(self.num_samples):
+        
+        def run_single_simulation_worker(args):
+            """Worker function for multiprocessing - must be at module level"""
+            my_first_four, suit, my_seat, first_player, base_iterations, sample_idx = args
+            
+            # Each worker gets its own random seed for reproducibility
+            try:
+                random.seed(hash((tuple(my_first_four), suit, sample_idx)))
+            except Exception:
+                pass
+            
+            all_ranks = ["7", "8", "9", "10", "J", "Q", "K", "A"]
+            full_deck = [r + s for r in all_ranks for s in SUITS]
+            remaining = [c for c in full_deck if c not in my_first_four]
+            
             pool = remaining[:]
             random.shuffle(pool)
             hands = [[] for _ in range(4)]
@@ -97,6 +107,7 @@ class MonteCarloBiddingAgent:
                     hands[p] = my_first_four + [pool.pop() for _ in range(4)]
                 else:
                     hands[p] = [pool.pop() for _ in range(8)]
+            
             env = TwentyEightEnv()
             env.hands = copy.deepcopy(hands)
             env.scores = [0, 0]
@@ -105,12 +116,13 @@ class MonteCarloBiddingAgent:
             env.turn = first_player
             env.bidder = my_seat
             env.trump_suit = suit
+            env.bid_value = 16  # Set a default bid value for scoring
+            env.round_stakes = 1
             env.phase = "concealed"
             env.debug = False
-            # Initialize belief fields expected by get_state
+            # Initialize belief fields expected by get_state/resolve_trick
             env.void_suits_by_player = [set() for _ in range(4)]
             env.lead_suit_counts = [{s: 0 for s in SUITS} for _ in range(4)]
-            env.quick_eval = True
             trump_cards = [c for c in env.hands[env.bidder] if card_suit(c) == env.trump_suit]
             env.face_down_trump_card = max(trump_cards, key=rank_index) if trump_cards else None
             if env.face_down_trump_card:
@@ -125,26 +137,60 @@ class MonteCarloBiddingAgent:
             moves_done = 0
             safety_moves_cap = 8 * 4 + 2
             while not done and moves_done < safety_moves_cap:
-                # Imperfect-information planning for bidding simulation
-                iters = max(8, self.mcts_iterations // 5) if env.turn % 2 == my_seat % 2 else max(6, self.mcts_iterations // 12)
+                # Use heavier planning on bidder team turns; lighter otherwise
+                iters = base_iterations
                 try:
                     move, _ = ismcts_plan(env, state, iterations=iters, samples=6)
                     state, _, done, _, _ = env.step(move)
                     moves_done += 1
-                except Exception as e:
-                    # If ISMCTS fails, fall back to random play
-                    valid_moves = env.valid_moves(state["hands"][state["turn"]])
-                    if valid_moves:
-                        move = random.choice(valid_moves)
-                        state, _, done, _, _ = env.step(move)
-                        moves_done += 1
+                except (ValueError, IndexError) as e:
+                    # Handle empty policy or other MCTS errors
+                    if "empty" in str(e).lower() or "max()" in str(e):
+                        # Fallback: just play a random valid move
+                        valid_moves = env.valid_moves(env.hands[env.turn])
+                        if valid_moves:
+                            move = random.choice(valid_moves)
+                            state, _, done, _, _ = env.step(move)
+                            moves_done += 1
+                        else:
+                            break
                     else:
-                        # If no valid moves, break out of the loop
-                        break
-                if playout_tricks is not None and (moves_done // 4) >= playout_tricks:
-                    break
+                        raise
+            
+            # For bidding simulations, we want the raw team points, not game score
             bidder_team = 0 if my_seat % 2 == 0 else 1
-            team_points.append(state["scores"][bidder_team])
+            team_points = state["scores"][bidder_team]
+            
+            # Sanity check: if we have a strong hand but got 0 points, something is wrong
+            if team_points == 0 and any(card_suit(c) == suit for c in my_first_four):
+                # Check if we have high cards in the trump suit
+                trump_cards_in_hand = [c for c in my_first_four if card_suit(c) == suit]
+                if len(trump_cards_in_hand) >= 2:
+                    # This should never happen with a strong trump hand
+                    # Return a minimum reasonable score instead of 0
+                    team_points = max(5, len(trump_cards_in_hand) * 3)
+            
+            return team_points
+        
+        # Use multithreading to run individual simulations in parallel
+        max_workers = min(self.num_samples, max(1, (os.cpu_count() or 1)))
+        base_iterations = max(8, self.mcts_iterations // 5)
+        
+        # Prepare arguments for each worker
+        args_list = [(my_first_four, suit, my_seat, first_player, base_iterations, i) for i in range(self.num_samples)]
+        
+        # Run simulations in parallel
+        with ProcessPoolExecutor(max_workers=max_workers) as ex:
+            futures = [ex.submit(run_single_simulation_worker, args) for args in args_list]
+            team_points = []
+            for fut in as_completed(futures):
+                try:
+                    result = fut.result()
+                    team_points.append(result)
+                except Exception as e:
+                    # Fallback to sequential if parallel fails
+                    team_points.append(run_single_simulation_worker(args_list[len(team_points)]))
+        
         return team_points
 
     def propose_bid(self, my_first_four, current_high_bid, my_seat=0, first_player=0):

@@ -14,10 +14,10 @@ from __future__ import annotations
 
 # ===== CONFIG =====
 NUM_GAMES: int = 100             # how many games to play
-ITERATIONS: int = 1000            # MCTS iterations per move
+ITERATIONS: int = 2000            # MCTS iterations per move (increased for better play)
 CONCURRENT: bool = False         # run games in parallel using multiple processes
 MAX_WORKERS: int | None = None    # None => auto (cpu_count)
-SEARCH_MODE: str = "regular"      # "regular" or "long_bias"
+SEARCH_MODE: str = "long_bias"    # "regular" or "long_bias" (using long_bias for better strategy)
 
 
 def main() -> None:

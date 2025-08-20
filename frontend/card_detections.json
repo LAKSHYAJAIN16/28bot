@@ -1,0 +1,76 @@
+{
+  "detections": [
+    {
+      "image": "C:\\Users\\laksh\\Desktop\\Projects\\card-detection\\Playing-Cards-Detection-with-YoloV8\\card.jpeg",
+      "class_id": 39,
+      "class_name": "AS",
+      "confidence": 0.9652257561683655,
+      "box": {
+        "x1": 443.92608642578125,
+        "y1": 90.57884979248047,
+        "x2": 489.4438781738281,
+        "y2": 185.41685485839844
+      }
+    },
+    {
+      "image": "C:\\Users\\laksh\\Desktop\\Projects\\card-detection\\Playing-Cards-Detection-with-YoloV8\\card.jpeg",
+      "class_id": 43,
+      "class_name": "JS",
+      "confidence": 0.9552660584449768,
+      "box": {
+        "x1": 154.7039031982422,
+        "y1": 136.2751922607422,
+        "x2": 204.26895141601562,
+        "y2": 233.4412841796875
+      }
+    },
+    {
+      "image": "C:\\Users\\laksh\\Desktop\\Projects\\card-detection\\Playing-Cards-Detection-with-YoloV8\\card.jpeg",
+      "class_id": 39,
+      "class_name": "AS",
+      "confidence": 0.9544260501861572,
+      "box": {
+        "x1": 636.6309204101562,
+        "y1": 466.5936584472656,
+        "x2": 681.7721557617188,
+        "y2": 562.6220092773438
+      }
+    },
+    {
+      "image": "C:\\Users\\laksh\\Desktop\\Projects\\card-detection\\Playing-Cards-Detection-with-YoloV8\\card.jpeg",
+      "class_id": 3,
+      "class_name": "10S",
+      "confidence": 0.9308403134346008,
+      "box": {
+        "x1": 50.30836868286133,
+        "y1": 202.12400817871094,
+        "x2": 119.3485107421875,
+        "y2": 292.7445373535156
+      }
+    },
+    {
+      "image": "C:\\Users\\laksh\\Desktop\\Projects\\card-detection\\Playing-Cards-Detection-with-YoloV8\\card.jpeg",
+      "class_id": 51,
+      "class_name": "QS",
+      "confidence": 0.9064440131187439,
+      "box": {
+        "x1": 252.6009521484375,
+        "y1": 104.12882995605469,
+        "x2": 297.6000671386719,
+        "y2": 200.74542236328125
+      }
+    },
+    {
+      "image": "C:\\Users\\laksh\\Desktop\\Projects\\card-detection\\Playing-Cards-Detection-with-YoloV8\\card.jpeg",
+      "class_id": 47,
+      "class_name": "KS",
+      "confidence": 0.8772704005241394,
+      "box": {
+        "x1": 349.8932800292969,
+        "y1": 82.06819915771484,
+        "x2": 393.9515686035156,
+        "y2": 179.6127166748047
+      }
+    }
+  ]
+}
