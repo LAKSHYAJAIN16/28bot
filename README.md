@@ -3,6 +3,8 @@
 ### AI designed to beat my grandfather at 28 (it was the only way). 28bot is a strong, modular AI built that uses an incomplete monte carlo search tree and a neural network.
 
 ### Highlights
+- **Hybrid Bidding System**: Combines analytical modeling with ISMCTS simulations for optimal bid recommendations
+- **Data-Driven Training**: Analytical model coefficients trained on historical game data using L2 regularization
 - Conservative, human-like bidding with accurate two-stage evaluation and multiprocessing.
 - Precomputation pipeline that precomputes the ideal bids for certain hands (canonization that takes total permutations down to just ~2k)
 - Enhanced Monte Carlo Search Tree that is void-aware (keeps track of the cards not played yet), and is information imperfect (AI does not know the cards that the other players have)
@@ -23,11 +25,31 @@
 - `mcts/log_utils.py` – Logger utilities.
 
 ### Directly Accessible
-- `bet_advisor.py` – Bidding logic; input hand and it will give you the optimial bid
-- `precompute_bets.py` – Precomputation code to generate the optimial bids for the hand.
+- `bet_advisor.py` – Hybrid bidding advisor combining analytical model + ISMCTS simulations
+- `precompute_bets.py` – Precomputation code to generate the optimal bids for the hand
+- `train_analytical_model.py` – Train analytical model coefficients using historical game data
 - `run_game.py` – Entry-point to simulate games with a simple config block
 - `precomputed_bets.jsonl` – Append-only store of suit stats and recommendations per canonical hand
+- `optimized_analytical_coefficients.json` – Trained coefficients for the analytical model
 ---
+
+## Using the Bet Advisor
+
+The hybrid bet advisor provides sophisticated bidding recommendations:
+
+```bash
+python bet_advisor.py
+```
+
+**Input**: 
+- Your 4 auction cards (e.g., "JH 9H 7D AC")
+- Current highest bid (optional)
+
+**Output**:
+- Analytical model predictions for each suit
+- ISMCTS simulation results
+- Recommended bid and trump suit
+- Conservative bidding thresholds
 
 ## Running Games
 Edit `run_game.py`:
@@ -45,7 +67,26 @@ Edit `run_game.py`:
   - Records `game_start` and `game_end` metadata (stakes, bidder, trump, etc.)
 ---
 
-## Bidding (MonteCarloBiddingAgent)
+## Bidding Systems
+
+### Hybrid Bet Advisor (`bet_advisor.py`)
+
+A sophisticated hybrid system combining analytical modeling with ISMCTS simulations:
+
+- **Analytical Model**: Game-theoretic calculation of expected points based on:
+  - Card strength and trump control
+  - Suit trick-winning potential
+  - Team coordination bonuses
+  - Coefficients trained on historical game data
+
+- **ISMCTS Simulations**: Monte Carlo simulations for validation and refinement
+  - Parallel suit evaluations
+  - Two-stage evaluation (quick screen → heavy eval)
+  - Conservative bidding thresholds
+
+- **Output**: Both analytical predictions and ISMCTS results for comparison
+
+### MonteCarloBiddingAgent (In-Game)
 
 Designed for accuracy and speed:
 
@@ -89,6 +130,34 @@ Parameters are accessible via `run_game.py` (`ITERATIONS`) and `mcts/policy.py` 
 
 ---
 
+## Analytical Model Training (`train_analytical_model.py`)
+
+Data-driven calibration of the analytical model coefficients using historical game data:
+
+- **Data Source**: Parses `training.log` to extract:
+  - Initial 4-card hands for each player
+  - Final team scores (actual game outcomes)
+  - Bidding decisions and trump selections
+
+- **Training Process**:
+  - Uses L2 regularization to prevent overfitting
+  - Train-validation split for performance evaluation
+  - Optimizes coefficients to minimize prediction error vs actual team scores
+  - No artificial bounds - lets model find optimal values naturally
+
+- **Model Components**:
+  - Base points multiplier
+  - Trump control bonuses (base value, high trump, length)
+  - Suit trick potential (base multiplier, length, high card bonuses)
+  - Team coordination bonuses (flexibility, balance, trump control)
+
+- **Usage**:
+  ```bash
+  python train_analytical_model.py
+  ```
+  - Saves optimized coefficients to `optimized_analytical_coefficients.json`
+  - `bet_advisor.py` automatically loads these coefficients
+
 ## NNEt Training (optional)
 
 - What it is
@@ -114,3 +183,33 @@ Parameters are accessible via `run_game.py` (`ITERATIONS`) and `mcts/policy.py` 
 - Append-only: loads existing JSONL and skips already-computed hands
 - Two-stage evaluation: mirrors in-game pipeline with heavier budgets for top suits
 - Progress debug: prints visited count, unique totals, dedup ratio, elapsed time, and rates
+
+## Mathematical Foundations
+
+### Analytical Model Components
+
+The analytical model calculates expected team points based on:
+
+1. **Base Points**: `sum(card_value(card)) * base_points_multiplier`
+2. **Trump Control**: 
+   - Base value: `len(trump_cards) * trump_base_value`
+   - High trump bonus: `sum(card_value(high_trumps)) * high_trump_bonus`
+   - Length bonus: `len(trump_cards) * (len(trump_cards) - 1) * trump_length_bonus`
+3. **Suit Trick Potential**:
+   - Base value: `sum(strength/8.0) * suit_base_multiplier`
+   - Length bonus: `len(suit_cards) * suit_length_bonus`
+   - High card bonus: `len(high_cards) * suit_high_card_bonus`
+   - Non-trump penalty: `* non_trump_penalty` (if not trump suit)
+4. **Team Coordination**:
+   - Suit flexibility: `len(suits_present) * suit_flexibility`
+   - Balance bonus: `balance_bonus` (if ≥2 suits)
+   - Trump control bonus: `trump_control_bonus` (if has trump)
+
+### Training Objective
+
+Minimizes: `MSE(predicted_team_points, actual_team_points) + λ * L2_regularization`
+
+Where:
+- Each player's 4-card hand predicts their team's total score
+- L2 regularization prevents overfitting
+- Train-validation split ensures generalization

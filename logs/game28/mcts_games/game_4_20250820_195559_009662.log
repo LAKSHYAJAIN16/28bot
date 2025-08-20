@@ -1,0 +1,103 @@
+
+===== GAME 4 (20250820_195559_009662) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 19 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: S
+    proposed_bid: 19
+    overall: avg=20.00  p30=17.00  std=3.54
+    suit_stats:
+      S: pts=[23, 24, 17, 16]  avg=20.00  p30=17.00  std=3.54
+      H: pts=[]
+      C: pts=[]
+    reason: Bid: Suit S meets thresholds (p30=17.00, conf_mean=18.23 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 19. (current_high=0, raise_delta=+1)
+Pass (locked): Player 1 (min_allowed=20)
+  bidding analysis:
+    present_suits: H, C
+    current_high=19  min_allowed=20  raise_delta=1
+    overall: avg=14.00  p30=12.00  std=7.65
+    suit_stats:
+      C: pts=[24, 17, 12, 3]  avg=14.00  p30=12.00  std=7.65
+      H: pts=[12, 13]  avg=12.50  p30=12.00  std=0.50
+    failed_checks:
+      H: p30 12.00 < 19; conf_mean 12.25 < 19
+      C: p30 12.00 < 19; conf_mean 10.18 < 19
+    reason: Pass: No suit meets thresholds. Best suit C has p30=12.00, conf_mean=10.18 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 12.00 < 19, conf_mean 10.18 < 19.
+Pass (locked): Player 2 (min_allowed=20)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=19  min_allowed=20  raise_delta=1
+    overall: avg=11.17  p30=5.00  std=7.03
+    failed_checks:
+      H: p30 5.00 < 19; conf_mean 7.65 < 19
+      C: p30 0.00 < 19; conf_mean 0.50 < 19
+    reason: Pass: No suit meets thresholds. Best suit H has p30=5.00, conf_mean=7.65 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 5.00 < 19, conf_mean 7.65 < 19.
+Bid: Player 3 proposes 25 (min_allowed=20)
+  bidding analysis:
+    present_suits: D
+    current_high=19  min_allowed=20  raise_delta=1
+    chosen_suit: D
+    proposed_bid: 25
+    overall: avg=25.75  p30=25.00  std=1.92
+    suit_stats:
+      D: pts=[27, 28, 25, 23]  avg=25.75  p30=25.00  std=1.92
+    reason: Bid: Suit D meets thresholds (p30=25.00, conf_mean=24.79 >= min_allowed=20); conservative mapping max(p30, avg-1) -> 25. (current_high=19, raise_delta=+1)
+Pass (locked): Player 0 (min_allowed=26)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=25  min_allowed=26  raise_delta=1
+    overall: avg=17.25  p30=17.00  std=3.27
+    suit_stats:
+      S: pts=[20, 20, 17, 12]  avg=17.25  p30=17.00  std=3.27
+      H: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 0.00 < 25; conf_mean 0.00 < 25
+      C: p30 0.00 < 25; conf_mean 0.00 < 25
+      S: p30 17.00 < 25; conf_mean 15.62 < 25
+    reason: Pass: No suit meets thresholds. Best suit S has p30=17.00, conf_mean=15.62 below min_allowed=26 (current_high=25, raise_delta=+1). Failed checks for best suit: p30 17.00 < 25, conf_mean 15.62 < 25.
+
+AUCTION WINNER: Player 3 with bid 25; chooses trump D 
+Details={'chosen': 'D', 'estimates': {'D': 17.25}}
+Player 0 hand :  ['JC', '7H', 'AS', '9S', '10C', 'AD', '9D', '10S']
+Player 1 hand :  ['9H', '8C', 'AC', 'JH', 'KS', 'QD', 'KH', '10D']
+Player 2 hand :  ['7S', '10H', '8S', '7C', 'AH', 'KC', '9C', 'QS']
+Player 3 hand :  ['JD', '7D', '8D', '8H', 'JS', 'QH', 'QC']
+Player 0 (auction 4 cards): ['JC', '7H', 'AS', '9S']
+Player 1 (auction 4 cards): ['9H', '8C', 'AC', 'JH']
+Player 2 (auction 4 cards): ['7S', '10H', '8S', '7C']
+Player 3 (auction 4 cards): ['JD', '7D', '8D', 'KD']
+Auction winner (bidder): Player 3 with bid 25
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: KD
+
+Player 0 plays JC
+Player 1 plays 8C
+Player 2 plays 7C
+Player 3 plays QC
+Player 0 won the hand: 3 points
+
+Player 0 plays 7H
+Player 1 plays 9H
+Player 2 plays 10H
+Player 3 plays 8H
+Player 1 won the hand: 3 points
+
+Player 1 plays AC
+Player 2 plays KC
+-- Phase 2 begins: Trump revealed as D by Player 3 on trick 3 --
+Player 3 plays JD
+Player 0 plays 10C
+Player 3 won the hand: 5 points
+
+Player 3 plays 7D
+Player 0 plays AD
+Player 1 plays QD
+Player 2 plays 7S
+Player 0 won the hand: 1 points
+
+Player 0 plays AS
+Player 1 plays KS
