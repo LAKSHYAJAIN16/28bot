@@ -59,6 +59,7 @@ def _winner_so_far(sim_env):
 
 
 def heuristic_rollout(sim_env):
+    """Improved strategic rollout with better trump management, suit development, and team coordination."""
     done = False
     while not done:
         hand = sim_env.hands[sim_env.turn]
@@ -69,49 +70,151 @@ def heuristic_rollout(sim_env):
                 break
             # If hand has cards but no valid moves, something is wrong
             raise ValueError(f"No valid moves for hand {hand} at turn {sim_env.turn}")
+        
+        # Calculate game state metrics
+        tricks_remaining = sum(len(h) for h in sim_env.hands) // 4
+        my_team = 0 if sim_env.turn % 2 == 0 else 1
+        opponent_team = 1 - my_team
+        
         if sim_env.current_trick:
-            lead_suit = card_suit(sim_env.current_trick[0][1])
-            winner_so_far, win_card = _winner_so_far(sim_env)
-            my_team = 0 if sim_env.turn % 2 == 0 else 1
-            leader_team = (winner_so_far % 2) if winner_so_far is not None else None
-            same_suit = [c for c in valid if card_suit(c) == lead_suit]
-            trumps = [c for c in valid if card_suit(c) == sim_env.trump_suit]
-            non_points = [c for c in valid if card_value(c) == 0]
-            high_points = [c for c in valid if card_value(c) > 0]
-            if leader_team is not None and leader_team == my_team:
-                if same_suit:
-                    action = min(same_suit, key=rank_index)
-                else:
-                    # Partner winning: dump points safely if off-suit
-                    action = max(high_points, key=rank_index) if high_points else (min(non_points, key=rank_index) if non_points else min(valid, key=rank_index))
-            else:
-                chosen = None
-                if same_suit:
-                    higher = [c for c in same_suit if rank_index(c) > rank_index(win_card)] if win_card and card_suit(win_card) == lead_suit else same_suit
-                    if higher:
-                        chosen = min(higher, key=rank_index)
-                if chosen is None:
-                    # Consider trump only if revealed or off-suit AND points justify exposure
-                    pts_on_table = sum(card_value(c) for _, c in sim_env.current_trick)
-                    if trumps and (sim_env.phase == "revealed" or not same_suit) and (pts_on_table >= 2):
-                        if win_card and card_suit(win_card) == sim_env.trump_suit:
-                            over = [c for c in trumps if rank_index(c) > rank_index(win_card)]
-                            chosen = min(over, key=rank_index) if over else min(trumps, key=rank_index)
-                        else:
-                            chosen = min(trumps, key=rank_index)
-                if chosen is None:
-                    chosen = min(non_points, key=rank_index) if non_points else min(valid, key=rank_index)
-                action = chosen
+            action = _choose_card_during_trick(sim_env, valid, my_team, tricks_remaining)
         else:
-            non_trump = [c for c in valid if card_suit(c) != sim_env.trump_suit]
-            lead_pool = non_trump if non_trump else valid
-            suits = {}
-            for c in lead_pool:
-                suits.setdefault(card_suit(c), []).append(c)
-            best_suit = max(suits.keys(), key=lambda s: (len(suits[s]), max(rank_index(c) for c in suits[s])))
-            action = max(suits[best_suit], key=rank_index)
+            action = _choose_opening_lead(sim_env, valid, my_team, tricks_remaining)
+        
         _, _, done, _, _ = sim_env.step(action)
+    
     return sim_env.scores[0] - sim_env.scores[1]
+
+
+def _choose_card_during_trick(sim_env, valid, my_team, tricks_remaining):
+    """Strategic card selection during a trick."""
+    lead_suit = card_suit(sim_env.current_trick[0][1])
+    winner_so_far, win_card = _winner_so_far(sim_env)
+    leader_team = (winner_so_far % 2) if winner_so_far is not None else None
+    
+    same_suit = [c for c in valid if card_suit(c) == lead_suit]
+    trumps = [c for c in valid if card_suit(c) == sim_env.trump_suit]
+    non_points = [c for c in valid if card_value(c) == 0]
+    high_points = [c for c in valid if card_value(c) > 0]
+    
+    # Partner is winning - coordinate to maximize team score
+    if leader_team == my_team:
+        return _play_when_partner_winning(sim_env, valid, same_suit, high_points, non_points, win_card)
+    
+    # Opponent is winning - try to win or minimize loss
+    else:
+        return _play_when_opponent_winning(sim_env, valid, same_suit, trumps, non_points, high_points, win_card, lead_suit, tricks_remaining)
+
+
+def _play_when_partner_winning(sim_env, valid, same_suit, high_points, non_points, win_card):
+    """Strategic play when partner is winning the trick."""
+    if same_suit:
+        # Partner winning with lead suit - play lowest to conserve high cards
+        return min(same_suit, key=rank_index)
+    else:
+        # Partner winning, we're off-suit - dump points safely
+        if high_points:
+            # Play highest point card to maximize score
+            return max(high_points, key=rank_index)
+        else:
+            # No points to dump - play lowest non-point card
+            return min(non_points, key=rank_index) if non_points else min(valid, key=rank_index)
+
+
+def _play_when_opponent_winning(sim_env, valid, same_suit, trumps, non_points, high_points, win_card, lead_suit, tricks_remaining):
+    """Strategic play when opponent is winning the trick."""
+    pts_on_table = sum(card_value(c) for _, c in sim_env.current_trick)
+    
+    # Try to win with same suit first
+    if same_suit:
+        higher = [c for c in same_suit if rank_index(c) > rank_index(win_card)] if win_card and card_suit(win_card) == lead_suit else same_suit
+        if higher:
+            # Can win with same suit - play lowest winning card
+            return min(higher, key=rank_index)
+    
+    # Consider trumping strategically
+    if trumps and _should_trump(sim_env, pts_on_table, tricks_remaining, same_suit):
+        return _choose_trump_card(sim_env, trumps, win_card)
+    
+    # Can't win - minimize loss
+    return _minimize_loss(sim_env, valid, non_points, high_points, pts_on_table)
+
+
+def _should_trump(sim_env, pts_on_table, tricks_remaining, same_suit):
+    """Determine if trumping is strategically sound."""
+    # Always trump if revealed phase
+    if sim_env.phase == "revealed":
+        return True
+    
+    # Trump if off-suit and points justify it
+    if not same_suit and pts_on_table >= 2:
+        return True
+    
+    # Trump if it's late game and we need to control the hand
+    if tricks_remaining <= 2 and pts_on_table >= 1:
+        return True
+    
+    # Trump if we have strong trump control and points are high
+    if pts_on_table >= 3:
+        return True
+    
+    return False
+
+
+def _choose_trump_card(sim_env, trumps, win_card):
+    """Choose the best trump card to play."""
+    if win_card and card_suit(win_card) == sim_env.trump_suit:
+        # Need to beat trump - play lowest trump that can win
+        over = [c for c in trumps if rank_index(c) > rank_index(win_card)]
+        if over:
+            return min(over, key=rank_index)
+    
+    # Play lowest trump to conserve high trumps
+    return min(trumps, key=rank_index)
+
+
+def _minimize_loss(sim_env, valid, non_points, high_points, pts_on_table):
+    """Minimize loss when we can't win the trick."""
+    # If no points on table, play highest non-point card to avoid winning
+    if pts_on_table == 0:
+        if non_points:
+            return max(non_points, key=rank_index)
+        else:
+            return max(valid, key=rank_index)
+    
+    # If points on table, play lowest point card to minimize loss
+    if high_points:
+        return min(high_points, key=rank_index)
+    else:
+        return min(non_points, key=rank_index) if non_points else min(valid, key=rank_index)
+
+
+def _choose_opening_lead(sim_env, valid, my_team, tricks_remaining):
+    """Strategic opening lead selection."""
+    # Analyze hand structure
+    hand = sim_env.hands[sim_env.turn]
+    trump_suit = sim_env.trump_suit
+    
+    # Count cards by suit
+    suit_counts = {}
+    for c in hand:
+        suit = card_suit(c)
+        suit_counts[suit] = suit_counts.get(suit, 0) + 1
+    
+    # Prefer non-trump suits for opening leads
+    non_trump_suits = {s: count for s, count in suit_counts.items() if s != trump_suit}
+    
+    if non_trump_suits:
+        # Lead from longest non-trump suit
+        best_suit = max(non_trump_suits.keys(), key=lambda s: non_trump_suits[s])
+        suit_cards = [c for c in valid if card_suit(c) == best_suit]
+        
+        # Lead with highest card from longest suit
+        return max(suit_cards, key=rank_index)
+    else:
+        # Only trumps in hand - lead with highest trump
+        trump_cards = [c for c in valid if card_suit(c) == trump_suit]
+        return max(trump_cards, key=rank_index)
 
 
 def estimate_trick_win_prob(env, acting_player, action, samples=10):
@@ -139,61 +242,121 @@ def estimate_trick_win_prob(env, acting_player, action, samples=10):
 
 
 def _compute_action_prior_regular(env, action):
+    """Enhanced prior computation with better strategic awareness."""
     current_player = env.turn
     base = rank_index(action) / (len(RANKS) - 1)
     points = card_value(action) / 3.0
     is_trump = (card_suit(action) == env.trump_suit)
+    
     if env.current_trick:
         win_prob = estimate_trick_win_prob(env, current_player, action, samples=4)
-        prior = 0.5 * win_prob + 0.25 * base + 0.25 * points
-        if env.phase == "concealed":
+        
+        # Enhanced prior with strategic considerations
+        prior = 0.4 * win_prob + 0.2 * base + 0.2 * points + 0.2 * _strategic_bonus(env, action)
+        
+        # Trump management in concealed phase
+        if env.phase == "concealed" and is_trump:
             lead_suit = card_suit(env.current_trick[0][1])
             has_lead = any(card_suit(c) == lead_suit for c in env.hands[current_player])
-            if not has_lead and is_trump and win_prob < 0.45:
-                prior *= 0.4
+            pts_on_table = sum(card_value(c) for _, c in env.current_trick)
+            
+            # Don't trump unless points justify it
+            if not has_lead and pts_on_table < 2:
+                prior *= 0.3
+            elif pts_on_table >= 3:
+                prior *= 1.2  # Bonus for trumping high-value tricks
     else:
+        # Opening lead - consider suit development
         hand = env.hands[current_player]
         suit_len = sum(1 for c in hand if card_suit(c) == card_suit(action))
-        prior = 0.45 * base + 0.25 * points + 0.3 * (suit_len / 8.0)
+        suit_development = suit_len / 8.0
+        
+        prior = 0.3 * base + 0.2 * points + 0.3 * suit_development + 0.2 * _strategic_bonus(env, action)
+        
+        # Prefer non-trump suits for opening leads
         if env.phase == "concealed" and is_trump:
-            prior *= 0.5
+            prior *= 0.4
+    
     return max(0.01, min(1.0, prior))
 
 
+def _strategic_bonus(env, action):
+    """Compute strategic bonus for an action based on game state."""
+    bonus = 0.0
+    is_trump = (card_suit(action) == env.trump_suit)
+    
+    # Trump control bonus
+    if is_trump:
+        bonus += 0.1
+    
+    # High card bonus
+    if card_value(action) > 0:
+        bonus += 0.1
+    
+    # Suit length bonus for non-trump suits
+    if not is_trump:
+        hand = env.hands[env.turn]
+        suit_len = sum(1 for c in hand if card_suit(c) == card_suit(action))
+        if suit_len >= 3:
+            bonus += 0.1
+    
+    return bonus
+
+
 def _compute_action_prior_longbias(env, action):
+    """Enhanced long-game bias prior with better strategic considerations."""
     current_player = env.turn
     base = rank_index(action) / (len(RANKS) - 1)
     points = card_value(action) / 3.0
     is_trump = (card_suit(action) == env.trump_suit)
+    
     def long_game_bias() -> float:
         bias = 0.0
         if not env.current_trick:
+            # Opening lead - develop long suits, preserve trumps
             suit_len = sum(1 for c in env.hands[current_player] if card_suit(c) == card_suit(action))
             if not is_trump:
-                bias += 0.2 * (suit_len / 8.0)
+                bias += 0.3 * (suit_len / 8.0)  # Stronger bias for suit development
             if env.phase == "concealed" and is_trump:
-                bias -= 0.2
+                bias -= 0.3  # Stronger penalty for trump leads in concealed phase
         else:
+            # During trick - strategic trump management
             pts_on_table = sum(card_value(c) for _, c in env.current_trick)
-            if is_trump and env.phase == "concealed" and pts_on_table < 2:
-                bias -= 0.15
+            if is_trump and env.phase == "concealed":
+                if pts_on_table < 2:
+                    bias -= 0.25  # Don't trump low-value tricks
+                elif pts_on_table >= 3:
+                    bias += 0.2   # Trump high-value tricks
             else:
-                bias += 0.05
-        return max(-0.3, min(0.3, bias))
+                bias += 0.1  # General bonus for non-trump plays
+        return max(-0.4, min(0.4, bias))
+    
     if env.current_trick:
         win_prob = estimate_trick_win_prob(env, current_player, action, samples=4)
-        prior = 0.3 * win_prob + 0.25 * base + 0.25 * points + 0.2 * (long_game_bias() + 0.3)
-        if env.phase == "concealed":
+        prior = 0.25 * win_prob + 0.2 * base + 0.2 * points + 0.2 * _strategic_bonus(env, action) + 0.15 * (long_game_bias() + 0.3)
+        
+        # Enhanced trump management
+        if env.phase == "concealed" and is_trump:
             lead_suit = card_suit(env.current_trick[0][1])
             has_lead = any(card_suit(c) == lead_suit for c in env.hands[current_player])
-            if not has_lead and is_trump and win_prob < 0.45:
-                prior *= 0.4
+            pts_on_table = sum(card_value(c) for _, c in env.current_trick)
+            
+            if not has_lead and pts_on_table < 2:
+                prior *= 0.2  # Stronger penalty for unnecessary trumping
+            elif pts_on_table >= 3:
+                prior *= 1.3  # Stronger bonus for trumping high-value tricks
     else:
+        # Opening lead with long-game bias
         hand = env.hands[current_player]
         suit_len = sum(1 for c in hand if card_suit(c) == card_suit(action))
-        prior = 0.35 * base + 0.25 * points + 0.2 * (suit_len / 8.0) + 0.2 * (long_game_bias() + 0.3)
+        suit_development = suit_len / 8.0
+        
+        prior = 0.25 * base + 0.2 * points + 0.25 * suit_development + 0.15 * _strategic_bonus(env, action) + 0.15 * (long_game_bias() + 0.3)
+        
+        # Strong preference for non-trump opening leads
         if env.phase == "concealed" and is_trump:
-            prior *= 0.5
+            prior *= 0.3  # Even stronger penalty for trump leads
+    
     return max(0.01, min(1.0, prior))
 
 
@@ -303,6 +466,21 @@ def mcts_plan(env, state, iterations=50, config: SearchConfig | None = None):
     if state.get("done", False) or all(len(hand) == 0 for hand in state.get("hands", [])):
         raise ValueError("Game is already finished")
     
+    valid = env.valid_moves(state["hands"][state["turn"]])
+    
+    # Handle case where there are no valid moves
+    if not valid:
+        # Check if game is finished
+        if state.get("done", False) or all(len(hand) == 0 for hand in state.get("hands", [])):
+            raise ValueError("Game is already finished")
+        
+        # Return a default move if possible, otherwise raise an error
+        if state["hands"][state["turn"]]:
+            default_move = state["hands"][state["turn"]][0]
+            return default_move, {default_move: 1.0}
+        else:
+            raise ValueError("No valid moves available and no cards in hand")
+    
     root = MCTSNode(state)
     for _ in range(iterations):
         node = select(root, (config.c_puct if config else 1.0))
@@ -311,16 +489,6 @@ def mcts_plan(env, state, iterations=50, config: SearchConfig | None = None):
             child = node
         reward = simulate_from_state(env, child.state)
         backpropagate(child, reward)
-    valid = env.valid_moves(state["hands"][state["turn"]])
-    
-    # Handle case where there are no valid moves
-    if not valid:
-        # Return a default move if possible, otherwise raise an error
-        if state["hands"][state["turn"]]:
-            default_move = state["hands"][state["turn"]][0]
-            return default_move, {default_move: 1.0}
-        else:
-            raise ValueError("No valid moves available and no cards in hand")
     
     visits = {a: 0 for a in valid}
     for ch in root.children:

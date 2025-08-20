@@ -1,0 +1,53 @@
+
+===== GAME 1 (20250820_214537_474530) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.25  p30=14.00  std=4.38
+    suit_stats:
+      S: pts=[23, 14, 18, 20, 10, 11 ...]  avg=16.25  p30=14.00  std=4.38
+      H: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 14.00 < 15; conf_mean 14.06 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=14.00, conf_mean=14.06 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 14.06 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.38  p30=14.00  std=5.72
+    suit_stats:
+      C: pts=[14, 19, 25, 9, 8, 20 ...]  avg=16.38  p30=14.00  std=5.72
+      H: pts=[]
+      D: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 14.00 < 15; conf_mean 13.51 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=14.00, conf_mean=13.51 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 13.51 < 15.
+Bid: Player 2 proposes 19 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: D
+    proposed_bid: 19
+    overall: avg=20.38  p30=19.00  std=3.31
+    suit_stats:
+      D: pts=[17, 16, 25, 20, 21, 19 ...]  avg=20.38  p30=19.00  std=3.31
+      C: pts=[]
+      S: pts=[]
+    reason: Bid: Suit D meets thresholds (p30=19.00, conf_mean=18.72 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 19. (current_high=0, raise_delta=+1)
+Pass (locked): Player 3 (min_allowed=20)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=19  min_allowed=20  raise_delta=1
+    overall: avg=15.50  p30=12.00  std=3.57
+    failed_checks:
+      D: p30 12.00 < 19; conf_mean 13.71 < 19
+      C: p30 0.00 < 19; conf_mean 0.00 < 19
+    reason: Pass: No suit meets thresholds. Best suit D has p30=12.00, conf_mean=13.71 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 12.00 < 19, conf_mean 13.71 < 19.

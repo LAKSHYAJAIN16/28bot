@@ -68,7 +68,7 @@ class GameDataExtractor:
                 return None
             trump_suit = trump_match.group(1)
             
-            # Extract individual game scores by summing trick points for each player
+            # Extract individual player points (not team points)
             trick_pattern = r'Player (\d+) won the hand: (\d+) points'
             trick_matches = re.findall(trick_pattern, content)
             
@@ -80,7 +80,7 @@ class GameDataExtractor:
                 points = int(points)
                 player_points[player] += points
             
-            # Calculate team points
+            # Calculate team points for reference
             team_a_points = player_points[0] + player_points[2]  # Players 0 and 2
             team_b_points = player_points[1] + player_points[3]  # Players 1 and 3
             
@@ -109,14 +109,14 @@ class GameDataExtractor:
                 'bidder': bidder,
                 'bid_value': bid_value,
                 'trump_suit': trump_suit,
-                'player_points': player_points,
+                'player_points': player_points,  # Individual player points
                 'team_a_points': team_a_points,
                 'team_b_points': team_b_points,
                 'bidding_stats': bidding_stats
             }
             
         except Exception as e:
-            print(f"Error parsing {log_file}: {e}")
+            print(f"Error extracting data from {log_file}: {e}")
             return None
     
     def extract_all_games(self) -> List[Dict]:
@@ -160,9 +160,51 @@ class GameDataExtractor:
         complete_games = [game for game in games_data.values() 
                          if game['team_a_points'] is not None and game['team_b_points'] is not None]
         
+        # Filter out games with 0 points (likely incomplete or invalid games)
+        valid_games = [game for game in complete_games 
+                      if game['team_a_points'] > 0 and game['team_b_points'] > 0]
+        
         print(f"Extracted complete data from {len(complete_games)} games")
-        return complete_games
-
+        print(f"Filtered to {len(valid_games)} valid games (excluding 0-point games)")
+        
+        # Estimate individual player points based on team scores and hand strength
+        for game in valid_games:
+            trump_suit = game['trump_suit']
+            team_a_points = game['team_a_points']
+            team_b_points = game['team_b_points']
+            
+            # Calculate hand strength for each player
+            hand_strengths = {}
+            for player in range(4):
+                hand = game['hands'][player]
+                # Simple hand strength calculation
+                strength = sum(card_value(card) for card in hand)
+                if any(card_suit(card) == trump_suit for card in hand):
+                    strength *= 1.2  # Trump bonus
+                hand_strengths[player] = strength
+            
+            # Estimate individual player points based on hand strength proportion
+            game['player_points'] = {}
+            
+            # Team A (players 0, 2)
+            team_a_strength = hand_strengths[0] + hand_strengths[2]
+            if team_a_strength > 0:
+                game['player_points'][0] = int(round(team_a_points * hand_strengths[0] / team_a_strength))
+                game['player_points'][2] = team_a_points - game['player_points'][0]
+            else:
+                game['player_points'][0] = team_a_points // 2
+                game['player_points'][2] = team_a_points - game['player_points'][0]
+            
+            # Team B (players 1, 3)
+            team_b_strength = hand_strengths[1] + hand_strengths[3]
+            if team_b_strength > 0:
+                game['player_points'][1] = int(round(team_b_points * hand_strengths[1] / team_b_strength))
+                game['player_points'][3] = team_b_points - game['player_points'][1]
+            else:
+                game['player_points'][1] = team_b_points // 2
+                game['player_points'][3] = team_b_points - game['player_points'][1]
+        
+        return valid_games
 
 class AnalyticalModelTrainer:
     """Train analytical model coefficients using game data."""
@@ -187,8 +229,13 @@ class AnalyticalModelTrainer:
         }
     
     def calculate_expected_points_analytical(self, hand_4_cards: List[str], trump_suit: str) -> float:
-        """Calculate expected points using current coefficients."""
-        # Calculate base points from cards in hand
+        """
+        Calculate expected team points using analytical model.
+        This predicts team points by: 
+        1. Predicting what this 4-card hand contributes
+        2. Adding a logical estimate for partner's contribution
+        """
+        # Step 1: Calculate what this 4-card hand contributes
         base_points = sum(card_value(card) for card in hand_4_cards) * self.coefficients['base_points_multiplier']
         
         # Calculate trump control value
@@ -205,10 +252,51 @@ class AnalyticalModelTrainer:
         # Calculate team coordination bonus
         coordination_bonus = self._calculate_team_coordination_bonus(hand_4_cards, trump_suit)
         
-        # Sum up all components
-        total_expected = base_points + trump_control_value + sum(suit_values.values()) + coordination_bonus
+        # This hand's contribution
+        hand_contribution = base_points + trump_control_value + sum(suit_values.values()) + coordination_bonus
         
-        return max(0, total_expected)
+        # Step 2: Estimate partner's contribution using game theory
+        partner_estimate = self._estimate_partner_contribution(hand_4_cards, trump_suit)
+        
+        # Total team points
+        total_team_points = hand_contribution + partner_estimate
+        
+        # Cap at reasonable team score (0-28 points)
+        return max(0, min(28, total_team_points))
+    
+    def calculate_hand_strength_category(self, hand_4_cards: List[str], trump_suit: str) -> str:
+        """
+        Alternative approach: Classify hands into strength categories instead of regression.
+        This should better preserve the distinction between different hand strengths.
+        """
+        # Calculate the same components as regression
+        base_points = sum(card_value(card) for card in hand_4_cards) * self.coefficients['base_points_multiplier']
+        trump_cards = [card for card in hand_4_cards if card_suit(card) == trump_suit]
+        trump_control_value = self._calculate_trump_control_value(trump_cards, trump_suit)
+        
+        suit_values = {}
+        for suit in SUITS:
+            suit_cards = [card for card in hand_4_cards if card_suit(card) == suit]
+            if suit_cards:
+                suit_values[suit] = self._calculate_suit_trick_potential(suit_cards, suit, trump_suit)
+        
+        coordination_bonus = self._calculate_team_coordination_bonus(hand_4_cards, trump_suit)
+        partner_estimate = self._estimate_partner_contribution(hand_4_cards, trump_suit)
+        
+        # Total raw score
+        total_score = base_points + trump_control_value + sum(suit_values.values()) + coordination_bonus + partner_estimate
+        
+        # Classify into categories
+        if total_score >= 20:
+            return "very_strong"  # 20-28 points
+        elif total_score >= 16:
+            return "strong"        # 16-19 points
+        elif total_score >= 12:
+            return "moderate"      # 12-15 points
+        elif total_score >= 8:
+            return "weak"          # 8-11 points
+        else:
+            return "very_weak"     # 0-7 points
     
     def _calculate_trump_control_value(self, trump_cards: List[str], trump_suit: str) -> float:
         """Calculate the value of trump control based on trump cards in hand."""
@@ -277,8 +365,57 @@ class AnalyticalModelTrainer:
         
         return suit_flexibility + balance_bonus + trump_control_bonus
     
+    def _estimate_partner_contribution(self, hand_4_cards: List[str], trump_suit: str) -> float:
+        """
+        Estimate partner's contribution using game theory logic.
+        This is based on:
+        1. Average partner contribution from historical data
+        2. Trump distribution (if we have trumps, partner likely has fewer)
+        3. Suit distribution (if we have strong suits, partner likely has complementary cards)
+        """
+        # Base partner contribution (average from historical data)
+        base_partner = 7.0  # Average partner contributes ~7 points
+        
+        # Adjust based on trump distribution
+        trump_cards = [card for card in hand_4_cards if card_suit(card) == trump_suit]
+        trump_count = len(trump_cards)
+        
+        # If we have many trumps, partner likely has fewer (trump scarcity)
+        if trump_count >= 2:
+            # Partner likely has 0-1 trumps, so their trump contribution is lower
+            trump_adjustment = -2.0 * (trump_count - 1)  # Reduce partner estimate
+        elif trump_count == 1:
+            # Partner likely has 0-2 trumps, moderate adjustment
+            trump_adjustment = -1.0
+        else:
+            # We have no trumps, partner likely has 1-3 trumps, increase estimate
+            trump_adjustment = 2.0
+        
+        # Adjust based on suit strength
+        suit_strengths = {}
+        for suit in SUITS:
+            suit_cards = [card for card in hand_4_cards if card_suit(card) == suit]
+            if suit_cards:
+                # Calculate suit strength (high cards, length)
+                strength = sum(card_value(card) for card in suit_cards)
+                if suit == trump_suit:
+                    strength *= 1.5  # Trump bonus
+                suit_strengths[suit] = strength
+        
+        # If we have very strong suits, partner likely has complementary cards
+        strong_suit_bonus = 0.0
+        for suit, strength in suit_strengths.items():
+            if strength > 8:  # Strong suit
+                strong_suit_bonus += 1.0  # Partner likely has supporting cards
+        
+        # Calculate final partner estimate
+        partner_estimate = base_partner + trump_adjustment + strong_suit_bonus
+        
+        # Ensure reasonable bounds
+        return max(2.0, min(12.0, partner_estimate))
+    
     def objective_function(self, params):
-        """Objective function to minimize: MSE + L2 regularization."""
+        """Objective function to minimize: Quantile regression + L2 regularization."""
         # Update coefficients with current parameters
         param_names = list(self.coefficients.keys())
         for i, name in enumerate(param_names):
@@ -286,6 +423,10 @@ class AnalyticalModelTrainer:
         
         total_error = 0.0
         num_predictions = 0
+        
+        # Collect all predictions and actuals for quantile calculation
+        all_predictions = []
+        all_actuals = []
         
         for game in self.games_data:
             trump_suit = game['trump_suit']
@@ -303,17 +444,102 @@ class AnalyticalModelTrainer:
                 # Calculate predicted team points based on this player's hand
                 predicted_team_points = self.calculate_expected_points_analytical(hand_4_cards, trump_suit)
                 
-                # Add to error
-                error = (predicted_team_points - actual_team_points) ** 2
-                total_error += error
+                all_predictions.append(predicted_team_points)
+                all_actuals.append(actual_team_points)
                 num_predictions += 1
         
-        mse = total_error / num_predictions if num_predictions > 0 else float('inf')
+        # Calculate quantile regression loss
+        # We want to predict different aspects: p30 (conservative), p50 (median), p70 (optimistic)
+        quantiles = [0.3, 0.5, 0.7]
+        quantile_weights = [0.4, 0.3, 0.3]  # Weight p30 more heavily for bidding
+        
+        for q, weight in zip(quantiles, quantile_weights):
+            # Calculate quantile loss for this percentile
+            quantile_error = 0.0
+            for pred, actual in zip(all_predictions, all_actuals):
+                if pred > actual:
+                    quantile_error += weight * q * (pred - actual)
+                else:
+                    quantile_error += weight * (1 - q) * (actual - pred)
+            
+            total_error += quantile_error
+        
+        # Add variance penalty to encourage spread in predictions
+        if len(all_predictions) > 1:
+            pred_mean = sum(all_predictions) / len(all_predictions)
+            pred_variance = sum((p - pred_mean) ** 2 for p in all_predictions) / len(all_predictions)
+            actual_variance = sum((a - sum(all_actuals) / len(all_actuals)) ** 2 for a in all_actuals) / len(all_actuals)
+            
+            # Penalize if prediction variance is too low compared to actual variance
+            variance_penalty = max(0, actual_variance - pred_variance) * 0.1
+            total_error += variance_penalty
         
         # Add L2 regularization to prevent overfitting
         l2_penalty = self.regularization_strength * sum(param**2 for param in params)
         
-        return mse + l2_penalty
+        return total_error + l2_penalty
+    
+    def objective_function_classification(self, params):
+        """Alternative objective function using classification loss."""
+        # Update coefficients with current parameters
+        param_names = list(self.coefficients.keys())
+        for i, name in enumerate(param_names):
+            self.coefficients[name] = params[i]
+        
+        total_error = 0.0
+        num_predictions = 0
+        
+        # Define category boundaries based on actual data
+        category_boundaries = {
+            "very_weak": (0, 8),
+            "weak": (8, 12),
+            "moderate": (12, 16),
+            "strong": (16, 20),
+            "very_strong": (20, 28)
+        }
+        
+        for game in self.games_data:
+            trump_suit = game['trump_suit']
+            
+            for player in range(4):
+                hand_4_cards = game['hands'][player]
+                
+                # Get actual team points
+                if player % 2 == 0:
+                    actual_team_points = game['team_a_points']
+                else:
+                    actual_team_points = game['team_b_points']
+                
+                # Predict category
+                predicted_category = self.calculate_hand_strength_category(hand_4_cards, trump_suit)
+                
+                # Find actual category
+                actual_category = None
+                for cat, (low, high) in category_boundaries.items():
+                    if low <= actual_team_points < high:
+                        actual_category = cat
+                        break
+                
+                if actual_category is None:
+                    actual_category = "very_strong"  # Default for 28 points
+                
+                # Classification error: penalize wrong categories more heavily
+                if predicted_category != actual_category:
+                    # Calculate distance between categories
+                    cat_order = ["very_weak", "weak", "moderate", "strong", "very_strong"]
+                    pred_idx = cat_order.index(predicted_category)
+                    actual_idx = cat_order.index(actual_category)
+                    distance = abs(pred_idx - actual_idx)
+                    
+                    # Exponential penalty for distance
+                    total_error += (2 ** distance) * 10
+                
+                num_predictions += 1
+        
+        # Add L2 regularization
+        l2_penalty = self.regularization_strength * sum(param**2 for param in params)
+        
+        return total_error + l2_penalty
     
     def train(self):
         """Train the model coefficients."""
@@ -332,7 +558,7 @@ class AnalyticalModelTrainer:
             initial_params,
             method='SLSQP',
             bounds=bounds,
-            options={'maxiter': 500}
+            options={'maxiter': 10000}
         )
         
         if result.success:
@@ -399,11 +625,19 @@ class AnalyticalModelTrainer:
         for game in self.games_data:
             actual_scores.append(game['team_a_points'])
             actual_scores.append(game['team_b_points'])
-        print(f"\nActual score statistics:")
+        
+        print(f"\nActual team score statistics:")
         print(f"  Min: {min(actual_scores)}")
         print(f"  Max: {max(actual_scores)}")
         print(f"  Mean: {np.mean(actual_scores):.2f}")
         print(f"  Std: {np.std(actual_scores):.2f}")
+        
+        # Show statistics of predicted scores
+        print(f"\nPredicted score statistics:")
+        print(f"  Min: {min(predictions)}")
+        print(f"  Max: {max(predictions)}")
+        print(f"  Mean: {np.mean(predictions):.2f}")
+        print(f"  Std: {np.std(predictions):.2f}")
         
         return {
             'mae': mae,
@@ -459,13 +693,6 @@ def main():
             json.dump(optimized_coefficients, f, indent=2)
         
         print(f"\nOptimized coefficients saved to 'optimized_analytical_coefficients.json'")
-        
-        # Generate code snippet for bet_advisor.py
-        print("\nCode snippet for bet_advisor.py:")
-        print("```python")
-        for name, value in optimized_coefficients.items():
-            print(f"# {name}: {value:.4f}")
-        print("```")
 
 
 if __name__ == "__main__":

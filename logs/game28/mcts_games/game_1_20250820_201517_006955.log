@@ -1,0 +1,15 @@
+
+===== GAME 1 (20250820_201517_006955) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 21 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: H
+    proposed_bid: 21
+    overall: avg=22.00  p30=21.00  std=2.24
+    suit_stats:
+      H: pts=[19, 25, 23, 21]  avg=22.00  p30=21.00  std=2.24
+      C: pts=[4, 14]  avg=9.00  p30=4.00  std=5.00
+    reason: Bid: Suit H meets thresholds (p30=21.00, conf_mean=20.88 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 21. (current_high=0, raise_delta=+1)

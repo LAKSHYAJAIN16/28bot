@@ -1,0 +1,46 @@
+
+===== GAME 1 (20250820_202629_673494) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=14.62  p30=13.00  std=4.82
+    suit_stats:
+      D: pts=[13, 6, 16, 13, 23, 16 ...]  avg=14.62  p30=13.00  std=4.82
+      C: pts=[]
+      S: pts=[]
+    failed_checks:
+      D: p30 13.00 < 15; conf_mean 12.21 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=12.21 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 12.21 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=14.50  p30=13.00  std=5.55
+    suit_stats:
+      D: pts=[18, 21, 8, 17, 15, 4 ...]  avg=14.50  p30=13.00  std=5.55
+      C: pts=[]
+      S: pts=[]
+    failed_checks:
+      D: p30 13.00 < 15; conf_mean 11.73 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=11.73 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 11.73 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=12.88  p30=13.00  std=4.08
+    suit_stats:
+      H: pts=[18, 12, 14, 13, 3, 15 ...]  avg=12.88  p30=13.00  std=4.08
+      D: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 13.00 < 15; conf_mean 10.84 < 15
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=13.00, conf_mean=10.84 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 10.84 < 15.

@@ -1,0 +1,13 @@
+
+===== GAME 67 (20250820_214812_254132) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=7.50  p30=5.00  std=5.85
+    failed_checks:
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 5.00 < 15; conf_mean 4.57 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=5.00, conf_mean=4.57 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 5.00 < 15, conf_mean 4.57 < 15.

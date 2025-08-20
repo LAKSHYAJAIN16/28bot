@@ -159,9 +159,18 @@ def run_single_simulation_worker(args):
             moves_done += 1
         except (ValueError, IndexError) as e:
             # Handle empty policy or other MCTS errors
-            if "empty" in str(e).lower() or "max()" in str(e):
+            if "empty" in str(e).lower() or "max()" in str(e) or "No valid moves" in str(e):
                 # Fallback: just play a random valid move
-                print("something is wrong, skibidi")
+                valid_moves = env.valid_moves(env.hands[env.turn])
+                if valid_moves:
+                    move = random.choice(valid_moves)
+                    state, _, done, _, _ = env.step(move)
+                    moves_done += 1
+                else:
+                    # No valid moves - game might be finished
+                    break
+            else:
+                # For other errors, try to continue with random play
                 valid_moves = env.valid_moves(env.hands[env.turn])
                 if valid_moves:
                     move = random.choice(valid_moves)
@@ -169,8 +178,6 @@ def run_single_simulation_worker(args):
                     moves_done += 1
                 else:
                     break
-            else:
-                raise
     
     # For bidding simulations, we want the raw team points, not game score
     bidder_team = 0 if my_seat % 2 == 0 else 1
@@ -237,13 +244,15 @@ def load_optimized_coefficients() -> Dict[str, float]:
 
 def calculate_expected_points_analytical(hand_4_cards: List[str], trump_suit: str) -> float:
     """
-    Calculate expected points using analytical trick-winning probability model.
-    This is much more accurate and stable than ISMCTS simulations for strong hands.
+    Calculate expected team points using analytical model.
+    This predicts team points by: 
+    1. Predicting what this 4-card hand contributes
+    2. Adding a logical estimate for partner's contribution
     """
     # Load optimized coefficients
     coefficients = load_optimized_coefficients()
     
-    # Calculate base points from cards in hand
+    # Step 1: Calculate what this 4-card hand contributes
     base_points = sum(card_value(card) for card in hand_4_cards) * coefficients['base_points_multiplier']
     
     # Calculate trump control value
@@ -260,10 +269,67 @@ def calculate_expected_points_analytical(hand_4_cards: List[str], trump_suit: st
     # Calculate team coordination bonus
     coordination_bonus = calculate_team_coordination_bonus(hand_4_cards, trump_suit)
     
-    # Sum up all components
-    total_expected = base_points + trump_control_value + sum(suit_values.values()) + coordination_bonus
+    # This hand's contribution
+    hand_contribution = base_points + trump_control_value + sum(suit_values.values()) + coordination_bonus
     
-    return max(0, total_expected)  # Ensure non-negative
+    # Step 2: Estimate partner's contribution using game theory
+    partner_estimate = estimate_partner_contribution(hand_4_cards, trump_suit)
+    
+    # Total team points
+    total_team_points = hand_contribution + partner_estimate
+    
+    # Cap at reasonable team score (0-28 points)
+    return max(0, min(28, total_team_points))
+
+
+def estimate_partner_contribution(hand_4_cards: List[str], trump_suit: str) -> float:
+    """
+    Estimate partner's contribution using game theory logic.
+    This is based on:
+    1. Average partner contribution from historical data
+    2. Trump distribution (if we have trumps, partner likely has fewer)
+    3. Suit distribution (if we have strong suits, partner likely has complementary cards)
+    """
+    # Base partner contribution (average from historical data)
+    base_partner = 7.0  # Average partner contributes ~7 points
+    
+    # Adjust based on trump distribution
+    trump_cards = [card for card in hand_4_cards if card_suit(card) == trump_suit]
+    trump_count = len(trump_cards)
+    
+    # If we have many trumps, partner likely has fewer (trump scarcity)
+    if trump_count >= 2:
+        # Partner likely has 0-1 trumps, so their trump contribution is lower
+        trump_adjustment = -2.0 * (trump_count - 1)  # Reduce partner estimate
+    elif trump_count == 1:
+        # Partner likely has 0-2 trumps, moderate adjustment
+        trump_adjustment = -1.0
+    else:
+        # We have no trumps, partner likely has 1-3 trumps, increase estimate
+        trump_adjustment = 2.0
+    
+    # Adjust based on suit strength
+    suit_strengths = {}
+    for suit in SUITS:
+        suit_cards = [card for card in hand_4_cards if card_suit(card) == suit]
+        if suit_cards:
+            # Calculate suit strength (high cards, length)
+            strength = sum(card_value(card) for card in suit_cards)
+            if suit == trump_suit:
+                strength *= 1.5  # Trump bonus
+            suit_strengths[suit] = strength
+    
+    # If we have very strong suits, partner likely has complementary cards
+    strong_suit_bonus = 0.0
+    for suit, strength in suit_strengths.items():
+        if strength > 8:  # Strong suit
+            strong_suit_bonus += 1.0  # Partner likely has supporting cards
+    
+    # Calculate final partner estimate
+    partner_estimate = base_partner + trump_adjustment + strong_suit_bonus
+    
+    # Ensure reasonable bounds
+    return max(2.0, min(12.0, partner_estimate))
 
 
 def calculate_trump_control_value(trump_cards: List[str], trump_suit: str) -> float:

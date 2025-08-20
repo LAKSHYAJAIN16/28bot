@@ -129,7 +129,7 @@ def _maybe_append_precomputed(
         pass
 
 
-def play_games(num_games=3, iterations=50, search_mode: str = "regular"):
+def play_games(num_games=3, iterations=50, search_mode: str = "regular", mcts_config: dict = None):
     results_all = []
     series_game_score = [0, 0]
     for g in range(1, num_games + 1):
@@ -144,7 +144,7 @@ def play_games(num_games=3, iterations=50, search_mode: str = "regular"):
                 first_player = 0
                 env = TwentyEightEnv()
                 env.debug = True
-                state = env.reset(initial_trump=None, first_player=first_player)
+                state = env.reset(initial_trump=None, first_player=first_player, mcts_config=mcts_config)
                 _log_game_event(
                     "game_start",
                     {
@@ -180,7 +180,7 @@ def play_games(num_games=3, iterations=50, search_mode: str = "regular"):
                 while not done:
                     current_player = state["turn"]
                     try:
-                        move = policy_move(env, iterations, search_mode)
+                        move = policy_move(env, iterations, search_mode, mcts_config)
                         state, _, done, winner, trick_points = env.step(move)
                         print(f"Player {current_player} plays {move}")
                         if winner is not None:
@@ -318,7 +318,7 @@ def run_single_game(game_id: int, iterations: int, first_player: int = 0, search
             sys.stderr = _orig_stderr
 
 
-def play_games_concurrent(num_games: int = 4, iterations: int = 50, max_workers: int | None = None, search_mode: str = "regular"):
+def play_games_concurrent(num_games: int = 4, iterations: int = 50, max_workers: int | None = None, search_mode: str = "regular", mcts_config: dict = None):
     if max_workers is None:
         try:
             max_workers = max(1, os.cpu_count() or 1)

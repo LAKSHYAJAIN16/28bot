@@ -1,13 +1,13 @@
 {
-  "base_points_multiplier": 0.5964893312259989,
-  "trump_base_value": 0.28602314193077205,
-  "high_trump_bonus": 0.41511847009163977,
-  "trump_length_bonus": 0.7390409344092146,
-  "suit_base_multiplier": 0.3455905211661678,
-  "suit_length_bonus": 1.4824115996831195,
-  "suit_high_card_bonus": -0.0582127771467021,
-  "non_trump_penalty": 1.3506065983938205,
-  "suit_flexibility": 0.4314376829329479,
-  "balance_bonus": 0.2930599774165458,
-  "trump_control_bonus": 0.045971036594143144
+  "base_points_multiplier": 0.7846222269700104,
+  "trump_base_value": 1.2180825621734763,
+  "high_trump_bonus": 0.44892655975369516,
+  "trump_length_bonus": -0.15111642857317514,
+  "suit_base_multiplier": 1.5697084251271385,
+  "suit_length_bonus": 0.1132810885605434,
+  "suit_high_card_bonus": 0.23417337040055217,
+  "non_trump_penalty": -1.1558810835188884,
+  "suit_flexibility": 1.1112570042664578,
+  "balance_bonus": 0.5311017567103254,
+  "trump_control_bonus": 1.795471569499591
 }

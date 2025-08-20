@@ -9,7 +9,7 @@ class TwentyEightEnv:
         self.num_players = 4
         self.debug = False
 
-    def reset(self, initial_trump=None, first_player=0):
+    def reset(self, initial_trump=None, first_player=0, mcts_config=None):
         deck = [r + s for r in ["7", "8", "9", "10", "J", "Q", "K", "A"] for s in SUITS]
         random.shuffle(deck)
         self.hands = [[] for _ in range(4)]
@@ -34,7 +34,14 @@ class TwentyEightEnv:
         else:
             from .mcts_bidding import MonteCarloBiddingAgent
 
-            agents = [MonteCarloBiddingAgent(num_samples=4, mcts_iterations=50) for _ in range(4)]
+            # Use MCTS config if provided, otherwise use defaults
+            if mcts_config:
+                agents = [MonteCarloBiddingAgent(
+                    num_samples=mcts_config.get('bidding_samples', 8),
+                    mcts_iterations=mcts_config.get('bidding_iterations', 100)
+                ) for _ in range(4)]
+            else:
+                agents = [MonteCarloBiddingAgent(num_samples=8, mcts_iterations=100) for _ in range(4)]
             order = [(first_player + i) % 4 for i in range(4)]
             current_high = 0
             current_bidder = None
@@ -275,6 +282,18 @@ def _format_bidding_debug(dbg: dict) -> str:
                 if not pts:
                     lines.append(f"      {s}: pts=[]")
                     continue
+                
+                # Handle case where pts contains lists (from worker function)
+                if pts and isinstance(pts[0], list):
+                    # Flatten the list of lists
+                    flattened = []
+                    for v in pts:
+                        if isinstance(v, list):
+                            flattened.extend(v)
+                        else:
+                            flattened.append(v)
+                    pts = flattened
+                
                 n = len(pts)
                 mean = sum(pts) / n
                 var = sum((v - mean) ** 2 for v in pts) / n

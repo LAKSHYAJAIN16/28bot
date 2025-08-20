@@ -1,0 +1,18 @@
+
+===== GAME 1 (20250820_214008_793391) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.88  p30=14.00  std=5.33
+    suit_stats:
+      D: pts=[14, 7, 12, 16, 27, 16 ...]  avg=15.88  p30=14.00  std=5.33
+      C: pts=[]
+      S: pts=[]
+    failed_checks:
+      D: p30 14.00 < 15; conf_mean 13.21 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=13.21 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 13.21 < 15.
