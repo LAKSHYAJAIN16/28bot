@@ -8,9 +8,9 @@ from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 import numpy as np
 
-from ..game28.game_state import Game28State, Card
-from ..game28.constants import *
-from ..belief_model.belief_net import BeliefNetwork, BeliefState
+from game28.game_state import Game28State, Card
+from game28.constants import *
+from belief_model.belief_net import BeliefNetwork, BeliefState
 
 
 @dataclass

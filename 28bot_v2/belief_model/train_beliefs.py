@@ -12,9 +12,9 @@ from typing import List, Tuple, Dict
 import random
 from tqdm import tqdm
 
-from .belief_net import BeliefNetwork
-from ..game28.game_state import Game28State
-from ..game28.constants import *
+from belief_model.belief_net import BeliefNetwork
+from game28.game_state import Game28State
+from game28.constants import *
 
 
 class BeliefDataset(Dataset):

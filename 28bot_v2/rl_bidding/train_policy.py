@@ -17,8 +17,8 @@ from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
 from stable_baselines3.common.callbacks import EvalCallback, CheckpointCallback
 from stable_baselines3.common.utils import set_random_seed
 
-from .env_adapter import Game28Env
-from ..game28.constants import *
+from rl_bidding.env_adapter import Game28Env
+from game28.constants import *
 
 
 class BiddingPolicy(nn.Module):
@@ -58,54 +58,7 @@ class BiddingPolicy(nn.Module):
         return policy_logits, value
 
 
-class CustomPPO(PPO):
-    """
-    Custom PPO implementation with legal action masking
-    """
-    
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-    
-    def predict(self, observation, state=None, deterministic=False):
-        """Predict with legal action masking"""
-        # Get legal actions
-        legal_actions = observation['legal_actions']
-        
-        # Get policy logits
-        obs_tensor = self._preprocess_obs(observation)
-        policy_logits, _ = self.policy(obs_tensor)
-        
-        # Mask illegal actions
-        masked_logits = policy_logits.clone()
-        masked_logits[legal_actions == 0] = float('-inf')
-        
-        # Sample action
-        if deterministic:
-            action = torch.argmax(masked_logits, dim=-1)
-        else:
-            probs = torch.softmax(masked_logits, dim=-1)
-            action = torch.multinomial(probs, 1).squeeze(-1)
-        
-        return action.cpu().numpy(), state
-    
-    def _preprocess_obs(self, observation: Dict) -> torch.Tensor:
-        """Preprocess observation into tensor"""
-        # Flatten observation
-        obs_list = []
-        obs_list.append(observation['hand'].flatten())
-        obs_list.append(observation['bidding_history'].flatten())
-        obs_list.append(np.array([observation['current_bid']]))
-        obs_list.append(np.array([observation['position']]))
-        obs_list.append(np.array([observation['phase']]))
-        obs_list.append(np.array([observation['trump_suit']]))
-        obs_list.append(np.array([observation['trump_revealed']]))
-        obs_list.append(np.array([observation['bidder']]))
-        obs_list.append(np.array([observation['winning_bid']]))
-        obs_list.append(observation['team_scores'].flatten())
-        obs_list.append(observation['game_points'].flatten())
-        
-        obs_tensor = torch.tensor(np.concatenate(obs_list), dtype=torch.float32)
-        return obs_tensor.unsqueeze(0)
+# Use standard PPO with MultiInputPolicy for dictionary observations
 
 
 def create_env(player_id: int = 0):
@@ -142,11 +95,11 @@ def train_bidding_policy(
     
     # Create vectorized environment
     env = DummyVecEnv([create_env(i) for i in range(4)])
-    env = VecNormalize(env, norm_obs=True, norm_reward=True)
+    env = VecNormalize(env, norm_obs=False, norm_reward=True)
     
     # Create evaluation environment
     eval_env = DummyVecEnv([create_env(0)])
-    eval_env = VecNormalize(eval_env, norm_obs=True, norm_reward=True)
+    eval_env = VecNormalize(eval_env, norm_obs=False, norm_reward=True)
     
     # Create callbacks
     eval_callback = EvalCallback(
@@ -165,8 +118,8 @@ def train_bidding_policy(
     )
     
     # Create and train model
-    model = CustomPPO(
-        "MlpPolicy",
+    model = PPO(
+        "MultiInputPolicy",
         env,
         learning_rate=learning_rate,
         batch_size=batch_size,
@@ -219,7 +172,7 @@ def evaluate_policy(model_path: str, num_games: int = 100) -> Dict[str, float]:
     """
     
     # Load model
-    model = CustomPPO.load(model_path)
+    model = PPO.load(model_path)
     
     # Create evaluation environment
     env = Game28Env(player_id=0)

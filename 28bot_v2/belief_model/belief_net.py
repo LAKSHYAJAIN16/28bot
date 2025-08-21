@@ -9,8 +9,8 @@ import numpy as np
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 
-from ..game28.game_state import Game28State, Card
-from ..game28.constants import *
+from game28.game_state import Game28State, Card
+from game28.constants import *
 
 
 @dataclass

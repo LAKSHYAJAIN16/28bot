@@ -8,8 +8,8 @@ from gymnasium import spaces
 from typing import Dict, List, Tuple, Optional, Any
 import torch
 
-from ..game28.game_state import Game28State, Card
-from ..game28.constants import *
+from game28.game_state import Game28State, Card
+from game28.constants import *
 
 
 class Game28Env(gym.Env):

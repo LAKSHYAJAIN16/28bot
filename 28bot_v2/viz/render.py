@@ -11,9 +11,9 @@ from plotly.subplots import make_subplots
 from typing import Dict, List, Tuple, Optional
 import pandas as pd
 
-from ..game28.game_state import Game28State, Card
-from ..game28.constants import *
-from ..belief_model.belief_net import BeliefState
+from game28.game_state import Game28State, Card
+from game28.constants import *
+from belief_model.belief_net import BeliefState
 
 
 class BidExplanation:
