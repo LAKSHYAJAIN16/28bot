@@ -1,0 +1,113 @@
+
+===== GAME 1 (20250820_221829_618095) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.42  p30=14.00  std=5.24
+    suit_stats:
+      C: pts=[15, 21, 12, 14, 21, 25 ...]  avg=16.42  p30=14.00  std=5.24
+      D: pts=[]
+      S: pts=[]
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 14.00 < 15; conf_mean 13.80 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=14.00, conf_mean=13.80 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 13.80 < 15.
+Bid: Player 1 proposes 23 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: S
+    proposed_bid: 23
+    overall: avg=23.00  p30=23.00  std=0.00
+    suit_stats:
+      H: pts=[19]  avg=19.00  p30=19.00  std=0.00
+      D: pts=[16]  avg=16.00  p30=16.00  std=0.00
+      S: pts=[23]  avg=23.00  p30=23.00  std=0.00
+      C: pts=[16]  avg=16.00  p30=16.00  std=0.00
+    reason: Bid: Suit S meets thresholds (p30=23.00, conf_mean=23.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 23. (current_high=0, raise_delta=+1)
+Pass (locked): Player 2 (min_allowed=24)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=23  min_allowed=24  raise_delta=1
+    overall: avg=15.00  p30=14.00  std=5.43
+    failed_checks:
+      H: p30 14.00 < 23; conf_mean 12.28 < 23
+      D: p30 0.00 < 23; conf_mean 0.00 < 23
+      C: p30 0.00 < 23; conf_mean 0.00 < 23
+    reason: Pass: No suit meets thresholds. Best suit H has p30=14.00, conf_mean=12.28 below min_allowed=24 (current_high=23, raise_delta=+1). Failed checks for best suit: p30 14.00 < 23, conf_mean 12.28 < 23.
+Pass (locked): Player 3 (min_allowed=24)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=23  min_allowed=24  raise_delta=1
+    overall: avg=16.04  p30=13.00  std=6.22
+    suit_stats:
+      D: pts=[6, 3, 18, 21, 19, 21 ...]  avg=16.04  p30=13.00  std=6.22
+      H: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 0.00 < 23; conf_mean 0.00 < 23
+      D: p30 13.00 < 23; conf_mean 12.93 < 23
+      C: p30 0.00 < 23; conf_mean 0.00 < 23
+    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=12.93 below min_allowed=24 (current_high=23, raise_delta=+1). Failed checks for best suit: p30 13.00 < 23, conf_mean 12.93 < 23.
+
+AUCTION WINNER: Player 1 with bid 23; chooses trump C 
+Details={'chosen': 'C', 'estimates': {'H': 9.0, 'D': 18.0, 'C': 21.0, 'S': 16.0}}
+Player 0 hand :  ['10C', '10D', '9C', '9S', 'JS', '7C', 'KC', '10S']
+Player 1 hand :  ['9H', '8S', 'JD', 'QS', '7S', '8H', 'AS']
+Player 2 hand :  ['AH', 'QC', 'QD', 'AC', 'QH', 'JH', '8D', '7H']
+Player 3 hand :  ['KH', 'AD', '9D', '8C', '10H', 'KD', '7D', 'KS']
+Player 0 (auction 4 cards): ['10C', '10D', '9C', '9S']
+Player 1 (auction 4 cards): ['JC', '9H', '8S', 'JD']
+Player 2 (auction 4 cards): ['AH', 'QC', 'QD', 'AC']
+Player 3 (auction 4 cards): ['KH', 'AD', '9D', '8C']
+Auction winner (bidder): Player 1 with bid 23
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: JC
+
+Player 0 plays 10C
+Player 1 plays 9H
+Player 2 plays QC
+Player 3 plays 8C
+Player 0 won the hand: 3 points
+
+Player 0 plays 10D
+Player 1 plays JD
+Player 2 plays QD
+Player 3 plays AD
+Player 1 won the hand: 5 points
+
+Player 1 plays 8S
+Player 2 plays AH
+Player 3 plays KS
+Player 0 plays 9S
+Player 0 won the hand: 3 points
+
+Player 0 plays 9C
+Player 1 plays QS
+Player 2 plays AC
+Player 3 plays KH
+Player 0 won the hand: 3 points
+
+Player 0 plays JS
+Player 1 plays 7S
+Player 2 plays QH
+Player 3 plays 9D
+Player 0 won the hand: 5 points
+
+Player 0 plays 7C
+Player 1 plays 8H
+Player 2 plays JH
+Player 3 plays 10H
+Player 0 won the hand: 4 points
+
+Player 0 plays KC
+Player 1 plays AS
+Player 2 plays 8D
+Player 3 plays KD
+Player 0 won the hand: 1 points
+
+Player 0 plays 10S

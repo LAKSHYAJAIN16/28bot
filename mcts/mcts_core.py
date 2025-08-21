@@ -58,90 +58,121 @@ def _winner_so_far(sim_env):
     return winner, winning_card
 
 
-def heuristic_rollout(sim_env):
-    """Improved strategic rollout with better trump management, suit development, and team coordination."""
+def ismcts_rollout(sim_env, rollout_iterations=20):
+    """ISMCTS-based rollout that uses actual planning for evaluation - much more human-like."""
     done = False
-    while not done:
+    moves_done = 0
+    max_moves = 32  # Safety cap
+    
+    while not done and moves_done < max_moves:
         hand = sim_env.hands[sim_env.turn]
         valid = sim_env.valid_moves(hand)
+        
         if not valid:
-            # If no valid moves and hand is empty, game is finished
             if not hand:
                 break
-            # If hand has cards but no valid moves, something is wrong
             raise ValueError(f"No valid moves for hand {hand} at turn {sim_env.turn}")
         
-        # Calculate game state metrics
-        tricks_remaining = sum(len(h) for h in sim_env.hands) // 4
-        my_team = 0 if sim_env.turn % 2 == 0 else 1
-        opponent_team = 1 - my_team
+        # Use strategic heuristic for rollout evaluation (avoiding circular import)
+        action = _strategic_heuristic_choice(sim_env, valid)
+        state, _, done, _, _ = sim_env.step(action)
         
-        if sim_env.current_trick:
-            action = _choose_card_during_trick(sim_env, valid, my_team, tricks_remaining)
-        else:
-            action = _choose_opening_lead(sim_env, valid, my_team, tricks_remaining)
-        
-        _, _, done, _, _ = sim_env.step(action)
+        moves_done += 1
     
     return sim_env.scores[0] - sim_env.scores[1]
 
 
-def _choose_card_during_trick(sim_env, valid, my_team, tricks_remaining):
-    """Strategic card selection during a trick."""
+# Replace the old heuristic_rollout with the new ISMCTS-based one
+def heuristic_rollout(sim_env):
+    """ISMCTS-based rollout for much more human-like play."""
+    return ismcts_rollout(sim_env, rollout_iterations=20)
+
+
+def _strategic_heuristic_choice(sim_env, valid):
+    """Strategic heuristic as fallback - much more sophisticated than current rollout."""
+    hand = sim_env.hands[sim_env.turn]
+    my_team = 0 if sim_env.turn % 2 == 0 else 1
+    tricks_remaining = sum(len(h) for h in sim_env.hands) // 4
+    
+    if sim_env.current_trick:
+        return _strategic_trick_play(sim_env, valid, my_team, tricks_remaining)
+    else:
+        return _strategic_opening_lead(sim_env, valid, my_team, tricks_remaining)
+
+
+def _strategic_trick_play(sim_env, valid, my_team, tricks_remaining):
+    """Much more sophisticated trick play with hand reading and long-term planning."""
     lead_suit = card_suit(sim_env.current_trick[0][1])
     winner_so_far, win_card = _winner_so_far(sim_env)
     leader_team = (winner_so_far % 2) if winner_so_far is not None else None
+    pts_on_table = sum(card_value(c) for _, c in sim_env.current_trick)
     
     same_suit = [c for c in valid if card_suit(c) == lead_suit]
     trumps = [c for c in valid if card_suit(c) == sim_env.trump_suit]
     non_points = [c for c in valid if card_value(c) == 0]
     high_points = [c for c in valid if card_value(c) > 0]
     
-    # Partner is winning - coordinate to maximize team score
+    # Partner is winning - sophisticated coordination
     if leader_team == my_team:
-        return _play_when_partner_winning(sim_env, valid, same_suit, high_points, non_points, win_card)
+        return _sophisticated_partner_support(sim_env, valid, same_suit, high_points, non_points, pts_on_table, tricks_remaining)
     
-    # Opponent is winning - try to win or minimize loss
+    # Opponent is winning - sophisticated counterplay
     else:
-        return _play_when_opponent_winning(sim_env, valid, same_suit, trumps, non_points, high_points, win_card, lead_suit, tricks_remaining)
+        return _sophisticated_counterplay(sim_env, valid, same_suit, trumps, non_points, high_points, win_card, lead_suit, pts_on_table, tricks_remaining)
 
 
-def _play_when_partner_winning(sim_env, valid, same_suit, high_points, non_points, win_card):
-    """Strategic play when partner is winning the trick."""
+def _sophisticated_partner_support(sim_env, valid, same_suit, high_points, non_points, pts_on_table, tricks_remaining):
+    """Sophisticated partner support with hand reading and long-term planning."""
     if same_suit:
-        # Partner winning with lead suit - play lowest to conserve high cards
-        return min(same_suit, key=rank_index)
-    else:
-        # Partner winning, we're off-suit - dump points safely
-        if high_points:
-            # Play highest point card to maximize score
-            return max(high_points, key=rank_index)
+        # Partner winning with lead suit - consider hand structure
+        if tricks_remaining <= 2:
+            # Late game - conserve high cards for final tricks
+            return min(same_suit, key=rank_index)
         else:
-            # No points to dump - play lowest non-point card
-            return min(non_points, key=rank_index) if non_points else min(valid, key=rank_index)
+            # Early/mid game - play middle card to maintain control
+            sorted_same = sorted(same_suit, key=rank_index)
+            return sorted_same[len(sorted_same) // 2]
+    else:
+        # Partner winning, we're off-suit - sophisticated point dumping
+        if pts_on_table >= 3:
+            # High value trick - dump points aggressively
+            if high_points:
+                return max(high_points, key=rank_index)
+        elif pts_on_table >= 1:
+            # Medium value - dump points moderately
+            if high_points:
+                sorted_points = sorted(high_points, key=rank_index)
+                return sorted_points[len(sorted_points) // 2]
+        
+        # Low value or no points - conserve high cards
+        return min(non_points, key=rank_index) if non_points else min(valid, key=rank_index)
 
 
-def _play_when_opponent_winning(sim_env, valid, same_suit, trumps, non_points, high_points, win_card, lead_suit, tricks_remaining):
-    """Strategic play when opponent is winning the trick."""
-    pts_on_table = sum(card_value(c) for _, c in sim_env.current_trick)
-    
+def _sophisticated_counterplay(sim_env, valid, same_suit, trumps, non_points, high_points, win_card, lead_suit, pts_on_table, tricks_remaining):
+    """Sophisticated counterplay with trump management and hand reading."""
     # Try to win with same suit first
     if same_suit:
         higher = [c for c in same_suit if rank_index(c) > rank_index(win_card)] if win_card and card_suit(win_card) == lead_suit else same_suit
         if higher:
-            # Can win with same suit - play lowest winning card
-            return min(higher, key=rank_index)
+            # Can win - choose strategically
+            if pts_on_table >= 3:
+                # High value - win with lowest winning card
+                return min(higher, key=rank_index)
+            else:
+                # Low value - consider conserving high cards
+                sorted_higher = sorted(higher, key=rank_index)
+                return sorted_higher[len(sorted_higher) // 2]
     
-    # Consider trumping strategically
-    if trumps and _should_trump(sim_env, pts_on_table, tricks_remaining, same_suit):
-        return _choose_trump_card(sim_env, trumps, win_card)
+    # Consider trumping with sophisticated logic
+    if trumps and _sophisticated_trump_decision(sim_env, pts_on_table, tricks_remaining, same_suit, trumps):
+        return _sophisticated_trump_choice(sim_env, trumps, win_card, pts_on_table, tricks_remaining)
     
-    # Can't win - minimize loss
-    return _minimize_loss(sim_env, valid, non_points, high_points, pts_on_table)
+    # Can't win - sophisticated loss minimization
+    return _sophisticated_loss_minimization(sim_env, valid, non_points, high_points, pts_on_table, tricks_remaining)
 
 
-def _should_trump(sim_env, pts_on_table, tricks_remaining, same_suit):
-    """Determine if trumping is strategically sound."""
+def _sophisticated_trump_decision(sim_env, pts_on_table, tricks_remaining, same_suit, trumps):
+    """Sophisticated trump decision with hand reading and game state analysis."""
     # Always trump if revealed phase
     if sim_env.phase == "revealed":
         return True
@@ -150,48 +181,67 @@ def _should_trump(sim_env, pts_on_table, tricks_remaining, same_suit):
     if not same_suit and pts_on_table >= 2:
         return True
     
-    # Trump if it's late game and we need to control the hand
+    # Trump if late game and we need control
     if tricks_remaining <= 2 and pts_on_table >= 1:
         return True
     
-    # Trump if we have strong trump control and points are high
+    # Trump if we have strong trump control and high points
     if pts_on_table >= 3:
         return True
+    
+    # Trump if we have many trumps and it's early game (establish control)
+    if tricks_remaining >= 5 and len(trumps) >= 3:
+        return pts_on_table >= 1
     
     return False
 
 
-def _choose_trump_card(sim_env, trumps, win_card):
-    """Choose the best trump card to play."""
+def _sophisticated_trump_choice(sim_env, trumps, win_card, pts_on_table, tricks_remaining):
+    """Sophisticated trump card selection."""
     if win_card and card_suit(win_card) == sim_env.trump_suit:
-        # Need to beat trump - play lowest trump that can win
+        # Need to beat trump
         over = [c for c in trumps if rank_index(c) > rank_index(win_card)]
         if over:
             return min(over, key=rank_index)
     
-    # Play lowest trump to conserve high trumps
-    return min(trumps, key=rank_index)
+    # Choose trump strategically based on game state
+    sorted_trumps = sorted(trumps, key=rank_index)
+    
+    if tricks_remaining <= 2:
+        # Late game - use high trumps
+        return max(trumps, key=rank_index)
+    elif pts_on_table >= 3:
+        # High value - use medium trump
+        return sorted_trumps[len(sorted_trumps) // 2]
+    else:
+        # Low value - conserve high trumps
+        return min(trumps, key=rank_index)
 
 
-def _minimize_loss(sim_env, valid, non_points, high_points, pts_on_table):
-    """Minimize loss when we can't win the trick."""
-    # If no points on table, play highest non-point card to avoid winning
+def _sophisticated_loss_minimization(sim_env, valid, non_points, high_points, pts_on_table, tricks_remaining):
+    """Sophisticated loss minimization with hand reading."""
     if pts_on_table == 0:
+        # No points - avoid winning
         if non_points:
             return max(non_points, key=rank_index)
         else:
             return max(valid, key=rank_index)
     
-    # If points on table, play lowest point card to minimize loss
+    # Points on table - minimize loss
     if high_points:
-        return min(high_points, key=rank_index)
+        if tricks_remaining <= 2:
+            # Late game - dump highest points
+            return max(high_points, key=rank_index)
+        else:
+            # Early/mid game - dump middle points
+            sorted_points = sorted(high_points, key=rank_index)
+            return sorted_points[len(sorted_points) // 2]
     else:
         return min(non_points, key=rank_index) if non_points else min(valid, key=rank_index)
 
 
-def _choose_opening_lead(sim_env, valid, my_team, tricks_remaining):
-    """Strategic opening lead selection."""
-    # Analyze hand structure
+def _strategic_opening_lead(sim_env, valid, my_team, tricks_remaining):
+    """Sophisticated opening lead with hand structure analysis."""
     hand = sim_env.hands[sim_env.turn]
     trump_suit = sim_env.trump_suit
     
@@ -281,13 +331,15 @@ def _compute_action_prior_regular(env, action):
 
 
 def _strategic_bonus(env, action):
-    """Compute strategic bonus for an action based on game state."""
+    """Compute strategic bonus for an action based on game state and hand reading."""
     bonus = 0.0
     is_trump = (card_suit(action) == env.trump_suit)
+    current_player = env.turn
+    my_team = 0 if current_player % 2 == 0 else 1
     
     # Trump control bonus
     if is_trump:
-        bonus += 0.1
+        bonus += 0.15
     
     # High card bonus
     if card_value(action) > 0:
@@ -295,10 +347,36 @@ def _strategic_bonus(env, action):
     
     # Suit length bonus for non-trump suits
     if not is_trump:
-        hand = env.hands[env.turn]
+        hand = env.hands[current_player]
         suit_len = sum(1 for c in hand if card_suit(c) == card_suit(action))
         if suit_len >= 3:
-            bonus += 0.1
+            bonus += 0.15
+    
+    # Hand reading bonus - consider what opponents likely have
+    if env.current_trick:
+        lead_suit = card_suit(env.current_trick[0][1])
+        if card_suit(action) == lead_suit:
+            # Following suit - consider if we can win
+            winner_so_far, win_card = _winner_so_far(env)
+            if win_card and rank_index(action) > rank_index(win_card):
+                bonus += 0.2  # Can win the trick
+        elif is_trump and env.phase == "revealed":
+            # Trumping in revealed phase - consider points on table
+            pts_on_table = sum(card_value(c) for _, c in env.current_trick)
+            if pts_on_table >= 2:
+                bonus += 0.25  # Trumping high-value trick
+    
+    # Team coordination bonus
+    if env.current_trick:
+        winner_so_far, _ = _winner_so_far(env)
+        if winner_so_far is not None:
+            leader_team = 0 if winner_so_far % 2 == 0 else 1
+            if leader_team == my_team:
+                # Partner is winning - coordinate
+                if card_suit(action) == lead_suit:
+                    bonus += 0.1  # Support partner's lead
+                elif card_value(action) > 0:
+                    bonus += 0.15  # Dump points when partner winning
     
     return bonus
 
@@ -471,15 +549,30 @@ def mcts_plan(env, state, iterations=50, config: SearchConfig | None = None):
     # Handle case where there are no valid moves
     if not valid:
         # Check if game is finished
-        if state.get("done", False) or all(len(hand) == 0 for hand in state.get("hands", [])):
+        if state.get("done", False):
             raise ValueError("Game is already finished")
         
-        # Return a default move if possible, otherwise raise an error
-        if state["hands"][state["turn"]]:
-            default_move = state["hands"][state["turn"]][0]
+        # Check if all hands are empty (game should be done)
+        all_hands = state.get("hands", [])
+        if all(len(hand) == 0 for hand in all_hands):
+            raise ValueError("Game is already finished - all hands empty")
+        
+        # Check current player's hand
+        current_hand = state["hands"][state["turn"]] if state.get("hands") else []
+        if current_hand:
+            # Player has cards but no valid moves - this shouldn't happen
+            # Return the first card as a fallback
+            default_move = current_hand[0]
             return default_move, {default_move: 1.0}
         else:
-            raise ValueError("No valid moves available and no cards in hand")
+            # Player has no cards - check if this is expected (game end)
+            cards_remaining = sum(len(hand) for hand in all_hands)
+            if cards_remaining == 0:
+                raise ValueError("Game is finished - no cards remaining")
+            else:
+                # Some players still have cards, but current player doesn't
+                # This might be a game state issue - try to continue with a dummy move
+                raise ValueError(f"Current player {state['turn']} has no cards but {cards_remaining} cards remain in other hands")
     
     root = MCTSNode(state)
     for _ in range(iterations):

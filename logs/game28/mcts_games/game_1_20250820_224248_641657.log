@@ -1,0 +1,29 @@
+
+===== GAME 1 (20250820_224248_641657) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.00  p30=14.00  std=5.89
+    suit_stats:
+      H: pts=[15, 11, 15, 17, 7, 18 ...]  avg=15.00  p30=14.00  std=5.89
+      D: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 14.00 < 15; conf_mean 12.06 < 15
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=14.00, conf_mean=12.06 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 12.06 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=11.33  p30=0.00  std=8.98
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 3.53 < 15
+      D: p30 0.00 < 15; conf_mean 1.50 < 15
+      C: p30 0.00 < 15; conf_mean 3.00 < 15
+      S: p30 0.00 < 15; conf_mean 6.85 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=0.00, conf_mean=6.85 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 6.85 < 15.

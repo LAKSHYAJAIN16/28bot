@@ -1,0 +1,114 @@
+
+===== GAME 29 (20250821_111312_053666) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=14.00  p30=14.00  std=0.00
+    suit_stats:
+      C: pts=[17, 6, 24, 20, 26, 4 ...]  avg=14.75  p30=8.00  std=7.79
+      D: pts=[14]  avg=14.00  p30=14.00  std=0.00
+    failed_checks:
+      D: p30 14.00 < 15; conf_mean 14.00 < 15
+      C: p30 8.00 < 15; conf_mean 10.85 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=14.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 14.00 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.50  p30=15.00  std=4.15
+    suit_stats:
+      S: pts=[20, 16, 12, 17, 11, 25 ...]  avg=16.50  p30=15.00  std=4.15
+      H: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: conf_mean 14.42 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=15.00, conf_mean=14.42 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: conf_mean 14.42 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15.
+Bid: Player 3 proposes 17 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: C
+    proposed_bid: 17
+    overall: avg=18.25  p30=15.00  std=6.02
+    reason: Bid (precomputed): Suit C meets thresholds (p30=15.00, conf_mean=15.24 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)
+
+AUCTION WINNER: Player 3 with bid 17; chooses trump C 
+Details={'chosen': 'C', 'estimates': {'D': 0.0, 'C': 18.25, 'S': 0.0}}
+Player 0 hand :  ['JD', '8C', 'KD', '7C', '9S', '9D', 'QD', '7D']
+Player 1 hand :  ['10S', 'JS', '10C', 'JH', 'QH', '10H', '7H', 'KC']
+Player 2 hand :  ['KH', '9C', '8S', 'AS', '8H', 'AH', 'QC', '8D']
+Player 3 hand :  ['JC', 'KS', '10D', '9H', '7S', 'AD', 'QS']
+Player 0 (auction 4 cards): ['JD', '8C', 'KD', '7C']
+Player 1 (auction 4 cards): ['10S', 'JS', '10C', 'JH']
+Player 2 (auction 4 cards): ['KH', '9C', '8S', 'AS']
+Player 3 (auction 4 cards): ['JC', 'AC', 'KS', '10D']
+Auction winner (bidder): Player 3 with bid 17
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: AC
+
+Player 0 plays JD
+Player 1 plays 10S
+Player 2 plays 8D
+Player 3 plays 10D
+Player 0 won the hand: 5 points
+
+Player 0 plays 8C
+Player 1 plays 10C
+Player 2 plays 9C
+Player 3 plays JC
+Player 3 won the hand: 6 points
+
+Player 3 plays KS
+Player 0 plays 9S
+Player 1 plays JS
+Player 2 plays 8S
+Player 1 won the hand: 5 points
+
+Player 1 plays JH
+Player 2 plays KH
+Player 3 plays 9H
+Player 0 plays KD
+Player 1 won the hand: 5 points
+
+Player 1 plays QH
+Player 2 plays 8H
+Player 3 plays 7S
+-- Phase 2 begins: Trump revealed as C by Player 0 on trick 5 --
+Player 0 plays 7C
+Player 0 won the hand: 0 points
+
+Player 0 plays 9D
+Player 1 plays 10H
+Player 2 plays AS
+Player 3 plays AD
+Player 0 won the hand: 5 points
+
+Player 0 plays QD
+Player 1 plays 7H
+Player 2 plays AH
+Player 3 plays QS
+Player 0 won the hand: 1 points
+
+Player 0 plays 7D
+Player 1 plays KC
+Player 2 plays QC
+Player 3 plays AC
+Player 3 won the hand: 1 points
+
+Game 29 final points: Team A=11, Team B=17
+Series cumulative game score so far: Team A=-7, Team B=-4
+Log saved to: C:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_29_20250821_111312_053666.log

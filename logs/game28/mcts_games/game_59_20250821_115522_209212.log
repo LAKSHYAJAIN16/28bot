@@ -1,0 +1,62 @@
+
+===== GAME 59 (20250821_115522_209212) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=6.83  p30=0.00  std=7.24
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 3.21 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=0.00, conf_mean=3.21 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 3.21 < 15.
+Bid: Player 1 proposes 19 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: C
+    proposed_bid: 19
+    overall: avg=20.88  p30=19.00  std=5.35
+    suit_stats:
+      C: pts=[14, 27, 21, 22, 24, 19 ...]  avg=20.88  p30=19.00  std=5.35
+      H: pts=[17]  avg=17.00  p30=17.00  std=0.00
+    reason: Bid: Suit C meets thresholds (p30=19.00, conf_mean=18.20 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 19. (current_high=0, raise_delta=+1)
+Bid: Player 2 proposes 24 (min_allowed=20)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=19  min_allowed=20  raise_delta=1
+    chosen_suit: H
+    proposed_bid: 24
+    overall: avg=24.00  p30=24.00  std=0.00
+    suit_stats:
+      S: pts=[9]  avg=9.00  p30=9.00  std=0.00
+      H: pts=[24]  avg=24.00  p30=24.00  std=0.00
+      D: pts=[14]  avg=14.00  p30=14.00  std=0.00
+      C: pts=[21]  avg=21.00  p30=21.00  std=0.00
+    reason: Bid: Suit H meets thresholds (p30=24.00, conf_mean=24.00 >= min_allowed=20); conservative mapping max(p30, avg-1) -> 24. (current_high=19, raise_delta=+1)
+Pass (locked): Player 3 (min_allowed=25)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=24  min_allowed=25  raise_delta=1
+    overall: avg=19.12  p30=18.00  std=2.89
+    suit_stats:
+      D: pts=[17, 20, 18, 14, 18, 22 ...]  avg=19.12  p30=18.00  std=2.89
+      H: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 0.00 < 24; conf_mean 0.00 < 24
+      D: p30 18.00 < 24; conf_mean 17.68 < 24
+      S: p30 0.00 < 24; conf_mean 0.00 < 24
+    reason: Pass: No suit meets thresholds. Best suit D has p30=18.00, conf_mean=17.68 below min_allowed=25 (current_high=24, raise_delta=+1). Failed checks for best suit: p30 18.00 < 24, conf_mean 17.68 < 24.
+Pass (locked): Player 1 (min_allowed=25)
+  bidding analysis:
+    present_suits: H, C
+    current_high=24  min_allowed=25  raise_delta=1
+    overall: avg=18.38  p30=17.00  std=4.79
+    suit_stats:
+      C: pts=[17, 27, 18, 18, 21, 21 ...]  avg=18.38  p30=17.00  std=4.79
+      H: pts=[13]  avg=13.00  p30=13.00  std=0.00
+    failed_checks:
+      H: p30 13.00 < 24; conf_mean 13.00 < 24
+      C: p30 17.00 < 24; conf_mean 15.98 < 24
+    reason: Pass: No suit meets thresholds. Best suit C has p30=17.00, conf_mean=15.98 below min_allowed=25 (current_high=24, raise_delta=+1). Failed checks for best suit: p30 17.00 < 24, conf_mean 15.98 < 24.

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Precompute bid recommendations for all 4-card combinations (orderless) at current_high=0 (min_allowed=16).
-Writes JSON lines with: four_cards, suit_stats, recommendation (bid, trump), and analysis.
+Precompute ISMCTS bid recommendations for all 4-card combinations (orderless) at current_high=0 (min_allowed=16).
+Uses ISMCTS approach like bet_advisor.py.
+Writes JSON lines with: four_cards, ismcts_stats, recommendation (bid, trump), and analysis.
 
 Run:
   python precompute_bets.py
@@ -15,10 +16,13 @@ import time
 from typing import List
 
 from mcts.constants import FULL_DECK, card_suit, RANKS, SUITS as SUITS_CONST
-from bet_advisor import propose_bid_ismcts, simulate_points_for_suit_ismcts, SUITS, DEFAULT_STAGE2_SAMPLES, DEFAULT_STAGE2_ITERS, FAST_MODE
+from bet_advisor import (
+    propose_bid_ismcts, simulate_points_for_suit_ismcts, 
+    SUITS, DEFAULT_STAGE2_SAMPLES, DEFAULT_STAGE2_ITERS, FAST_MODE
+)
 
 # Predefined output configuration
-OUT_PATH = "precomputed_bets.jsonl"
+OUT_PATH = "precomputed_bets.jsonl"  # ISMCTS precomputations
 LIMIT = 0  # 0 = all combinations
 HEAVY_TOP_K = 1  # heavy-evaluate top K suits
 HEAVY_SAMPLES = max(DEFAULT_STAGE2_SAMPLES, 6)
@@ -89,17 +93,24 @@ def main() -> int:
                     print(f"visited={visited_raw}/{total_raw} unique_total={total_unique} (new={count_unique}) dedup={dedup_ratio:.3f} elapsed={elapsed:.1f}s visited_rate={rate_v:.1f}/s")
                 continue
             seen.add(key)
-            # Accuracy-first: two-stage evaluation
+            count_unique += 1
+            
+            # ISMCTS evaluation (two-stage like bet_advisor)
             present_suits = [s for s in SUITS if any(card_suit(c) == s for c in first_four)]
+            
+            # Stage 1: Quick evaluation for all suits
             stage1 = {}
             for s in present_suits:
                 pts = simulate_points_for_suit_ismcts(first_four, s, my_seat=0, first_player=0,
                                                       num_samples=2, base_iterations=80, playout_tricks=4)
                 n = max(1, len(pts))
                 stage1[s] = (sum(pts)/n, sorted(pts)[max(0, min(len(pts)-1, int(0.3*len(pts))))])
+            
+            # Stage 2: Heavy evaluation for top suits
             top = sorted(present_suits, key=lambda s: (stage1[s][1], stage1[s][0]))[-max(1, HEAVY_TOP_K):]
             suit_stats = {}
             suit_to_points = {}
+            
             for s in present_suits:
                 if s in top:
                     pts = simulate_points_for_suit_ismcts(first_four, s, my_seat=0, first_player=0,
@@ -114,15 +125,17 @@ def main() -> int:
                 var = sum((v-mean)**2 for v in pts)/n if pts else 0.0
                 suit_stats[s] = {"avg": mean, "p30": p30, "std": var**0.5}
 
-            # Final recommendation using the same thresholds as the advisor (current_high=0)
-            from bet_advisor import propose_bid_ismcts as advisor_bid
-            bid, trump, _, dbg = advisor_bid(first_four, current_high_bid=0,
-                                             num_samples=HEAVY_SAMPLES, base_iterations=HEAVY_ITERS)
+            # Final recommendation using ISMCTS
+            bid, trump, _, dbg = propose_bid_ismcts(first_four, current_high_bid=0,
+                                                   num_samples=HEAVY_SAMPLES, base_iterations=HEAVY_ITERS)
+            
             rec = {
                 "four_cards": first_four,
+                "canonical_key": list(key),
                 "suit_stats": suit_stats,
                 "recommendation": {"bid": bid, "trump": trump},
                 "analysis": dbg,
+                "timestamp": time.time()
             }
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
             count_unique += 1

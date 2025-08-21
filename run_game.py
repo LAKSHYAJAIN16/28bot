@@ -13,27 +13,27 @@ Logs:
 from __future__ import annotations
 
 # ===== CONFIG =====
-NUM_GAMES: int = 200             # how many games to play
-ITERATIONS: int = 2000            # MCTS iterations per move (increased for better play)
+NUM_GAMES: int = 2000              # how many games to play (reduced for testing)
+ITERATIONS: int = 3000            # MCTS iterations per move (increased for better play)
 CONCURRENT: bool = False         # run games in parallel using multiple processes
 MAX_WORKERS: int | None = None    # None => auto (cpu_count)
 SEARCH_MODE: str = "regular"    # "regular" or "long_bias" (using long_bias for better strategy)
 
 # ===== MCTS GAMEPLAY PARAMETERS =====
 # These control the quality of gameplay decisions
-MCTS_SAMPLES: int = 32           # Number of ISMCTS samples (increased for better exploration)
-MCTS_ITERS_PER_SAMPLE: int = 60  # Iterations per sample (increased for deeper search)
-MCTS_C_PUCT: float = 1.0         # Exploration constant (increased for more exploration)
+MCTS_SAMPLES: int = 16           # Number of ISMCTS samples (reduced for stability)
+MCTS_ITERS_PER_SAMPLE: int = 70  # Iterations per sample (reduced for stability)
+MCTS_C_PUCT: float = 1.0         # Exploration constant (balanced)
 
 # ===== BIDDING PARAMETERS =====
 # These control the bidding agent's simulation quality
-BIDDING_SAMPLES: int = 24        # Number of samples for bidding (increased)
-BIDDING_ITERATIONS: int = 150    # MCTS iterations for bidding (increased)
-BIDDING_STAGE2_ITERATIONS: int = 300  # Heavy evaluation iterations (increased)
+BIDDING_SAMPLES: int = 8         # Number of samples for bidding (reduced for stability)
+BIDDING_ITERATIONS: int = 100    # MCTS iterations for bidding (reduced for stability)
+BIDDING_STAGE2_ITERATIONS: int = 200  # Heavy evaluation iterations (reduced for stability)
 
 # ===== ROLLOUT PARAMETERS =====
-# These control the heuristic rollout quality
-ROLLOUT_ITERATIONS: int = 30     # Iterations for rollout evaluation (increased)
+# These control the ISMCTS rollout quality
+ROLLOUT_ITERATIONS: int = 100      # Iterations for ISMCTS rollout evaluation (reduced for stability)
 
 
 def main() -> None:

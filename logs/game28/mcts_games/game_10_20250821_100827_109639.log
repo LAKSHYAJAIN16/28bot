@@ -1,0 +1,110 @@
+
+===== GAME 10 (20250821_100827_109639) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=9.38  p30=5.00  std=6.30
+    failed_checks:
+      D: p30 5.00 < 15; conf_mean 6.22 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=5.00, conf_mean=6.22 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 5.00 < 15, conf_mean 6.22 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.00  p30=12.00  std=5.24
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      D: p30 12.00 < 15; conf_mean 13.38 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=12.00, conf_mean=13.38 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 13.38 < 15.
+Bid: Player 2 proposes 17 (min_allowed=16)
+  bidding analysis:
+    present_suits: C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: C
+    proposed_bid: 17
+    overall: avg=17.00  p30=17.00  std=0.00
+    suit_stats:
+      S: pts=[12, 20, 18, 15, 17, 12 ...]  avg=17.00  p30=15.00  std=3.46
+      C: pts=[17]  avg=17.00  p30=17.00  std=0.00
+    reason: Bid: Suit C meets thresholds (p30=17.00, conf_mean=17.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)
+Pass (locked): Player 3 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=17  min_allowed=18  raise_delta=1
+    overall: avg=17.25  p30=17.00  std=3.19
+    failed_checks:
+      H: conf_mean 15.65 < 17
+      D: p30 0.00 < 17; conf_mean 0.00 < 17
+    reason: Pass: No suit meets thresholds. Best suit H has p30=17.00, conf_mean=15.65 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: conf_mean 15.65 < 17.
+
+AUCTION WINNER: Player 2 with bid 17; chooses trump S 
+Details={'chosen': 'S', 'estimates': {'S': 17.0, 'C': 16.0}}
+Player 0 hand :  ['KH', 'QD', '9C', 'AH', 'AD', '7H', 'JS', '8S']
+Player 1 hand :  ['10S', '9D', 'KD', '8H', 'QS', '10H', '7C', '8D']
+Player 2 hand :  ['QC', '7S', 'KC', 'JH', 'JD', '9S', 'JC']
+Player 3 hand :  ['10C', '9H', '7D', 'AC', 'KS', 'QH', '10D', '8C']
+Player 0 (auction 4 cards): ['KH', 'QD', '9C', 'AH']
+Player 1 (auction 4 cards): ['10S', '9D', 'KD', '8H']
+Player 2 (auction 4 cards): ['QC', 'AS', '7S', 'KC']
+Player 3 (auction 4 cards): ['10C', '9H', '7D', 'AC']
+Auction winner (bidder): Player 2 with bid 17
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: AS
+
+Player 0 plays KH
+Player 1 plays 8H
+Player 2 plays JH
+Player 3 plays 9H
+Player 2 won the hand: 5 points
+
+Player 2 plays QC
+Player 3 plays 10C
+Player 0 plays 9C
+Player 1 plays 7C
+Player 0 won the hand: 3 points
+
+Player 0 plays QD
+Player 1 plays 9D
+Player 2 plays JD
+Player 3 plays 7D
+Player 2 won the hand: 5 points
+
+Player 2 plays KC
+Player 3 plays AC
+Player 0 plays AH
+-- Phase 2 begins: Trump revealed as S by Player 1 on trick 4 --
+Player 1 plays 10S
+Player 1 won the hand: 3 points
+
+Player 1 plays KD
+Player 2 plays 7S
+Player 3 plays 10D
+Player 0 plays AD
+Player 2 won the hand: 2 points
+
+Player 2 plays 9S
+Player 3 plays KS
+Player 0 plays JS
+Player 1 plays QS
+Player 0 won the hand: 5 points
+
+Player 0 plays 7H
+Player 1 plays 10H
+Player 2 plays JC
+Player 3 plays QH
+Player 1 won the hand: 4 points
+
+Player 1 plays 8D
+Player 2 plays AS
+Player 3 plays 8C
+Player 0 plays 8S
+Player 2 won the hand: 1 points
+
+Game 10 final points: Team A=21, Team B=7
+Series cumulative game score so far: Team A=-3, Team B=-1
+Log saved to: C:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_10_20250821_100827_109639.log

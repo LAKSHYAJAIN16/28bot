@@ -91,17 +91,68 @@ def ismcts_plan(env, state, iterations=50, samples=8, config: SearchConfig | Non
         d_env.last_exposer = det_state.get("last_exposer", getattr(d_env, "last_exposer", None))
         d_env.exposure_trick_index = det_state.get("exposure_trick_index", getattr(d_env, "exposure_trick_index", None))
         d_env.debug = False
-        best, pi = mcts_plan(d_env, det_state, iterations, config)
-        last_best = best
-        for a, p in pi.items():
-            aggregate[a] = aggregate.get(a, 0.0) + p
+        try:
+            best, pi = mcts_plan(d_env, det_state, iterations, config)
+            # Ensure best is not None
+            if best is None:
+                # Fallback to first valid move
+                hand = state["hands"][state["turn"]]
+                valid = env.valid_moves(hand)
+                if valid:
+                    best = valid[0]
+                    pi = {best: 1.0}
+                else:
+                    # Skip this sample if no valid moves
+                    continue
+            
+            last_best = best
+            for a, p in pi.items():
+                aggregate[a] = aggregate.get(a, 0.0) + p
+        except ValueError as e:
+            # Handle game finished or no valid moves errors
+            if "finished" in str(e).lower() or "no cards" in str(e).lower():
+                # Game might be finished, try to get a fallback move
+                hand = state["hands"][state["turn"]]
+                valid = env.valid_moves(hand)
+                if valid:
+                    # Use first valid move as fallback
+                    fallback_move = valid[0]
+                    aggregate[fallback_move] = aggregate.get(fallback_move, 0.0) + 1.0
+                    last_best = fallback_move
+                # If no valid moves, continue to next sample
+                continue
+            else:
+                # Re-raise other ValueError types
+                raise
     if not aggregate:
         if last_best is not None:
             return last_best, {}
         hand = state["hands"][state["turn"]]
         valid = env.valid_moves(hand)
-        return (valid[0] if valid else None), {}
+        if valid:
+            return valid[0], {valid[0]: 1.0}
+        else:
+            # Last resort: return first card from hand
+            current_hand = state["hands"][state["turn"]]
+            if current_hand:
+                return current_hand[0], {current_hand[0]: 1.0}
+            else:
+                raise ValueError("No valid moves available and no cards in hand")
     total = sum(aggregate.values())
     pi_agg = {a: (w / total) for a, w in aggregate.items()} if total > 0 else aggregate
     best_action = max(pi_agg.items(), key=lambda kv: kv[1])[0]
+    
+    # Final safety check
+    if best_action is None:
+        hand = state["hands"][state["turn"]]
+        valid = env.valid_moves(hand)
+        if valid:
+            return valid[0], {valid[0]: 1.0}
+        else:
+            current_hand = state["hands"][state["turn"]]
+            if current_hand:
+                return current_hand[0], {current_hand[0]: 1.0}
+            else:
+                raise ValueError("No valid moves available and no cards in hand")
+    
     return best_action, pi_agg

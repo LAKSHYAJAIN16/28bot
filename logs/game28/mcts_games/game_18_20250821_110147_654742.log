@@ -1,0 +1,114 @@
+
+===== GAME 18 (20250821_110147_654742) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.38  p30=15.00  std=4.39
+    suit_stats:
+      C: pts=[20, 20, 13, 20, 7, 15 ...]  avg=16.38  p30=15.00  std=4.39
+      H: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: conf_mean 14.18 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=15.00, conf_mean=14.18 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: conf_mean 14.18 < 15.
+Bid: Player 1 proposes 17 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: S
+    proposed_bid: 17
+    overall: avg=18.88  p30=17.00  std=4.08
+    suit_stats:
+      S: pts=[16, 25, 21, 23, 17, 11 ...]  avg=18.88  p30=17.00  std=4.08
+      H: pts=[]
+    reason: Bid: Suit S meets thresholds (p30=17.00, conf_mean=16.84 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)
+Pass (locked): Player 2 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=17  min_allowed=18  raise_delta=1
+    overall: avg=12.50  p30=11.00  std=6.99
+    failed_checks:
+      H: p30 11.00 < 17; conf_mean 9.00 < 17
+      D: p30 0.00 < 17; conf_mean 3.46 < 17
+    reason: Pass: No suit meets thresholds. Best suit H has p30=11.00, conf_mean=9.00 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 11.00 < 17, conf_mean 9.00 < 17.
+Pass (locked): Player 3 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=17  min_allowed=18  raise_delta=1
+    overall: avg=13.00  p30=16.00  std=7.58
+    failed_checks:
+      H: p30 0.00 < 17; conf_mean 0.00 < 17
+      D: p30 16.00 < 17; conf_mean 9.21 < 17
+    reason: Pass: No suit meets thresholds. Best suit D has p30=16.00, conf_mean=9.21 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 16.00 < 17, conf_mean 9.21 < 17.
+
+AUCTION WINNER: Player 1 with bid 17; chooses trump H 
+Details={'chosen': 'H', 'estimates': {'S': 23.0, 'H': 23.0}}
+Player 0 hand :  ['AC', 'AS', 'QH', '9C', 'JC', '10H', '9H', '9S']
+Player 1 hand :  ['JS', 'QS', 'KS', '10S', 'AH', '8S', 'QC']
+Player 2 hand :  ['JH', '8H', '7D', '7S', 'AD', 'QD', '8D', '8C']
+Player 3 hand :  ['9D', '10C', 'JD', '7H', 'KC', '10D', '7C', 'KD']
+Player 0 (auction 4 cards): ['AC', 'AS', 'QH', '9C']
+Player 1 (auction 4 cards): ['JS', 'QS', 'KS', 'KH']
+Player 2 (auction 4 cards): ['JH', '8H', '7D', '7S']
+Player 3 (auction 4 cards): ['9D', '10C', 'JD', '7H']
+Auction winner (bidder): Player 1 with bid 17
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: KH
+
+Player 0 plays AC
+Player 1 plays QC
+Player 2 plays 8C
+Player 3 plays 10C
+Player 0 won the hand: 2 points
+
+Player 0 plays AS
+Player 1 plays JS
+Player 2 plays 7S
+Player 3 plays 9D
+Player 1 won the hand: 6 points
+
+Player 1 plays QS
+-- Phase 2 begins: Trump revealed as H by Player 2 on trick 3 --
+Player 2 plays JH
+Player 3 plays JD
+Player 0 plays 9S
+Player 2 won the hand: 8 points
+
+Player 2 plays 8H
+Player 3 plays 7H
+Player 0 plays QH
+Player 1 plays AH
+Player 1 won the hand: 1 points
+
+Player 1 plays KS
+Player 2 plays 7D
+Player 3 plays KC
+Player 0 plays 9C
+Player 1 won the hand: 2 points
+
+Player 1 plays 10S
+Player 2 plays AD
+Player 3 plays 10D
+Player 0 plays JC
+Player 1 won the hand: 6 points
+
+Player 1 plays 8S
+Player 2 plays QD
+Player 3 plays 7C
+Player 0 plays 10H
+Player 0 won the hand: 1 points
+
+Player 0 plays 9H
+Player 1 plays KH
+Player 2 plays 8D
+Player 3 plays KD
+Player 0 won the hand: 2 points
+
+Game 18 final points: Team A=13, Team B=15
+Series cumulative game score so far: Team A=-7, Team B=-3
+Log saved to: C:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_18_20250821_110147_654742.log

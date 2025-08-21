@@ -186,11 +186,24 @@ def play_games(num_games=3, iterations=50, search_mode: str = "regular", mcts_co
                         if winner is not None:
                             print(f"Player {winner} won the hand: {trick_points} points\n")
                     except ValueError as e:
-                        if "Game is already finished" in str(e):
+                        if "Game is already finished" in str(e) or "Game is finished" in str(e) or "No valid moves available" in str(e):
                             print(f"Game finished: {e}")
+                            done = True
                             break
                         else:
-                            raise
+                            print(f"Error during gameplay: {e}")
+                            # Try to continue with a fallback move
+                            current_hand = state["hands"][state["turn"]]
+                            if current_hand:
+                                move = current_hand[0]  # Just play the first card
+                                state, _, done, winner, trick_points = env.step(move)
+                                print(f"Player {current_player} plays {move} (fallback)")
+                                if winner is not None:
+                                    print(f"Player {winner} won the hand: {trick_points} points\n")
+                            else:
+                                print("No cards available, ending game")
+                                done = True
+                                break
                     if getattr(env, "invalid_round", False):
                         print("Round declared invalid: trump never exposed by end of 7th trick.")
                         break

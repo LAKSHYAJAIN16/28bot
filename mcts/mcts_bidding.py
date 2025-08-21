@@ -514,6 +514,15 @@ def run_single_simulation_worker(args):
         iters = base_iterations
         try:
             move, _ = ismcts_plan(env, state, iterations=iters, samples=6)
+            # Ensure move is not None
+            if move is None:
+                # Fallback to random valid move
+                valid_moves = env.valid_moves(env.hands[env.turn])
+                if valid_moves:
+                    move = random.choice(valid_moves)
+                else:
+                    # No valid moves - game might be finished
+                    break
             state, _, done, _, _ = env.step(move)
             moves_done += 1
         except (ValueError, IndexError) as e:

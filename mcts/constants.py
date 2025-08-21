@@ -6,18 +6,26 @@ CARD_POINTS = {"J": 3, "9": 2, "10": 1, "A": 1, "7": 0, "8": 0, "Q": 0, "K": 0}
 
 
 def card_rank(card: str) -> str:
+    if card is None:
+        raise ValueError("card_rank called with None card")
     return card[:-1]
 
 
 def card_suit(card: str) -> str:
+    if card is None:
+        raise ValueError("card_suit called with None card")
     return card[-1]
 
 
 def card_value(card: str) -> int:
+    if card is None:
+        raise ValueError("card_value called with None card")
     return CARD_POINTS[card_rank(card)]
 
 
 def rank_index(card: str) -> int:
+    if card is None:
+        raise ValueError("rank_index called with None card")
     return RANKS.index(card_rank(card))
 
 
