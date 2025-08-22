@@ -30,13 +30,13 @@ class Game28Env(gym.Env):
         self.observation_space = spaces.Dict({
             'hand': spaces.MultiBinary(32),  # One-hot encoding of cards in hand
             'bidding_history': spaces.Box(low=0, high=28, shape=(4,), dtype=np.int32),
-            'current_bid': spaces.Discrete(29),
+            'current_bid': spaces.Discrete(MAX_BID + 1),  # 0 to MAX_BID (28)
             'position': spaces.Discrete(4),
             'phase': spaces.Discrete(3),  # Bidding, concealed, revealed
             'trump_suit': spaces.Discrete(5),  # 4 suits + None
             'trump_revealed': spaces.Discrete(2),
             'bidder': spaces.Discrete(5),  # 4 players + None
-            'winning_bid': spaces.Discrete(29),
+            'winning_bid': spaces.Discrete(MAX_BID + 1),  # 0 to MAX_BID (28)
             'team_scores': spaces.Box(low=0, high=28, shape=(2,), dtype=np.int32),
             'game_points': spaces.Box(low=-10, high=10, shape=(2,), dtype=np.int32),
             'legal_actions': spaces.MultiBinary(len(BID_RANGE) + 1)
@@ -119,13 +119,13 @@ class Game28Env(gym.Env):
         return {
             'hand': hand_encoding,
             'bidding_history': bidding_history,
-            'current_bid': obs['current_bid'],
+            'current_bid': obs['current_bid'] if obs['current_bid'] is not None else 0,
             'position': self.player_id,
             'phase': list(GamePhase).index(obs['phase']),
             'trump_suit': trump_suit_idx,
             'trump_revealed': int(obs['trump_revealed']),
             'bidder': bidder_idx,
-            'winning_bid': obs['winning_bid'] if obs['winning_bid'] else 0,
+            'winning_bid': obs['winning_bid'] if obs['winning_bid'] is not None else 0,
             'team_scores': np.array([obs['team_scores']['A'], obs['team_scores']['B']], dtype=np.int32),
             'game_points': np.array([obs['game_points']['A'], obs['game_points']['B']], dtype=np.int32),
             'legal_actions': legal_actions
