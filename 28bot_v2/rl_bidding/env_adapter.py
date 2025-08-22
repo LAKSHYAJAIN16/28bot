@@ -56,8 +56,15 @@ class Game28Env(gym.Env):
         else:
             bid = BID_RANGE[action]
         
-        # Make the bid
+        # Make the bid for the RL agent
         bidding_continues = self.game_state.make_bid(self.player_id, bid)
+        
+        # If bidding continues, simulate other players' bids
+        while bidding_continues and self.game_state.current_player != self.player_id:
+            # Simulate other players' bids using simple heuristics
+            other_player = self.game_state.current_player
+            other_bid = self._get_other_player_bid(other_player)
+            bidding_continues = self.game_state.make_bid(other_player, other_bid)
         
         # Get reward
         reward = self._calculate_reward()
@@ -131,6 +138,29 @@ class Game28Env(gym.Env):
             card_idx = SUITS.index(card.suit) * 8 + RANKS.index(card.rank)
             encoding[card_idx] = 1
         return encoding
+    
+    def _get_other_player_bid(self, player: int) -> int:
+        """Get a bid for another player using simple heuristics"""
+        # Calculate hand strength
+        hand = self.game_state.hands[player]
+        hand_strength = sum(CARD_VALUES[card.rank] for card in hand) / TOTAL_POINTS
+        
+        # Simple bidding strategy
+        if hand_strength > 0.6:
+            # Strong hand - bid aggressively
+            if self.game_state.current_bid < MAX_BID - 2:
+                return self.game_state.current_bid + 2
+            else:
+                return -1  # Pass if too high
+        elif hand_strength > 0.4:
+            # Medium hand - bid moderately
+            if self.game_state.current_bid < MAX_BID - 1:
+                return self.game_state.current_bid + 1
+            else:
+                return -1  # Pass
+        else:
+            # Weak hand - pass
+            return -1
     
     def _calculate_reward(self) -> float:
         """Calculate reward for the current state"""

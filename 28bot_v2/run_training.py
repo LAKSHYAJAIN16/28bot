@@ -17,7 +17,7 @@ if __name__ == "__main__":
     
     # Train the bidding policy
     model = train_bidding_policy(
-        num_episodes=1000,
+        num_episodes=50000,
         learning_rate=3e-4,
         batch_size=64
     )

@@ -30,7 +30,7 @@ def test_environment():
         
         while not done:
             # Random action
-            action = random.randint(0, len(env.action_space.n) - 1)
+            action = random.randint(0, env.action_space.n - 1)
             obs, reward, done, truncated, info = env.step(action)
             steps += 1
             
