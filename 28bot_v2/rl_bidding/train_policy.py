@@ -123,7 +123,7 @@ def train_bidding_policy(
         env,
         learning_rate=learning_rate,
         batch_size=batch_size,
-        n_steps=2048,
+        n_steps=1024,  # Reduced to get more frequent updates
         gamma=0.99,
         gae_lambda=0.95,
         clip_range=0.2,
@@ -144,8 +144,17 @@ def train_bidding_policy(
     
     # Train the model
     print(f"Starting training for {num_episodes} episodes...")
+    
+    # Calculate total timesteps more accurately
+    # Each episode typically has 4-8 bidding rounds, so estimate 6 steps per episode
+    total_timesteps = num_episodes * 6
+    
+    print(f"Training for {total_timesteps} timesteps...")
+    print(f"PPO n_steps: {model.n_steps}")
+    print(f"Expected updates: {total_timesteps // model.n_steps}")
+    
     model.learn(
-        total_timesteps=num_episodes * 100,  # Estimate timesteps per episode
+        total_timesteps=total_timesteps,
         callback=[eval_callback, checkpoint_callback],
         progress_bar=True
     )

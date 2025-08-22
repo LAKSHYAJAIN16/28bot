@@ -243,7 +243,7 @@ def play_games(num_games=3, iterations=50, search_mode: str = "regular", mcts_co
     )
 
 
-def run_single_game(game_id: int, iterations: int, first_player: int = 0, search_mode: str = "regular"):
+def run_single_game(game_id: int, iterations: int, first_player: int = 0, search_mode: str = "regular", mcts_config: dict = None):
     os.makedirs(LOG_DIR_GAMES, exist_ok=True)
     game_log_path, ts = _open_game_log(game_id)
     _orig_stdout, _orig_stderr = sys.stdout, sys.stderr
@@ -254,7 +254,7 @@ def run_single_game(game_id: int, iterations: int, first_player: int = 0, search
             print(f"\n===== GAME {game_id} ({ts}) =====")
             env = TwentyEightEnv()
             env.debug = True
-            state = env.reset(initial_trump=None, first_player=first_player)
+            state = env.reset(initial_trump=None, first_player=first_player, mcts_config=mcts_config)
             _log_game_event(
                 "game_start",
                 {
@@ -290,7 +290,7 @@ def run_single_game(game_id: int, iterations: int, first_player: int = 0, search
             while not done:
                 current_player = state["turn"]
                 try:
-                    move = policy_move(env, iterations, search_mode)
+                    move = policy_move(env, iterations, search_mode, mcts_config)
                     state, _, done, winner, trick_points = env.step(move)
                     print(f"Player {current_player} plays {move}")
                 except ValueError as e:
@@ -340,7 +340,7 @@ def play_games_concurrent(num_games: int = 4, iterations: int = 50, max_workers:
     print(f"Spawning up to {max_workers} worker processes for {num_games} games...")
     results: dict[int, tuple[list[int], list[int]]] = {}
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(run_single_game, g, iterations, 0, search_mode): g for g in range(1, num_games + 1)}
+        futures = {executor.submit(run_single_game, g, iterations, 0, search_mode, mcts_config): g for g in range(1, num_games + 1)}
         for fut in as_completed(futures):
             g = futures[fut]
             try:

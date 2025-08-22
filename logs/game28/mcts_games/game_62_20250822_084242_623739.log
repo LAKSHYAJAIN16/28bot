@@ -1,0 +1,129 @@
+
+===== GAME 62 (20250822_084242_623739) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 18 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: C
+    proposed_bid: 18
+    overall: avg=18.00  p30=18.00  std=0.00
+    suit_stats:
+      H: pts=[5]  avg=5.00  p30=5.00  std=0.00
+      S: pts=[8]  avg=8.00  p30=8.00  std=0.00
+      D: pts=[3]  avg=3.00  p30=3.00  std=0.00
+      C: pts=[18]  avg=18.00  p30=18.00  std=0.00
+    reason: Bid: Suit C meets thresholds (p30=18.00, conf_mean=18.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 18. (current_high=0, raise_delta=+1)
+Pass (locked): Player 1 (min_allowed=19)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=18  min_allowed=19  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      H: p30 0.00 < 18; conf_mean 0.00 < 18
+      D: p30 0.00 < 18; conf_mean 0.00 < 18
+    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 0.00 < 18, conf_mean 0.00 < 18.
+Pass (locked): Player 2 (min_allowed=19)
+  bidding analysis:
+    present_suits: D, C
+    current_high=18  min_allowed=19  raise_delta=1
+    overall: avg=17.62  p30=14.00  std=4.85
+    suit_stats:
+      D: pts=[12, 25, 22, 14, 14, 16 ...]  avg=17.62  p30=14.00  std=4.85
+      C: pts=[]
+    failed_checks:
+      D: p30 14.00 < 18; conf_mean 15.20 < 18
+      C: p30 0.00 < 18; conf_mean 0.00 < 18
+    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=15.20 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 14.00 < 18, conf_mean 15.20 < 18.
+Bid: Player 3 proposes 19 (min_allowed=19)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=18  min_allowed=19  raise_delta=1
+    chosen_suit: S
+    proposed_bid: 19
+    overall: avg=20.25  p30=18.00  std=3.83
+    suit_stats:
+      S: pts=[14, 27, 24, 18, 17, 20 ...]  avg=20.25  p30=18.00  std=3.83
+      H: pts=[]
+      D: pts=[]
+    reason: Bid: Suit S meets thresholds (p30=18.00, conf_mean=18.33 >= min_allowed=19); conservative mapping max(p30, avg-1) -> 19. (current_high=18, raise_delta=+1)
+Pass (locked): Player 0 (min_allowed=20)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=19  min_allowed=20  raise_delta=1
+    overall: avg=18.00  p30=18.00  std=0.00
+    suit_stats:
+      S: pts=[2]  avg=2.00  p30=2.00  std=0.00
+      D: pts=[14]  avg=14.00  p30=14.00  std=0.00
+      H: pts=[18]  avg=18.00  p30=18.00  std=0.00
+      C: pts=[10]  avg=10.00  p30=10.00  std=0.00
+    failed_checks:
+      H: p30 18.00 < 19; conf_mean 18.00 < 19
+      D: p30 14.00 < 19; conf_mean 14.00 < 19
+      C: p30 10.00 < 19; conf_mean 10.00 < 19
+      S: p30 2.00 < 19; conf_mean 2.00 < 19
+    reason: Pass: No suit meets thresholds. Best suit H has p30=18.00, conf_mean=18.00 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 18.00 < 19, conf_mean 18.00 < 19.
+
+AUCTION WINNER: Player 3 with bid 19; chooses trump H 
+Details={'chosen': 'H', 'estimates': {'D': 14.0, 'S': 18.0, 'H': 19.0}}
+Player 0 hand :  ['QC', '8H', '9S', 'AD', 'KC', 'JD', 'QH', '9H']
+Player 1 hand :  ['JH', '10H', 'AC', 'QD', '8S', 'JC', 'KD', 'AH']
+Player 2 hand :  ['8D', '9C', '9D', '10D', '7C', '7S', 'AS', 'QS']
+Player 3 hand :  ['JS', '7D', 'KS', '7H', '10C', '8C', '10S']
+Player 0 (auction 4 cards): ['QC', '8H', '9S', 'AD']
+Player 1 (auction 4 cards): ['JH', '10H', 'AC', 'QD']
+Player 2 (auction 4 cards): ['8D', '9C', '9D', '10D']
+Player 3 (auction 4 cards): ['JS', '7D', 'KS', 'KH']
+Auction winner (bidder): Player 3 with bid 19
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: KH
+
+Player 0 plays QC
+Player 1 plays AC
+Player 2 plays 9C
+Player 3 plays 10C
+Player 2 won the hand: 4 points
+
+Player 2 plays 8D
+Player 3 plays 7D
+Player 0 plays AD
+Player 1 plays QD
+Player 0 won the hand: 1 points
+
+Player 0 plays 8H
+Player 1 plays JH
+Player 2 plays 9D
+Player 3 plays 7H
+Player 1 won the hand: 5 points
+
+Player 1 plays 10H
+Player 2 plays 10D
+Player 3 plays JS
+Player 0 plays QH
+Player 1 won the hand: 5 points
+
+Player 1 plays 8S
+Player 2 plays 7S
+Player 3 plays KS
+Player 0 plays 9S
+Player 0 won the hand: 2 points
+
+Player 0 plays KC
+Player 1 plays JC
+Player 2 plays 7C
+Player 3 plays 8C
+Player 1 won the hand: 3 points
+
+Player 1 plays KD
+Player 2 plays AS
+Player 3 plays 10S
+Player 0 plays JD
+Player 0 won the hand: 5 points
+
+Player 0 plays 9H
+Player 1 plays AH
+Player 2 plays QS
+Game 62 final points: Team A=12, Team B=13
+Series cumulative game score so far: Team A=-7, Team B=-15
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_62_20250822_084242_623739.log

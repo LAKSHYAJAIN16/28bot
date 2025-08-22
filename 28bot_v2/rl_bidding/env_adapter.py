@@ -68,7 +68,15 @@ class Game28Env(gym.Env):
         # Get observation
         observation = self._get_observation()
         
-        return observation, reward, done, False, {}
+        # Add debug info
+        info = {
+            'bidding_continues': bidding_continues,
+            'game_over': self.game_state.game_over,
+            'current_bid': self.game_state.current_bid,
+            'passed_players': len(self.game_state.passed_players)
+        }
+        
+        return observation, reward, done, False, info
     
     def _get_observation(self) -> Dict[str, Any]:
         """Get the current observation"""

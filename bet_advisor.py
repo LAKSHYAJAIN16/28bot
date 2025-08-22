@@ -36,9 +36,9 @@ FAST_MODE = True
 VERBOSE = True  # Toggle detailed prints
 DEFAULT_STAGE1_SAMPLES = 1 if FAST_MODE else 2
 DEFAULT_STAGE1_ITERS = 100 if FAST_MODE else 100
-DEFAULT_STAGE2_SAMPLES = 48 if FAST_MODE else 192
-DEFAULT_STAGE2_ITERS = 300 if FAST_MODE else 400
-DEFAULT_ISMCTS_SAMPLES = 6 if FAST_MODE else 8
+DEFAULT_STAGE2_SAMPLES = 24 if FAST_MODE else 192
+DEFAULT_STAGE2_ITERS = 200 if FAST_MODE else 400
+DEFAULT_ISMCTS_SAMPLES = 3 if FAST_MODE else 8
 
 # Analytical model configuration
 DEFAULT_ANALYTICAL_SAMPLES = 20 if FAST_MODE else 50  # Number of analytical simulations
@@ -558,6 +558,9 @@ def propose_bid_ismcts(first_four_cards: List[str], current_high_bid: int = 0,
             pts = stage1_points.get(s, [])
             if not pts:
                 return (0.0, 0.0)
+            # Handle both single values and lists
+            if isinstance(pts, (int, float)):
+                return (float(pts), float(pts))
             n = len(pts)
             mean = sum(pts) / n
             p30 = _percentile(pts, 0.3)

@@ -1,0 +1,29 @@
+
+===== GAME 2 (20250821_231118_107953) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 23 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: D
+    proposed_bid: 23
+    overall: avg=23.50  p30=23.00  std=3.57
+    suit_stats:
+      D: pts=[25, 15, 22, 23, 26, 27 ...]  avg=23.50  p30=23.00  std=3.57
+      H: pts=[]
+    reason: Bid: Suit D meets thresholds (p30=23.00, conf_mean=21.71 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 23. (current_high=0, raise_delta=+1)
+Pass (locked): Player 1 (min_allowed=24)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=23  min_allowed=24  raise_delta=1
+    overall: avg=15.12  p30=15.00  std=2.20
+    suit_stats:
+      D: pts=[15, 17, 11, 17, 16, 17 ...]  avg=15.12  p30=15.00  std=2.20
+      H: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 0.00 < 23; conf_mean 0.00 < 23
+      D: p30 15.00 < 23; conf_mean 14.02 < 23
+      C: p30 0.00 < 23; conf_mean 0.00 < 23
+    reason: Pass: No suit meets thresholds. Best suit D has p30=15.00, conf_mean=14.02 below min_allowed=24 (current_high=23, raise_delta=+1). Failed checks for best suit: p30 15.00 < 23, conf_mean 14.02 < 23.
