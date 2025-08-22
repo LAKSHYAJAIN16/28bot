@@ -152,10 +152,13 @@ class MCTSDataAnalyzer:
         return outcome_data
     
     def calculate_hand_strength(self, hand: List[str]) -> float:
-        """Calculate hand strength for a given hand"""
+        """Calculate hand strength for the first 4 cards (bidding-relevant cards)"""
+        # Only consider first 4 cards for bidding decisions
+        bidding_cards = hand[:4] if len(hand) >= 4 else hand
         total_points = 0
-        for card_str in hand:
-            rank = card_str[1:] if len(card_str) > 1 else card_str[0]
+        for card_str in bidding_cards:
+            # Card format is "8H", "QS", etc. - rank is first, suit is second
+            rank = card_str[0] if len(card_str) > 0 else ""
             if rank in CARD_VALUES:
                 total_points += CARD_VALUES[rank]
         return total_points / TOTAL_POINTS
@@ -190,8 +193,8 @@ class MCTSDataAnalyzer:
             print(f"Average winning bid: {avg_bid:.2f}")
             print(f"Bid range: {min(bid_values)} - {max(bid_values)}")
         
-        # Analyze hand strength vs bidding
-        print("\n--- Hand Strength vs Bidding Analysis ---")
+        # Analyze hand strength vs bidding (first 4 cards only)
+        print("\n--- Hand Strength vs Bidding Analysis (First 4 Cards Only) ---")
         hand_strength_bid_correlation = []
         
         for game in self.bidding_data:
@@ -199,8 +202,10 @@ class MCTSDataAnalyzer:
             winning_bid = game['bidding']['winning_bid']
             
             if winner is not None and winner in game['bidding']['player_hands']:
-                hand = game['bidding']['player_hands'][winner]
-                hand_strength = self.calculate_hand_strength(hand)
+                full_hand = game['bidding']['player_hands'][winner]
+                # Only use first 4 cards for bidding analysis
+                bidding_hand = full_hand[:4] if len(full_hand) >= 4 else full_hand
+                hand_strength = self.calculate_hand_strength(bidding_hand)
                 
                 hand_strength_bid_correlation.append({
                     'hand_strength': hand_strength,
@@ -232,6 +237,39 @@ class MCTSDataAnalyzer:
                 avg_bid = sum(item['bid'] for item in items) / len(items)
                 success_rate = sum(1 for item in items if item['success']) / len(items)
                 print(f"{range_name}: avg_bid={avg_bid:.1f}, success_rate={success_rate:.3f} ({len(items)} games)")
+        
+        # Compare first 4 cards vs full hand strength
+        print("\n--- First 4 Cards vs Full Hand Comparison ---")
+        comparison_data = []
+        
+        for game in self.bidding_data:
+            winner = game['bidding']['auction_winner']
+            if winner is not None and winner in game['bidding']['player_hands']:
+                full_hand = game['bidding']['player_hands'][winner]
+                bidding_hand = full_hand[:4] if len(full_hand) >= 4 else full_hand
+                
+                # Calculate strength for first 4 cards
+                bidding_strength = sum(CARD_VALUES[card[0]] for card in bidding_hand if card[0] in CARD_VALUES) / TOTAL_POINTS
+                
+                # Calculate strength for full hand
+                full_strength = sum(CARD_VALUES[card[0]] for card in full_hand if card[0] in CARD_VALUES) / TOTAL_POINTS
+                
+                comparison_data.append({
+                    'bidding_strength': bidding_strength,
+                    'full_strength': full_strength,
+                    'difference': full_strength - bidding_strength,
+                    'success': game['outcome']['bid_success']
+                })
+        
+        if comparison_data:
+            avg_bidding_strength = sum(item['bidding_strength'] for item in comparison_data) / len(comparison_data)
+            avg_full_strength = sum(item['full_strength'] for item in comparison_data) / len(comparison_data)
+            avg_difference = sum(item['difference'] for item in comparison_data) / len(comparison_data)
+            
+            print(f"Average first 4 cards strength: {avg_bidding_strength:.3f}")
+            print(f"Average full hand strength: {avg_full_strength:.3f}")
+            print(f"Average difference: {avg_difference:.3f}")
+            print(f"Correlation: First 4 cards are {'stronger' if avg_difference < 0 else 'weaker'} than full hand on average")
         
         # Analyze trump suit preferences
         print("\n--- Trump Suit Analysis ---")
@@ -265,12 +303,15 @@ class MCTSDataAnalyzer:
             game_complete = game['outcome']['game_complete']
             
             if winner is not None and winner in game['bidding']['player_hands']:
-                hand = game['bidding']['player_hands'][winner]
-                hand_strength = self.calculate_hand_strength(hand)
+                full_hand = game['bidding']['player_hands'][winner]
+                # Only use first 4 cards for bidding decisions
+                bidding_hand = full_hand[:4] if len(full_hand) >= 4 else full_hand
+                hand_strength = self.calculate_hand_strength(bidding_hand)
                 
                 # Create training example
                 training_example = {
-                    'hand': hand,
+                    'full_hand': full_hand,  # Keep full hand for reference
+                    'bidding_hand': bidding_hand,  # First 4 cards for bidding
                     'hand_strength': hand_strength,
                     'position': winner,
                     'bid': winning_bid,
@@ -315,29 +356,5 @@ def main():
     # Save results
     analyzer.save_analysis_results()
     
-    print("\n" + "="*60)
-    print("RECOMMENDATIONS FOR IMPROVING RL MODEL")
-    print("="*60)
-    
-    print("\n1. USE MCTS DATA FOR IMITATION LEARNING:")
-    print("   - Extract successful bidding patterns")
-    print("   - Use as expert demonstrations")
-    print("   - Implement behavioral cloning")
-    
-    print("\n2. IMPROVE REWARD FUNCTION:")
-    print("   - Use MCTS success rates as baseline")
-    print("   - Reward based on bid efficiency")
-    print("   - Consider hand strength correlation")
-    
-    print("\n3. BETTER OPPONENT MODELS:")
-    print("   - Model opponents based on MCTS behavior")
-    print("   - Use actual bidding patterns from logs")
-    print("   - Implement realistic opponent strategies")
-    
-    print("\n4. TRAINING DATA ENRICHMENT:")
-    print("   - Use MCTS games as additional training data")
-    print("   - Combine with RL self-play")
-    print("   - Implement curriculum learning")
-
 if __name__ == "__main__":
     main()

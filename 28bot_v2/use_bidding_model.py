@@ -95,6 +95,81 @@ def play_single_game_with_model(model_path: str = "models/bidding_policy/best_mo
             
             break
 
+def use_improved_model():
+    """Demonstrate how to use the improved bidding model"""
+    print("="*60)
+    print("USING THE IMPROVED BIDDING MODEL")
+    print("="*60)
+    
+    try:
+        from improved_bidding_trainer import ImprovedBiddingTrainer
+        from stable_baselines3 import PPO
+        
+        # Load the improved model
+        model = PPO.load("models/improved_bidding_model.zip")
+        print("✓ Improved model loaded successfully!")
+        
+        # Create improved environment
+        trainer = ImprovedBiddingTrainer()
+        env = trainer.create_improved_environment()
+        
+        print("\nPlaying a game with the improved model...")
+        print("The improved model features:")
+        print("• MCTS-based opponent strategies")
+        print("• Enhanced reward functions")
+        print("• Better training data from 279 MCTS games")
+        
+        # Play a game
+        obs, _ = env.reset()
+        step = 0
+        total_reward = 0
+        
+        while True:
+            step += 1
+            
+            # Get current game state info
+            current_bid = env.game_state.current_bid
+            passed_players = len(env.game_state.passed_players)
+            
+            print(f"\nStep {step}:")
+            print(f"Current bid: {current_bid}")
+            print(f"Players passed: {passed_players}")
+            print(f"Your hand: {[str(card) for card in env.game_state.hands[0]]}")
+            
+            # Get model's decision
+            action, _ = model.predict(obs, deterministic=True)
+            model_bid = get_bid_from_model(model, obs)
+            
+            if model_bid == -1:
+                print(f"Improved model decides to: PASS")
+            else:
+                print(f"Improved model decides to bid: {model_bid}")
+            
+            # Take the action
+            obs, reward, done, truncated, info = env.step(action)
+            total_reward += reward
+            
+            print(f"Reward: {reward}")
+            print(f"Bidding continues: {info['bidding_continues']}")
+            
+            if done:
+                print("\n" + "=" * 50)
+                print("Game finished!")
+                print(f"Final reward: {total_reward}")
+                
+                if env.game_state.bidder is not None:
+                    print(f"Winner: Player {env.game_state.bidder} with bid {env.game_state.winning_bid}")
+                    if env.game_state.trump_suit:
+                        print(f"Trump suit: {env.game_state.trump_suit}")
+                else:
+                    print("No winner - all players passed")
+                
+                break
+        
+    except Exception as e:
+        print(f"✗ Error using improved model: {e}")
+        print("Make sure you've run: python improved_bidding_trainer.py")
+
 def evaluate_model_performance(model_path: str = "models/bidding_policy/best_model/best_model.zip", num_games: int = 100):
     """Evaluate the model's performance over multiple games"""
     # Load the model
@@ -221,7 +296,7 @@ if __name__ == "__main__":
     import argparse
     
     parser = argparse.ArgumentParser(description="Use the trained bidding model")
-    parser.add_argument("--mode", choices=["play", "evaluate", "interactive"], 
+    parser.add_argument("--mode", choices=["play", "evaluate", "interactive", "improved"], 
                        default="play", help="Mode to run")
     parser.add_argument("--model", default="models/bidding_policy/best_model/best_model.zip",
                        help="Path to the model file")
@@ -236,3 +311,5 @@ if __name__ == "__main__":
         evaluate_model_performance(args.model, args.games)
     elif args.mode == "interactive":
         interactive_bidding(args.model)
+    elif args.mode == "improved":
+        use_improved_model()

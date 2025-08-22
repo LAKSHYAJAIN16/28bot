@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from stable_baselines3 import PPO
 from rl_bidding.env_adapter import Game28Env
 from game28.game_state import Card
-from game28.constants import BID_RANGE, CARD_VALUES, TOTAL_POINTS
+from game28.constants import BID_RANGE, CARD_VALUES, TOTAL_POINTS, MAX_BID
 
 class ImprovedBiddingTrainer:
     """Improved trainer that uses MCTS data for better training"""
@@ -70,8 +70,9 @@ class ImprovedBiddingTrainer:
         current_bid = env.game_state.current_bid
         hand = env.game_state.hands[player]
         
-        # Calculate hand strength
-        hand_strength = sum(CARD_VALUES[card.rank] for card in hand) / TOTAL_POINTS
+        # Calculate hand strength (first 4 cards only for bidding)
+        bidding_cards = hand[:4] if len(hand) >= 4 else hand
+        hand_strength = sum(CARD_VALUES[card.rank] for card in bidding_cards) / TOTAL_POINTS
         
         # Use MCTS patterns to determine bid
         # Based on analysis: Clubs and Spades have higher success rates
@@ -86,32 +87,41 @@ class ImprovedBiddingTrainer:
         best_suit = max(suit_counts, key=suit_counts.get)
         best_suit_count = suit_counts[best_suit]
         
-        # MCTS-based bidding strategy
+        # MCTS-based bidding strategy with proper bounds checking
         if best_suit_count >= 3:  # Strong suit
             if best_suit in ['C', 'S']:  # High success rate suits
                 if hand_strength > 0.4:
-                    return current_bid + 2  # Aggressive
+                    new_bid = min(current_bid + 2, MAX_BID)  # Aggressive but bounded
+                    return new_bid if new_bid > current_bid else -1
                 else:
-                    return current_bid + 1  # Moderate
+                    new_bid = min(current_bid + 1, MAX_BID)  # Moderate but bounded
+                    return new_bid if new_bid > current_bid else -1
             else:  # Lower success rate suits
                 if hand_strength > 0.5:
-                    return current_bid + 1  # Conservative
+                    new_bid = min(current_bid + 1, MAX_BID)  # Conservative but bounded
+                    return new_bid if new_bid > current_bid else -1
                 else:
                     return -1  # Pass
         elif hand_strength > 0.6:  # Very strong hand
-            return current_bid + 1
+            new_bid = min(current_bid + 1, MAX_BID)  # Bounded
+            return new_bid if new_bid > current_bid else -1
         else:
             return -1  # Pass
     
     def _get_fallback_bid(self, env: Game28Env, player: int) -> int:
         """Fallback bidding strategy if MCTS data not available"""
         hand = env.game_state.hands[player]
-        hand_strength = sum(CARD_VALUES[card.rank] for card in hand) / TOTAL_POINTS
+        # Calculate hand strength (first 4 cards only for bidding)
+        bidding_cards = hand[:4] if len(hand) >= 4 else hand
+        hand_strength = sum(CARD_VALUES[card.rank] for card in bidding_cards) / TOTAL_POINTS
+        current_bid = env.game_state.current_bid
         
         if hand_strength > 0.6:
-            return env.game_state.current_bid + 2
+            new_bid = min(current_bid + 2, MAX_BID)
+            return new_bid if new_bid > current_bid else -1
         elif hand_strength > 0.4:
-            return env.game_state.current_bid + 1
+            new_bid = min(current_bid + 1, MAX_BID)
+            return new_bid if new_bid > current_bid else -1
         else:
             return -1
     
@@ -154,9 +164,11 @@ class ImprovedBiddingTrainer:
         return reward
     
     def _calculate_hand_strength(self, env: Game28Env) -> float:
-        """Calculate current hand strength"""
+        """Calculate current hand strength (first 4 cards only for bidding)"""
         hand = env.game_state.hands[env.player_id]
-        return sum(CARD_VALUES[card.rank] for card in hand) / TOTAL_POINTS
+        # Only consider first 4 cards for bidding decisions
+        bidding_cards = hand[:4] if len(hand) >= 4 else hand
+        return sum(CARD_VALUES[card.rank] for card in bidding_cards) / TOTAL_POINTS
     
     def train_with_mcts_data(self, num_episodes: int = 2000, learning_rate: float = 3e-4):
         """Train the model using MCTS data for better initialization"""
@@ -247,7 +259,7 @@ def main():
         return
     
     # Train improved model
-    model = trainer.train_with_mcts_data(num_episodes=2000)
+    model = trainer.train_with_mcts_data(num_episodes=4000)
     
     # Evaluate the model
     trainer.evaluate_improved_model(model, num_games=100)

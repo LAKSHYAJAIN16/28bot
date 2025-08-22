@@ -1,12 +1,12 @@
 {
   "summary": {
-    "total_games": 873,
-    "successful_bids": 105,
-    "success_rate": 0.12027491408934708
+    "total_games": 901,
+    "successful_bids": 113,
+    "success_rate": 0.12541620421753608
   },
   "training_data": [
     {
-      "hand": [
+      "full_hand": [
         "8H",
         "QS",
         "QD",
@@ -15,7 +15,13 @@
         "10H",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8H",
+        "QS",
+        "QD",
+        "9S"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 3,
       "bid": 16,
       "trump_suit": "H",
@@ -24,7 +30,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "9D",
         "AS",
@@ -33,7 +39,13 @@
         "AD",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "9D",
+        "AS",
+        "9S"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 1,
       "bid": 22,
       "trump_suit": "D",
@@ -42,7 +54,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "JH",
         "JD",
@@ -51,7 +63,13 @@
         "8C",
         "AS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "JH",
+        "JD",
+        "8H"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 2,
       "bid": 19,
       "trump_suit": "D",
@@ -60,7 +78,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "7H",
         "10D",
@@ -68,6 +86,12 @@
         "KC",
         "8C",
         "10S"
+      ],
+      "bidding_hand": [
+        "QC",
+        "7H",
+        "10D",
+        "8S"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -78,7 +102,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "7S",
         "KC",
@@ -87,7 +111,13 @@
         "9S",
         "JC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QC",
+        "7S",
+        "KC",
+        "JH"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 2,
       "bid": 17,
       "trump_suit": "S",
@@ -96,7 +126,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "QS",
         "10D",
@@ -105,6 +135,12 @@
         "JH",
         "QD"
       ],
+      "bidding_hand": [
+        "KC",
+        "QS",
+        "10D",
+        "8C"
+      ],
       "hand_strength": 0.0,
       "position": 0,
       "bid": 16,
@@ -114,7 +150,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "7H",
+        "8S",
+        "JD",
+        "9D",
+        "8D",
+        "9S",
+        "7D"
+      ],
+      "bidding_hand": [
+        "7H",
+        "8S",
+        "JD",
+        "9D"
+      ],
+      "hand_strength": 0.17857142857142858,
+      "position": 0,
+      "bid": 24,
+      "trump_suit": "C",
+      "success": false,
+      "game_id": "10",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "8H",
         "QS",
         "AS",
@@ -123,7 +183,13 @@
         "JS",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8H",
+        "QS",
+        "AS",
+        "QC"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 18,
       "trump_suit": "H",
@@ -132,7 +198,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "JS",
         "KD",
@@ -141,7 +207,13 @@
         "7H",
         "JD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "JS",
+        "KD",
+        "10D"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 20,
       "trump_suit": "C",
@@ -150,7 +222,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "QH",
         "AD",
@@ -159,7 +231,13 @@
         "10S",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "QH",
+        "AD",
+        "KC"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 2,
       "bid": 20,
       "trump_suit": "C",
@@ -168,7 +246,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "7H",
         "AH",
@@ -177,7 +255,13 @@
         "QC",
         "10C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "7H",
+        "AH",
+        "AC"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -186,7 +270,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8C",
         "8H",
         "QS",
@@ -195,7 +279,13 @@
         "JH",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8C",
+        "8H",
+        "QS",
+        "JD"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -204,7 +294,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "7C",
+        "10H",
+        "QD",
+        "JS",
+        "10D",
+        "9S",
+        "JC"
+      ],
+      "bidding_hand": [
+        "7C",
+        "10H",
+        "QD",
+        "JS"
+      ],
+      "hand_strength": 0.10714285714285714,
+      "position": 0,
+      "bid": 16,
+      "trump_suit": "S",
+      "success": false,
+      "game_id": "11",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "7D",
         "KC",
         "9H",
@@ -213,7 +327,13 @@
         "JH",
         "8C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7D",
+        "KC",
+        "9H",
+        "9D"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -222,7 +342,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "10S",
         "8H",
@@ -231,7 +351,13 @@
         "KD",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "10S",
+        "8H",
+        "JC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 18,
       "trump_suit": "D",
@@ -240,7 +366,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7H",
         "10D",
         "JS",
@@ -249,7 +375,13 @@
         "QS",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7H",
+        "10D",
+        "JS",
+        "JD"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 1,
       "bid": 21,
       "trump_suit": "C",
@@ -258,7 +390,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "7C",
         "10C",
@@ -267,7 +399,13 @@
         "7D",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "7C",
+        "10C",
+        "8S"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 20,
       "trump_suit": "C",
@@ -276,7 +414,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "AD",
         "JD",
@@ -285,7 +423,13 @@
         "7D",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QC",
+        "AD",
+        "JD",
+        "9H"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 2,
       "bid": 16,
       "trump_suit": "S",
@@ -294,7 +438,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "7S",
+        "JD",
+        "10D",
+        "AS",
+        "8H",
+        "9S",
+        "QH"
+      ],
+      "bidding_hand": [
+        "7S",
+        "JD",
+        "10D",
+        "AS"
+      ],
+      "hand_strength": 0.14285714285714285,
+      "position": 0,
+      "bid": 16,
+      "trump_suit": "C",
+      "success": false,
+      "game_id": "12",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "JD",
         "7H",
         "KH",
@@ -303,7 +471,13 @@
         "7C",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "7H",
+        "KH",
+        "8C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 21,
       "trump_suit": "H",
@@ -312,7 +486,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8S",
         "JD",
         "AC",
@@ -321,7 +495,13 @@
         "7D",
         "10H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8S",
+        "JD",
+        "AC",
+        "KD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 3,
       "bid": 20,
       "trump_suit": "H",
@@ -330,7 +510,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "JS",
         "10H",
@@ -339,7 +519,13 @@
         "7S",
         "AS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "JS",
+        "10H",
+        "QC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 3,
       "bid": 17,
       "trump_suit": "S",
@@ -348,7 +534,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "7C",
         "10S",
@@ -357,7 +543,13 @@
         "7D",
         "9D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "7C",
+        "10S",
+        "AC"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 18,
       "trump_suit": "C",
@@ -366,7 +558,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "JC",
         "QS",
@@ -375,7 +567,13 @@
         "7H",
         "10S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "JC",
+        "QS",
+        "10D"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -384,7 +582,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "9S",
+        "10H",
+        "9D",
+        "10S",
+        "KS",
+        "QC",
+        "AD"
+      ],
+      "bidding_hand": [
+        "9S",
+        "10H",
+        "9D",
+        "10S"
+      ],
+      "hand_strength": 0.14285714285714285,
+      "position": 3,
+      "bid": 19,
+      "trump_suit": "C",
+      "success": false,
+      "game_id": "13",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "7S",
         "10S",
         "10C",
@@ -392,6 +614,12 @@
         "QS",
         "AC",
         "8C"
+      ],
+      "bidding_hand": [
+        "7S",
+        "10S",
+        "10C",
+        "7C"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -402,7 +630,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9D",
         "7S",
         "QC",
@@ -411,7 +639,13 @@
         "KC",
         "10D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9D",
+        "7S",
+        "QC",
+        "7H"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 1,
       "bid": 20,
       "trump_suit": "H",
@@ -420,7 +654,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QH",
         "8D",
         "KC",
@@ -429,7 +663,13 @@
         "10D",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QH",
+        "8D",
+        "KC",
+        "JS"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 3,
       "bid": 21,
       "trump_suit": "S",
@@ -438,7 +678,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "QC",
+        "8S",
+        "8D",
+        "10D",
+        "KD",
+        "AH",
+        "QD"
+      ],
+      "bidding_hand": [
+        "QC",
+        "8S",
+        "8D",
+        "10D"
+      ],
+      "hand_strength": 0.0,
+      "position": 0,
+      "bid": 16,
+      "trump_suit": "H",
+      "success": true,
+      "game_id": "14",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "9C",
         "9H",
         "10C",
@@ -447,7 +711,13 @@
         "JD",
         "10D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "9H",
+        "10C",
+        "QD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 1,
       "bid": 17,
       "trump_suit": "D",
@@ -456,7 +726,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "7D",
         "9H",
@@ -465,7 +735,13 @@
         "JS",
         "KH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "7D",
+        "9H",
+        "KC"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 2,
       "bid": 23,
       "trump_suit": "C",
@@ -474,7 +750,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "8D",
         "9D",
@@ -483,7 +759,13 @@
         "KC",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "8D",
+        "9D",
+        "AD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 3,
       "bid": 18,
       "trump_suit": "D",
@@ -492,7 +774,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "7S",
+        "10C",
+        "AH",
+        "KS",
+        "QD",
+        "JC",
+        "9S"
+      ],
+      "bidding_hand": [
+        "7S",
+        "10C",
+        "AH",
+        "KS"
+      ],
+      "hand_strength": 0.03571428571428571,
+      "position": 1,
+      "bid": 28,
+      "trump_suit": "D",
+      "success": false,
+      "game_id": "15",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "JD",
         "7D",
         "KS",
@@ -501,7 +807,13 @@
         "AS",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "7D",
+        "KS",
+        "AH"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 21,
       "trump_suit": "D",
@@ -510,7 +822,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7D",
         "JC",
         "JH",
@@ -519,7 +831,13 @@
         "QH",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7D",
+        "JC",
+        "JH",
+        "KS"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 3,
       "bid": 19,
       "trump_suit": "S",
@@ -528,7 +846,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8S",
         "8D",
         "10H",
@@ -537,7 +855,13 @@
         "10S",
         "8C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8S",
+        "8D",
+        "10H",
+        "JH"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -546,7 +870,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "JS",
+        "8C",
+        "AH",
+        "10D",
+        "8S",
+        "AS",
+        "10H"
+      ],
+      "bidding_hand": [
+        "JS",
+        "8C",
+        "AH",
+        "10D"
+      ],
+      "hand_strength": 0.14285714285714285,
+      "position": 0,
+      "bid": 16,
+      "trump_suit": "C",
+      "success": true,
+      "game_id": "16",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "QS",
         "9C",
         "7D",
@@ -555,7 +903,13 @@
         "AS",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QS",
+        "9C",
+        "7D",
+        "QH"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -564,7 +918,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "7D",
         "9D",
@@ -573,7 +927,13 @@
         "JS",
         "8C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "7D",
+        "9D",
+        "KH"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 25,
       "trump_suit": "C",
@@ -582,7 +942,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JC",
         "AH",
         "10D",
@@ -591,7 +951,13 @@
         "8C",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JC",
+        "AH",
+        "10D",
+        "KD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 23,
       "trump_suit": "S",
@@ -600,7 +966,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "8S",
+        "7H",
+        "8H",
+        "8D",
+        "AC",
+        "JH",
+        "7D"
+      ],
+      "bidding_hand": [
+        "8S",
+        "7H",
+        "8H",
+        "8D"
+      ],
+      "hand_strength": 0.0,
+      "position": 0,
+      "bid": 16,
+      "trump_suit": "H",
+      "success": true,
+      "game_id": "17",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "9D",
         "AD",
         "10C",
@@ -609,7 +999,13 @@
         "JS",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9D",
+        "AD",
+        "10C",
+        "QH"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -618,7 +1014,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "QS",
         "KS",
@@ -627,7 +1023,13 @@
         "8S",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "QS",
+        "KS",
+        "10S"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 17,
       "trump_suit": "H",
@@ -636,7 +1038,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "8C",
         "9S",
@@ -645,7 +1047,13 @@
         "10H",
         "KD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "8C",
+        "9S",
+        "QC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 18,
       "trump_suit": "S",
@@ -654,7 +1062,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "7S",
+        "8C",
+        "JC",
+        "QD",
+        "10S",
+        "AS",
+        "JD"
+      ],
+      "bidding_hand": [
+        "7S",
+        "8C",
+        "JC",
+        "QD"
+      ],
+      "hand_strength": 0.10714285714285714,
+      "position": 1,
+      "bid": 17,
+      "trump_suit": "D",
+      "success": false,
+      "game_id": "18",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "8D",
         "7D",
         "10D",
@@ -663,7 +1095,13 @@
         "QD",
         "AC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8D",
+        "7D",
+        "10D",
+        "9H"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -672,7 +1110,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7D",
         "8S",
         "KH",
@@ -680,6 +1118,12 @@
         "8D",
         "8H",
         "10D"
+      ],
+      "bidding_hand": [
+        "7D",
+        "8S",
+        "KH",
+        "8C"
       ],
       "hand_strength": 0.0,
       "position": 3,
@@ -690,7 +1134,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "KD",
         "JH",
@@ -699,7 +1143,13 @@
         "10S",
         "KC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "KD",
+        "JH",
+        "8H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 2,
       "bid": 19,
       "trump_suit": "S",
@@ -708,7 +1158,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "8H",
+        "KD",
+        "7D",
+        "AC",
+        "9S",
+        "9D",
+        "AH"
+      ],
+      "bidding_hand": [
+        "8H",
+        "KD",
+        "7D",
+        "AC"
+      ],
+      "hand_strength": 0.03571428571428571,
+      "position": 3,
+      "bid": 16,
+      "trump_suit": "H",
+      "success": true,
+      "game_id": "19",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "7D",
         "8S",
         "JD",
@@ -717,7 +1191,13 @@
         "KC",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7D",
+        "8S",
+        "JD",
+        "AS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 17,
       "trump_suit": "D",
@@ -726,7 +1206,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "JD",
         "QS",
@@ -735,7 +1215,13 @@
         "AC",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "JD",
+        "QS",
+        "KD"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -744,7 +1230,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KD",
         "QH",
         "7D",
@@ -752,6 +1238,12 @@
         "10D",
         "KS",
         "JH"
+      ],
+      "bidding_hand": [
+        "KD",
+        "QH",
+        "7D",
+        "8H"
       ],
       "hand_strength": 0.0,
       "position": 3,
@@ -762,7 +1254,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10H",
         "8D",
         "7H",
@@ -770,6 +1262,12 @@
         "10C",
         "7S",
         "KC"
+      ],
+      "bidding_hand": [
+        "10H",
+        "8D",
+        "7H",
+        "QS"
       ],
       "hand_strength": 0.0,
       "position": 2,
@@ -780,7 +1278,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "10C",
         "KS",
@@ -789,7 +1287,13 @@
         "8D",
         "9D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "10C",
+        "KS",
+        "AS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -798,7 +1302,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "8D",
         "AC",
@@ -807,7 +1311,13 @@
         "AS",
         "KS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "8D",
+        "AC",
+        "AH"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 2,
       "bid": 16,
       "trump_suit": "D",
@@ -816,7 +1326,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QS",
         "8H",
         "10C",
@@ -825,7 +1335,13 @@
         "KD",
         "8C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QS",
+        "8H",
+        "10C",
+        "9S"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 2,
       "bid": 16,
       "trump_suit": "C",
@@ -834,7 +1350,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "10H",
         "10D",
@@ -843,7 +1359,13 @@
         "KH",
         "7S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "10H",
+        "10D",
+        "AC"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 17,
       "trump_suit": "H",
@@ -852,7 +1374,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "JH",
         "AH",
@@ -861,7 +1383,13 @@
         "QD",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "JH",
+        "AH",
+        "9C"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -870,7 +1398,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QH",
         "9C",
         "8C",
@@ -879,7 +1407,13 @@
         "AC",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QH",
+        "9C",
+        "8C",
+        "10D"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 3,
       "bid": 17,
       "trump_suit": "S",
@@ -888,7 +1422,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "10D",
         "9H",
         "7D",
@@ -897,7 +1431,13 @@
         "AC",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10D",
+        "9H",
+        "7D",
+        "JH"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 2,
       "bid": 17,
       "trump_suit": "D",
@@ -906,7 +1446,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "JS",
         "JD",
@@ -915,7 +1455,13 @@
         "KD",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "JS",
+        "JD",
+        "QS"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 3,
       "bid": 18,
       "trump_suit": "C",
@@ -924,7 +1470,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "JC",
         "8S",
         "JH",
@@ -933,7 +1479,13 @@
         "8C",
         "AC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JC",
+        "8S",
+        "JH",
+        "10H"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 18,
       "trump_suit": "H",
@@ -942,7 +1494,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "8H",
         "QC",
@@ -951,7 +1503,13 @@
         "JS",
         "10D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "8H",
+        "QC",
+        "8C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 20,
       "trump_suit": "S",
@@ -960,7 +1518,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AD",
         "10S",
         "7C",
@@ -969,7 +1527,13 @@
         "AC",
         "QH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AD",
+        "10S",
+        "7C",
+        "7D"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 2,
       "bid": 21,
       "trump_suit": "S",
@@ -978,7 +1542,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "7H",
         "7S",
@@ -987,7 +1551,13 @@
         "10H",
         "KH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "7H",
+        "7S",
+        "JC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -996,7 +1566,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "JC",
         "7H",
@@ -1005,7 +1575,13 @@
         "JS",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "JC",
+        "7H",
+        "AS"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 1,
       "bid": 17,
       "trump_suit": "C",
@@ -1014,7 +1590,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "KD",
         "7H",
@@ -1023,7 +1599,13 @@
         "QH",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "KD",
+        "7H",
+        "AD"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 2,
       "bid": 16,
       "trump_suit": "H",
@@ -1032,7 +1614,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "JH",
         "7D",
@@ -1041,7 +1623,13 @@
         "7H",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "JH",
+        "7D",
+        "8D"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -1050,7 +1638,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "8S",
         "9S",
@@ -1059,7 +1647,13 @@
         "JS",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "8S",
+        "9S",
+        "8C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -1068,7 +1662,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "8S",
         "JD",
@@ -1077,7 +1671,13 @@
         "8H",
         "AS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "8S",
+        "JD",
+        "QS"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 23,
       "trump_suit": "C",
@@ -1086,7 +1686,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "JH",
         "AD",
@@ -1095,7 +1695,13 @@
         "QD",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "JH",
+        "AD",
+        "QC"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 1,
       "bid": 17,
       "trump_suit": "C",
@@ -1104,7 +1710,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "10D",
         "AC",
@@ -1113,7 +1719,13 @@
         "KS",
         "9D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "10D",
+        "AC",
+        "QD"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -1122,7 +1734,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "JH",
         "JD",
         "7D",
@@ -1131,7 +1743,13 @@
         "8C",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JH",
+        "JD",
+        "7D",
+        "7C"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 18,
       "trump_suit": "C",
@@ -1140,7 +1758,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KH",
         "9S",
         "JS",
@@ -1149,7 +1767,13 @@
         "KC",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KH",
+        "9S",
+        "JS",
+        "QC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 17,
       "trump_suit": "D",
@@ -1158,7 +1782,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JC",
         "JS",
         "10S",
@@ -1167,7 +1791,13 @@
         "10D",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JC",
+        "JS",
+        "10S",
+        "7C"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 1,
       "bid": 17,
       "trump_suit": "H",
@@ -1176,7 +1806,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KD",
         "10C",
         "JS",
@@ -1185,7 +1815,13 @@
         "AS",
         "KH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KD",
+        "10C",
+        "JS",
+        "7C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 2,
       "bid": 16,
       "trump_suit": "H",
@@ -1194,7 +1830,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "KC",
         "8D",
@@ -1203,7 +1839,13 @@
         "7H",
         "7D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QC",
+        "KC",
+        "8D",
+        "AH"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 1,
       "bid": 19,
       "trump_suit": "D",
@@ -1212,7 +1854,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "10S",
         "9D",
@@ -1221,7 +1863,13 @@
         "AS",
         "7D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "10S",
+        "9D",
+        "7C"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 1,
       "bid": 19,
       "trump_suit": "D",
@@ -1230,7 +1878,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "8D",
         "AD",
@@ -1239,7 +1887,13 @@
         "9H",
         "AC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "8D",
+        "AD",
+        "10C"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 3,
       "bid": 18,
       "trump_suit": "S",
@@ -1248,7 +1902,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "9C",
         "AD",
@@ -1257,7 +1911,13 @@
         "10D",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "9C",
+        "AD",
+        "QH"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 2,
       "bid": 17,
       "trump_suit": "S",
@@ -1266,7 +1926,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "AH",
+        "KD",
+        "AC",
+        "10C",
+        "8D",
+        "9D",
+        "9S"
+      ],
+      "bidding_hand": [
+        "AH",
+        "KD",
+        "AC",
+        "10C"
+      ],
+      "hand_strength": 0.07142857142857142,
+      "position": 0,
+      "bid": 25,
+      "trump_suit": "S",
+      "success": false,
+      "game_id": "1",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "AD",
         "KS",
         "QC",
@@ -1275,7 +1959,13 @@
         "QH",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AD",
+        "KS",
+        "QC",
+        "QS"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 2,
       "bid": 16,
       "trump_suit": "H",
@@ -1284,7 +1974,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "KS",
         "7C",
@@ -1293,7 +1983,13 @@
         "9D",
         "9S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "KS",
+        "7C",
+        "AD"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 3,
       "bid": 18,
       "trump_suit": "D",
@@ -1302,7 +1998,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "KS",
         "9C",
@@ -1311,7 +2007,13 @@
         "QS",
         "9D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "KS",
+        "9C",
+        "7D"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 2,
       "bid": 20,
       "trump_suit": "C",
@@ -1320,7 +2022,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QS",
         "JC",
         "7C",
@@ -1329,7 +2031,13 @@
         "KC",
         "9S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QS",
+        "JC",
+        "7C",
+        "8H"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -1338,7 +2046,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "AS",
         "KH",
@@ -1347,7 +2055,13 @@
         "QH",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "AS",
+        "KH",
+        "KS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 20,
       "trump_suit": "C",
@@ -1356,7 +2070,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "QH",
         "10C",
@@ -1365,7 +2079,13 @@
         "AH",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "QH",
+        "10C",
+        "JC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 17,
       "trump_suit": "H",
@@ -1374,7 +2094,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7D",
         "10D",
         "KH",
@@ -1383,7 +2103,13 @@
         "10C",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7D",
+        "10D",
+        "KH",
+        "9C"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 2,
       "bid": 16,
       "trump_suit": "D",
@@ -1392,7 +2118,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AH",
         "9D",
         "QC",
@@ -1401,7 +2127,13 @@
         "8H",
         "7C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "9D",
+        "QC",
+        "AS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 20,
       "trump_suit": "S",
@@ -1410,7 +2142,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "7S",
         "7D",
@@ -1418,6 +2150,12 @@
         "10S",
         "JD",
         "JS"
+      ],
+      "bidding_hand": [
+        "KC",
+        "7S",
+        "7D",
+        "8C"
       ],
       "hand_strength": 0.0,
       "position": 3,
@@ -1428,7 +2166,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10D",
         "7S",
         "KS",
@@ -1436,6 +2174,12 @@
         "QC",
         "JD",
         "10S"
+      ],
+      "bidding_hand": [
+        "10D",
+        "7S",
+        "KS",
+        "KC"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -1446,7 +2190,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JC",
         "9H",
         "JH",
@@ -1455,7 +2199,13 @@
         "10D",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JC",
+        "9H",
+        "JH",
+        "QD"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 0,
       "bid": 19,
       "trump_suit": "C",
@@ -1464,7 +2214,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JH",
         "QH",
         "KH",
@@ -1473,7 +2223,13 @@
         "10H",
         "JD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JH",
+        "QH",
+        "KH",
+        "9D"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 17,
       "trump_suit": "S",
@@ -1482,7 +2238,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10D",
         "10H",
         "AC",
@@ -1491,7 +2247,13 @@
         "9S",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10D",
+        "10H",
+        "AC",
+        "AS"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -1500,7 +2262,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7H",
         "8D",
         "JH",
@@ -1509,7 +2271,13 @@
         "9C",
         "10S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7H",
+        "8D",
+        "JH",
+        "AH"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 19,
       "trump_suit": "D",
@@ -1518,7 +2286,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9D",
         "7D",
         "JC",
@@ -1527,7 +2295,13 @@
         "AS",
         "KC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9D",
+        "7D",
+        "JC",
+        "AH"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 2,
       "bid": 18,
       "trump_suit": "D",
@@ -1536,7 +2310,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JC",
         "7C",
         "KH",
@@ -1545,7 +2319,13 @@
         "7H",
         "10S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JC",
+        "7C",
+        "KH",
+        "QH"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 19,
       "trump_suit": "C",
@@ -1554,7 +2334,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "JD",
         "JS",
@@ -1563,7 +2343,13 @@
         "7D",
         "10C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "JD",
+        "JS",
+        "9S"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 2,
       "bid": 17,
       "trump_suit": "C",
@@ -1572,7 +2358,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QS",
         "KS",
         "9H",
@@ -1581,7 +2367,13 @@
         "8D",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QS",
+        "KS",
+        "9H",
+        "KD"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -1590,7 +2382,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "8S",
         "10H",
@@ -1599,7 +2391,13 @@
         "10D",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "8S",
+        "10H",
+        "10S"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 17,
       "trump_suit": "H",
@@ -1608,7 +2406,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AS",
         "8C",
         "JS",
@@ -1617,7 +2415,13 @@
         "KH",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AS",
+        "8C",
+        "JS",
+        "JD"
+      ],
+      "hand_strength": 0.25,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -1626,7 +2430,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "JH",
         "8H",
@@ -1635,7 +2439,13 @@
         "9H",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "JH",
+        "8H",
+        "9C"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -1644,7 +2454,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8D",
         "9H",
         "KS",
@@ -1653,7 +2463,13 @@
         "8C",
         "7H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8D",
+        "9H",
+        "KS",
+        "KC"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -1662,7 +2478,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "9S",
         "10S",
@@ -1671,7 +2487,13 @@
         "QS",
         "AC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "9S",
+        "10S",
+        "9D"
+      ],
+      "hand_strength": 0.25,
       "position": 1,
       "bid": 21,
       "trump_suit": "S",
@@ -1680,7 +2502,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8D",
         "KH",
         "9S",
@@ -1689,7 +2511,13 @@
         "9D",
         "7S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8D",
+        "KH",
+        "9S",
+        "AC"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 20,
       "trump_suit": "C",
@@ -1698,7 +2526,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "9C",
         "QD",
@@ -1707,7 +2535,13 @@
         "KC",
         "9S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "9C",
+        "QD",
+        "8H"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -1716,7 +2550,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7H",
         "8D",
         "8S",
@@ -1724,6 +2558,12 @@
         "KD",
         "7C",
         "AS"
+      ],
+      "bidding_hand": [
+        "7H",
+        "8D",
+        "8S",
+        "QH"
       ],
       "hand_strength": 0.0,
       "position": 1,
@@ -1734,7 +2574,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "AS",
         "AC",
@@ -1743,7 +2583,13 @@
         "10H",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "AS",
+        "AC",
+        "7S"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -1752,7 +2598,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JC",
         "7S",
         "KC",
@@ -1761,7 +2607,13 @@
         "JH",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JC",
+        "7S",
+        "KC",
+        "10C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -1770,7 +2622,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JC",
         "KS",
         "10D",
@@ -1779,7 +2631,13 @@
         "AD",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JC",
+        "KS",
+        "10D",
+        "9H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 3,
       "bid": 17,
       "trump_suit": "C",
@@ -1788,7 +2646,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "9H",
         "10D",
@@ -1797,7 +2655,13 @@
         "10C",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "9H",
+        "10D",
+        "QH"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -1806,7 +2670,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "JS",
         "KD",
@@ -1815,7 +2679,13 @@
         "KC",
         "10H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "JS",
+        "KD",
+        "QD"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -1824,7 +2694,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "8S",
         "QC",
@@ -1833,7 +2703,13 @@
         "9H",
         "10C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "8S",
+        "QC",
+        "7H"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -1842,7 +2718,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "KD",
         "JC",
@@ -1851,7 +2727,13 @@
         "KH",
         "7H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "KD",
+        "JC",
+        "7C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 19,
       "trump_suit": "C",
@@ -1860,7 +2742,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "QD",
         "QH",
@@ -1869,7 +2751,13 @@
         "9D",
         "KH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "QD",
+        "QH",
+        "JS"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -1878,7 +2766,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "10H",
         "8H",
@@ -1887,7 +2775,13 @@
         "8S",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "10H",
+        "8H",
+        "AS"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 3,
       "bid": 18,
       "trump_suit": "H",
@@ -1896,7 +2790,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7D",
         "AD",
         "8D",
@@ -1905,7 +2799,13 @@
         "QD",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7D",
+        "AD",
+        "8D",
+        "KD"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -1914,7 +2814,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7D",
         "10D",
         "KC",
@@ -1922,6 +2822,12 @@
         "AH",
         "JC",
         "7H"
+      ],
+      "bidding_hand": [
+        "7D",
+        "10D",
+        "KC",
+        "KD"
       ],
       "hand_strength": 0.0,
       "position": 3,
@@ -1932,7 +2838,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7H",
         "QC",
         "7D",
@@ -1941,6 +2847,12 @@
         "10H",
         "9C"
       ],
+      "bidding_hand": [
+        "7H",
+        "QC",
+        "7D",
+        "8S"
+      ],
       "hand_strength": 0.0,
       "position": 0,
       "bid": 18,
@@ -1950,7 +2862,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8D",
         "8S",
         "9H",
@@ -1959,7 +2871,13 @@
         "AD",
         "AH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8D",
+        "8S",
+        "9H",
+        "QC"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -1968,7 +2886,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "QC",
         "10H",
@@ -1977,7 +2895,13 @@
         "10S",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "QC",
+        "10H",
+        "8H"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -1986,7 +2910,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AH",
         "7S",
         "7H",
@@ -1995,7 +2919,13 @@
         "10H",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "7S",
+        "7H",
+        "JC"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -2004,7 +2934,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JH",
         "10D",
         "JD",
@@ -2013,7 +2943,13 @@
         "KC",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JH",
+        "10D",
+        "JD",
+        "10C"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 1,
       "bid": 20,
       "trump_suit": "H",
@@ -2022,7 +2958,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "JH",
         "KS",
@@ -2031,7 +2967,13 @@
         "AH",
         "7H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QC",
+        "JH",
+        "KS",
+        "7S"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 21,
       "trump_suit": "D",
@@ -2040,7 +2982,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "7D",
         "JC",
@@ -2049,7 +2991,13 @@
         "QH",
         "10H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "7D",
+        "JC",
+        "QD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 3,
       "bid": 18,
       "trump_suit": "S",
@@ -2058,7 +3006,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "9H",
         "AC",
@@ -2067,7 +3015,13 @@
         "10H",
         "7H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "9H",
+        "AC",
+        "JD"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 22,
       "trump_suit": "H",
@@ -2076,7 +3030,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7D",
         "10C",
         "QC",
@@ -2085,7 +3039,13 @@
         "QD",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7D",
+        "10C",
+        "QC",
+        "9C"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -2094,7 +3054,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "10H",
+        "7D",
+        "7H",
+        "QH",
+        "JS",
+        "AS",
+        "KH"
+      ],
+      "bidding_hand": [
+        "10H",
+        "7D",
+        "7H",
+        "QH"
+      ],
+      "hand_strength": 0.0,
+      "position": 0,
+      "bid": 16,
+      "trump_suit": "D",
+      "success": false,
+      "game_id": "2",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "9H",
         "10C",
         "KD",
@@ -2103,7 +3087,13 @@
         "QD",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "10C",
+        "KD",
+        "10S"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -2112,7 +3102,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "AD",
         "KD",
@@ -2121,7 +3111,13 @@
         "8C",
         "9D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "AD",
+        "KD",
+        "JC"
+      ],
+      "hand_strength": 0.25,
       "position": 2,
       "bid": 17,
       "trump_suit": "H",
@@ -2130,7 +3126,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "JH",
         "10D",
@@ -2139,7 +3135,13 @@
         "QH",
         "9D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "JH",
+        "10D",
+        "7S"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 20,
       "trump_suit": "D",
@@ -2148,7 +3150,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QS",
         "7H",
         "7S",
@@ -2157,7 +3159,13 @@
         "7C",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QS",
+        "7H",
+        "7S",
+        "AH"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -2166,7 +3174,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "9C",
         "KH",
@@ -2175,7 +3183,13 @@
         "8S",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "9C",
+        "KH",
+        "JD"
+      ],
+      "hand_strength": 0.25,
       "position": 1,
       "bid": 19,
       "trump_suit": "D",
@@ -2184,7 +3198,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "8D",
         "KH",
@@ -2193,7 +3207,13 @@
         "JD",
         "7C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "8D",
+        "KH",
+        "AD"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 3,
       "bid": 22,
       "trump_suit": "C",
@@ -2202,7 +3222,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8H",
         "8S",
         "7D",
@@ -2211,7 +3231,13 @@
         "10S",
         "7S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8H",
+        "8S",
+        "7D",
+        "JD"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -2220,7 +3246,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "JH",
         "JD",
@@ -2229,7 +3255,13 @@
         "AS",
         "QH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "JH",
+        "JD",
+        "8C"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 0,
       "bid": 19,
       "trump_suit": "D",
@@ -2238,7 +3270,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "9S",
         "JC",
@@ -2247,7 +3279,13 @@
         "KH",
         "AS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KC",
+        "9S",
+        "JC",
+        "QC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -2256,7 +3294,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "KC",
         "QC",
@@ -2265,7 +3303,13 @@
         "AH",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "KC",
+        "QC",
+        "7D"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 1,
       "bid": 16,
       "trump_suit": "D",
@@ -2274,7 +3318,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AD",
         "10H",
         "AC",
@@ -2283,7 +3327,13 @@
         "QS",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AD",
+        "10H",
+        "AC",
+        "QH"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 1,
       "bid": 23,
       "trump_suit": "S",
@@ -2292,7 +3342,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8D",
         "KH",
         "7S",
@@ -2300,6 +3350,12 @@
         "JD",
         "7D",
         "QH"
+      ],
+      "bidding_hand": [
+        "8D",
+        "KH",
+        "7S",
+        "8C"
       ],
       "hand_strength": 0.0,
       "position": 1,
@@ -2310,7 +3366,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8S",
         "7S",
         "KS",
@@ -2318,6 +3374,12 @@
         "JS",
         "10D",
         "QS"
+      ],
+      "bidding_hand": [
+        "8S",
+        "7S",
+        "KS",
+        "10C"
       ],
       "hand_strength": 0.0,
       "position": 3,
@@ -2328,7 +3390,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "JC",
         "AC",
@@ -2337,7 +3399,13 @@
         "AH",
         "9S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QC",
+        "JC",
+        "AC",
+        "AS"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 20,
       "trump_suit": "H",
@@ -2346,7 +3414,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KD",
         "AC",
         "7S",
@@ -2355,7 +3423,13 @@
         "JH",
         "7H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KD",
+        "AC",
+        "7S",
+        "10S"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 2,
       "bid": 17,
       "trump_suit": "H",
@@ -2364,7 +3438,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "7C",
         "AD",
@@ -2373,7 +3447,13 @@
         "10C",
         "7S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "7C",
+        "AD",
+        "8D"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 3,
       "bid": 21,
       "trump_suit": "S",
@@ -2382,7 +3462,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "9H",
         "JC",
@@ -2391,7 +3471,13 @@
         "QC",
         "KD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "9H",
+        "JC",
+        "KS"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 17,
       "trump_suit": "S",
@@ -2400,7 +3486,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "9S",
         "10C",
@@ -2409,7 +3495,13 @@
         "8S",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QC",
+        "9S",
+        "10C",
+        "QD"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 2,
       "bid": 16,
       "trump_suit": "C",
@@ -2418,7 +3510,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QD",
         "AD",
         "AS",
@@ -2427,7 +3519,13 @@
         "8S",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QD",
+        "AD",
+        "AS",
+        "9C"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -2436,7 +3534,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "JH",
         "JD",
@@ -2445,7 +3543,13 @@
         "7C",
         "7H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "JH",
+        "JD",
+        "QS"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 3,
       "bid": 19,
       "trump_suit": "S",
@@ -2454,7 +3558,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "7S",
         "8H",
@@ -2463,6 +3567,12 @@
         "AD",
         "KD"
       ],
+      "bidding_hand": [
+        "QC",
+        "7S",
+        "8H",
+        "8S"
+      ],
       "hand_strength": 0.0,
       "position": 3,
       "bid": 25,
@@ -2472,7 +3582,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AH",
         "10H",
         "9S",
@@ -2481,7 +3591,13 @@
         "KH",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "10H",
+        "9S",
+        "JC"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 2,
       "bid": 17,
       "trump_suit": "D",
@@ -2490,7 +3606,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10H",
         "7S",
         "8D",
@@ -2498,6 +3614,12 @@
         "KC",
         "9S",
         "JH"
+      ],
+      "bidding_hand": [
+        "10H",
+        "7S",
+        "8D",
+        "10D"
       ],
       "hand_strength": 0.0,
       "position": 1,
@@ -2508,7 +3630,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QD",
         "KD",
         "JD",
@@ -2517,7 +3639,13 @@
         "KH",
         "JC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QD",
+        "KD",
+        "JD",
+        "8S"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 3,
       "bid": 16,
       "trump_suit": "C",
@@ -2526,7 +3654,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7H",
         "9C",
         "9S",
@@ -2535,7 +3663,13 @@
         "AS",
         "AH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7H",
+        "9C",
+        "9S",
+        "9D"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 18,
       "trump_suit": "H",
@@ -2544,7 +3678,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JH",
         "10C",
         "8H",
@@ -2553,7 +3687,13 @@
         "JC",
         "9S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JH",
+        "10C",
+        "8H",
+        "AS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 1,
       "bid": 18,
       "trump_suit": "H",
@@ -2562,7 +3702,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "JC",
         "JH",
@@ -2571,7 +3711,13 @@
         "7H",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "JC",
+        "JH",
+        "AD"
+      ],
+      "hand_strength": 0.35714285714285715,
       "position": 3,
       "bid": 21,
       "trump_suit": "H",
@@ -2580,7 +3726,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QS",
         "JC",
         "AD",
@@ -2589,7 +3735,13 @@
         "7S",
         "JD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QS",
+        "JC",
+        "AD",
+        "8S"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -2598,7 +3750,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QH",
         "KH",
         "9D",
@@ -2607,7 +3759,13 @@
         "10D",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QH",
+        "KH",
+        "9D",
+        "AC"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 22,
       "trump_suit": "D",
@@ -2616,7 +3774,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QD",
         "JC",
         "QC",
@@ -2625,7 +3783,13 @@
         "9D",
         "QH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QD",
+        "JC",
+        "QC",
+        "JD"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 2,
       "bid": 18,
       "trump_suit": "S",
@@ -2634,7 +3798,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7D",
         "8S",
         "9H",
@@ -2643,7 +3807,13 @@
         "KH",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7D",
+        "8S",
+        "9H",
+        "7S"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -2652,7 +3822,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8D",
         "7H",
         "8C",
@@ -2661,7 +3831,13 @@
         "AD",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8D",
+        "7H",
+        "8C",
+        "JD"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 17,
       "trump_suit": "S",
@@ -2670,7 +3846,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "QC",
         "8C",
@@ -2679,7 +3855,13 @@
         "9D",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "QC",
+        "8C",
+        "AS"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -2688,7 +3870,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "9C",
         "9S",
@@ -2697,7 +3879,13 @@
         "KC",
         "10D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "9C",
+        "9S",
+        "KD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -2706,7 +3894,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "KC",
         "JD",
@@ -2715,7 +3903,13 @@
         "8C",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "KC",
+        "JD",
+        "7H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 3,
       "bid": 21,
       "trump_suit": "S",
@@ -2724,7 +3918,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "9D",
         "10H",
@@ -2733,7 +3927,13 @@
         "JC",
         "10C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "9D",
+        "10H",
+        "9S"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -2742,7 +3942,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "7H",
         "8H",
@@ -2751,7 +3951,13 @@
         "JD",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "7H",
+        "8H",
+        "9C"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 17,
       "trump_suit": "H",
@@ -2760,7 +3966,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "JC",
         "JH",
@@ -2769,7 +3975,13 @@
         "10C",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "JC",
+        "JH",
+        "10D"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 3,
       "bid": 23,
       "trump_suit": "C",
@@ -2778,7 +3990,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AS",
         "KS",
         "10D",
@@ -2787,7 +3999,13 @@
         "QD",
         "JD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AS",
+        "KS",
+        "10D",
+        "7C"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 1,
       "bid": 17,
       "trump_suit": "H",
@@ -2796,7 +4014,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "9D",
         "9C",
         "9H",
@@ -2805,7 +4023,13 @@
         "AC",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9D",
+        "9C",
+        "9H",
+        "8H"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 1,
       "bid": 25,
       "trump_suit": "S",
@@ -2814,7 +4038,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "AH",
         "QH",
         "9D",
@@ -2823,7 +4047,13 @@
         "QS",
         "JD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "QH",
+        "9D",
+        "7C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -2832,7 +4062,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "KS",
         "JH",
@@ -2841,7 +4071,13 @@
         "KH",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KC",
+        "KS",
+        "JH",
+        "8H"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 18,
       "trump_suit": "H",
@@ -2850,7 +4086,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AH",
         "7D",
         "10H",
@@ -2859,7 +4095,13 @@
         "KS",
         "7H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "7D",
+        "10H",
+        "9H"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 17,
       "trump_suit": "D",
@@ -2868,7 +4110,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "AS",
         "KS",
@@ -2877,7 +4119,13 @@
         "JD",
         "QH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "AS",
+        "KS",
+        "QS"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -2886,7 +4134,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "7S",
         "10S",
@@ -2895,7 +4143,13 @@
         "AD",
         "AS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "7S",
+        "10S",
+        "7C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 2,
       "bid": 20,
       "trump_suit": "C",
@@ -2904,7 +4158,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "KS",
+        "7C",
+        "8H",
+        "QC",
+        "9S",
+        "7D",
+        "KD"
+      ],
+      "bidding_hand": [
+        "KS",
+        "7C",
+        "8H",
+        "QC"
+      ],
+      "hand_strength": 0.0,
+      "position": 3,
+      "bid": 16,
+      "trump_suit": "D",
+      "success": false,
+      "game_id": "3",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "AH",
         "JS",
         "8S",
@@ -2913,7 +4191,13 @@
         "JH",
         "KS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "JS",
+        "8S",
+        "9S"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 1,
       "bid": 16,
       "trump_suit": "D",
@@ -2922,7 +4206,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AD",
         "JS",
         "9C",
@@ -2931,7 +4215,13 @@
         "7D",
         "10H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AD",
+        "JS",
+        "9C",
+        "QD"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 2,
       "bid": 20,
       "trump_suit": "H",
@@ -2940,7 +4230,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "8S",
         "KD",
@@ -2949,7 +4239,13 @@
         "9D",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "8S",
+        "KD",
+        "AD"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 2,
       "bid": 23,
       "trump_suit": "H",
@@ -2958,7 +4254,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "7D",
         "QS",
@@ -2967,7 +4263,13 @@
         "8H",
         "10D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "7D",
+        "QS",
+        "AS"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -2976,7 +4278,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "10S",
         "7C",
@@ -2985,7 +4287,13 @@
         "JH",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "10S",
+        "7C",
+        "KS"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 17,
       "trump_suit": "C",
@@ -2994,7 +4302,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "AS",
         "7D",
@@ -3003,7 +4311,13 @@
         "QC",
         "7S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "AS",
+        "7D",
+        "9H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3012,7 +4326,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8H",
         "KD",
         "9S",
@@ -3021,7 +4335,13 @@
         "9H",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8H",
+        "KD",
+        "9S",
+        "AC"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 2,
       "bid": 16,
       "trump_suit": "H",
@@ -3030,7 +4350,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "KC",
         "9C",
@@ -3039,7 +4359,13 @@
         "KH",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "KC",
+        "9C",
+        "8H"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 3,
       "bid": 17,
       "trump_suit": "S",
@@ -3048,7 +4374,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "JS",
         "9S",
@@ -3057,7 +4383,13 @@
         "QC",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "JS",
+        "9S",
+        "JH"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 2,
       "bid": 19,
       "trump_suit": "S",
@@ -3066,7 +4398,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "7H",
         "AH",
@@ -3075,7 +4407,13 @@
         "KC",
         "JC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "7H",
+        "AH",
+        "AS"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 2,
       "bid": 16,
       "trump_suit": "D",
@@ -3084,7 +4422,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "10H",
         "7H",
@@ -3093,7 +4431,13 @@
         "7C",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "10H",
+        "7H",
+        "JS"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 2,
       "bid": 16,
       "trump_suit": "C",
@@ -3102,7 +4446,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "AC",
         "7D",
@@ -3111,7 +4455,13 @@
         "QC",
         "KH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "AC",
+        "7D",
+        "8S"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 1,
       "bid": 28,
       "trump_suit": "H",
@@ -3120,7 +4470,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "8C",
         "9D",
@@ -3129,7 +4479,13 @@
         "JS",
         "8S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "8C",
+        "9D",
+        "KD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -3138,7 +4494,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "10H",
         "KS",
@@ -3147,7 +4503,13 @@
         "9D",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "10H",
+        "KS",
+        "KD"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 18,
       "trump_suit": "H",
@@ -3156,7 +4518,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QH",
         "KD",
         "8H",
@@ -3165,7 +4527,13 @@
         "QC",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QH",
+        "KD",
+        "8H",
+        "JC"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3174,7 +4542,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "7D",
         "QD",
@@ -3183,7 +4551,13 @@
         "JH",
         "7S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "7D",
+        "QD",
+        "AD"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 3,
       "bid": 18,
       "trump_suit": "D",
@@ -3192,7 +4566,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8H",
         "JS",
         "7C",
@@ -3201,7 +4575,13 @@
         "JD",
         "7H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8H",
+        "JS",
+        "7C",
+        "10D"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 2,
       "bid": 18,
       "trump_suit": "H",
@@ -3210,7 +4590,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "QC",
         "KD",
@@ -3219,7 +4599,13 @@
         "KH",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "QC",
+        "KD",
+        "JC"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -3228,7 +4614,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "AC",
         "KC",
@@ -3237,7 +4623,13 @@
         "7D",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "AC",
+        "KC",
+        "JH"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -3246,7 +4638,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KH",
         "7S",
         "10H",
@@ -3255,7 +4647,13 @@
         "8D",
         "KS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KH",
+        "7S",
+        "10H",
+        "9D"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3264,7 +4662,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "7H",
         "10C",
@@ -3273,7 +4671,13 @@
         "KS",
         "7D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "7H",
+        "10C",
+        "JS"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 17,
       "trump_suit": "D",
@@ -3282,7 +4686,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "JH",
         "8C",
@@ -3291,7 +4695,13 @@
         "7S",
         "KC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "JH",
+        "8C",
+        "9H"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 2,
       "bid": 22,
       "trump_suit": "H",
@@ -3300,7 +4710,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AD",
         "10S",
         "KH",
@@ -3309,7 +4719,13 @@
         "AS",
         "JC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AD",
+        "10S",
+        "KH",
+        "10H"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 17,
       "trump_suit": "C",
@@ -3318,7 +4734,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JC",
         "7C",
         "9C",
@@ -3327,7 +4743,13 @@
         "AS",
         "QH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JC",
+        "7C",
+        "9C",
+        "AH"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 20,
       "trump_suit": "C",
@@ -3336,7 +4758,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AS",
         "7C",
         "JC",
@@ -3345,7 +4767,13 @@
         "9D",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AS",
+        "7C",
+        "JC",
+        "AC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3354,7 +4782,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "10S",
         "9H",
@@ -3363,7 +4791,13 @@
         "AC",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QC",
+        "10S",
+        "9H",
+        "10H"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 3,
       "bid": 22,
       "trump_suit": "D",
@@ -3372,7 +4806,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "JH",
         "8S",
@@ -3381,7 +4815,13 @@
         "KD",
         "7S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "JH",
+        "8S",
+        "JD"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 2,
       "bid": 17,
       "trump_suit": "S",
@@ -3390,7 +4830,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "7D",
         "7S",
@@ -3399,7 +4839,13 @@
         "JC",
         "7C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "7D",
+        "7S",
+        "8D"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -3408,7 +4854,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "AD",
         "QS",
@@ -3417,7 +4863,13 @@
         "9S",
         "KD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "AD",
+        "QS",
+        "AH"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 1,
       "bid": 26,
       "trump_suit": "H",
@@ -3426,7 +4878,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "AS",
         "JD",
@@ -3435,7 +4887,13 @@
         "AC",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "AS",
+        "JD",
+        "10D"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 20,
       "trump_suit": "C",
@@ -3444,7 +4902,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QD",
         "QS",
         "9H",
@@ -3453,7 +4911,13 @@
         "10S",
         "7D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QD",
+        "QS",
+        "9H",
+        "KC"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -3462,7 +4926,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KH",
         "10H",
         "JD",
@@ -3471,7 +4935,13 @@
         "AH",
         "JC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KH",
+        "10H",
+        "JD",
+        "9D"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 20,
       "trump_suit": "D",
@@ -3480,7 +4950,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8D",
         "KC",
         "QC",
@@ -3488,6 +4958,12 @@
         "AD",
         "AC",
         "10C"
+      ],
+      "bidding_hand": [
+        "8D",
+        "KC",
+        "QC",
+        "7C"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -3498,7 +4974,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "9C",
         "7C",
@@ -3507,7 +4983,13 @@
         "JD",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "9C",
+        "7C",
+        "8H"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 1,
       "bid": 19,
       "trump_suit": "S",
@@ -3516,7 +4998,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "7C",
         "10S",
@@ -3524,6 +5006,12 @@
         "8C",
         "QS",
         "AH"
+      ],
+      "bidding_hand": [
+        "7S",
+        "7C",
+        "10S",
+        "10D"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -3534,7 +5022,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "7D",
         "8D",
@@ -3543,7 +5031,13 @@
         "QH",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "7D",
+        "8D",
+        "8H"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 3,
       "bid": 25,
       "trump_suit": "D",
@@ -3552,7 +5046,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "QS",
         "10C",
         "7H",
@@ -3560,6 +5054,12 @@
         "AS",
         "10H",
         "7S"
+      ],
+      "bidding_hand": [
+        "QS",
+        "10C",
+        "7H",
+        "QC"
       ],
       "hand_strength": 0.0,
       "position": 2,
@@ -3570,7 +5070,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "KC",
         "10S",
@@ -3579,7 +5079,13 @@
         "10H",
         "KS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "KC",
+        "10S",
+        "AH"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3588,7 +5094,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "8D",
         "AC",
@@ -3597,7 +5103,13 @@
         "9S",
         "QH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "8D",
+        "AC",
+        "QC"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 18,
       "trump_suit": "H",
@@ -3606,7 +5118,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8D",
         "8C",
         "7C",
@@ -3614,6 +5126,12 @@
         "QH",
         "7S",
         "JD"
+      ],
+      "bidding_hand": [
+        "8D",
+        "8C",
+        "7C",
+        "10H"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -3624,7 +5142,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KH",
         "7D",
         "AS",
@@ -3633,7 +5151,13 @@
         "7C",
         "10C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KH",
+        "7D",
+        "AS",
+        "9D"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 3,
       "bid": 18,
       "trump_suit": "C",
@@ -3642,7 +5166,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "JS",
+        "JH",
+        "10H",
+        "9S",
+        "AC",
+        "7D",
+        "9D"
+      ],
+      "bidding_hand": [
+        "JS",
+        "JH",
+        "10H",
+        "9S"
+      ],
+      "hand_strength": 0.2857142857142857,
+      "position": 0,
+      "bid": 16,
+      "trump_suit": "S",
+      "success": true,
+      "game_id": "4",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "10H",
         "JH",
         "9C",
@@ -3651,7 +5199,13 @@
         "10D",
         "QS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10H",
+        "JH",
+        "9C",
+        "9S"
+      ],
+      "hand_strength": 0.25,
       "position": 2,
       "bid": 19,
       "trump_suit": "H",
@@ -3660,7 +5214,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10D",
         "KD",
         "10S",
@@ -3668,6 +5222,12 @@
         "JH",
         "QC",
         "QD"
+      ],
+      "bidding_hand": [
+        "10D",
+        "KD",
+        "10S",
+        "8C"
       ],
       "hand_strength": 0.0,
       "position": 1,
@@ -3678,7 +5238,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "8C",
         "JC",
@@ -3687,7 +5247,13 @@
         "10D",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "8C",
+        "JC",
+        "AS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -3696,7 +5262,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "KH",
         "JH",
@@ -3705,7 +5271,13 @@
         "KD",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "KH",
+        "JH",
+        "JC"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3714,7 +5286,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KD",
         "JC",
         "KH",
@@ -3723,7 +5295,13 @@
         "JH",
         "9S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KD",
+        "JC",
+        "KH",
+        "JD"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 3,
       "bid": 26,
       "trump_suit": "S",
@@ -3732,7 +5310,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8D",
         "QH",
         "JS",
@@ -3741,7 +5319,13 @@
         "KS",
         "10S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8D",
+        "QH",
+        "JS",
+        "KH"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 19,
       "trump_suit": "D",
@@ -3750,7 +5334,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10D",
         "JC",
         "KS",
@@ -3759,7 +5343,13 @@
         "KD",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10D",
+        "JC",
+        "KS",
+        "AD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 1,
       "bid": 17,
       "trump_suit": "C",
@@ -3768,7 +5358,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "7D",
         "JC",
@@ -3777,7 +5367,13 @@
         "8C",
         "9D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "7D",
+        "JC",
+        "9H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 24,
       "trump_suit": "H",
@@ -3786,7 +5382,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "10C",
         "KD",
@@ -3794,6 +5390,12 @@
         "AD",
         "8H",
         "AC"
+      ],
+      "bidding_hand": [
+        "7S",
+        "10C",
+        "KD",
+        "KS"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -3804,7 +5406,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8S",
         "9H",
         "JH",
@@ -3813,7 +5415,13 @@
         "10S",
         "10D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8S",
+        "9H",
+        "JH",
+        "9C"
+      ],
+      "hand_strength": 0.25,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3822,7 +5430,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KH",
         "JD",
         "9C",
@@ -3831,7 +5439,13 @@
         "QD",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KH",
+        "JD",
+        "9C",
+        "KD"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 19,
       "trump_suit": "S",
@@ -3840,7 +5454,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QD",
         "QS",
         "AH",
@@ -3849,7 +5463,13 @@
         "KD",
         "KH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QD",
+        "QS",
+        "AH",
+        "AS"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 1,
       "bid": 22,
       "trump_suit": "C",
@@ -3858,7 +5478,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "8C",
         "QC",
@@ -3867,7 +5487,13 @@
         "JD",
         "10H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "8C",
+        "QC",
+        "KH"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -3876,7 +5502,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AH",
         "KC",
         "9S",
@@ -3885,7 +5511,13 @@
         "KS",
         "10C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "KC",
+        "9S",
+        "QH"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 2,
       "bid": 24,
       "trump_suit": "D",
@@ -3894,7 +5526,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QH",
         "8H",
         "9D",
@@ -3903,7 +5535,13 @@
         "7H",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QH",
+        "8H",
+        "9D",
+        "KH"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3912,7 +5550,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9H",
         "JD",
         "10H",
@@ -3921,7 +5559,13 @@
         "JH",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9H",
+        "JD",
+        "10H",
+        "7H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3930,7 +5574,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "KD",
         "8C",
@@ -3939,7 +5583,13 @@
         "AH",
         "10C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "KD",
+        "8C",
+        "QH"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -3948,7 +5598,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AS",
         "JD",
         "10D",
@@ -3957,7 +5607,13 @@
         "AC",
         "8C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AS",
+        "JD",
+        "10D",
+        "AH"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -3966,7 +5622,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "7D",
         "JD",
@@ -3975,7 +5631,13 @@
         "10D",
         "AS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KC",
+        "7D",
+        "JD",
+        "JC"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -3984,7 +5646,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7D",
         "9S",
         "JS",
@@ -3993,7 +5655,13 @@
         "10C",
         "10H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7D",
+        "9S",
+        "JS",
+        "7S"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 2,
       "bid": 17,
       "trump_suit": "S",
@@ -4002,7 +5670,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "10S",
         "7H",
@@ -4011,7 +5679,13 @@
         "QH",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "10S",
+        "7H",
+        "JS"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 21,
       "trump_suit": "C",
@@ -4020,7 +5694,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "7S",
         "JH",
@@ -4029,7 +5703,13 @@
         "KD",
         "AS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KC",
+        "7S",
+        "JH",
+        "8C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -4038,7 +5718,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "8C",
         "QD",
@@ -4047,7 +5727,13 @@
         "7D",
         "10H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "8C",
+        "QD",
+        "9H"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -4056,7 +5742,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9D",
         "7C",
         "9H",
@@ -4065,7 +5751,13 @@
         "KH",
         "JC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9D",
+        "7C",
+        "9H",
+        "JS"
+      ],
+      "hand_strength": 0.25,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -4074,7 +5766,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "9S",
         "7C",
@@ -4083,7 +5775,13 @@
         "KD",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "9S",
+        "7C",
+        "QH"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 17,
       "trump_suit": "S",
@@ -4092,7 +5790,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QS",
         "KD",
         "10S",
@@ -4101,7 +5799,13 @@
         "JH",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QS",
+        "KD",
+        "10S",
+        "JS"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -4110,7 +5814,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "8S",
         "JD",
@@ -4119,7 +5823,13 @@
         "KH",
         "AD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "8S",
+        "JD",
+        "AC"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 3,
       "bid": 17,
       "trump_suit": "S",
@@ -4128,7 +5838,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "7H",
         "JC",
@@ -4137,7 +5847,13 @@
         "7D",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "7H",
+        "JC",
+        "KS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 16,
       "trump_suit": "H",
@@ -4146,7 +5862,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "8H",
         "10C",
@@ -4155,7 +5871,13 @@
         "QS",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "8H",
+        "10C",
+        "AH"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 2,
       "bid": 17,
       "trump_suit": "C",
@@ -4164,7 +5886,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "QD",
         "7H",
@@ -4172,6 +5894,12 @@
         "9C",
         "JD",
         "QH"
+      ],
+      "bidding_hand": [
+        "10S",
+        "QD",
+        "7H",
+        "KD"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -4182,7 +5910,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AS",
         "10D",
         "7H",
@@ -4191,7 +5919,13 @@
         "KD",
         "AC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AS",
+        "10D",
+        "7H",
+        "8D"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -4200,7 +5934,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8H",
         "9S",
         "AD",
@@ -4209,7 +5943,13 @@
         "KH",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8H",
+        "9S",
+        "AD",
+        "JC"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -4218,7 +5958,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "JD",
         "10H",
@@ -4227,7 +5967,13 @@
         "AS",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "JD",
+        "10H",
+        "QS"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 1,
       "bid": 18,
       "trump_suit": "C",
@@ -4236,7 +5982,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "8C",
         "JS",
@@ -4245,7 +5991,13 @@
         "10S",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "8C",
+        "JS",
+        "9H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 21,
       "trump_suit": "C",
@@ -4254,7 +6006,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "AH",
         "JC",
@@ -4263,7 +6015,13 @@
         "7C",
         "QH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "AH",
+        "JC",
+        "QC"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 1,
       "bid": 19,
       "trump_suit": "C",
@@ -4272,7 +6030,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9C",
         "8C",
         "7C",
@@ -4281,7 +6039,13 @@
         "8H",
         "10C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9C",
+        "8C",
+        "7C",
+        "QH"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 2,
       "bid": 17,
       "trump_suit": "D",
@@ -4290,7 +6054,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QC",
         "JH",
         "JC",
@@ -4299,7 +6063,13 @@
         "KS",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QC",
+        "JH",
+        "JC",
+        "9H"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 0,
       "bid": 20,
       "trump_suit": "C",
@@ -4308,7 +6078,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AH",
         "8D",
         "9S",
@@ -4317,7 +6087,13 @@
         "QD",
         "JD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "8D",
+        "9S",
+        "KD"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 24,
       "trump_suit": "C",
@@ -4326,7 +6102,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "9D",
+        "9S",
+        "KC",
+        "8H",
+        "KH",
+        "AS",
+        "9H"
+      ],
+      "bidding_hand": [
+        "9D",
+        "9S",
+        "KC",
+        "8H"
+      ],
+      "hand_strength": 0.14285714285714285,
+      "position": 3,
+      "bid": 23,
+      "trump_suit": "H",
+      "success": true,
+      "game_id": "5",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "8C",
         "9D",
         "10C",
@@ -4335,7 +6135,13 @@
         "9H",
         "AH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8C",
+        "9D",
+        "10C",
+        "7H"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 20,
       "trump_suit": "D",
@@ -4344,7 +6150,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10D",
         "9D",
         "KC",
@@ -4353,7 +6159,13 @@
         "AD",
         "9S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10D",
+        "9D",
+        "KC",
+        "JC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 3,
       "bid": 18,
       "trump_suit": "D",
@@ -4362,7 +6174,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10D",
         "9C",
         "8C",
@@ -4371,7 +6183,13 @@
         "9H",
         "7S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10D",
+        "9C",
+        "8C",
+        "JH"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 24,
       "trump_suit": "C",
@@ -4380,7 +6198,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "9D",
         "9C",
@@ -4389,7 +6207,13 @@
         "QS",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "9D",
+        "9C",
+        "KD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 3,
       "bid": 17,
       "trump_suit": "C",
@@ -4398,7 +6222,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JS",
         "7D",
         "KS",
@@ -4407,7 +6231,13 @@
         "8C",
         "10S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JS",
+        "7D",
+        "KS",
+        "7H"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 3,
       "bid": 19,
       "trump_suit": "H",
@@ -4416,7 +6246,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10H",
         "AS",
         "QC",
@@ -4425,7 +6255,13 @@
         "7C",
         "10S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10H",
+        "AS",
+        "QC",
+        "QD"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 2,
       "bid": 20,
       "trump_suit": "D",
@@ -4434,7 +6270,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10D",
         "9S",
         "8H",
@@ -4443,7 +6279,13 @@
         "KH",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10D",
+        "9S",
+        "8H",
+        "9H"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -4452,7 +6294,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "8S",
         "AH",
         "9D",
@@ -4461,7 +6303,13 @@
         "QC",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "8S",
+        "AH",
+        "9D",
+        "AS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -4470,7 +6318,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "10C",
         "JD",
@@ -4479,7 +6327,13 @@
         "QD",
         "AH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "10C",
+        "JD",
+        "9D"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 2,
       "bid": 20,
       "trump_suit": "C",
@@ -4488,7 +6342,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10C",
         "9S",
         "10D",
@@ -4497,7 +6351,13 @@
         "7H",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10C",
+        "9S",
+        "10D",
+        "AS"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 1,
       "bid": 27,
       "trump_suit": "H",
@@ -4506,7 +6366,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "10D",
         "7H",
@@ -4514,6 +6374,12 @@
         "AD",
         "JC",
         "QS"
+      ],
+      "bidding_hand": [
+        "KC",
+        "10D",
+        "7H",
+        "10C"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -4524,7 +6390,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "KH",
         "KS",
@@ -4532,6 +6398,12 @@
         "AH",
         "7S",
         "7D"
+      ],
+      "bidding_hand": [
+        "KC",
+        "KH",
+        "KS",
+        "7H"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -4542,7 +6414,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KC",
         "KD",
         "AC",
@@ -4551,7 +6423,13 @@
         "JH",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KC",
+        "KD",
+        "AC",
+        "9C"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 3,
       "bid": 17,
       "trump_suit": "D",
@@ -4560,7 +6438,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9D",
         "JC",
         "QD",
@@ -4569,7 +6447,13 @@
         "JS",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9D",
+        "JC",
+        "QD",
+        "9H"
+      ],
+      "hand_strength": 0.25,
       "position": 0,
       "bid": 19,
       "trump_suit": "S",
@@ -4578,7 +6462,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "QS",
         "9C",
@@ -4587,7 +6471,13 @@
         "10S",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "QS",
+        "9C",
+        "8S"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 19,
       "trump_suit": "D",
@@ -4596,7 +6486,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KH",
         "10H",
         "JD",
@@ -4605,7 +6495,13 @@
         "AH",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KH",
+        "10H",
+        "JD",
+        "9H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 1,
       "bid": 16,
       "trump_suit": "D",
@@ -4614,7 +6510,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "8S",
         "JD",
@@ -4623,7 +6519,13 @@
         "7S",
         "8D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "8S",
+        "JD",
+        "AD"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -4632,7 +6534,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "JC",
         "10H",
@@ -4641,7 +6543,13 @@
         "10C",
         "9D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "JC",
+        "10H",
+        "10D"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -4650,7 +6558,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "9H",
         "AH",
@@ -4659,7 +6567,13 @@
         "QD",
         "AS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "9H",
+        "AH",
+        "JH"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -4668,7 +6582,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "JD",
+        "8S",
+        "7H",
+        "KS",
+        "JS",
+        "QD",
+        "KD"
+      ],
+      "bidding_hand": [
+        "JD",
+        "8S",
+        "7H",
+        "KS"
+      ],
+      "hand_strength": 0.10714285714285714,
+      "position": 3,
+      "bid": 20,
+      "trump_suit": "C",
+      "success": false,
+      "game_id": "6",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "QS",
         "8S",
         "QC",
@@ -4676,6 +6614,12 @@
         "10D",
         "7S",
         "AS"
+      ],
+      "bidding_hand": [
+        "QS",
+        "8S",
+        "QC",
+        "10S"
       ],
       "hand_strength": 0.0,
       "position": 0,
@@ -4686,7 +6630,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KH",
         "JS",
         "9D",
@@ -4695,7 +6639,13 @@
         "8S",
         "8H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KH",
+        "JS",
+        "9D",
+        "7H"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 21,
       "trump_suit": "C",
@@ -4704,7 +6654,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9S",
         "8S",
         "KD",
@@ -4713,7 +6663,13 @@
         "AH",
         "10S"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "8S",
+        "KD",
+        "8D"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -4722,7 +6678,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AC",
         "JC",
         "8C",
@@ -4731,7 +6687,13 @@
         "9H",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AC",
+        "JC",
+        "8C",
+        "KS"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -4740,7 +6702,7 @@
       "game_complete": false
     },
     {
-      "hand": [
+      "full_hand": [
         "AS",
         "JS",
         "7C",
@@ -4749,7 +6711,13 @@
         "KS",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AS",
+        "JS",
+        "7C",
+        "JC"
+      ],
+      "hand_strength": 0.25,
       "position": 3,
       "bid": 18,
       "trump_suit": "D",
@@ -4758,7 +6726,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7S",
         "9C",
         "JS",
@@ -4767,7 +6735,13 @@
         "7H",
         "QD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7S",
+        "9C",
+        "JS",
+        "AS"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 2,
       "bid": 17,
       "trump_suit": "C",
@@ -4776,7 +6750,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AS",
         "KS",
         "7D",
@@ -4785,7 +6759,13 @@
         "QD",
         "JD"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AS",
+        "KS",
+        "7D",
+        "9D"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "C",
@@ -4794,7 +6774,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JH",
         "8S",
         "KC",
@@ -4803,7 +6783,13 @@
         "7H",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JH",
+        "8S",
+        "KC",
+        "JS"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -4812,7 +6798,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "AH",
+        "10S",
+        "9H",
+        "7H",
+        "9D",
+        "10C",
+        "9C"
+      ],
+      "bidding_hand": [
+        "AH",
+        "10S",
+        "9H",
+        "7H"
+      ],
+      "hand_strength": 0.10714285714285714,
+      "position": 1,
+      "bid": 16,
+      "trump_suit": "S",
+      "success": true,
+      "game_id": "7",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "AD",
         "AH",
         "8H",
@@ -4821,7 +6831,13 @@
         "9H",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AD",
+        "AH",
+        "8H",
+        "JH"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 2,
       "bid": 19,
       "trump_suit": "C",
@@ -4830,7 +6846,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AH",
         "JD",
         "8S",
@@ -4839,7 +6855,13 @@
         "9H",
         "QC"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AH",
+        "JD",
+        "8S",
+        "AC"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -4848,7 +6870,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "KS",
         "9S",
         "JS",
@@ -4857,7 +6879,13 @@
         "8H",
         "9H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "KS",
+        "9S",
+        "JS",
+        "JC"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 1,
       "bid": 19,
       "trump_suit": "H",
@@ -4866,7 +6894,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "9S",
         "JS",
@@ -4875,7 +6903,13 @@
         "AH",
         "7C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "9S",
+        "JS",
+        "10C"
+      ],
+      "hand_strength": 0.2857142857142857,
       "position": 0,
       "bid": 22,
       "trump_suit": "S",
@@ -4884,7 +6918,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "9D",
         "QS",
         "JC",
@@ -4893,7 +6927,13 @@
         "8D",
         "9C"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9D",
+        "QS",
+        "JC",
+        "AD"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 17,
       "trump_suit": "C",
@@ -4902,7 +6942,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "7C",
         "8D",
         "JS",
@@ -4911,7 +6951,13 @@
         "AC",
         "AH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "7C",
+        "8D",
+        "JS",
+        "KH"
+      ],
+      "hand_strength": 0.10714285714285714,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
@@ -4920,7 +6966,31 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
+        "QS",
+        "7D",
+        "7H",
+        "10D",
+        "9D",
+        "QC",
+        "8S"
+      ],
+      "bidding_hand": [
+        "QS",
+        "7D",
+        "7H",
+        "10D"
+      ],
+      "hand_strength": 0.0,
+      "position": 0,
+      "bid": 20,
+      "trump_suit": "C",
+      "success": false,
+      "game_id": "8",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
         "9S",
         "AH",
         "9C",
@@ -4929,7 +6999,13 @@
         "7C",
         "7D"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "9S",
+        "AH",
+        "9C",
+        "KH"
+      ],
+      "hand_strength": 0.17857142857142858,
       "position": 3,
       "bid": 19,
       "trump_suit": "S",
@@ -4938,7 +7014,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "QD",
         "8S",
         "9H",
@@ -4947,7 +7023,13 @@
         "10D",
         "JS"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "QD",
+        "8S",
+        "9H",
+        "9D"
+      ],
+      "hand_strength": 0.14285714285714285,
       "position": 0,
       "bid": 16,
       "trump_suit": "H",
@@ -4956,7 +7038,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "AD",
         "8D",
         "7H",
@@ -4965,7 +7047,13 @@
         "JD",
         "JH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "AD",
+        "8D",
+        "7H",
+        "7C"
+      ],
+      "hand_strength": 0.03571428571428571,
       "position": 2,
       "bid": 21,
       "trump_suit": "H",
@@ -4974,7 +7062,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "7D",
         "KS",
@@ -4983,6 +7071,12 @@
         "10C",
         "JC"
       ],
+      "bidding_hand": [
+        "10S",
+        "7D",
+        "KS",
+        "KD"
+      ],
       "hand_strength": 0.0,
       "position": 0,
       "bid": 16,
@@ -4992,7 +7086,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "JD",
         "8C",
         "KD",
@@ -5001,7 +7095,13 @@
         "9C",
         "10H"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "JD",
+        "8C",
+        "KD",
+        "JH"
+      ],
+      "hand_strength": 0.21428571428571427,
       "position": 0,
       "bid": 16,
       "trump_suit": "S",
@@ -5010,7 +7110,7 @@
       "game_complete": true
     },
     {
-      "hand": [
+      "full_hand": [
         "10S",
         "7S",
         "AH",
@@ -5019,10 +7119,40 @@
         "JD",
         "QH"
       ],
-      "hand_strength": 0.0,
+      "bidding_hand": [
+        "10S",
+        "7S",
+        "AH",
+        "AC"
+      ],
+      "hand_strength": 0.07142857142857142,
       "position": 0,
       "bid": 16,
       "trump_suit": "D",
+      "success": true,
+      "game_id": "9",
+      "game_complete": true
+    },
+    {
+      "full_hand": [
+        "10C",
+        "9S",
+        "JH",
+        "9H",
+        "8C",
+        "8S",
+        "KS"
+      ],
+      "bidding_hand": [
+        "10C",
+        "9S",
+        "JH",
+        "9H"
+      ],
+      "hand_strength": 0.25,
+      "position": 2,
+      "bid": 19,
+      "trump_suit": "S",
       "success": true,
       "game_id": "9",
       "game_complete": true
@@ -5896,6 +8026,79 @@
       }
     },
     {
+      "game_id": "10",
+      "log_file": "../logs/game28/mcts_games\\game_10_20250822_133347_068208.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 24,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "7H",
+            "8S",
+            "JD",
+            "9D",
+            "8D",
+            "9S",
+            "7D"
+          ],
+          "1": [
+            "KS",
+            "9C",
+            "10S",
+            "10D",
+            "QS",
+            "7C",
+            "8C",
+            "7S"
+          ],
+          "2": [
+            "AH",
+            "QD",
+            "10H",
+            "KD",
+            "9H",
+            "KH",
+            "JS",
+            "AC"
+          ],
+          "3": [
+            "AD",
+            "AS",
+            "QH",
+            "QC",
+            "JC",
+            "10C",
+            "JH",
+            "8H"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 24,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 24\n    overall: avg=24.00  p30=24.00  std=0.00\n    reason: Bid (precomputed): Suit C meets thresholds (p30=24.00, conf_mean=24.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 24. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D\n    current_high=24  min_allowed=25  raise_delta=1\n    overall: avg=16.00  p30=16.00  std=0.00\n    suit_stats:\n      D: pts=[23, 14, 7, 9, 2, 18 ...]  avg=13.00  p30=9.00  std=5.89\n      H: pts=[16]  avg=16.00  p30=16.00  std=0.00\n    failed_checks:\n      H: p30 16.00 < 24; conf_mean 16.00 < 24\n      D: p30 9.00 < 24; conf_mean 10.05 < 24\n    reason: Pass: No suit meets thresholds. Best suit H has p30=16.00, conf_mean=16.00 below min_allowed=25 (current_high=24, raise_delta=+1). Failed checks for best suit: p30 16.00 < 24, conf_mean 16.00 < 24."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          11,
+          17
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "110",
       "log_file": "../logs/game28/mcts_games\\game_110_20250819_181433_759920.log",
       "bidding": {
@@ -6546,6 +8749,79 @@
       }
     },
     {
+      "game_id": "11",
+      "log_file": "../logs/game28/mcts_games\\game_11_20250822_133439_490116.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "7C",
+            "10H",
+            "QD",
+            "JS",
+            "10D",
+            "9S",
+            "JC"
+          ],
+          "1": [
+            "KH",
+            "AC",
+            "QH",
+            "KC",
+            "7H",
+            "AD",
+            "JH",
+            "QC"
+          ],
+          "2": [
+            "7D",
+            "10C",
+            "8S",
+            "9D",
+            "10S",
+            "9C",
+            "AH",
+            "AS"
+          ],
+          "3": [
+            "9H",
+            "KD",
+            "8H",
+            "JD",
+            "8C",
+            "KS",
+            "7S",
+            "8D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 16\n    overall: avg=15.00  p30=15.00  std=0.00\n    suit_stats:\n      D: pts=[15]  avg=15.00  p30=15.00  std=0.00\n      S: pts=[8]  avg=8.00  p30=8.00  std=0.00\n      H: pts=[9]  avg=9.00  p30=9.00  std=0.00\n      C: pts=[6]  avg=6.00  p30=6.00  std=0.00\n    reason: Bid: Suit D meets thresholds (p30=15.00, conf_mean=15.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=16  min_allowed=17  raise_delta=1\n    overall: avg=15.06  p30=14.00  std=4.45\n    suit_stats:\n      D: pts=[14, 17, 17, 23, 16, 14 ...]  avg=15.06  p30=14.00  std=4.45\n      C: pts=[]\n      S: pts=[]\n    failed_checks:\n      D: p30 14.00 < 16; conf_mean 12.84 < 16\n      C: p30 0.00 < 16; conf_mean 0.00 < 16\n      S: p30 0.00 < 16; conf_mean 0.00 < 16\n    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=12.84 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: p30 14.00 < 16, conf_mean 12.84 < 16."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          10,
+          18
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "120",
       "log_file": "../logs/game28/mcts_games\\game_120_20250819_181433_954772.log",
       "bidding": {
@@ -7179,6 +9455,79 @@
         ],
         "bid_success": true,
         "game_score_delta": 1,
+        "game_complete": true
+      }
+    },
+    {
+      "game_id": "12",
+      "log_file": "../logs/game28/mcts_games\\game_12_20250822_133625_443060.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "7S",
+            "JD",
+            "10D",
+            "AS",
+            "8H",
+            "9S",
+            "QH"
+          ],
+          "1": [
+            "8D",
+            "9D",
+            "JS",
+            "10C",
+            "8C",
+            "7H",
+            "KD",
+            "10S"
+          ],
+          "2": [
+            "KH",
+            "AH",
+            "10H",
+            "7D",
+            "QC",
+            "9H",
+            "QS",
+            "QD"
+          ],
+          "3": [
+            "9C",
+            "8S",
+            "KC",
+            "7C",
+            "AD",
+            "KS",
+            "AC",
+            "JH"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 16\n    overall: avg=17.88  p30=16.00  std=4.04\n    suit_stats:\n      D: pts=[20, 28, 17, 17, 15, 16 ...]  avg=17.88  p30=16.00  std=4.04\n      C: pts=[]\n      S: pts=[]\n    reason: Bid: Suit D meets thresholds (p30=16.00, conf_mean=15.85 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D\n    current_high=16  min_allowed=17  raise_delta=1\n    overall: avg=15.94  p30=12.00  std=5.07\n    suit_stats:\n      H: pts=[16, 12, 18, 12, 20, 25 ...]  avg=15.94  p30=12.00  std=5.07\n      D: pts=[]\n    failed_checks:\n      H: p30 12.00 < 16; conf_mean 13.40 < 16\n      D: p30 0.00 < 16; conf_mean 0.00 < 16\n    reason: Pass: No suit meets thresholds. Best suit H has p30=12.00, conf_mean=13.40 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: p30 12.00 < 16, conf_mean 13.40 < 16."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          10,
+          18
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
         "game_complete": true
       }
     },
@@ -7820,6 +10169,79 @@
       }
     },
     {
+      "game_id": "13",
+      "log_file": "../logs/game28/mcts_games\\game_13_20250822_133811_403314.log",
+      "bidding": {
+        "auction_winner": 3,
+        "winning_bid": 19,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "KC",
+            "10D",
+            "KH",
+            "8C",
+            "8S",
+            "QH",
+            "8D",
+            "7S"
+          ],
+          "1": [
+            "JC",
+            "9H",
+            "JD",
+            "7H",
+            "QD",
+            "AS",
+            "7D",
+            "JH"
+          ],
+          "2": [
+            "KD",
+            "8H",
+            "AH",
+            "9C",
+            "QS",
+            "AC",
+            "JS",
+            "10C"
+          ],
+          "3": [
+            "9S",
+            "10H",
+            "9D",
+            "10S",
+            "KS",
+            "QC",
+            "AD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=17.75  p30=14.00  std=4.93\n    suit_stats:\n      H: pts=[27, 19, 14, 14, 13, 23 ...]  avg=17.75  p30=14.00  std=4.93\n      D: pts=[]\n      C: pts=[]\n    failed_checks:\n      H: p30 14.00 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=14.00, conf_mean=15.28 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 19,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 19\n    overall: avg=19.00  p30=19.00  std=0.00\n    reason: Bid (precomputed): Suit C meets thresholds (p30=19.00, conf_mean=19.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 19. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          12,
+          16
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "140",
       "log_file": "../logs/game28/mcts_games\\game_140_20250819_181434_524893.log",
       "bidding": {
@@ -8313,6 +10735,79 @@
         ],
         "bid_success": false,
         "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
+      "game_id": "14",
+      "log_file": "../logs/game28/mcts_games\\game_14_20250822_133856_554138.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "QC",
+            "8S",
+            "8D",
+            "10D",
+            "KD",
+            "AH",
+            "QD"
+          ],
+          "1": [
+            "QH",
+            "7C",
+            "KS",
+            "9D",
+            "10S",
+            "8H",
+            "9S",
+            "7H"
+          ],
+          "2": [
+            "9H",
+            "JS",
+            "QS",
+            "9C",
+            "KH",
+            "10C",
+            "AS",
+            "7S"
+          ],
+          "3": [
+            "8C",
+            "7D",
+            "JD",
+            "10H",
+            "KC",
+            "AC",
+            "AD",
+            "JC"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=7.00  p30=7.00  std=0.00\n    suit_stats:\n      H: pts=[7]  avg=7.00  p30=7.00  std=0.00\n      D: pts=[6]  avg=6.00  p30=6.00  std=0.00\n      C: pts=[0]  avg=0.00  p30=0.00  std=0.00\n      S: pts=[7]  avg=7.00  p30=7.00  std=0.00\n    failed_checks:\n      H: p30 7.00 < 15; conf_mean 7.00 < 15\n      D: p30 6.00 < 15; conf_mean 6.00 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 7.00 < 15; conf_mean 7.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=7.00, conf_mean=7.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 7.00 < 15, conf_mean 7.00 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=15.25  p30=11.00  std=5.55\n    suit_stats:\n      D: pts=[9, 11, 23, 14, 15, 21 ...]  avg=15.25  p30=11.00  std=5.55\n      H: pts=[]\n      C: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: p30 11.00 < 15; conf_mean 12.47 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=11.00, conf_mean=12.47 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 12.47 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          19,
+          9
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
         "game_complete": true
       }
     },
@@ -8826,6 +11321,79 @@
       }
     },
     {
+      "game_id": "15",
+      "log_file": "../logs/game28/mcts_games\\game_15_20250822_134155_974536.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 28,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "QS",
+            "9H",
+            "8D",
+            "7D",
+            "7H",
+            "KD",
+            "7C",
+            "9C"
+          ],
+          "1": [
+            "7S",
+            "10C",
+            "AH",
+            "KS",
+            "QD",
+            "JC",
+            "9S"
+          ],
+          "2": [
+            "10D",
+            "8H",
+            "8C",
+            "JH",
+            "QH",
+            "10S",
+            "9D",
+            "8S"
+          ],
+          "3": [
+            "KH",
+            "AS",
+            "AC",
+            "AD",
+            "QC",
+            "KC",
+            "10H",
+            "JS"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 28,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 28\n    overall: avg=28.00  p30=28.00  std=0.00\n    reason: Bid (precomputed): Suit D meets thresholds (p30=28.00, conf_mean=28.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 28. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C, S\n    current_high=28  min_allowed=29  raise_delta=1\n    overall: avg=25.00  p30=25.00  std=0.00\n    failed_checks:\n      H: p30 17.00 < 28; conf_mean 17.00 < 28\n      D: p30 9.00 < 28; conf_mean 9.00 < 28\n      C: p30 25.00 < 28; conf_mean 25.00 < 28\n      S: p30 22.00 < 28; conf_mean 22.00 < 28\n    reason: Pass: No suit meets thresholds. Best suit C has p30=25.00, conf_mean=25.00 below min_allowed=29 (current_high=28, raise_delta=+1). Failed checks for best suit: p30 25.00 < 28, conf_mean 25.00 < 28."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          6,
+          22
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "160",
       "log_file": "../logs/game28/mcts_games\\game_160_20250819_181434_867895.log",
       "bidding": {
@@ -9317,6 +11885,79 @@
       }
     },
     {
+      "game_id": "16",
+      "log_file": "../logs/game28/mcts_games\\game_16_20250822_134347_796844.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "JS",
+            "8C",
+            "AH",
+            "10D",
+            "8S",
+            "AS",
+            "10H"
+          ],
+          "1": [
+            "KD",
+            "QH",
+            "KH",
+            "KS",
+            "JD",
+            "9H",
+            "JC",
+            "JH"
+          ],
+          "2": [
+            "7H",
+            "QS",
+            "7S",
+            "8D",
+            "QC",
+            "KC",
+            "AC",
+            "QD"
+          ],
+          "3": [
+            "7C",
+            "9D",
+            "9S",
+            "8H",
+            "10S",
+            "AD",
+            "10C",
+            "7D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.00  p30=10.00  std=5.84\n    suit_stats:\n      H: pts=[5, 17, 12, 15, 6, 16 ...]  avg=14.00  p30=10.00  std=5.84\n      D: pts=[]\n      S: pts=[]\n    failed_checks:\n      H: p30 10.00 < 15; conf_mean 11.08 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=10.00, conf_mean=11.08 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 10.00 < 15, conf_mean 11.08 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.67  p30=12.00  std=5.37\n    failed_checks:\n      H: p30 8.00 < 15; conf_mean 10.60 < 15\n      D: p30 4.00 < 15; conf_mean 7.44 < 15\n      C: p30 12.00 < 15; conf_mean 11.98 < 15\n      S: p30 9.00 < 15; conf_mean 10.34 < 15\n    reason: Pass: No suit meets thresholds. Best suit C has p30=12.00, conf_mean=11.98 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 11.98 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          22,
+          6
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "170",
       "log_file": "../logs/game28/mcts_games\\game_170_20250819_181435_183593.log",
       "bidding": {
@@ -9774,6 +12415,79 @@
       }
     },
     {
+      "game_id": "17",
+      "log_file": "../logs/game28/mcts_games\\game_17_20250822_134512_789914.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "8S",
+            "7H",
+            "8H",
+            "8D",
+            "AC",
+            "JH",
+            "7D"
+          ],
+          "1": [
+            "JC",
+            "QH",
+            "AD",
+            "10C",
+            "10S",
+            "KS",
+            "JD",
+            "7S"
+          ],
+          "2": [
+            "9S",
+            "JS",
+            "KD",
+            "8C",
+            "QC",
+            "9D",
+            "QS",
+            "9C"
+          ],
+          "3": [
+            "KC",
+            "KH",
+            "10D",
+            "9H",
+            "AS",
+            "QD",
+            "10H",
+            "7C"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=13.88  p30=13.00  std=3.02\n    failed_checks:\n      H: p30 13.00 < 15; conf_mean 12.37 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=13.00, conf_mean=12.37 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 12.37 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          21,
+          7
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "180",
       "log_file": "../logs/game28/mcts_games\\game_180_20250819_181435_362374.log",
       "bidding": {
@@ -10217,6 +12931,79 @@
             "action": "pass",
             "bid_value": null,
             "analysis": "present_suits: D, C, S\n    current_high=18  min_allowed=19  raise_delta=1\n    overall: avg=13.00  p30=10.00  std=4.72\n    suit_stats:\n      S: pts=[11, 8, 17, 11, 10, 15 ...]  avg=13.00  p30=10.00  std=4.72\n      D: pts=[]\n      C: pts=[]\n    failed_checks:\n      D: p30 0.00 < 18; conf_mean 0.00 < 18\n      C: p30 0.00 < 18; conf_mean 0.00 < 18\n      S: p30 10.00 < 18; conf_mean 10.64 < 18\n    reason: Pass: No suit meets thresholds. Best suit S has p30=10.00, conf_mean=10.64 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 10.00 < 18, conf_mean 10.64 < 18."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          15,
+          13
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
+      "game_id": "18",
+      "log_file": "../logs/game28/mcts_games\\game_18_20250822_134651_213772.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 17,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "KC",
+            "QS",
+            "7C",
+            "8S",
+            "QC",
+            "JH",
+            "8H",
+            "10C"
+          ],
+          "1": [
+            "7S",
+            "8C",
+            "JC",
+            "QD",
+            "10S",
+            "AS",
+            "JD"
+          ],
+          "2": [
+            "KS",
+            "JS",
+            "AC",
+            "AD",
+            "9S",
+            "9C",
+            "8D",
+            "9H"
+          ],
+          "3": [
+            "10H",
+            "9D",
+            "KH",
+            "QH",
+            "AH",
+            "7D",
+            "10D",
+            "7H"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 17\n    overall: avg=18.81  p30=17.00  std=5.54\n    suit_stats:\n      C: pts=[18, 17, 23, 17, 22, 15 ...]  avg=18.81  p30=17.00  std=5.54\n      D: pts=[]\n      S: pts=[]\n    reason: Bid: Suit C meets thresholds (p30=17.00, conf_mean=16.04 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D\n    current_high=17  min_allowed=18  raise_delta=1\n    overall: avg=17.50  p30=15.00  std=6.61\n    suit_stats:\n      H: pts=[4, 24, 9, 9, 22, 24 ...]  avg=17.50  p30=15.00  std=6.61\n      D: pts=[]\n    failed_checks:\n      H: p30 15.00 < 17; conf_mean 14.19 < 17\n      D: p30 0.00 < 17; conf_mean 0.00 < 17\n    reason: Pass: No suit meets thresholds. Best suit H has p30=15.00, conf_mean=14.19 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 15.00 < 17, conf_mean 14.19 < 17."
           }
         ]
       },
@@ -10681,6 +13468,79 @@
         "final_scores": [
           22,
           6
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true
+      }
+    },
+    {
+      "game_id": "19",
+      "log_file": "../logs/game28/mcts_games\\game_19_20250822_134951_095323.log",
+      "bidding": {
+        "auction_winner": 3,
+        "winning_bid": 16,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "8D",
+            "KC",
+            "QC",
+            "JD",
+            "JH",
+            "7C",
+            "7S",
+            "KS"
+          ],
+          "1": [
+            "10D",
+            "AD",
+            "JC",
+            "10S",
+            "8S",
+            "JS",
+            "AS",
+            "8C"
+          ],
+          "2": [
+            "KH",
+            "QD",
+            "9C",
+            "10C",
+            "QH",
+            "10H",
+            "7H",
+            "QS"
+          ],
+          "3": [
+            "8H",
+            "KD",
+            "7D",
+            "AC",
+            "9S",
+            "9D",
+            "AH"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=15.12  p30=12.00  std=5.01\n    failed_checks:\n      D: p30 12.00 < 15; conf_mean 12.62 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=12.00, conf_mean=12.62 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 12.62 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: H, D\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 16\n    overall: avg=15.00  p30=15.00  std=0.00\n    suit_stats:\n      D: pts=[18, 16, 16, 1, 14, 12 ...]  avg=12.62  p30=8.00  std=6.05\n      H: pts=[15]  avg=15.00  p30=15.00  std=0.00\n    reason: Bid: Suit H meets thresholds (p30=15.00, conf_mean=15.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          10,
+          18
         ],
         "bid_success": true,
         "game_score_delta": 1,
@@ -13948,6 +16808,96 @@
       }
     },
     {
+      "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_1_20250822_131936_130580.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
+      }
+    },
+    {
+      "game_id": "1",
+      "log_file": "../logs/game28/mcts_games\\game_1_20250822_132028_501127.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 25,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "AH",
+            "KD",
+            "AC",
+            "10C",
+            "8D",
+            "9D",
+            "9S"
+          ],
+          "1": [
+            "8S",
+            "JH",
+            "8C",
+            "7S",
+            "10H",
+            "9C",
+            "KC",
+            "7C"
+          ],
+          "2": [
+            "7D",
+            "KH",
+            "10D",
+            "QH",
+            "JC",
+            "QD",
+            "8H",
+            "KS"
+          ],
+          "3": [
+            "10S",
+            "7H",
+            "AD",
+            "QS",
+            "JD",
+            "9H",
+            "JS",
+            "QC"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 25,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 25\n    overall: avg=25.00  p30=25.00  std=0.00\n    suit_stats:\n      S: pts=[22]  avg=22.00  p30=22.00  std=0.00\n      C: pts=[25]  avg=25.00  p30=25.00  std=0.00\n      H: pts=[17]  avg=17.00  p30=17.00  std=0.00\n      D: pts=[9]  avg=9.00  p30=9.00  std=0.00\n    reason: Bid: Suit C meets thresholds (p30=25.00, conf_mean=25.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 25. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D\n    current_high=25  min_allowed=26  raise_delta=1\n    overall: avg=13.00  p30=13.00  std=0.00\n    suit_stats:\n      D: pts=[5, 14, 6, 15, 15, 24 ...]  avg=13.19  p30=10.00  std=4.84\n      H: pts=[13]  avg=13.00  p30=13.00  std=0.00\n    failed_checks:\n      H: p30 13.00 < 25; conf_mean 13.00 < 25\n      D: p30 10.00 < 25; conf_mean 10.77 < 25\n    reason: Pass: No suit meets thresholds. Best suit H has p30=13.00, conf_mean=13.00 below min_allowed=26 (current_high=25, raise_delta=+1). Failed checks for best suit: p30 13.00 < 25, conf_mean 13.00 < 25."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          3,
+          24
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "200",
       "log_file": "../logs/game28/mcts_games\\game_200_20250819_181435_875938.log",
       "bidding": {
@@ -14402,6 +17352,23 @@
         "bid_success": false,
         "game_score_delta": -1,
         "game_complete": true
+      }
+    },
+    {
+      "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_20_20250822_135310_861158.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
       }
     },
     {
@@ -19876,6 +22843,96 @@
       }
     },
     {
+      "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_2_20250822_131936_145250.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
+      }
+    },
+    {
+      "game_id": "2",
+      "log_file": "../logs/game28/mcts_games\\game_2_20250822_132203_249941.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "10H",
+            "7D",
+            "7H",
+            "QH",
+            "JS",
+            "AS",
+            "KH"
+          ],
+          "1": [
+            "KD",
+            "JD",
+            "7C",
+            "AD",
+            "8H",
+            "AH",
+            "QD",
+            "10D"
+          ],
+          "2": [
+            "QC",
+            "9D",
+            "8S",
+            "QS",
+            "JH",
+            "KS",
+            "AC",
+            "7S"
+          ],
+          "3": [
+            "9C",
+            "9H",
+            "10S",
+            "KC",
+            "8C",
+            "JC",
+            "9S",
+            "10C"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=17.94  p30=14.00  std=5.32\n    suit_stats:\n      D: pts=[27, 14, 14, 28, 13, 15 ...]  avg=17.94  p30=14.00  std=5.32\n      C: pts=[]\n    failed_checks:\n      D: p30 14.00 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=15.28 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=15.81  p30=12.00  std=5.03\n    suit_stats:\n      C: pts=[8, 12, 20, 23, 16, 20 ...]  avg=15.81  p30=12.00  std=5.03\n      H: pts=[]\n      S: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 12.00 < 15; conf_mean 13.30 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit C has p30=12.00, conf_mean=13.30 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 13.30 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          12,
+          16
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "30",
       "log_file": "../logs/game28/mcts_games\\game_30_20250819_155638_862696.log",
       "bidding": {
@@ -24375,6 +27432,96 @@
     },
     {
       "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_3_20250822_131936_131333.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
+      }
+    },
+    {
+      "game_id": "3",
+      "log_file": "../logs/game28/mcts_games\\game_3_20250822_132320_419514.log",
+      "bidding": {
+        "auction_winner": 3,
+        "winning_bid": 16,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "JS",
+            "10H",
+            "KC",
+            "10S",
+            "8S",
+            "AD",
+            "7H",
+            "JH"
+          ],
+          "1": [
+            "9C",
+            "JC",
+            "KH",
+            "8D",
+            "9D",
+            "AC",
+            "QH",
+            "9H"
+          ],
+          "2": [
+            "10D",
+            "7S",
+            "JD",
+            "8C",
+            "AH",
+            "10C",
+            "AS",
+            "QS"
+          ],
+          "3": [
+            "KS",
+            "7C",
+            "8H",
+            "QC",
+            "9S",
+            "7D",
+            "KD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=7.00  p30=0.00  std=7.04\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 3.48 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=3.48 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 3.48 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 16\n    overall: avg=15.00  p30=15.00  std=0.00\n    suit_stats:\n      C: pts=[5]  avg=5.00  p30=5.00  std=0.00\n      H: pts=[8]  avg=8.00  p30=8.00  std=0.00\n      D: pts=[15]  avg=15.00  p30=15.00  std=0.00\n      S: pts=[8]  avg=8.00  p30=8.00  std=0.00\n    reason: Bid: Suit D meets thresholds (p30=15.00, conf_mean=15.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          15,
+          8
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
+      "game_id": "unknown",
       "log_file": "../logs/game28/mcts_games\\game_40_20250819_155640_386929.log",
       "bidding": {
         "auction_winner": null,
@@ -28437,6 +31584,96 @@
       }
     },
     {
+      "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_4_20250822_131936_134040.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
+      }
+    },
+    {
+      "game_id": "4",
+      "log_file": "../logs/game28/mcts_games\\game_4_20250822_132427_008948.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "JS",
+            "JH",
+            "10H",
+            "9S",
+            "AC",
+            "7D",
+            "9D"
+          ],
+          "1": [
+            "QC",
+            "AS",
+            "7H",
+            "KD",
+            "10D",
+            "9C",
+            "JC",
+            "10S"
+          ],
+          "2": [
+            "7S",
+            "7C",
+            "QH",
+            "KH",
+            "8C",
+            "KC",
+            "10C",
+            "QS"
+          ],
+          "3": [
+            "9H",
+            "8D",
+            "QD",
+            "JD",
+            "8H",
+            "8S",
+            "AH",
+            "AD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=11.50  p30=9.00  std=3.69\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 6.15 < 15\n      D: p30 0.00 < 15; conf_mean 3.18 < 15\n      C: p30 0.00 < 15; conf_mean 3.88 < 15\n      S: p30 9.00 < 15; conf_mean 9.66 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=9.00, conf_mean=9.66 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 9.00 < 15, conf_mean 9.66 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=16.25  p30=13.00  std=5.71\n    suit_stats:\n      D: pts=[7, 28, 13, 5, 16, 20 ...]  avg=16.25  p30=13.00  std=5.71\n      H: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: p30 13.00 < 15; conf_mean 13.40 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=13.40 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 13.40 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          17,
+          11
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "50",
       "log_file": "../logs/game28/mcts_games\\game_50_20250819_181432_040774.log",
       "bidding": {
@@ -31998,6 +35235,96 @@
       }
     },
     {
+      "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_5_20250822_131936_133284.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
+      }
+    },
+    {
+      "game_id": "5",
+      "log_file": "../logs/game28/mcts_games\\game_5_20250822_132549_364285.log",
+      "bidding": {
+        "auction_winner": 3,
+        "winning_bid": 23,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "10C",
+            "8C",
+            "KS",
+            "8D",
+            "KD",
+            "QH",
+            "JS",
+            "8S"
+          ],
+          "1": [
+            "QC",
+            "7D",
+            "10S",
+            "JH",
+            "QD",
+            "JD",
+            "JC",
+            "10D"
+          ],
+          "2": [
+            "QS",
+            "9C",
+            "7C",
+            "AD",
+            "7H",
+            "7S",
+            "AH",
+            "AC"
+          ],
+          "3": [
+            "9D",
+            "9S",
+            "KC",
+            "8H",
+            "KH",
+            "AS",
+            "9H"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 21,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 21\n    overall: avg=21.00  p30=21.00  std=0.00\n    reason: Bid (precomputed): Suit C meets thresholds (p30=21.00, conf_mean=21.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 21. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 23,
+            "analysis": "present_suits: H, D, C, S\n    current_high=21  min_allowed=22  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 23\n    overall: avg=23.00  p30=23.00  std=0.00\n    suit_stats:\n      D: pts=[18]  avg=18.00  p30=18.00  std=0.00\n      S: pts=[19]  avg=19.00  p30=19.00  std=0.00\n      H: pts=[23]  avg=23.00  p30=23.00  std=0.00\n      C: pts=[13]  avg=13.00  p30=13.00  std=0.00\n    reason: Bid: Suit H meets thresholds (p30=23.00, conf_mean=23.00 >= min_allowed=22); conservative mapping max(p30, avg-1) -> 23. (current_high=21, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          3,
+          25
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "60",
       "log_file": "../logs/game28/mcts_games\\game_60_20250819_181432_242258.log",
       "bidding": {
@@ -34149,6 +37476,102 @@
       }
     },
     {
+      "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_6_20250822_131936_161555.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
+      }
+    },
+    {
+      "game_id": "6",
+      "log_file": "../logs/game28/mcts_games\\game_6_20250822_132717_795826.log",
+      "bidding": {
+        "auction_winner": 3,
+        "winning_bid": 20,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "KC",
+            "8C",
+            "JH",
+            "AS",
+            "9H",
+            "10D",
+            "AD",
+            "QS"
+          ],
+          "1": [
+            "9S",
+            "10C",
+            "KH",
+            "10H",
+            "8H",
+            "7D",
+            "QC",
+            "10S"
+          ],
+          "2": [
+            "JC",
+            "QH",
+            "7C",
+            "AC",
+            "AH",
+            "8D",
+            "7S",
+            "9D"
+          ],
+          "3": [
+            "JD",
+            "8S",
+            "7H",
+            "KS",
+            "JS",
+            "QD",
+            "KD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, C\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 17\n    overall: avg=18.31  p30=15.00  std=5.51\n    suit_stats:\n      C: pts=[18, 17, 14, 26, 18, 10 ...]  avg=18.31  p30=15.00  std=5.51\n      H: pts=[]\n    reason: Bid: Suit C meets thresholds (p30=15.00, conf_mean=15.56 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 3,
+            "action": "bid",
+            "bid_value": 20,
+            "analysis": "present_suits: H, D, C, S\n    current_high=17  min_allowed=18  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 20\n    overall: avg=20.00  p30=20.00  std=0.00\n    suit_stats:\n      C: pts=[20]  avg=20.00  p30=20.00  std=0.00\n      D: pts=[8]  avg=8.00  p30=8.00  std=0.00\n      H: pts=[15]  avg=15.00  p30=15.00  std=0.00\n      S: pts=[18]  avg=18.00  p30=18.00  std=0.00\n    reason: Bid: Suit C meets thresholds (p30=20.00, conf_mean=20.00 >= min_allowed=18); conservative mapping max(p30, avg-1) -> 20. (current_high=17, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          21,
+          3
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "70",
       "log_file": "../logs/game28/mcts_games\\game_70_20250819_181432_656640.log",
       "bidding": {
@@ -35442,6 +38865,96 @@
       }
     },
     {
+      "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_7_20250822_131936_181098.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
+      }
+    },
+    {
+      "game_id": "7",
+      "log_file": "../logs/game28/mcts_games\\game_7_20250822_132842_372779.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 16,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "QD",
+            "KH",
+            "7C",
+            "8H",
+            "10D",
+            "AS",
+            "AC",
+            "QH"
+          ],
+          "1": [
+            "AH",
+            "10S",
+            "9H",
+            "7H",
+            "9D",
+            "10C",
+            "9C"
+          ],
+          "2": [
+            "KD",
+            "8D",
+            "JC",
+            "KC",
+            "JH",
+            "QS",
+            "AD",
+            "KS"
+          ],
+          "3": [
+            "9S",
+            "JD",
+            "QC",
+            "7D",
+            "10H",
+            "8C",
+            "7S",
+            "8S"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: H, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 16\n    overall: avg=15.00  p30=15.00  std=0.00\n    suit_stats:\n      H: pts=[8, 20, 25, 9, 8, 13 ...]  avg=16.31  p30=13.00  std=6.52\n      S: pts=[15]  avg=15.00  p30=15.00  std=0.00\n    reason: Bid: Suit S meets thresholds (p30=15.00, conf_mean=15.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=16  min_allowed=17  raise_delta=1\n    overall: avg=13.88  p30=11.00  std=5.24\n    suit_stats:\n      D: pts=[13, 14, 5, 7, 12, 21 ...]  avg=13.88  p30=11.00  std=5.24\n      C: pts=[]\n      S: pts=[]\n    failed_checks:\n      D: p30 11.00 < 16; conf_mean 11.25 < 16\n      C: p30 0.00 < 16; conf_mean 0.00 < 16\n      S: p30 0.00 < 16; conf_mean 0.00 < 16\n    reason: Pass: No suit meets thresholds. Best suit D has p30=11.00, conf_mean=11.25 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: p30 11.00 < 16, conf_mean 11.25 < 16."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          12,
+          16
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "80",
       "log_file": "../logs/game28/mcts_games\\game_80_20250819_181433_044091.log",
       "bidding": {
@@ -36566,6 +40079,96 @@
       }
     },
     {
+      "game_id": "unknown",
+      "log_file": "../logs/game28/mcts_games\\game_8_20250822_131936_168282.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false
+      }
+    },
+    {
+      "game_id": "8",
+      "log_file": "../logs/game28/mcts_games\\game_8_20250822_133043_823044.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 20,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "QS",
+            "7D",
+            "7H",
+            "10D",
+            "9D",
+            "QC",
+            "8S"
+          ],
+          "1": [
+            "JH",
+            "9C",
+            "AC",
+            "KS",
+            "AS",
+            "10C",
+            "9H",
+            "10H"
+          ],
+          "2": [
+            "8D",
+            "7C",
+            "AD",
+            "9S",
+            "JS",
+            "KH",
+            "JC",
+            "10S"
+          ],
+          "3": [
+            "AH",
+            "KD",
+            "8H",
+            "QD",
+            "8C",
+            "7S",
+            "QH",
+            "JD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 20,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 20\n    overall: avg=20.00  p30=20.00  std=0.00\n    reason: Bid (precomputed): Suit C meets thresholds (p30=20.00, conf_mean=20.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 20. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=20  min_allowed=21  raise_delta=1\n    overall: avg=16.25  p30=13.00  std=4.84\n    failed_checks:\n      C: p30 13.00 < 20; conf_mean 13.83 < 20\n      S: p30 0.00 < 20; conf_mean 0.00 < 20\n    reason: Pass: No suit meets thresholds. Best suit C has p30=13.00, conf_mean=13.83 below min_allowed=21 (current_high=20, raise_delta=+1). Failed checks for best suit: p30 13.00 < 20, conf_mean 13.83 < 20."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          16,
+          12
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true
+      }
+    },
+    {
       "game_id": "90",
       "log_file": "../logs/game28/mcts_games\\game_90_20250819_181433_216037.log",
       "bidding": {
@@ -37628,6 +41231,85 @@
         "final_scores": [
           18,
           10
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true
+      }
+    },
+    {
+      "game_id": "9",
+      "log_file": "../logs/game28/mcts_games\\game_9_20250822_133156_691149.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 19,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "JD",
+            "7H",
+            "9C",
+            "9D",
+            "10D",
+            "AH",
+            "7D",
+            "AS"
+          ],
+          "1": [
+            "KD",
+            "7C",
+            "AD",
+            "QC",
+            "AC",
+            "JC",
+            "10H",
+            "8D"
+          ],
+          "2": [
+            "10C",
+            "9S",
+            "JH",
+            "9H",
+            "8C",
+            "8S",
+            "KS"
+          ],
+          "3": [
+            "KC",
+            "QH",
+            "QS",
+            "10S",
+            "KH",
+            "7S",
+            "8H",
+            "QD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 18,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 18\n    overall: avg=18.12  p30=18.00  std=3.92\n    reason: Bid (precomputed): Suit D meets thresholds (p30=18.00, conf_mean=16.17 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 18. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "bid",
+            "bid_value": 19,
+            "analysis": "present_suits: H, C, S\n    current_high=18  min_allowed=19  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 19\n    overall: avg=19.44  p30=18.00  std=2.06\n    suit_stats:\n      S: pts=[23, 17, 21, 18, 19, 18 ...]  avg=19.44  p30=18.00  std=2.06\n      H: pts=[]\n      C: pts=[]\n    reason: Bid: Suit S meets thresholds (p30=18.00, conf_mean=18.41 >= min_allowed=19); conservative mapping max(p30, avg-1) -> 19. (current_high=18, raise_delta=+1)"
+          },
+          {
+            "player": 3,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=19  min_allowed=20  raise_delta=1\n    overall: avg=18.12  p30=18.00  std=3.92\n    failed_checks:\n      H: p30 0.00 < 19; conf_mean 0.00 < 19\n      D: p30 18.00 < 19; conf_mean 16.17 < 19\n      C: p30 0.00 < 19; conf_mean 0.00 < 19\n    reason: Pass: No suit meets thresholds. Best suit D has p30=18.00, conf_mean=16.17 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 18.00 < 19, conf_mean 16.17 < 19."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          28,
+          0
         ],
         "bid_success": true,
         "game_score_delta": 1,
