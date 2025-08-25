@@ -475,57 +475,66 @@ def create_improved_belief_model() -> ImprovedBeliefNetwork:
     return model
 
 
-def train_improved_belief_model(model: ImprovedBeliefNetwork, 
-                               training_data: List[Tuple[Game28State, int, Dict]], 
+def train_improved_belief_model(model: ImprovedBeliefNetwork,
+                               training_data: List[Tuple[Game28State, int, Dict]],
                                epochs: int = 100,
-                               learning_rate: float = 0.001) -> ImprovedBeliefNetwork:
-    """Train the improved belief model on realistic data"""
-    
+                               learning_rate: float = 0.001,
+                               use_amp: bool = True) -> ImprovedBeliefNetwork:
+    """Train the improved belief model on realistic data (GPU+AMP aware)."""
+
+    device = next(model.parameters()).device
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
     criterion = nn.BCELoss()
-    
+    scaler = torch.cuda.amp.GradScaler(enabled=use_amp and device.type == 'cuda')
+
     model.train()
-    
+
     for epoch in range(epochs):
         total_loss = 0.0
-        
+
         for game_state, player_id, target_beliefs in training_data:
-            optimizer.zero_grad()
-            
-            # Forward pass
-            predictions = model(game_state, player_id)
-            
-            # Calculate loss for each prediction type
-            loss = 0.0
-            
-            # Hand prediction loss
-            for opp_id, target_hand in target_beliefs.get('hands', {}).items():
-                if opp_id in predictions.opponent_hands:
-                    pred_hand = predictions.opponent_hands[opp_id]
-                    target_tensor = torch.tensor(target_hand, dtype=torch.float32)
-                    loss += criterion(pred_hand, target_tensor)
-            
-            # Trump prediction loss
-            if 'trump' in target_beliefs:
-                target_trump = torch.tensor(target_beliefs['trump'], dtype=torch.float32)
-                loss += criterion(predictions.trump_suit, target_trump)
-            
-            # Void prediction loss
-            for opp_id, target_void in target_beliefs.get('voids', {}).items():
-                if opp_id in predictions.void_suits:
-                    pred_void = predictions.void_suits[opp_id]
-                    target_tensor = torch.tensor(target_void, dtype=torch.float32)
-                    loss += criterion(pred_void, target_tensor)
-            
-            # Backward pass
-            loss.backward()
-            optimizer.step()
-            
-            total_loss += loss.item()
-        
+            optimizer.zero_grad(set_to_none=True)
+
+            # Forward pass with autocast on GPU
+            with torch.cuda.amp.autocast(enabled=use_amp and device.type == 'cuda'):
+                predictions = model(game_state, player_id)
+
+                # Calculate loss for each prediction type
+                loss = 0.0
+
+                # Hand prediction loss
+                for opp_id, target_hand in target_beliefs.get('hands', {}).items():
+                    if opp_id in predictions.opponent_hands:
+                        pred_hand = predictions.opponent_hands[opp_id]
+                        target_tensor = torch.tensor(target_hand, dtype=torch.float32, device=device)
+                        loss = loss + criterion(pred_hand.to(device), target_tensor)
+
+                # Trump prediction loss
+                if 'trump' in target_beliefs:
+                    target_trump = torch.tensor(target_beliefs['trump'], dtype=torch.float32, device=device)
+                    loss = loss + criterion(predictions.trump_suit.to(device), target_trump)
+
+                # Void prediction loss
+                for opp_id, target_void in target_beliefs.get('voids', {}).items():
+                    if opp_id in predictions.void_suits:
+                        pred_void = predictions.void_suits[opp_id]
+                        target_tensor = torch.tensor(target_void, dtype=torch.float32, device=device)
+                        loss = loss + criterion(pred_void.to(device), target_tensor)
+
+            # Backward + step
+            if scaler.is_enabled():
+                scaler.scale(loss).backward()
+                scaler.step(optimizer)
+                scaler.update()
+            else:
+                loss.backward()
+                optimizer.step()
+
+            total_loss += float(loss.item())
+
         if epoch % 10 == 0:
-            print(f"Epoch {epoch}, Loss: {total_loss / len(training_data):.4f}")
-    
+            print(f"Epoch {epoch}, Loss: {total_loss / max(1,len(training_data)):.4f}")
+
     return model
 
 
