@@ -125,6 +125,9 @@ class ImprovedBeliefNetwork(nn.Module):
     def forward(self, game_state: Game28State, player_id: int) -> BeliefPrediction:
         """Forward pass with improved encoding"""
         
+        # Get device from model parameters
+        device = next(self.parameters()).device
+        
         # Encode our hand
         our_hand = game_state.hands[player_id]
         hand_features = self._encode_hand(our_hand, game_state)
@@ -190,8 +193,11 @@ class ImprovedBeliefNetwork(nn.Module):
     
     def _encode_hand(self, hand: List[Card], game_state: Game28State) -> torch.Tensor:
         """Encode our hand with rich features"""
+        # Get device from model parameters
+        device = next(self.parameters()).device
+        
         # Create a tensor for all 8 possible cards
-        hand_tensor = torch.zeros(8, 8)  # 8 cards, 8 features each
+        hand_tensor = torch.zeros(8, 8, device=device)  # 8 cards, 8 features each
         
         for i, card in enumerate(hand):
             if i >= 8:  # Safety check
@@ -230,7 +236,10 @@ class ImprovedBeliefNetwork(nn.Module):
     
     def _encode_game_state(self, game_state: Game28State, player_id: int) -> torch.Tensor:
         """Encode comprehensive game state features"""
-        features = torch.zeros(50)
+        # Get device from model parameters
+        device = next(self.parameters()).device
+        
+        features = torch.zeros(50, device=device)
         
         # Phase encoding
         if game_state.phase == GamePhase.BIDDING:
@@ -389,8 +398,11 @@ class ImprovedBeliefNetwork(nn.Module):
     
     def _encode_trick_history(self, game_state: Game28State) -> torch.Tensor:
         """Encode trick history with rich features"""
+        # Get device from model parameters
+        device = next(self.parameters()).device
+        
         # Create tensor for 8 tricks, 16 features each
-        trick_tensor = torch.zeros(8, 16)
+        trick_tensor = torch.zeros(8, 16, device=device)
         
         for trick_idx, trick in enumerate(game_state.tricks):
             if trick_idx >= 8:  # Safety check
@@ -485,7 +497,17 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
     device = next(model.parameters()).device
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
     criterion = nn.BCELoss()
-    scaler = torch.cuda.amp.GradScaler(enabled=use_amp and device.type == 'cuda')
+    
+    # Backwards compatible AMP setup
+    if use_amp and device.type == 'cuda':
+        try:
+            # Try new API first (PyTorch 2.0+)
+            scaler = torch.amp.GradScaler('cuda')
+        except:
+            # Fallback to old API (PyTorch 1.x)
+            scaler = torch.cuda.amp.GradScaler()
+    else:
+        scaler = None
 
     model.train()
 
@@ -495,34 +517,25 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
         for game_state, player_id, target_beliefs in training_data:
             optimizer.zero_grad(set_to_none=True)
 
-            # Forward pass with autocast on GPU
-            with torch.cuda.amp.autocast(enabled=use_amp and device.type == 'cuda'):
+            # Forward pass with backwards compatible autocast
+            if use_amp and device.type == 'cuda':
+                try:
+                    # Try new API first (PyTorch 2.0+)
+                    with torch.amp.autocast('cuda'):
+                        predictions = model(game_state, player_id)
+                        loss = _calculate_loss(predictions, target_beliefs, criterion, device)
+                except:
+                    # Fallback to old API (PyTorch 1.x)
+                    with torch.cuda.amp.autocast():
+                        predictions = model(game_state, player_id)
+                        loss = _calculate_loss(predictions, target_beliefs, criterion, device)
+            else:
+                # CPU training
                 predictions = model(game_state, player_id)
-
-                # Calculate loss for each prediction type
-                loss = 0.0
-
-                # Hand prediction loss
-                for opp_id, target_hand in target_beliefs.get('hands', {}).items():
-                    if opp_id in predictions.opponent_hands:
-                        pred_hand = predictions.opponent_hands[opp_id]
-                        target_tensor = torch.tensor(target_hand, dtype=torch.float32, device=device)
-                        loss = loss + criterion(pred_hand.to(device), target_tensor)
-
-                # Trump prediction loss
-                if 'trump' in target_beliefs:
-                    target_trump = torch.tensor(target_beliefs['trump'], dtype=torch.float32, device=device)
-                    loss = loss + criterion(predictions.trump_suit.to(device), target_trump)
-
-                # Void prediction loss
-                for opp_id, target_void in target_beliefs.get('voids', {}).items():
-                    if opp_id in predictions.void_suits:
-                        pred_void = predictions.void_suits[opp_id]
-                        target_tensor = torch.tensor(target_void, dtype=torch.float32, device=device)
-                        loss = loss + criterion(pred_void.to(device), target_tensor)
+                loss = _calculate_loss(predictions, target_beliefs, criterion, device)
 
             # Backward + step
-            if scaler.is_enabled():
+            if scaler is not None:
                 scaler.scale(loss).backward()
                 scaler.step(optimizer)
                 scaler.update()
@@ -536,6 +549,32 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
             print(f"Epoch {epoch}, Loss: {total_loss / max(1,len(training_data)):.4f}")
 
     return model
+
+
+def _calculate_loss(predictions, target_beliefs, criterion, device):
+    """Calculate loss with proper device handling"""
+    loss = 0.0
+
+    # Hand prediction loss
+    for opp_id, target_hand in target_beliefs.get('hands', {}).items():
+        if opp_id in predictions.opponent_hands:
+            pred_hand = predictions.opponent_hands[opp_id]
+            target_tensor = torch.tensor(target_hand, dtype=torch.float32, device=device)
+            loss = loss + criterion(pred_hand, target_tensor)
+
+    # Trump prediction loss
+    if 'trump' in target_beliefs:
+        target_trump = torch.tensor(target_beliefs['trump'], dtype=torch.float32, device=device)
+        loss = loss + criterion(predictions.trump_suit, target_trump)
+
+    # Void prediction loss
+    for opp_id, target_void in target_beliefs.get('voids', {}).items():
+        if opp_id in predictions.void_suits:
+            pred_void = predictions.void_suits[opp_id]
+            target_tensor = torch.tensor(target_void, dtype=torch.float32, device=device)
+            loss = loss + criterion(pred_void, target_tensor)
+
+    return loss
 
 
 def generate_realistic_training_data(num_games: int = 1000) -> List[Tuple[Game28State, int, Dict]]:
