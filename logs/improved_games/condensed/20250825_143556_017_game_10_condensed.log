@@ -1,0 +1,29 @@
+
+===== GAME 10 (20250825_143556_017) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=17)
+Pass (locked): Player 1 (min_allowed=17)
+Pass (locked): Player 2 (min_allowed=17)
+AUCTION WINNER: Player 3 with bid 16; chooses trump [to be determined]
+AUCTION WINNER: Player 3 with bid 16; chooses trump C
+
+Player 0 (auction 4 cards): ['9H', '7D', '10H', 'QC']
+Player 1 (auction 4 cards): ['10C', 'AH', 'JH', 'KH']
+Player 2 (auction 4 cards): ['KS', 'AC', '8H', '10S']
+Player 3 (auction 4 cards): ['9D', '8S', '7C', '9C']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Trump revealed by Player 0: C
+-- Phase 2 begins: Trump revealed as C by Player 0 on trick 1 --
+Player 0 won the hand: 6 points
+Player 0 won the hand: 5 points
+Player 3 won the hand: 8 points
+Player 1 won the hand: 3 points
+Player 3 won the hand: 4 points
+Player 2 won the hand: 2 points
+Player 3 won the hand: 0 points
+=== GAME SUMMARY ===
+Game 10 final points: Team A=13, Team B=15

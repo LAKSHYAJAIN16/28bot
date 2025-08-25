@@ -1,0 +1,580 @@
+
+===== GAME 9 (20250825_102504_094) =====
+Player 0 initial hand (bidding): ['AS', 'JH', '9H', 'KH']
+Player 1 initial hand (bidding): ['AC', '10D', 'AH', 'KD']
+Player 2 initial hand (bidding): ['10S', '10H', 'KC', 'QH']
+Player 3 initial hand (bidding): ['10C', 'JS', 'AD', '8C']
+
+  Player 0 (Belief Master) analyzing bid:
+    Bidding hand (first 4): ['AS', 'JH', '9H', 'KH']
+    Hand strength: 0.214
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+    Pass evaluation score: 0.000
+    Bid 17 evaluation score: -0.829
+    Bid 18 evaluation score: -0.829
+    Bid 19 evaluation score: -0.829
+    Best decision: PASS (score: 0.000)
+Pass: Player 0 (min_allowed=17)
+  Player 1 (Belief Expert) analyzing bid:
+    Bidding hand (first 4): ['AC', '10D', 'AH', 'KD']
+    Hand strength: 0.107
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+    Pass evaluation score: 0.000
+    Bid 17 evaluation score: -0.830
+    Bid 18 evaluation score: -0.830
+    Bid 19 evaluation score: -0.830
+    Best decision: PASS (score: 0.000)
+Pass: Player 1 (min_allowed=17)
+  Player 2 (Belief Pro) analyzing bid:
+    Bidding hand (first 4): ['10S', '10H', 'KC', 'QH']
+    Hand strength: 0.071
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+    Pass evaluation score: 0.000
+    Bid 17 evaluation score: -0.829
+    Bid 18 evaluation score: -0.829
+    Bid 19 evaluation score: -0.829
+    Best decision: PASS (score: 0.000)
+Pass: Player 2 (min_allowed=17)
+Auction winner: Player 3 with bid 16
+    Strategy: Belief-based trump selection
+    Selected trump: C (score: 4.10)
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Full hands (8 cards each):
+Player 0 full hand: ['AS', 'JH', '9H', 'KH', 'JC', '9D', 'QC', '7D']
+Player 1 full hand: ['AC', '10D', 'AH', 'KD', '8H', '9S', '7S', '9C']
+Player 2 full hand: ['10S', '10H', 'KC', 'QH', '8D', 'QD', '7C', 'KS']
+Player 3 full hand: ['JS', 'AD', '8C', '8S', 'QS', '7H', 'JD']
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (8 cards): ['AS', 'JH', '9H', 'KH', 'JC', '9D', 'QC', '7D']
+    Legal cards (6): ['AS', 'JH', '9H', 'KH', '9D', '7D']
+    Current trick: 0 cards played
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/6: AS
+      Belief model score: 2.000
+    Evaluating card 2/6: JH
+      Belief model score: 3.000
+    Evaluating card 3/6: 9H
+      Belief model score: 3.000
+    Evaluating card 4/6: KH
+      Belief model score: 1.000
+    Evaluating card 5/6: 9D
+      Belief model score: 3.000
+    Evaluating card 6/6: 7D
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: JH (score: 3.000)
+Player 0 plays JH
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (8 cards): ['AC', '10D', 'AH', 'KD', '8H', '9S', '7S', '9C']
+    Legal cards (2): ['AH', '8H']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: AH
+      Belief model score: 3.000
+    Evaluating card 2/2: 8H
+      Belief model score: 2.000
+    Belief model evaluation completed
+    Best card: AH (score: 3.000)
+Player 1 plays AH
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (8 cards): ['10S', '10H', 'KC', 'QH', '8D', 'QD', '7C', 'KS']
+    Legal cards (2): ['10H', 'QH']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 10H
+      Belief model score: 2.000
+    Evaluating card 2/2: QH
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 10H (score: 2.000)
+Player 2 plays 10H
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (7 cards): ['JS', 'AD', '8C', '8S', 'QS', '7H', 'JD']
+    Legal cards (1): ['7H']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 7H
+      Belief model score: 2.000
+    Belief model evaluation completed
+    Best card: 7H (score: 2.000)
+Player 3 plays 7H
+Player 0 won the hand: 5 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (7 cards): ['AS', '9H', 'KH', 'JC', '9D', 'QC', '7D']
+    Legal cards (5): ['AS', '9H', 'KH', '9D', '7D']
+    Current trick: 0 cards played
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/5: AS
+      Belief model score: 2.000
+    Evaluating card 2/5: 9H
+      Belief model score: 3.000
+    Evaluating card 3/5: KH
+      Belief model score: 1.000
+    Evaluating card 4/5: 9D
+      Belief model score: 3.000
+    Evaluating card 5/5: 7D
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 9H (score: 3.000)
+Player 0 plays 9H
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (7 cards): ['AC', '10D', 'KD', '8H', '9S', '7S', '9C']
+    Legal cards (1): ['8H']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 8H
+      Belief model score: 2.000
+    Belief model evaluation completed
+    Best card: 8H (score: 2.000)
+Player 1 plays 8H
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (7 cards): ['10S', 'KC', 'QH', '8D', 'QD', '7C', 'KS']
+    Legal cards (1): ['QH']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: QH
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: QH (score: 1.000)
+Player 2 plays QH
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (6 cards): ['JS', 'AD', '8C', '8S', 'QS', 'JD']
+    Legal cards (6): ['JS', 'AD', '8C', '8S', 'QS', 'JD']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/6: JS
+      Belief model score: 7.500
+    Evaluating card 2/6: AD
+      Belief model score: 2.500
+    Evaluating card 3/6: 8C
+      Belief model score: 4.000
+    Evaluating card 4/6: 8S
+      Belief model score: 1.500
+    Evaluating card 5/6: QS
+      Belief model score: 0.500
+    Evaluating card 6/6: JD
+      Belief model score: 7.500
+    Belief model evaluation completed
+    Best card: JS (score: 7.500)
+Player 3 plays JS
+Player 0 won the hand: 5 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (6 cards): ['AS', 'KH', 'JC', '9D', 'QC', '7D']
+    Legal cards (4): ['AS', 'KH', '9D', '7D']
+    Current trick: 0 cards played
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: AS
+      Belief model score: 2.000
+    Evaluating card 2/4: KH
+      Belief model score: 1.000
+    Evaluating card 3/4: 9D
+      Belief model score: 3.000
+    Evaluating card 4/4: 7D
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 9D (score: 3.000)
+Player 0 plays 9D
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (6 cards): ['AC', '10D', 'KD', '9S', '7S', '9C']
+    Legal cards (2): ['10D', 'KD']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 10D
+      Belief model score: 2.000
+    Evaluating card 2/2: KD
+      Belief model score: 2.000
+    Belief model evaluation completed
+    Best card: 10D (score: 2.000)
+Player 1 plays 10D
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (6 cards): ['10S', 'KC', '8D', 'QD', '7C', 'KS']
+    Legal cards (2): ['8D', 'QD']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 8D
+      Belief model score: 2.000
+    Evaluating card 2/2: QD
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 8D (score: 2.000)
+Player 2 plays 8D
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (5 cards): ['AD', '8C', '8S', 'QS', 'JD']
+    Legal cards (2): ['AD', 'JD']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: AD
+      Belief model score: 3.000
+    Evaluating card 2/2: JD
+      Belief model score: 12.000
+    Belief model evaluation completed
+    Best card: JD (score: 12.000)
+Player 3 plays JD
+Player 3 won the hand: 6 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (5 cards): ['AS', 'KH', 'JC', 'QC', '7D']
+    Legal cards (3): ['AS', 'KH', '7D']
+    Current trick: 0 cards played
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/3: AS
+      Belief model score: 2.000
+    Evaluating card 2/3: KH
+      Belief model score: 1.000
+    Evaluating card 3/3: 7D
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: AS (score: 2.000)
+Player 0 plays AS
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (5 cards): ['AC', 'KD', '9S', '7S', '9C']
+    Legal cards (2): ['9S', '7S']
+    Current trick: 1 cards played
+    Lead suit: S
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 9S
+      Belief model score: 8.000
+    Evaluating card 2/2: 7S
+      Belief model score: 2.000
+    Belief model evaluation completed
+    Best card: 9S (score: 8.000)
+Player 1 plays 9S
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (5 cards): ['10S', 'KC', 'QD', '7C', 'KS']
+    Legal cards (2): ['10S', 'KS']
+    Current trick: 2 cards played
+    Lead suit: S
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 10S
+      Belief model score: 2.000
+    Evaluating card 2/2: KS
+      Belief model score: 2.000
+    Belief model evaluation completed
+    Best card: 10S (score: 2.000)
+Player 2 plays 10S
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (4 cards): ['AD', '8C', '8S', 'QS']
+    Legal cards (2): ['8S', 'QS']
+    Current trick: 3 cards played
+    Lead suit: S
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 8S
+      Belief model score: 2.000
+    Evaluating card 2/2: QS
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 8S (score: 2.000)
+Player 3 plays 8S
+Player 1 won the hand: 4 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (4 cards): ['KH', 'JC', 'QC', '7D']
+    Legal cards (2): ['KH', '7D']
+    Current trick: 0 cards played
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: KH
+      Belief model score: 1.000
+    Evaluating card 2/2: 7D
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: KH (score: 1.000)
+Player 0 plays KH
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (4 cards): ['AC', 'KD', '7S', '9C']
+    Legal cards (4): ['AC', 'KD', '7S', '9C']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: AC
+      Belief model score: 5.000
+    Evaluating card 2/4: KD
+      Belief model score: 1.500
+    Evaluating card 3/4: 7S
+      Belief model score: 1.500
+    Evaluating card 4/4: 9C
+      Belief model score: 6.000
+    Belief model evaluation completed
+    Best card: 9C (score: 6.000)
+-- Phase 2 begins: Trump revealed as C by Player 1 on trick 5 --
+Player 1 plays 9C
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (4 cards): ['KC', 'QD', '7C', 'KS']
+    Legal cards (4): ['KC', 'QD', '7C', 'KS']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: KC
+      Belief model score: 5.000
+    Evaluating card 2/4: QD
+      Belief model score: 0.500
+    Evaluating card 3/4: 7C
+      Belief model score: 6.000
+    Evaluating card 4/4: KS
+      Belief model score: 0.500
+    Belief model evaluation completed
+    Best card: 7C (score: 6.000)
+Player 2 plays 7C
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (4 cards): ['AD', '8C', 'QS', '10C']
+    Legal cards (4): ['AD', '8C', 'QS', '10C']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: AD
+      Belief model score: 1.500
+    Evaluating card 2/4: 8C
+      Belief model score: 6.000
+    Evaluating card 3/4: QS
+      Belief model score: 0.500
+    Evaluating card 4/4: 10C
+      Belief model score: 6.000
+    Belief model evaluation completed
+    Best card: 8C (score: 6.000)
+Player 3 plays 8C
+Player 1 won the hand: 2 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (3 cards): ['JC', 'QC', '7D']
+    Legal cards (3): ['JC', 'QC', '7D']
+    Current trick: 0 cards played
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/3: JC
+      Belief model score: 5.000
+    Evaluating card 2/3: QC
+      Belief model score: 2.000
+    Evaluating card 3/3: 7D
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: JC (score: 5.000)
+Player 0 plays JC
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (3 cards): ['AC', 'KD', '7S']
+    Legal cards (1): ['AC']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: AC
+      Belief model score: 4.000
+    Belief model evaluation completed
+    Best card: AC (score: 4.000)
+Player 1 plays AC
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (3 cards): ['KC', 'QD', 'KS']
+    Legal cards (1): ['KC']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: KC
+      Belief model score: 3.000
+    Belief model evaluation completed
+    Best card: KC (score: 3.000)
+Player 2 plays KC
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (3 cards): ['AD', 'QS', '10C']
+    Legal cards (1): ['10C']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 10C
+      Belief model score: 4.000
+    Belief model evaluation completed
+    Best card: 10C (score: 4.000)
+Player 3 plays 10C
+Player 0 won the hand: 5 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (2 cards): ['QC', '7D']
+    Legal cards (2): ['QC', '7D']
+    Current trick: 0 cards played
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: QC
+      Belief model score: 2.000
+    Evaluating card 2/2: 7D
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: QC (score: 2.000)
+Player 0 plays QC
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (2 cards): ['KD', '7S']
+    Legal cards (2): ['KD', '7S']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: KD
+      Belief model score: 0.500
+    Evaluating card 2/2: 7S
+      Belief model score: 7.500
+    Belief model evaluation completed
+    Best card: 7S (score: 7.500)
+Player 1 plays 7S
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (2 cards): ['QD', 'KS']
+    Legal cards (2): ['QD', 'KS']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: QD
+      Belief model score: 0.500
+    Evaluating card 2/2: KS
+      Belief model score: 6.500
+    Belief model evaluation completed
+    Best card: KS (score: 6.500)
+Player 2 plays KS
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (2 cards): ['AD', 'QS']
+    Legal cards (2): ['AD', 'QS']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: AD
+      Belief model score: 5.500
+    Evaluating card 2/2: QS
+      Belief model score: 6.500
+    Belief model evaluation completed
+    Best card: QS (score: 6.500)
+Player 3 plays QS
+Player 0 won the hand: 0 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (1 cards): ['7D']
+    Legal cards (1): ['7D']
+    Current trick: 0 cards played
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 7D
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 7D (score: 1.000)
+Player 0 plays 7D
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (1 cards): ['KD']
+    Legal cards (1): ['KD']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: KD
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: KD (score: 1.000)
+Player 1 plays KD
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (1 cards): ['QD']
+    Legal cards (1): ['QD']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: QD
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: QD (score: 1.000)
+Player 2 plays QD
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (1 cards): ['AD']
+    Legal cards (1): ['AD']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: C
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: AD
+      Belief model score: 10.000
+    Belief model evaluation completed
+    Best card: AD (score: 10.000)
+Player 3 plays AD
+Player 3 won the hand: 1 points
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 15 points
+Team B (Players 1 & 3): 13 points
+Bidder: Player 3 (Team B)
+Winning Bid: 16
+Bid Success: NO
+Game Winner: Team B (Players 1 & 3)
+Total Tricks: 8

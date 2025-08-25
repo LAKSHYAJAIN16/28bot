@@ -1,0 +1,72 @@
+
+===== GAME 9 (20250825_113104_130) =====
+
+===== AUCTION =====
+Pass
+Pass (locked): Player 0 (min_allowed=17)
+Pass
+Pass (locked): Player 1 (min_allowed=17)
+Pass
+Pass (locked): Player 2 (min_allowed=17)
+AUCTION WINNER: Player 3 with bid 16; chooses trump [to be determined]
+AUCTION WINNER: Player 3 with bid 16; chooses trump H
+
+Player 0 (auction 4 cards): ['10D', 'AD', 'KC', '9D']
+Player 1 (auction 4 cards): ['KH', '8C', 'JS', 'QD']
+Player 2 (auction 4 cards): ['10C', 'JD', '10S', '9S']
+Player 3 (auction 4 cards): ['KS', 'QH', '7C', '8S']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Player 0 plays 9D
+Player 1 plays QD
+Player 2 plays JD
+Player 3 plays JH
+-- Phase 2 begins: Trump revealed as H by Player 3 on trick 1 --
+Player 3 won the hand: 8 points
+
+Player 0 plays 7H
+Player 1 plays 10H
+Player 2 plays 8H
+Player 3 plays 9H
+Player 3 won the hand: 3 points
+
+Player 0 plays JC
+Player 1 plays 9C
+Player 2 plays 10C
+Player 3 plays 7C
+Player 0 won the hand: 6 points
+
+Player 0 plays 10D
+Player 1 plays KH
+Player 2 plays 7D
+Player 3 plays AH
+Player 3 won the hand: 2 points
+
+Player 0 plays 7S
+Player 1 plays JS
+Player 2 plays 9S
+Player 3 plays 8S
+Player 1 won the hand: 5 points
+
+Player 0 plays AD
+Player 1 plays AS
+Player 2 plays KD
+Player 3 plays KS
+Player 0 won the hand: 2 points
+
+Player 0 plays 8D
+Player 1 plays 8C
+Player 2 plays 10S
+Player 3 plays QS
+Player 0 won the hand: 1 points
+
+Player 0 plays KC
+Player 1 plays AC
+Player 2 plays QC
+Player 3 plays QH
+Player 3 won the hand: 1 points
+
+=== GAME SUMMARY ===
+Game 9 final points: Team A=9, Team B=19

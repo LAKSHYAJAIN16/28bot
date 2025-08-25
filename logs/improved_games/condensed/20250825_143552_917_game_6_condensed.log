@@ -1,0 +1,29 @@
+
+===== GAME 6 (20250825_143552_917) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=17)
+Pass (locked): Player 1 (min_allowed=17)
+Pass (locked): Player 2 (min_allowed=17)
+AUCTION WINNER: Player 3 with bid 16; chooses trump [to be determined]
+AUCTION WINNER: Player 3 with bid 16; chooses trump H
+
+Player 0 (auction 4 cards): ['JD', '9C', 'QD', 'JS']
+Player 1 (auction 4 cards): ['7S', '8S', '9D', 'AH']
+Player 2 (auction 4 cards): ['JC', 'QC', 'QH', '9H']
+Player 3 (auction 4 cards): ['10S', '7C', '10D', 'AS']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Trump revealed by Player 1: H
+-- Phase 2 begins: Trump revealed as H by Player 1 on trick 1 --
+Player 1 won the hand: 7 points
+Player 0 won the hand: 6 points
+Player 2 won the hand: 5 points
+Player 0 won the hand: 2 points
+Player 2 won the hand: 4 points
+Player 2 won the hand: 1 points
+Player 2 won the hand: 0 points
+=== GAME SUMMARY ===
+Game 6 final points: Team A=18, Team B=7

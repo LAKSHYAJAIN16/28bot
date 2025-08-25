@@ -1,0 +1,72 @@
+
+===== GAME 1 (20250825_113057_895) =====
+
+===== AUCTION =====
+Pass
+Pass (locked): Player 0 (min_allowed=17)
+Pass
+Pass (locked): Player 1 (min_allowed=17)
+Pass
+Pass (locked): Player 2 (min_allowed=17)
+AUCTION WINNER: Player 3 with bid 16; chooses trump [to be determined]
+AUCTION WINNER: Player 3 with bid 16; chooses trump D
+
+Player 0 (auction 4 cards): ['AS', 'QH', '7H', '9H']
+Player 1 (auction 4 cards): ['AH', 'JD', '8H', 'QD']
+Player 2 (auction 4 cards): ['JC', '8S', '10D', '8C']
+Player 3 (auction 4 cards): ['AD', 'JS', '7D', '7C']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Player 0 plays 9H
+Player 1 plays AH
+Player 2 plays JH
+Player 3 plays AD
+-- Phase 2 begins: Trump revealed as D by Player 3 on trick 1 --
+Player 3 won the hand: 7 points
+
+Player 0 plays 9S
+Player 1 plays 10S
+Player 2 plays 8S
+Player 3 plays JS
+Player 3 won the hand: 6 points
+
+Player 0 plays AS
+Player 1 plays KS
+Player 2 plays 10D
+Player 3 plays QS
+Player 2 won the hand: 2 points
+
+Player 0 plays 7H
+Player 1 plays 8H
+Player 2 plays KD
+Player 3 plays 9D
+Player 3 won the hand: 2 points
+
+Player 0 plays 7S
+Player 1 plays JD
+Player 2 plays JC
+Player 3 plays 7D
+Player 1 won the hand: 6 points
+
+Player 0 plays 10H
+Player 1 plays QD
+Player 2 plays 8C
+Player 3 plays 8D
+Player 1 won the hand: 1 points
+
+Player 0 plays QH
+Player 1 plays 9C
+Player 2 plays KC
+Player 3 plays 7C
+Player 0 won the hand: 2 points
+
+Player 0 plays KH
+Player 1 plays AC
+Player 2 plays QC
+Player 3 plays 10C
+Player 0 won the hand: 2 points
+
+=== GAME SUMMARY ===
+Game 1 final points: Team A=6, Team B=22

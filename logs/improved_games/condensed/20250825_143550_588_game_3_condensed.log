@@ -1,0 +1,29 @@
+
+===== GAME 3 (20250825_143550_588) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=17)
+Pass (locked): Player 1 (min_allowed=17)
+Pass (locked): Player 2 (min_allowed=17)
+AUCTION WINNER: Player 3 with bid 16; chooses trump [to be determined]
+AUCTION WINNER: Player 3 with bid 16; chooses trump H
+
+Player 0 (auction 4 cards): ['8C', '10C', 'QC', '9H']
+Player 1 (auction 4 cards): ['8D', 'QD', '10D', '8H']
+Player 2 (auction 4 cards): ['KD', 'KS', 'JD', '9C']
+Player 3 (auction 4 cards): ['AD', '7S', '10H', '7C']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Trump revealed by Player 0: H
+-- Phase 2 begins: Trump revealed as H by Player 0 on trick 1 --
+Player 0 won the hand: 8 points
+Player 2 won the hand: 8 points
+Player 2 won the hand: 3 points
+Player 2 won the hand: 2 points
+Player 2 won the hand: 2 points
+Player 3 won the hand: 1 points
+Player 2 won the hand: 1 points
+=== GAME SUMMARY ===
+Game 3 final points: Team A=24, Team B=1

@@ -197,6 +197,43 @@ class Game28State:
         self.deal_remaining_cards()
         self.current_player = self.bidder
     
+    def copy(self) -> 'Game28State':
+        """Create a deep copy of the game state"""
+        import copy
+        new_state = Game28State()
+        
+        # Copy hands
+        new_state.hands = [hand.copy() for hand in self.hands]
+        
+        # Copy game state
+        new_state.phase = self.phase
+        new_state.current_player = self.current_player
+        new_state.bidder = self.bidder
+        new_state.winning_bid = self.winning_bid
+        new_state.trump_suit = self.trump_suit
+        new_state.trump_revealed = self.trump_revealed
+        new_state.face_down_trump = self.face_down_trump
+        
+        # Copy bidding state
+        new_state.current_bid = self.current_bid
+        new_state.bid_history = self.bid_history.copy()
+        new_state.passed_players = self.passed_players.copy()
+        
+        # Copy trick state
+        new_state.current_trick = copy.deepcopy(self.current_trick)
+        new_state.tricks = copy.deepcopy(self.tricks)
+        new_state.trick_leader = self.trick_leader
+        
+        # Copy scoring
+        new_state.team_scores = self.team_scores.copy()
+        new_state.game_points = self.game_points.copy()
+        
+        # Copy game tracking
+        new_state.round_number = self.round_number
+        new_state.game_over = self.game_over
+        
+        return new_state
+    
     def get_legal_plays(self, player: int) -> List[Card]:
         """Get legal cards to play for a player"""
         if not self.current_trick.cards:

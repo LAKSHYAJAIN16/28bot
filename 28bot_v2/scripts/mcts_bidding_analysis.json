@@ -1,8 +1,8 @@
 {
   "summary": {
-    "total_games": 1018,
-    "successful_bids": 164,
-    "success_rate": 0.16110019646365423
+    "total_games": 1063,
+    "successful_bids": 180,
+    "success_rate": 0.16933207902163688
   },
   "training_data": [
     {
@@ -349,6 +349,24 @@
     },
     {
       "initial_hand": [
+        "KS",
+        "9D",
+        "KC",
+        "QS",
+        "AC",
+        "7C",
+        "KD"
+      ],
+      "player_id": 0,
+      "actual_points": 2,
+      "game_id": "10",
+      "trump_suit": "H",
+      "auction_winner": 0,
+      "winning_bid": 26,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "9H",
         "8C",
         "AD",
@@ -631,6 +649,24 @@
       "actual_points": 6,
       "game_id": "11",
       "trump_suit": "S",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "JD",
+        "10D",
+        "9D",
+        "9S",
+        "AC",
+        "AD",
+        "QH"
+      ],
+      "player_id": 0,
+      "actual_points": 9,
+      "game_id": "11",
+      "trump_suit": "H",
       "auction_winner": 0,
       "winning_bid": 16,
       "bid_success": false
@@ -925,6 +961,24 @@
     },
     {
       "initial_hand": [
+        "7H",
+        "JH",
+        "8D",
+        "JD",
+        "9C",
+        "QC",
+        "7D"
+      ],
+      "player_id": 1,
+      "actual_points": 8,
+      "game_id": "12",
+      "trump_suit": "H",
+      "auction_winner": 1,
+      "winning_bid": 17,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "9H",
         "JS",
         "QC",
@@ -1033,6 +1087,24 @@
     },
     {
       "initial_hand": [
+        "JC",
+        "9C",
+        "8H",
+        "8C",
+        "9D",
+        "AS",
+        "AC"
+      ],
+      "player_id": 2,
+      "actual_points": 10,
+      "game_id": "13",
+      "trump_suit": "H",
+      "auction_winner": 2,
+      "winning_bid": 22,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "7S",
         "10S",
         "10C",
@@ -1105,6 +1177,24 @@
     },
     {
       "initial_hand": [
+        "8D",
+        "8S",
+        "JH",
+        "QD",
+        "7D",
+        "7C",
+        "10S"
+      ],
+      "player_id": 0,
+      "actual_points": 5,
+      "game_id": "14",
+      "trump_suit": "C",
+      "auction_winner": 0,
+      "winning_bid": 23,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "9C",
         "9H",
         "10C",
@@ -1173,6 +1263,24 @@
       "trump_suit": "D",
       "auction_winner": 1,
       "winning_bid": 28,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "9H",
+        "AD",
+        "9S",
+        "9D",
+        "JD",
+        "JH",
+        "KS"
+      ],
+      "player_id": 1,
+      "actual_points": 4,
+      "game_id": "15",
+      "trump_suit": "C",
+      "auction_winner": 1,
+      "winning_bid": 22,
       "bid_success": false
     },
     {
@@ -1249,6 +1357,24 @@
     },
     {
       "initial_hand": [
+        "JD",
+        "9H",
+        "10S",
+        "10D",
+        "7C",
+        "9D",
+        "KC"
+      ],
+      "player_id": 0,
+      "actual_points": 4,
+      "game_id": "16",
+      "trump_suit": "C",
+      "auction_winner": 0,
+      "winning_bid": 20,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "QS",
         "9C",
         "7D",
@@ -1318,6 +1444,24 @@
       "auction_winner": 0,
       "winning_bid": 16,
       "bid_success": true
+    },
+    {
+      "initial_hand": [
+        "8D",
+        "JS",
+        "7S",
+        "9S",
+        "8H",
+        "7C",
+        "7D"
+      ],
+      "player_id": 0,
+      "actual_points": 7,
+      "game_id": "17",
+      "trump_suit": "D",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": false
     },
     {
       "initial_hand": [
@@ -1393,6 +1537,24 @@
     },
     {
       "initial_hand": [
+        "8H",
+        "QS",
+        "7D",
+        "KH",
+        "QC",
+        "KC",
+        "AC"
+      ],
+      "player_id": 1,
+      "actual_points": 5,
+      "game_id": "18",
+      "trump_suit": "C",
+      "auction_winner": 1,
+      "winning_bid": 18,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "8D",
         "7D",
         "10D",
@@ -1462,6 +1624,24 @@
       "auction_winner": 3,
       "winning_bid": 16,
       "bid_success": true
+    },
+    {
+      "initial_hand": [
+        "JS",
+        "7H",
+        "KD",
+        "10C",
+        "8D",
+        "10H",
+        "JD"
+      ],
+      "player_id": 2,
+      "actual_points": 4,
+      "game_id": "19",
+      "trump_suit": "C",
+      "auction_winner": 2,
+      "winning_bid": 24,
+      "bid_success": false
     },
     {
       "initial_hand": [
@@ -2059,6 +2239,24 @@
     },
     {
       "initial_hand": [
+        "8C",
+        "KC",
+        "10S",
+        "8D",
+        "7H",
+        "QC",
+        "JC"
+      ],
+      "player_id": 0,
+      "actual_points": 0,
+      "game_id": "20",
+      "trump_suit": "S",
+      "auction_winner": 0,
+      "winning_bid": 24,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "QS",
         "JC",
         "7C",
@@ -2126,6 +2324,24 @@
       "game_id": "21",
       "trump_suit": "C",
       "auction_winner": 1,
+      "winning_bid": 17,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "QS",
+        "8D",
+        "8C",
+        "JS",
+        "7C",
+        "KS",
+        "QC"
+      ],
+      "player_id": 2,
+      "actual_points": 0,
+      "game_id": "21",
+      "trump_suit": "H",
+      "auction_winner": 2,
       "winning_bid": 17,
       "bid_success": false
     },
@@ -2203,6 +2419,24 @@
     },
     {
       "initial_hand": [
+        "7H",
+        "9S",
+        "9C",
+        "7C",
+        "9D",
+        "10H",
+        "9H"
+      ],
+      "player_id": 0,
+      "actual_points": 8,
+      "game_id": "22",
+      "trump_suit": "D",
+      "auction_winner": 0,
+      "winning_bid": 28,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "10D",
         "7S",
         "KS",
@@ -2271,6 +2505,24 @@
       "trump_suit": "C",
       "auction_winner": 2,
       "winning_bid": 21,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "QS",
+        "10S",
+        "KS",
+        "7C",
+        "QH",
+        "10D",
+        "AH"
+      ],
+      "player_id": 0,
+      "actual_points": 0,
+      "game_id": "23",
+      "trump_suit": "H",
+      "auction_winner": 0,
+      "winning_bid": 16,
       "bid_success": false
     },
     {
@@ -2347,6 +2599,24 @@
     },
     {
       "initial_hand": [
+        "JH",
+        "7H",
+        "JS",
+        "QD",
+        "AD",
+        "KC",
+        "8C"
+      ],
+      "player_id": 0,
+      "actual_points": 14,
+      "game_id": "24",
+      "trump_suit": "S",
+      "auction_winner": 0,
+      "winning_bid": 24,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "JC",
         "7C",
         "KH",
@@ -2415,6 +2685,24 @@
       "trump_suit": "S",
       "auction_winner": 1,
       "winning_bid": 25,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
+        "10C",
+        "7S",
+        "9S",
+        "10H",
+        "KS",
+        "AH",
+        "QD"
+      ],
+      "player_id": 2,
+      "actual_points": 12,
+      "game_id": "25",
+      "trump_suit": "S",
+      "auction_winner": 2,
+      "winning_bid": 16,
       "bid_success": true
     },
     {
@@ -2491,6 +2779,24 @@
     },
     {
       "initial_hand": [
+        "10H",
+        "AC",
+        "JH",
+        "9C",
+        "JC",
+        "JS",
+        "JD"
+      ],
+      "player_id": 2,
+      "actual_points": 21,
+      "game_id": "26",
+      "trump_suit": "H",
+      "auction_winner": 2,
+      "winning_bid": 17,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "8D",
         "9H",
         "KS",
@@ -2558,6 +2864,24 @@
       "game_id": "27",
       "trump_suit": "C",
       "auction_winner": 3,
+      "winning_bid": 17,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
+        "9S",
+        "7D",
+        "9D",
+        "JD",
+        "7H",
+        "JC",
+        "KS"
+      ],
+      "player_id": 0,
+      "actual_points": 18,
+      "game_id": "27",
+      "trump_suit": "S",
+      "auction_winner": 0,
       "winning_bid": 17,
       "bid_success": true
     },
@@ -2635,6 +2959,24 @@
     },
     {
       "initial_hand": [
+        "JD",
+        "7S",
+        "KD",
+        "AH",
+        "QD",
+        "KC",
+        "8C"
+      ],
+      "player_id": 0,
+      "actual_points": 4,
+      "game_id": "28",
+      "trump_suit": "S",
+      "auction_winner": 0,
+      "winning_bid": 19,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "JC",
         "7S",
         "KC",
@@ -2704,6 +3046,24 @@
       "auction_winner": 0,
       "winning_bid": 16,
       "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "KD",
+        "10C",
+        "JS",
+        "JH",
+        "8S",
+        "9D",
+        "AS"
+      ],
+      "player_id": 0,
+      "actual_points": 21,
+      "game_id": "29",
+      "trump_suit": "C",
+      "auction_winner": 0,
+      "winning_bid": 17,
+      "bid_success": true
     },
     {
       "initial_hand": [
@@ -3211,6 +3571,24 @@
     },
     {
       "initial_hand": [
+        "7D",
+        "JS",
+        "10D",
+        "8H",
+        "9D",
+        "7C",
+        "8C"
+      ],
+      "player_id": 1,
+      "actual_points": 9,
+      "game_id": "30",
+      "trump_suit": "C",
+      "auction_winner": 1,
+      "winning_bid": 19,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "QS",
         "7H",
         "7S",
@@ -3279,6 +3657,24 @@
       "trump_suit": "H",
       "auction_winner": 0,
       "winning_bid": 16,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "KH",
+        "JC",
+        "10H",
+        "AD",
+        "7C",
+        "10S",
+        "KS"
+      ],
+      "player_id": 2,
+      "actual_points": 9,
+      "game_id": "31",
+      "trump_suit": "H",
+      "auction_winner": 2,
+      "winning_bid": 18,
       "bid_success": false
     },
     {
@@ -3355,6 +3751,24 @@
     },
     {
       "initial_hand": [
+        "7C",
+        "JD",
+        "QS",
+        "9S",
+        "KD",
+        "7S",
+        "8C"
+      ],
+      "player_id": 1,
+      "actual_points": 5,
+      "game_id": "32",
+      "trump_suit": "H",
+      "auction_winner": 1,
+      "winning_bid": 17,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "9C",
         "KC",
         "QC",
@@ -3423,6 +3837,24 @@
       "trump_suit": "S",
       "auction_winner": 1,
       "winning_bid": 24,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "AC",
+        "8S",
+        "10C",
+        "KH",
+        "8D",
+        "10S",
+        "8C"
+      ],
+      "player_id": 0,
+      "actual_points": 0,
+      "game_id": "33",
+      "trump_suit": "H",
+      "auction_winner": 0,
+      "winning_bid": 16,
       "bid_success": false
     },
     {
@@ -3499,6 +3931,24 @@
     },
     {
       "initial_hand": [
+        "8D",
+        "QS",
+        "10S",
+        "AH",
+        "9S",
+        "JH",
+        "9H"
+      ],
+      "player_id": 1,
+      "actual_points": 10,
+      "game_id": "34",
+      "trump_suit": "D",
+      "auction_winner": 1,
+      "winning_bid": 17,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "10S",
         "7C",
         "AD",
@@ -3567,6 +4017,24 @@
       "trump_suit": "S",
       "auction_winner": 0,
       "winning_bid": 25,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "QH",
+        "JH",
+        "9H",
+        "8C",
+        "JC",
+        "QS",
+        "10S"
+      ],
+      "player_id": 2,
+      "actual_points": 14,
+      "game_id": "35",
+      "trump_suit": "C",
+      "auction_winner": 2,
+      "winning_bid": 17,
       "bid_success": false
     },
     {
@@ -3643,6 +4111,24 @@
     },
     {
       "initial_hand": [
+        "7H",
+        "KC",
+        "7C",
+        "10H",
+        "JC",
+        "9H",
+        "JD"
+      ],
+      "player_id": 0,
+      "actual_points": 10,
+      "game_id": "36",
+      "trump_suit": "D",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "AH",
         "10H",
         "9S",
@@ -3712,6 +4198,24 @@
       "auction_winner": 2,
       "winning_bid": 17,
       "bid_success": true
+    },
+    {
+      "initial_hand": [
+        "AS",
+        "10S",
+        "7C",
+        "QS",
+        "10D",
+        "7H",
+        "8C"
+      ],
+      "player_id": 1,
+      "actual_points": 0,
+      "game_id": "37",
+      "trump_suit": "H",
+      "auction_winner": 1,
+      "winning_bid": 17,
+      "bid_success": false
     },
     {
       "initial_hand": [
@@ -3787,6 +4291,24 @@
     },
     {
       "initial_hand": [
+        "10C",
+        "JC",
+        "8D",
+        "9S",
+        "JH",
+        "10S",
+        "AC"
+      ],
+      "player_id": 0,
+      "actual_points": 11,
+      "game_id": "38",
+      "trump_suit": "S",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "QS",
         "JC",
         "AD",
@@ -3851,6 +4373,24 @@
       ],
       "player_id": 0,
       "actual_points": 12,
+      "game_id": "39",
+      "trump_suit": "D",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "JD",
+        "10H",
+        "KC",
+        "9S",
+        "KS",
+        "KD",
+        "9H"
+      ],
+      "player_id": 0,
+      "actual_points": 10,
       "game_id": "39",
       "trump_suit": "D",
       "auction_winner": 0,
@@ -4273,6 +4813,24 @@
     },
     {
       "initial_hand": [
+        "8S",
+        "KD",
+        "10D",
+        "KH",
+        "9S",
+        "AC",
+        "7D"
+      ],
+      "player_id": 0,
+      "actual_points": 7,
+      "game_id": "40",
+      "trump_suit": "S",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "9S",
         "7D",
         "QS",
@@ -4342,6 +4900,24 @@
       "auction_winner": 3,
       "winning_bid": 20,
       "bid_success": true
+    },
+    {
+      "initial_hand": [
+        "10C",
+        "10H",
+        "KS",
+        "9H",
+        "10S",
+        "7C",
+        "JH"
+      ],
+      "player_id": 2,
+      "actual_points": 5,
+      "game_id": "41",
+      "trump_suit": "D",
+      "auction_winner": 2,
+      "winning_bid": 24,
+      "bid_success": false
     },
     {
       "initial_hand": [
@@ -4417,6 +4993,24 @@
     },
     {
       "initial_hand": [
+        "8S",
+        "7H",
+        "QC",
+        "10H",
+        "9D",
+        "AS",
+        "AH"
+      ],
+      "player_id": 0,
+      "actual_points": 8,
+      "game_id": "42",
+      "trump_suit": "D",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "10C",
         "7H",
         "AH",
@@ -4485,6 +5079,24 @@
       "trump_suit": "H",
       "auction_winner": 0,
       "winning_bid": 16,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "7D",
+        "QS",
+        "JH",
+        "KD",
+        "AD",
+        "JD",
+        "QH"
+      ],
+      "player_id": 2,
+      "actual_points": 7,
+      "game_id": "43",
+      "trump_suit": "C",
+      "auction_winner": 2,
+      "winning_bid": 21,
       "bid_success": false
     },
     {
@@ -4561,6 +5173,24 @@
     },
     {
       "initial_hand": [
+        "JS",
+        "AS",
+        "KC",
+        "AD",
+        "AC",
+        "9D",
+        "QS"
+      ],
+      "player_id": 2,
+      "actual_points": 13,
+      "game_id": "44",
+      "trump_suit": "H",
+      "auction_winner": 2,
+      "winning_bid": 16,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "9S",
         "7D",
         "QD",
@@ -4630,6 +5260,24 @@
       "auction_winner": 0,
       "winning_bid": 16,
       "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "7C",
+        "9S",
+        "QC",
+        "JS",
+        "7D",
+        "AH",
+        "10C"
+      ],
+      "player_id": 0,
+      "actual_points": 9,
+      "game_id": "45",
+      "trump_suit": "S",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": true
     },
     {
       "initial_hand": [
@@ -4705,6 +5353,24 @@
     },
     {
       "initial_hand": [
+        "KD",
+        "KH",
+        "8H",
+        "KC",
+        "AS",
+        "JD",
+        "QS"
+      ],
+      "player_id": 0,
+      "actual_points": 7,
+      "game_id": "46",
+      "trump_suit": "C",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "JS",
         "JH",
         "8C",
@@ -4773,6 +5439,24 @@
       "trump_suit": "S",
       "auction_winner": 0,
       "winning_bid": 18,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "JH",
+        "KD",
+        "QC",
+        "7S",
+        "JC",
+        "7H",
+        "8D"
+      ],
+      "player_id": 0,
+      "actual_points": 15,
+      "game_id": "47",
+      "trump_suit": "C",
+      "auction_winner": 0,
+      "winning_bid": 16,
       "bid_success": false
     },
     {
@@ -4849,6 +5533,24 @@
     },
     {
       "initial_hand": [
+        "JC",
+        "10S",
+        "QH",
+        "KC",
+        "9D",
+        "8S",
+        "7D"
+      ],
+      "player_id": 0,
+      "actual_points": 15,
+      "game_id": "48",
+      "trump_suit": "D",
+      "auction_winner": 0,
+      "winning_bid": 21,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "9S",
         "7D",
         "7S",
@@ -4918,6 +5620,24 @@
       "auction_winner": 2,
       "winning_bid": 26,
       "bid_success": false
+    },
+    {
+      "initial_hand": [
+        "7H",
+        "AC",
+        "JS",
+        "9C",
+        "JD",
+        "AH",
+        "9D"
+      ],
+      "player_id": 0,
+      "actual_points": 20,
+      "game_id": "49",
+      "trump_suit": "D",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": true
     },
     {
       "initial_hand": [
@@ -6159,6 +6879,24 @@
       "trump_suit": "H",
       "auction_winner": 3,
       "winning_bid": 23,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
+        "8S",
+        "8H",
+        "AH",
+        "9C",
+        "AD",
+        "7C",
+        "KC"
+      ],
+      "player_id": 0,
+      "actual_points": 18,
+      "game_id": "5",
+      "trump_suit": "C",
+      "auction_winner": 0,
+      "winning_bid": 16,
       "bid_success": true
     },
     {
@@ -6775,6 +7513,24 @@
     },
     {
       "initial_hand": [
+        "10S",
+        "7S",
+        "8C",
+        "9S",
+        "KC",
+        "8H",
+        "QD"
+      ],
+      "player_id": 0,
+      "actual_points": 1,
+      "game_id": "6",
+      "trump_suit": "H",
+      "auction_winner": 0,
+      "winning_bid": 16,
+      "bid_success": false
+    },
+    {
+      "initial_hand": [
         "7C",
         "QD",
         "8H",
@@ -7171,6 +7927,24 @@
     },
     {
       "initial_hand": [
+        "JS",
+        "JD",
+        "9H",
+        "9S",
+        "7S",
+        "10D",
+        "8C"
+      ],
+      "player_id": 1,
+      "actual_points": 24,
+      "game_id": "7",
+      "trump_suit": "S",
+      "auction_winner": 1,
+      "winning_bid": 18,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "8H",
         "7C",
         "JS",
@@ -7531,6 +8305,24 @@
     },
     {
       "initial_hand": [
+        "7D",
+        "AS",
+        "7H",
+        "KS",
+        "7S",
+        "QC",
+        "JH"
+      ],
+      "player_id": 0,
+      "actual_points": 4,
+      "game_id": "8",
+      "trump_suit": "C",
+      "auction_winner": 0,
+      "winning_bid": 17,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
         "7C",
         "JD",
         "AD",
@@ -7867,6 +8659,24 @@
       "actual_points": 19,
       "game_id": "9",
       "trump_suit": "S",
+      "auction_winner": 2,
+      "winning_bid": 19,
+      "bid_success": true
+    },
+    {
+      "initial_hand": [
+        "8C",
+        "7H",
+        "9H",
+        "9S",
+        "7D",
+        "7C",
+        "JS"
+      ],
+      "player_id": 2,
+      "actual_points": 13,
+      "game_id": "9",
+      "trump_suit": "H",
       "auction_winner": 2,
       "winning_bid": 19,
       "bid_success": true
@@ -9661,6 +10471,85 @@
       }
     },
     {
+      "game_id": "10",
+      "log_file": "../../logs/game28/mcts_games\\game_10_20250823_174706_092388.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 26,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "KS",
+            "9D",
+            "KC",
+            "QS",
+            "AC",
+            "7C",
+            "KD"
+          ],
+          "1": [
+            "JD",
+            "10D",
+            "8D",
+            "AD",
+            "7S",
+            "QH",
+            "JS",
+            "9H"
+          ],
+          "2": [
+            "AS",
+            "AH",
+            "8S",
+            "10C",
+            "QC",
+            "10S",
+            "9S",
+            "9C"
+          ],
+          "3": [
+            "8H",
+            "JC",
+            "8C",
+            "QD",
+            "7D",
+            "7H",
+            "10H",
+            "JH"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 26,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 26\n    overall: avg=26.00  p30=26.00  std=0.00\n    suit_stats:\n      D: pts=[14]  avg=14.00  p30=14.00  std=0.00\n      H: pts=[11]  avg=11.00  p30=11.00  std=0.00\n      S: pts=[26]  avg=26.00  p30=26.00  std=0.00\n      C: pts=[7]  avg=7.00  p30=7.00  std=0.00\n    reason: Bid: Suit S meets thresholds (p30=26.00, conf_mean=26.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 26. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=26  min_allowed=27  raise_delta=1\n    overall: avg=13.25  p30=10.00  std=5.81\n    suit_stats:\n      S: pts=[1, 10, 14, 16, 10, 9 ...]  avg=13.25  p30=10.00  std=5.81\n      H: pts=[]\n      C: pts=[]\n    failed_checks:\n      H: p30 0.00 < 26; conf_mean 0.00 < 26\n      C: p30 0.00 < 26; conf_mean 0.00 < 26\n      S: p30 10.00 < 26; conf_mean 10.34 < 26\n    reason: Pass: No suit meets thresholds. Best suit S has p30=10.00, conf_mean=10.34 below min_allowed=27 (current_high=26, raise_delta=+1). Failed checks for best suit: p30 10.00 < 26, conf_mean 10.34 < 26."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          5,
+          23
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "3": 20,
+          "0": 2,
+          "2": 3,
+          "1": 3
+        }
+      }
+    },
+    {
       "game_id": "110",
       "log_file": "../../logs/game28/mcts_games\\game_110_20250819_181433_759920.log",
       "bidding": {
@@ -11231,6 +12120,85 @@
       }
     },
     {
+      "game_id": "11",
+      "log_file": "../../logs/game28/mcts_games\\game_11_20250823_175145_293312.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "JD",
+            "10D",
+            "9D",
+            "9S",
+            "AC",
+            "AD",
+            "QH"
+          ],
+          "1": [
+            "7D",
+            "7H",
+            "10C",
+            "7C",
+            "8H",
+            "JS",
+            "KD",
+            "QD"
+          ],
+          "2": [
+            "9C",
+            "7S",
+            "QS",
+            "KS",
+            "KH",
+            "AS",
+            "AH",
+            "8D"
+          ],
+          "3": [
+            "9H",
+            "8C",
+            "8S",
+            "10S",
+            "QC",
+            "10H",
+            "JC",
+            "KC"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=10.33  p30=7.00  std=5.22\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 1.00 < 15\n      D: p30 0.00 < 15; conf_mean 2.20 < 15\n      C: p30 7.00 < 15; conf_mean 7.72 < 15\n    reason: Pass: No suit meets thresholds. Best suit C has p30=7.00, conf_mean=7.72 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 7.00 < 15, conf_mean 7.72 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=13.75  p30=13.00  std=5.52\n    failed_checks:\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 13.00 < 15; conf_mean 10.99 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=13.00, conf_mean=10.99 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 10.99 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          13,
+          15
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "3": 8,
+          "2": 4,
+          "1": 7,
+          "0": 9
+        }
+      }
+    },
+    {
       "game_id": "120",
       "log_file": "../../logs/game28/mcts_games\\game_120_20250819_181433_954772.log",
       "bidding": {
@@ -12778,6 +13746,84 @@
       }
     },
     {
+      "game_id": "12",
+      "log_file": "../../logs/game28/mcts_games\\game_12_20250823_175454_041754.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 17,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "AS",
+            "AD",
+            "8S",
+            "10H",
+            "JC",
+            "QH",
+            "9H",
+            "AC"
+          ],
+          "1": [
+            "7H",
+            "JH",
+            "8D",
+            "JD",
+            "9C",
+            "QC",
+            "7D"
+          ],
+          "2": [
+            "KS",
+            "KC",
+            "8H",
+            "JS",
+            "10S",
+            "KH",
+            "10D",
+            "9D"
+          ],
+          "3": [
+            "9S",
+            "8C",
+            "10C",
+            "QD",
+            "7C",
+            "KD",
+            "7S",
+            "QS"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, D\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 17\n    overall: avg=17.94  p30=17.00  std=3.80\n    suit_stats:\n      H: pts=[13, 17, 17, 19, 19, 19 ...]  avg=17.94  p30=17.00  std=3.80\n      D: pts=[]\n    reason: Bid: Suit H meets thresholds (p30=17.00, conf_mean=16.04 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=17  min_allowed=18  raise_delta=1\n    overall: avg=12.88  p30=7.00  std=6.82\n    suit_stats:\n      C: pts=[5, 18, 20, 6, 18, 10 ...]  avg=12.88  p30=7.00  std=6.82\n      D: pts=[]\n      S: pts=[]\n    failed_checks:\n      D: p30 0.00 < 17; conf_mean 0.00 < 17\n      C: p30 7.00 < 17; conf_mean 9.47 < 17\n      S: p30 0.00 < 17; conf_mean 0.00 < 17\n    reason: Pass: No suit meets thresholds. Best suit C has p30=7.00, conf_mean=9.47 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 7.00 < 17, conf_mean 9.47 < 17."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          20,
+          8
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "1": 8,
+          "0": 14,
+          "2": 6
+        }
+      }
+    },
+    {
       "game_id": "130",
       "log_file": "../../logs/game28/mcts_games\\game_130_20250819_181434_136235.log",
       "bidding": {
@@ -13721,6 +14767,83 @@
       }
     },
     {
+      "game_id": "13",
+      "log_file": "../../logs/game28/mcts_games\\game_13_20250823_175956_415877.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 22,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "9H",
+            "KH",
+            "7S",
+            "10C",
+            "QH",
+            "JS",
+            "8S",
+            "JD"
+          ],
+          "1": [
+            "7D",
+            "KD",
+            "AD",
+            "QC",
+            "QD",
+            "KS",
+            "AH",
+            "9S"
+          ],
+          "2": [
+            "JC",
+            "9C",
+            "8H",
+            "8C",
+            "9D",
+            "AS",
+            "AC"
+          ],
+          "3": [
+            "7C",
+            "10D",
+            "KC",
+            "10H",
+            "QS",
+            "8D",
+            "7H",
+            "10S"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=16.94  p30=13.00  std=6.32\n    suit_stats:\n      D: pts=[16, 20, 8, 26, 15, 27 ...]  avg=16.94  p30=13.00  std=6.32\n      C: pts=[]\n    failed_checks:\n      D: p30 13.00 < 15; conf_mean 13.78 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=13.78 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 13.78 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 22,
+            "analysis": "present_suits: H, C\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 22\n    overall: avg=22.00  p30=22.00  std=0.00\n    suit_stats:\n      H: pts=[22, 14, 23, 24, 14, 17 ...]  avg=19.56  p30=17.00  std=4.05\n      C: pts=[22]  avg=22.00  p30=22.00  std=0.00\n    reason: Bid: Suit C meets thresholds (p30=22.00, conf_mean=22.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 22. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          28,
+          0
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "0": 18,
+          "2": 10
+        }
+      }
+    },
+    {
       "game_id": "140",
       "log_file": "../../logs/game28/mcts_games\\game_140_20250819_181434_524893.log",
       "bidding": {
@@ -14325,6 +15448,97 @@
           "2": 13,
           "1": 9,
           "0": 6
+        }
+      }
+    },
+    {
+      "game_id": "14",
+      "log_file": "../../logs/game28/mcts_games\\game_14_20250823_180358_184397.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 23,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "8D",
+            "8S",
+            "JH",
+            "QD",
+            "7D",
+            "7C",
+            "10S"
+          ],
+          "1": [
+            "JD",
+            "KH",
+            "JS",
+            "9C",
+            "AS",
+            "QC",
+            "9S",
+            "9H"
+          ],
+          "2": [
+            "KD",
+            "AH",
+            "KC",
+            "AC",
+            "8H",
+            "7S",
+            "KS",
+            "10C"
+          ],
+          "3": [
+            "10D",
+            "10H",
+            "QH",
+            "9D",
+            "7H",
+            "AD",
+            "QS",
+            "JC"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 17\n    overall: avg=17.00  p30=17.00  std=0.00\n    suit_stats:\n      D: pts=[15]  avg=15.00  p30=15.00  std=0.00\n      C: pts=[17]  avg=17.00  p30=17.00  std=0.00\n      S: pts=[11]  avg=11.00  p30=11.00  std=0.00\n      H: pts=[17]  avg=17.00  p30=17.00  std=0.00\n    reason: Bid: Suit C meets thresholds (p30=17.00, conf_mean=17.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "bid",
+            "bid_value": 19,
+            "analysis": "present_suits: H, D, C, S\n    current_high=17  min_allowed=18  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 19\n    overall: avg=19.00  p30=19.00  std=0.00\n    suit_stats:\n      S: pts=[19]  avg=19.00  p30=19.00  std=0.00\n      H: pts=[17]  avg=17.00  p30=17.00  std=0.00\n      C: pts=[18]  avg=18.00  p30=18.00  std=0.00\n      D: pts=[19]  avg=19.00  p30=19.00  std=0.00\n    reason: Bid: Suit S meets thresholds (p30=19.00, conf_mean=19.00 >= min_allowed=18); conservative mapping max(p30, avg-1) -> 19. (current_high=17, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D\n    current_high=19  min_allowed=20  raise_delta=1\n    overall: avg=13.75  p30=11.00  std=5.94\n    suit_stats:\n      H: pts=[12, 17, 9, 12, 16, 2 ...]  avg=13.75  p30=11.00  std=5.94\n      D: pts=[9]  avg=9.00  p30=9.00  std=0.00\n    failed_checks:\n      H: p30 11.00 < 19; conf_mean 10.78 < 19\n      D: p30 9.00 < 19; conf_mean 9.00 < 19\n    reason: Pass: No suit meets thresholds. Best suit H has p30=11.00, conf_mean=10.78 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 11.00 < 19, conf_mean 10.78 < 19."
+          },
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 23,
+            "analysis": "present_suits: H, D, C, S\n    current_high=19  min_allowed=20  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 23\n    overall: avg=23.00  p30=23.00  std=0.00\n    suit_stats:\n      C: pts=[13]  avg=13.00  p30=13.00  std=0.00\n      S: pts=[11]  avg=11.00  p30=11.00  std=0.00\n      D: pts=[23]  avg=23.00  p30=23.00  std=0.00\n      H: pts=[5]  avg=5.00  p30=5.00  std=0.00\n    reason: Bid: Suit D meets thresholds (p30=23.00, conf_mean=23.00 >= min_allowed=20); conservative mapping max(p30, avg-1) -> 23. (current_high=19, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          6,
+          18
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "1": 13,
+          "0": 5,
+          "3": 5,
+          "2": 1
         }
       }
     },
@@ -14946,6 +16160,85 @@
       }
     },
     {
+      "game_id": "15",
+      "log_file": "../../logs/game28/mcts_games\\game_15_20250823_180904_886052.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 22,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "10S",
+            "AS",
+            "8H",
+            "7C",
+            "QC",
+            "QH",
+            "QD",
+            "KH"
+          ],
+          "1": [
+            "9H",
+            "AD",
+            "9S",
+            "9D",
+            "JD",
+            "JH",
+            "KS"
+          ],
+          "2": [
+            "8D",
+            "KD",
+            "10H",
+            "10D",
+            "9C",
+            "JS",
+            "AC",
+            "QS"
+          ],
+          "3": [
+            "8S",
+            "JC",
+            "10C",
+            "8C",
+            "7H",
+            "7D",
+            "AH",
+            "7S"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 22,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 22\n    overall: avg=22.00  p30=22.00  std=0.00\n    suit_stats:\n      S: pts=[11]  avg=11.00  p30=11.00  std=0.00\n      H: pts=[22]  avg=22.00  p30=22.00  std=0.00\n      D: pts=[10]  avg=10.00  p30=10.00  std=0.00\n      C: pts=[11]  avg=11.00  p30=11.00  std=0.00\n    reason: Bid: Suit H meets thresholds (p30=22.00, conf_mean=22.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 22. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: C, S\n    current_high=22  min_allowed=23  raise_delta=1\n    overall: avg=17.19  p30=14.00  std=4.11\n    suit_stats:\n      C: pts=[17, 15, 18, 23, 13, 13 ...]  avg=17.19  p30=14.00  std=4.11\n      S: pts=[]\n    failed_checks:\n      C: p30 14.00 < 22; conf_mean 15.13 < 22\n      S: p30 0.00 < 22; conf_mean 0.00 < 22\n    reason: Pass: No suit meets thresholds. Best suit C has p30=14.00, conf_mean=15.13 below min_allowed=23 (current_high=22, raise_delta=+1). Failed checks for best suit: p30 14.00 < 22, conf_mean 15.13 < 22."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          18,
+          10
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "2": 14,
+          "1": 4,
+          "3": 6,
+          "0": 4
+        }
+      }
+    },
+    {
       "game_id": "160",
       "log_file": "../../logs/game28/mcts_games\\game_160_20250819_181434_867895.log",
       "bidding": {
@@ -15548,6 +16841,85 @@
       }
     },
     {
+      "game_id": "16",
+      "log_file": "../../logs/game28/mcts_games\\game_16_20250823_181435_909560.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 20,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "JD",
+            "9H",
+            "10S",
+            "10D",
+            "7C",
+            "9D",
+            "KC"
+          ],
+          "1": [
+            "7H",
+            "8D",
+            "QH",
+            "9S",
+            "8C",
+            "KD",
+            "8H",
+            "KH"
+          ],
+          "2": [
+            "10H",
+            "JC",
+            "KS",
+            "JS",
+            "AC",
+            "AH",
+            "QD",
+            "9C"
+          ],
+          "3": [
+            "QS",
+            "QC",
+            "AD",
+            "8S",
+            "AS",
+            "7S",
+            "JH",
+            "7D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 20,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 20\n    overall: avg=20.00  p30=20.00  std=0.00\n    suit_stats:\n      C: pts=[19]  avg=19.00  p30=19.00  std=0.00\n      D: pts=[12]  avg=12.00  p30=12.00  std=0.00\n      S: pts=[17]  avg=17.00  p30=17.00  std=0.00\n      H: pts=[20]  avg=20.00  p30=20.00  std=0.00\n    reason: Bid: Suit H meets thresholds (p30=20.00, conf_mean=20.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 20. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=20  min_allowed=21  raise_delta=1\n    overall: avg=16.25  p30=14.00  std=4.92\n    failed_checks:\n      C: p30 0.00 < 20; conf_mean 0.00 < 20\n      S: p30 14.00 < 20; conf_mean 13.79 < 20\n    reason: Pass: No suit meets thresholds. Best suit S has p30=14.00, conf_mean=13.79 below min_allowed=21 (current_high=20, raise_delta=+1). Failed checks for best suit: p30 14.00 < 20, conf_mean 13.79 < 20."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          14,
+          14
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "0": 4,
+          "3": 8,
+          "1": 6,
+          "2": 10
+        }
+      }
+    },
+    {
       "game_id": "170",
       "log_file": "../../logs/game28/mcts_games\\game_170_20250819_181435_183593.log",
       "bidding": {
@@ -16112,6 +17484,85 @@
           "0": 13,
           "3": 0,
           "1": 7
+        }
+      }
+    },
+    {
+      "game_id": "17",
+      "log_file": "../../logs/game28/mcts_games\\game_17_20250823_181931_715346.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "8D",
+            "JS",
+            "7S",
+            "9S",
+            "8H",
+            "7C",
+            "7D"
+          ],
+          "1": [
+            "QC",
+            "KC",
+            "8S",
+            "QH",
+            "9D",
+            "JH",
+            "JC",
+            "10S"
+          ],
+          "2": [
+            "QD",
+            "AH",
+            "AD",
+            "KH",
+            "AC",
+            "10C",
+            "7H",
+            "8C"
+          ],
+          "3": [
+            "AS",
+            "QS",
+            "9H",
+            "KS",
+            "10D",
+            "9C",
+            "10H",
+            "JD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=15.94  p30=11.00  std=6.49\n    suit_stats:\n      C: pts=[8, 16, 23, 11, 18, 27 ...]  avg=15.94  p30=11.00  std=6.49\n      H: pts=[]\n      S: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 11.00 < 15; conf_mean 12.69 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit C has p30=11.00, conf_mean=12.69 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 12.69 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=15.44  p30=12.00  std=6.53\n    suit_stats:\n      S: pts=[22, 12, 14, 19, 15, 28 ...]  avg=15.44  p30=12.00  std=6.53\n      H: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 12.00 < 15; conf_mean 12.17 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=12.00, conf_mean=12.17 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 12.17 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          13,
+          15
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "2": 6,
+          "3": 12,
+          "0": 7,
+          "1": 3
         }
       }
     },
@@ -16682,6 +18133,84 @@
       }
     },
     {
+      "game_id": "18",
+      "log_file": "../../logs/game28/mcts_games\\game_18_20250823_182537_245329.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 18,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "10C",
+            "9S",
+            "AS",
+            "KD",
+            "8D",
+            "QH",
+            "10D",
+            "9H"
+          ],
+          "1": [
+            "8H",
+            "QS",
+            "7D",
+            "KH",
+            "QC",
+            "KC",
+            "AC"
+          ],
+          "2": [
+            "7C",
+            "10H",
+            "JC",
+            "QD",
+            "JS",
+            "AH",
+            "9D",
+            "KS"
+          ],
+          "3": [
+            "JD",
+            "10S",
+            "8S",
+            "7H",
+            "JH",
+            "7S",
+            "9C",
+            "AD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 18,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 18\n    overall: avg=18.00  p30=18.00  std=0.00\n    reason: Bid (precomputed): Suit C meets thresholds (p30=18.00, conf_mean=18.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 18. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=18  min_allowed=19  raise_delta=1\n    overall: avg=15.75  p30=13.00  std=5.38\n    failed_checks:\n      H: p30 0.00 < 18; conf_mean 0.00 < 18\n      D: p30 0.00 < 18; conf_mean 0.00 < 18\n      S: p30 13.00 < 18; conf_mean 13.06 < 18\n    reason: Pass: No suit meets thresholds. Best suit S has p30=13.00, conf_mean=13.06 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 13.00 < 18, conf_mean 13.06 < 18."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          11,
+          17
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "3": 12,
+          "2": 11,
+          "1": 5
+        }
+      }
+    },
+    {
       "game_id": "190",
       "log_file": "../../logs/game28/mcts_games\\game_190_20250819_181435_625382.log",
       "bidding": {
@@ -17244,6 +18773,85 @@
           "2": 7,
           "3": 11,
           "0": 3
+        }
+      }
+    },
+    {
+      "game_id": "19",
+      "log_file": "../../logs/game28/mcts_games\\game_19_20250823_182903_179901.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 24,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "8S",
+            "QD",
+            "QC",
+            "7S",
+            "9D",
+            "7D",
+            "10D",
+            "QS"
+          ],
+          "1": [
+            "KH",
+            "AS",
+            "QH",
+            "AD",
+            "9H",
+            "JH",
+            "KC",
+            "9C"
+          ],
+          "2": [
+            "JS",
+            "7H",
+            "KD",
+            "10C",
+            "8D",
+            "10H",
+            "JD"
+          ],
+          "3": [
+            "AC",
+            "7C",
+            "8H",
+            "JC",
+            "KS",
+            "9S",
+            "10S",
+            "AH"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=15.25  p30=12.00  std=3.77\n    failed_checks:\n      H: p30 12.00 < 15; conf_mean 13.37 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=12.00, conf_mean=13.37 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 13.37 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 24,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 24\n    overall: avg=24.00  p30=24.00  std=0.00\n    reason: Bid (precomputed): Suit C meets thresholds (p30=24.00, conf_mean=24.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 24. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          6,
+          22
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "2": 4,
+          "1": 2,
+          "0": 2,
+          "3": 20
         }
       }
     },
@@ -21475,6 +23083,90 @@
       }
     },
     {
+      "game_id": "20",
+      "log_file": "../../logs/game28/mcts_games\\game_20_20250823_183251_375077.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 24,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "8C",
+            "KC",
+            "10S",
+            "8D",
+            "7H",
+            "QC",
+            "JC"
+          ],
+          "1": [
+            "8H",
+            "AD",
+            "AS",
+            "QD",
+            "QH",
+            "AH",
+            "7D",
+            "QS"
+          ],
+          "2": [
+            "7S",
+            "10H",
+            "7C",
+            "KD",
+            "KH",
+            "KS",
+            "9C",
+            "JD"
+          ],
+          "3": [
+            "JH",
+            "9H",
+            "AC",
+            "8S",
+            "10C",
+            "9S",
+            "10D",
+            "9D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 18,
+            "analysis": "present_suits: C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 18\n    overall: avg=18.00  p30=18.00  std=0.00\n    suit_stats:\n      S: pts=[9, 3, 21, 9, 26, 15 ...]  avg=16.38  p30=13.00  std=6.36\n      C: pts=[18]  avg=18.00  p30=18.00  std=0.00\n    reason: Bid: Suit C meets thresholds (p30=18.00, conf_mean=18.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 18. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "bid",
+            "bid_value": 23,
+            "analysis": "present_suits: H, D, C, S\n    current_high=18  min_allowed=19  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 23\n    overall: avg=23.00  p30=23.00  std=0.00\n    suit_stats:\n      C: pts=[6]  avg=6.00  p30=6.00  std=0.00\n      S: pts=[23]  avg=23.00  p30=23.00  std=0.00\n      D: pts=[16]  avg=16.00  p30=16.00  std=0.00\n      H: pts=[11]  avg=11.00  p30=11.00  std=0.00\n    reason: Bid: Suit S meets thresholds (p30=23.00, conf_mean=23.00 >= min_allowed=19); conservative mapping max(p30, avg-1) -> 23. (current_high=18, raise_delta=+1)"
+          },
+          {
+            "player": 3,
+            "action": "bid",
+            "bid_value": 24,
+            "analysis": "present_suits: C, S\n    current_high=23  min_allowed=24  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 24\n    overall: avg=24.00  p30=24.00  std=0.00\n    suit_stats:\n      C: pts=[16, 21, 18, 12, 14, 10 ...]  avg=15.38  p30=13.00  std=4.92\n      S: pts=[24]  avg=24.00  p30=24.00  std=0.00\n    reason: Bid: Suit S meets thresholds (p30=24.00, conf_mean=24.00 >= min_allowed=24); conservative mapping max(p30, avg-1) -> 24. (current_high=23, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          5,
+          17
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "3": 13,
+          "1": 4,
+          "2": 5
+        }
+      }
+    },
+    {
       "game_id": "210",
       "log_file": "../../logs/game28/mcts_games\\game_210_20250819_181436_048114.log",
       "bidding": {
@@ -22043,6 +23735,84 @@
           "2": 5,
           "1": 15,
           "0": 8
+        }
+      }
+    },
+    {
+      "game_id": "21",
+      "log_file": "../../logs/game28/mcts_games\\game_21_20250824_140330_027885.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 17,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "QD",
+            "KC",
+            "9D",
+            "10C",
+            "JC",
+            "7H",
+            "10H",
+            "QH"
+          ],
+          "1": [
+            "9C",
+            "JD",
+            "9H",
+            "10D",
+            "7D",
+            "AH",
+            "AC",
+            "7S"
+          ],
+          "2": [
+            "QS",
+            "8D",
+            "8C",
+            "JS",
+            "7C",
+            "KS",
+            "QC"
+          ],
+          "3": [
+            "9S",
+            "KD",
+            "AD",
+            "JH",
+            "10S",
+            "8S",
+            "KH",
+            "AS"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=11.00  p30=11.00  std=7.45\n    failed_checks:\n      H: p30 11.00 < 15; conf_mean 7.28 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=11.00, conf_mean=7.28 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 7.28 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 17\n    overall: avg=17.00  p30=17.00  std=0.00\n    suit_stats:\n      H: pts=[15]  avg=15.00  p30=15.00  std=0.00\n      D: pts=[15]  avg=15.00  p30=15.00  std=0.00\n      C: pts=[12]  avg=12.00  p30=12.00  std=0.00\n      S: pts=[17]  avg=17.00  p30=17.00  std=0.00\n    reason: Bid: Suit S meets thresholds (p30=17.00, conf_mean=17.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          7,
+          20
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "1": 15,
+          "3": 5,
+          "0": 7
         }
       }
     },
@@ -22624,6 +24394,85 @@
       }
     },
     {
+      "game_id": "22",
+      "log_file": "../../logs/game28/mcts_games\\game_22_20250824_141342_327534.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 28,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "7H",
+            "9S",
+            "9C",
+            "7C",
+            "9D",
+            "10H",
+            "9H"
+          ],
+          "1": [
+            "JS",
+            "JD",
+            "10D",
+            "QC",
+            "QS",
+            "8S",
+            "7D",
+            "10S"
+          ],
+          "2": [
+            "JH",
+            "KS",
+            "QH",
+            "8C",
+            "AS",
+            "KD",
+            "8D",
+            "QD"
+          ],
+          "3": [
+            "AH",
+            "8H",
+            "JC",
+            "KH",
+            "AC",
+            "7S",
+            "KC",
+            "10C"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 28,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 28\n    overall: avg=28.00  p30=28.00  std=0.00\n    suit_stats:\n      H: pts=[7]  avg=7.00  p30=7.00  std=0.00\n      D: pts=[28]  avg=28.00  p30=28.00  std=0.00\n      S: pts=[11]  avg=11.00  p30=11.00  std=0.00\n      C: pts=[15]  avg=15.00  p30=15.00  std=0.00\n    reason: Bid: Suit D meets thresholds (p30=28.00, conf_mean=28.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 28. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=28  min_allowed=29  raise_delta=1\n    overall: avg=13.00  p30=9.00  std=9.14\n    failed_checks:\n      H: p30 9.00 < 28; conf_mean 8.43 < 28\n      C: p30 0.00 < 28; conf_mean 0.00 < 28\n    reason: Pass: No suit meets thresholds. Best suit H has p30=9.00, conf_mean=8.43 below min_allowed=29 (current_high=28, raise_delta=+1). Failed checks for best suit: p30 9.00 < 28, conf_mean 8.43 < 28."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          17,
+          11
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "2": 9,
+          "0": 8,
+          "3": 7,
+          "1": 4
+        }
+      }
+    },
+    {
       "game_id": "230",
       "log_file": "../../logs/game28/mcts_games\\game_230_20250819_181436_569825.log",
       "bidding": {
@@ -23184,6 +25033,84 @@
           "2": 16,
           "1": 10,
           "3": 2
+        }
+      }
+    },
+    {
+      "game_id": "23",
+      "log_file": "../../logs/game28/mcts_games\\game_23_20250824_142630_977499.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "QS",
+            "10S",
+            "KS",
+            "7C",
+            "QH",
+            "10D",
+            "AH"
+          ],
+          "1": [
+            "KC",
+            "QD",
+            "9H",
+            "8D",
+            "8C",
+            "JS",
+            "QC",
+            "9S"
+          ],
+          "2": [
+            "8H",
+            "JD",
+            "8S",
+            "10C",
+            "7D",
+            "JH",
+            "9D",
+            "JC"
+          ],
+          "3": [
+            "9C",
+            "10H",
+            "AD",
+            "KH",
+            "7S",
+            "AC",
+            "KD",
+            "AS"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: H, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 16\n    overall: avg=17.69  p30=15.00  std=4.38\n    suit_stats:\n      S: pts=[13, 15, 15, 19, 21, 8 ...]  avg=17.69  p30=15.00  std=4.38\n      H: pts=[]\n    reason: Bid: Suit S meets thresholds (p30=15.00, conf_mean=15.50 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C, S\n    current_high=16  min_allowed=17  raise_delta=1\n    overall: avg=11.00  p30=11.00  std=0.00\n    suit_stats:\n      C: pts=[11]  avg=11.00  p30=11.00  std=0.00\n      H: pts=[5]  avg=5.00  p30=5.00  std=0.00\n      S: pts=[11]  avg=11.00  p30=11.00  std=0.00\n      D: pts=[10]  avg=10.00  p30=10.00  std=0.00\n    failed_checks:\n      H: p30 5.00 < 16; conf_mean 5.00 < 16\n      D: p30 10.00 < 16; conf_mean 10.00 < 16\n      C: p30 11.00 < 16; conf_mean 11.00 < 16\n      S: p30 11.00 < 16; conf_mean 11.00 < 16\n    reason: Pass: No suit meets thresholds. Best suit C has p30=11.00, conf_mean=11.00 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: p30 11.00 < 16, conf_mean 11.00 < 16."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          12,
+          10
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "1": 6,
+          "3": 4,
+          "2": 12
         }
       }
     },
@@ -23760,6 +25687,83 @@
       }
     },
     {
+      "game_id": "24",
+      "log_file": "../../logs/game28/mcts_games\\game_24_20250824_143410_938201.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 24,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "JH",
+            "7H",
+            "JS",
+            "QD",
+            "AD",
+            "KC",
+            "8C"
+          ],
+          "1": [
+            "9H",
+            "9C",
+            "QH",
+            "10D",
+            "7C",
+            "9S",
+            "9D",
+            "7S"
+          ],
+          "2": [
+            "AH",
+            "8D",
+            "10S",
+            "JD",
+            "7D",
+            "KD",
+            "10C",
+            "8S"
+          ],
+          "3": [
+            "JC",
+            "10H",
+            "QS",
+            "KS",
+            "KH",
+            "AC",
+            "8H",
+            "QC"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 24,
+            "analysis": "present_suits: H, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 24\n    overall: avg=24.00  p30=24.00  std=0.00\n    suit_stats:\n      S: pts=[17, 22, 26, 21, 25, 12 ...]  avg=20.38  p30=18.00  std=3.69\n      H: pts=[24]  avg=24.00  p30=24.00  std=0.00\n    reason: Bid: Suit H meets thresholds (p30=24.00, conf_mean=24.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 24. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=24  min_allowed=25  raise_delta=1\n    overall: avg=15.94  p30=13.00  std=3.53\n    suit_stats:\n      D: pts=[13, 12, 19, 17, 12, 13 ...]  avg=15.94  p30=13.00  std=3.53\n      H: pts=[]\n      S: pts=[]\n    failed_checks:\n      H: p30 0.00 < 24; conf_mean 0.00 < 24\n      D: p30 13.00 < 24; conf_mean 14.17 < 24\n      S: p30 0.00 < 24; conf_mean 0.00 < 24\n    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=14.17 below min_allowed=25 (current_high=24, raise_delta=+1). Failed checks for best suit: p30 13.00 < 24, conf_mean 14.17 < 24."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          14,
+          14
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "0": 14,
+          "3": 14
+        }
+      }
+    },
+    {
       "game_id": "250",
       "log_file": "../../logs/game28/mcts_games\\game_250_20250819_181437_151290.log",
       "bidding": {
@@ -24322,6 +26326,85 @@
       }
     },
     {
+      "game_id": "25",
+      "log_file": "../../logs/game28/mcts_games\\game_25_20250825_093750_175839.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 16,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "AS",
+            "JC",
+            "KD",
+            "7C",
+            "KH",
+            "9H",
+            "JH",
+            "KC"
+          ],
+          "1": [
+            "AC",
+            "AD",
+            "9C",
+            "7H",
+            "JS",
+            "8C",
+            "10D",
+            "7D"
+          ],
+          "2": [
+            "10C",
+            "7S",
+            "9S",
+            "10H",
+            "KS",
+            "AH",
+            "QD"
+          ],
+          "3": [
+            "8S",
+            "QS",
+            "JD",
+            "8H",
+            "8D",
+            "QH",
+            "QC",
+            "9D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=13.00  p30=11.00  std=5.92\n    failed_checks:\n      H: p30 11.00 < 15; conf_mean 10.04 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=11.00, conf_mean=10.04 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 10.04 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 16\n    overall: avg=17.50  p30=15.00  std=3.74\n    reason: Bid (precomputed): Suit S meets thresholds (p30=15.00, conf_mean=15.63 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          20,
+          8
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "1": 4,
+          "0": 8,
+          "3": 4,
+          "2": 12
+        }
+      }
+    },
+    {
       "game_id": "260",
       "log_file": "../../logs/game28/mcts_games\\game_260_20250819_181437_351760.log",
       "bidding": {
@@ -24829,6 +26912,83 @@
         "player_points": {
           "3": 18,
           "2": 10
+        }
+      }
+    },
+    {
+      "game_id": "26",
+      "log_file": "../../logs/game28/mcts_games\\game_26_20250825_094604_558217.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 17,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "8D",
+            "AH",
+            "AD",
+            "QC",
+            "7S",
+            "KS",
+            "8H",
+            "9H"
+          ],
+          "1": [
+            "8C",
+            "QD",
+            "9S",
+            "7C",
+            "9D",
+            "QS",
+            "KC",
+            "AS"
+          ],
+          "2": [
+            "10H",
+            "AC",
+            "JH",
+            "9C",
+            "JC",
+            "JS",
+            "JD"
+          ],
+          "3": [
+            "KD",
+            "10S",
+            "7H",
+            "8S",
+            "10D",
+            "7D",
+            "KH",
+            "10C"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=13.31  p30=9.00  std=5.07\n    failed_checks:\n      D: p30 9.00 < 15; conf_mean 10.78 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=9.00, conf_mean=10.78 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 9.00 < 15, conf_mean 10.78 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, C\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 17\n    overall: avg=18.50  p30=16.00  std=4.03\n    suit_stats:\n      H: pts=[15, 21, 19, 23, 11, 18 ...]  avg=18.50  p30=16.00  std=4.03\n      C: pts=[]\n    reason: Bid: Suit H meets thresholds (p30=16.00, conf_mean=16.48 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          28,
+          0
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "2": 21,
+          "0": 7
         }
       }
     },
@@ -25361,6 +27521,84 @@
       }
     },
     {
+      "game_id": "27",
+      "log_file": "../../logs/game28/mcts_games\\game_27_20250825_095033_343075.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 17,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "9S",
+            "7D",
+            "9D",
+            "JD",
+            "7H",
+            "JC",
+            "KS"
+          ],
+          "1": [
+            "8C",
+            "QH",
+            "KD",
+            "7C",
+            "7S",
+            "AH",
+            "8S",
+            "QS"
+          ],
+          "2": [
+            "10C",
+            "10S",
+            "AC",
+            "KC",
+            "JH",
+            "8D",
+            "AD",
+            "9H"
+          ],
+          "3": [
+            "10H",
+            "8H",
+            "10D",
+            "QC",
+            "9C",
+            "QD",
+            "KH",
+            "AS"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 17\n    overall: avg=17.00  p30=17.00  std=0.00\n    suit_stats:\n      S: pts=[17, 21, 15, 16, 16, 16 ...]  avg=17.50  p30=16.00  std=3.16\n      D: pts=[17]  avg=17.00  p30=17.00  std=0.00\n    reason: Bid: Suit D meets thresholds (p30=17.00, conf_mean=17.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: C, S\n    current_high=17  min_allowed=18  raise_delta=1\n    overall: avg=13.88  p30=11.00  std=5.28\n    suit_stats:\n      C: pts=[14, 16, 11, 23, 10, 8 ...]  avg=13.88  p30=11.00  std=5.28\n      S: pts=[]\n    failed_checks:\n      C: p30 11.00 < 17; conf_mean 11.24 < 17\n      S: p30 0.00 < 17; conf_mean 0.00 < 17\n    reason: Pass: No suit meets thresholds. Best suit C has p30=11.00, conf_mean=11.24 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 11.00 < 17, conf_mean 11.24 < 17."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          26,
+          2
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "3": 2,
+          "2": 8,
+          "0": 18
+        }
+      }
+    },
+    {
       "game_id": "28",
       "log_file": "../../logs/game28/mcts_games\\game_28_20250819_155638_801500.log",
       "bidding": {
@@ -25743,6 +27981,85 @@
           "0": 4,
           "3": 14,
           "2": 3
+        }
+      }
+    },
+    {
+      "game_id": "28",
+      "log_file": "../../logs/game28/mcts_games\\game_28_20250825_095512_291005.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 19,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "JD",
+            "7S",
+            "KD",
+            "AH",
+            "QD",
+            "KC",
+            "8C"
+          ],
+          "1": [
+            "QS",
+            "10C",
+            "9C",
+            "8D",
+            "7C",
+            "9D",
+            "QH",
+            "7D"
+          ],
+          "2": [
+            "8H",
+            "AC",
+            "9S",
+            "7H",
+            "10S",
+            "KH",
+            "JS",
+            "QC"
+          ],
+          "3": [
+            "JH",
+            "AS",
+            "JC",
+            "8S",
+            "9H",
+            "10H",
+            "AD",
+            "10D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 19,
+            "analysis": "present_suits: D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 19\n    overall: avg=19.00  p30=19.00  std=0.00\n    reason: Bid (precomputed): Suit S meets thresholds (p30=19.00, conf_mean=19.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 19. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=19  min_allowed=20  raise_delta=1\n    overall: avg=15.00  p30=12.00  std=5.66\n    suit_stats:\n      H: pts=[4, 16, 15, 14, 12, 12 ...]  avg=15.00  p30=12.00  std=5.66\n      C: pts=[]\n      S: pts=[]\n    failed_checks:\n      H: p30 12.00 < 19; conf_mean 12.17 < 19\n      C: p30 0.00 < 19; conf_mean 0.00 < 19\n      S: p30 0.00 < 19; conf_mean 0.00 < 19\n    reason: Pass: No suit meets thresholds. Best suit H has p30=12.00, conf_mean=12.17 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 12.00 < 19, conf_mean 12.17 < 19."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          10,
+          14
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "0": 4,
+          "1": 4,
+          "2": 6,
+          "3": 10
         }
       }
     },
@@ -26130,6 +28447,84 @@
           "1": 8,
           "0": 6,
           "2": 3
+        }
+      }
+    },
+    {
+      "game_id": "29",
+      "log_file": "../../logs/game28/mcts_games\\game_29_20250825_095923_907960.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 17,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "KD",
+            "10C",
+            "JS",
+            "JH",
+            "8S",
+            "9D",
+            "AS"
+          ],
+          "1": [
+            "7C",
+            "10D",
+            "9H",
+            "8D",
+            "8C",
+            "AH",
+            "JD",
+            "9S"
+          ],
+          "2": [
+            "8H",
+            "QS",
+            "7H",
+            "QC",
+            "QD",
+            "7D",
+            "AD",
+            "QH"
+          ],
+          "3": [
+            "KS",
+            "KC",
+            "AC",
+            "10S",
+            "7S",
+            "9C",
+            "KH",
+            "10H"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 17\n    overall: avg=18.31  p30=16.00  std=3.72\n    suit_stats:\n      C: pts=[23, 17, 21, 15, 17, 23 ...]  avg=18.31  p30=16.00  std=3.72\n      D: pts=[]\n      S: pts=[]\n    reason: Bid: Suit C meets thresholds (p30=16.00, conf_mean=16.45 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=17  min_allowed=18  raise_delta=1\n    overall: avg=15.25  p30=13.00  std=3.96\n    failed_checks:\n      H: p30 13.00 < 17; conf_mean 13.27 < 17\n      S: p30 0.00 < 17; conf_mean 0.00 < 17\n    reason: Pass: No suit meets thresholds. Best suit H has p30=13.00, conf_mean=13.27 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 13.00 < 17, conf_mean 13.27 < 17."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          21,
+          7
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "1": 1,
+          "0": 21,
+          "3": 6
         }
       }
     },
@@ -28592,6 +30987,85 @@
       }
     },
     {
+      "game_id": "30",
+      "log_file": "../../logs/game28/mcts_games\\game_30_20250825_100410_362116.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 19,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "QS",
+            "7H",
+            "JD",
+            "AD",
+            "10C",
+            "QH",
+            "JC",
+            "AS"
+          ],
+          "1": [
+            "7D",
+            "JS",
+            "10D",
+            "8H",
+            "9D",
+            "7C",
+            "8C"
+          ],
+          "2": [
+            "10H",
+            "QD",
+            "10S",
+            "8S",
+            "KD",
+            "JH",
+            "AC",
+            "KS"
+          ],
+          "3": [
+            "QC",
+            "9S",
+            "9H",
+            "7S",
+            "KH",
+            "8D",
+            "AH",
+            "KC"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 19,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 19\n    overall: avg=18.88  p30=19.00  std=4.48\n    reason: Bid (precomputed): Suit C meets thresholds (p30=19.00, conf_mean=16.63 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 19. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=19  min_allowed=20  raise_delta=1\n    overall: avg=18.00  p30=17.00  std=2.35\n    failed_checks:\n      H: p30 0.00 < 19; conf_mean 0.00 < 19\n      C: p30 17.00 < 19; conf_mean 16.83 < 19\n      S: p30 0.00 < 19; conf_mean 0.00 < 19\n    reason: Pass: No suit meets thresholds. Best suit C has p30=17.00, conf_mean=16.83 below min_allowed=20 (current_high=19, raise_delta=+1). Failed checks for best suit: p30 17.00 < 19, conf_mean 16.83 < 19."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          13,
+          12
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "1": 9,
+          "0": 11,
+          "3": 3,
+          "2": 2
+        }
+      }
+    },
+    {
       "game_id": "31",
       "log_file": "../../logs/game28/mcts_games\\game_31_20250819_155638_920501.log",
       "bidding": {
@@ -28980,6 +31454,85 @@
       }
     },
     {
+      "game_id": "31",
+      "log_file": "../../logs/game28/mcts_games\\game_31_20250825_100718_658437.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 18,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "QC",
+            "9D",
+            "8D",
+            "QS",
+            "QH",
+            "AS",
+            "JS",
+            "8H"
+          ],
+          "1": [
+            "9H",
+            "8C",
+            "9S",
+            "7D",
+            "KC",
+            "KD",
+            "QD",
+            "JD"
+          ],
+          "2": [
+            "KH",
+            "JC",
+            "10H",
+            "AD",
+            "7C",
+            "10S",
+            "KS"
+          ],
+          "3": [
+            "7S",
+            "9C",
+            "8S",
+            "10D",
+            "JH",
+            "AC",
+            "10C",
+            "7H"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.67  p30=12.00  std=5.37\n    failed_checks:\n      H: p30 8.00 < 15; conf_mean 10.60 < 15\n      D: p30 4.00 < 15; conf_mean 7.44 < 15\n      C: p30 12.00 < 15; conf_mean 11.98 < 15\n      S: p30 9.00 < 15; conf_mean 10.34 < 15\n    reason: Pass: No suit meets thresholds. Best suit C has p30=12.00, conf_mean=11.98 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 11.98 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 18,
+            "analysis": "present_suits: H, C\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 18\n    overall: avg=19.25  p30=16.00  std=5.20\n    suit_stats:\n      H: pts=[25, 15, 24, 26, 16, 21 ...]  avg=19.25  p30=16.00  std=5.20\n      C: pts=[]\n    reason: Bid: Suit H meets thresholds (p30=16.00, conf_mean=16.65 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 18. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          13,
+          15
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "2": 9,
+          "0": 4,
+          "3": 12,
+          "1": 3
+        }
+      }
+    },
+    {
       "game_id": "32",
       "log_file": "../../logs/game28/mcts_games\\game_32_20250819_155639_209286.log",
       "bidding": {
@@ -29361,6 +31914,85 @@
           "3": 11,
           "0": 9,
           "1": 8
+        }
+      }
+    },
+    {
+      "game_id": "32",
+      "log_file": "../../logs/game28/mcts_games\\game_32_20250825_101101_730495.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 17,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "9C",
+            "AC",
+            "7D",
+            "10C",
+            "KC",
+            "JH",
+            "JC",
+            "KS"
+          ],
+          "1": [
+            "7C",
+            "JD",
+            "QS",
+            "9S",
+            "KD",
+            "7S",
+            "8C"
+          ],
+          "2": [
+            "QC",
+            "AH",
+            "JS",
+            "10H",
+            "9D",
+            "AS",
+            "8S",
+            "10D"
+          ],
+          "3": [
+            "8D",
+            "8H",
+            "10S",
+            "QD",
+            "KH",
+            "QH",
+            "AD",
+            "7H"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 17\n    overall: avg=17.00  p30=17.00  std=0.00\n    suit_stats:\n      C: pts=[12]  avg=12.00  p30=12.00  std=0.00\n      D: pts=[14]  avg=14.00  p30=14.00  std=0.00\n      H: pts=[8]  avg=8.00  p30=8.00  std=0.00\n      S: pts=[17]  avg=17.00  p30=17.00  std=0.00\n    reason: Bid: Suit S meets thresholds (p30=17.00, conf_mean=17.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=17  min_allowed=18  raise_delta=1\n    overall: avg=12.44  p30=9.00  std=5.66\n    suit_stats:\n      D: pts=[11, 15, 10, 6, 9, 21 ...]  avg=12.44  p30=9.00  std=5.66\n      H: pts=[]\n      S: pts=[]\n    failed_checks:\n      H: p30 0.00 < 17; conf_mean 0.00 < 17\n      D: p30 9.00 < 17; conf_mean 9.61 < 17\n      S: p30 0.00 < 17; conf_mean 0.00 < 17\n    reason: Pass: No suit meets thresholds. Best suit D has p30=9.00, conf_mean=9.61 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 9.00 < 17, conf_mean 9.61 < 17."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          14,
+          14
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "0": 8,
+          "2": 6,
+          "1": 5,
+          "3": 9
         }
       }
     },
@@ -29757,6 +32389,84 @@
       }
     },
     {
+      "game_id": "33",
+      "log_file": "../../logs/game28/mcts_games\\game_33_20250825_101725_509801.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "AC",
+            "8S",
+            "10C",
+            "KH",
+            "8D",
+            "10S",
+            "8C"
+          ],
+          "1": [
+            "9D",
+            "7H",
+            "QH",
+            "9C",
+            "7D",
+            "JS",
+            "9H",
+            "AD"
+          ],
+          "2": [
+            "8H",
+            "10D",
+            "QD",
+            "JH",
+            "KD",
+            "7C",
+            "KS",
+            "7S"
+          ],
+          "3": [
+            "JC",
+            "AH",
+            "AS",
+            "QC",
+            "JD",
+            "KC",
+            "QS",
+            "9S"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=16.12  p30=14.00  std=4.43\n    suit_stats:\n      H: pts=[17, 17, 22, 21, 14, 23 ...]  avg=16.12  p30=14.00  std=4.43\n      D: pts=[]\n      C: pts=[]\n    failed_checks:\n      H: p30 14.00 < 15; conf_mean 13.91 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=14.00, conf_mean=13.91 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 13.91 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: n/a."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          7,
+          21
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "3": 16,
+          "1": 5,
+          "2": 7
+        }
+      }
+    },
+    {
       "game_id": "34",
       "log_file": "../../logs/game28/mcts_games\\game_34_20250819_155639_927645.log",
       "bidding": {
@@ -30142,6 +32852,85 @@
       }
     },
     {
+      "game_id": "34",
+      "log_file": "../../logs/game28/mcts_games\\game_34_20250825_102336_806135.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 17,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "8S",
+            "AD",
+            "10C",
+            "QH",
+            "KD",
+            "10D",
+            "KH",
+            "9C"
+          ],
+          "1": [
+            "8D",
+            "QS",
+            "10S",
+            "AH",
+            "9S",
+            "JH",
+            "9H"
+          ],
+          "2": [
+            "9D",
+            "AC",
+            "KC",
+            "8C",
+            "8H",
+            "7H",
+            "7S",
+            "QC"
+          ],
+          "3": [
+            "QD",
+            "JC",
+            "7C",
+            "AS",
+            "JS",
+            "7D",
+            "KS",
+            "10H"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 17\n    overall: avg=17.25  p30=17.00  std=1.09\n    reason: Bid (precomputed): Suit S meets thresholds (p30=17.00, conf_mean=16.71 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=17  min_allowed=18  raise_delta=1\n    overall: avg=17.62  p30=16.00  std=4.15\n    failed_checks:\n      C: p30 16.00 < 17; conf_mean 15.55 < 17\n      S: p30 0.00 < 17; conf_mean 0.00 < 17\n    reason: Pass: No suit meets thresholds. Best suit C has p30=16.00, conf_mean=15.55 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 16.00 < 17, conf_mean 15.55 < 17."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          11,
+          17
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "3": 7,
+          "2": 3,
+          "0": 8,
+          "1": 10
+        }
+      }
+    },
+    {
       "game_id": "35",
       "log_file": "../../logs/game28/mcts_games\\game_35_20250819_155639_930259.log",
       "bidding": {
@@ -30523,6 +33312,84 @@
           "0": 5,
           "2": 17,
           "1": 6
+        }
+      }
+    },
+    {
+      "game_id": "35",
+      "log_file": "../../logs/game28/mcts_games\\game_35_20250825_102743_961465.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 17,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "7D",
+            "7C",
+            "AD",
+            "AS",
+            "8D",
+            "7S",
+            "JD",
+            "7H"
+          ],
+          "1": [
+            "KD",
+            "QC",
+            "JS",
+            "AC",
+            "10C",
+            "QD",
+            "10D",
+            "10H"
+          ],
+          "2": [
+            "QH",
+            "JH",
+            "9H",
+            "8C",
+            "JC",
+            "QS",
+            "10S"
+          ],
+          "3": [
+            "8H",
+            "9D",
+            "KS",
+            "8S",
+            "KH",
+            "AH",
+            "9C",
+            "9S"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.00  p30=12.00  std=3.74\n    failed_checks:\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 12.00 < 15; conf_mean 12.13 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=12.00, conf_mean=12.13 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 12.13 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, C\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 17\n    overall: avg=18.88  p30=16.00  std=3.57\n    suit_stats:\n      H: pts=[17, 23, 19, 20, 27, 22 ...]  avg=18.88  p30=16.00  std=3.57\n      C: pts=[]\n    reason: Bid: Suit H meets thresholds (p30=16.00, conf_mean=17.09 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          14,
+          14
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "3": 6,
+          "2": 14,
+          "1": 8
         }
       }
     },
@@ -30923,6 +33790,85 @@
       }
     },
     {
+      "game_id": "36",
+      "log_file": "../../logs/game28/mcts_games\\game_36_20250825_103154_588162.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "7H",
+            "KC",
+            "7C",
+            "10H",
+            "JC",
+            "9H",
+            "JD"
+          ],
+          "1": [
+            "KD",
+            "8H",
+            "8D",
+            "10C",
+            "8C",
+            "10S",
+            "10D",
+            "JS"
+          ],
+          "2": [
+            "9C",
+            "7S",
+            "9S",
+            "9D",
+            "8S",
+            "QH",
+            "QS",
+            "AH"
+          ],
+          "3": [
+            "AS",
+            "AC",
+            "JH",
+            "QC",
+            "KS",
+            "KH",
+            "7D",
+            "QD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=9.00  p30=8.00  std=6.40\n    failed_checks:\n      H: p30 8.00 < 15; conf_mean 5.80 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=8.00, conf_mean=5.80 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 8.00 < 15, conf_mean 5.80 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=11.50  p30=0.00  std=11.52\n    failed_checks:\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 5.74 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=0.00, conf_mean=5.74 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 5.74 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          14,
+          14
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "3": 5,
+          "2": 4,
+          "1": 9,
+          "0": 10
+        }
+      }
+    },
+    {
       "game_id": "37",
       "log_file": "../../logs/game28/mcts_games\\game_37_20250819_155640_115779.log",
       "bidding": {
@@ -31311,6 +34257,84 @@
       }
     },
     {
+      "game_id": "37",
+      "log_file": "../../logs/game28/mcts_games\\game_37_20250825_103726_526051.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 17,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "10C",
+            "KS",
+            "7D",
+            "9C",
+            "KH",
+            "10H",
+            "QD",
+            "9D"
+          ],
+          "1": [
+            "AS",
+            "10S",
+            "7C",
+            "QS",
+            "10D",
+            "7H",
+            "8C"
+          ],
+          "2": [
+            "QH",
+            "9S",
+            "JC",
+            "AC",
+            "JH",
+            "KD",
+            "AD",
+            "8H"
+          ],
+          "3": [
+            "JD",
+            "8S",
+            "8D",
+            "JS",
+            "7S",
+            "QC",
+            "AH",
+            "KC"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 17\n    overall: avg=17.25  p30=17.00  std=3.19\n    reason: Bid (precomputed): Suit H meets thresholds (p30=17.00, conf_mean=15.65 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, S\n    current_high=17  min_allowed=18  raise_delta=1\n    overall: avg=19.12  p30=21.00  std=6.58\n    failed_checks:\n      D: conf_mean 15.83 < 17\n    reason: Pass: No suit meets thresholds. Best suit D has p30=21.00, conf_mean=15.83 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: conf_mean 15.83 < 17."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          19,
+          5
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "2": 16,
+          "3": 5,
+          "0": 3
+        }
+      }
+    },
+    {
       "game_id": "38",
       "log_file": "../../logs/game28/mcts_games\\game_38_20250819_155640_158920.log",
       "bidding": {
@@ -31690,6 +34714,85 @@
           "1": 4,
           "2": 15,
           "0": 9
+        }
+      }
+    },
+    {
+      "game_id": "38",
+      "log_file": "../../logs/game28/mcts_games\\game_38_20250825_104342_698010.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "10C",
+            "JC",
+            "8D",
+            "9S",
+            "JH",
+            "10S",
+            "AC"
+          ],
+          "1": [
+            "7S",
+            "KC",
+            "8H",
+            "QH",
+            "9D",
+            "KD",
+            "8S",
+            "AD"
+          ],
+          "2": [
+            "7H",
+            "10H",
+            "JD",
+            "7C",
+            "AH",
+            "QS",
+            "9C",
+            "KS"
+          ],
+          "3": [
+            "9H",
+            "JS",
+            "10D",
+            "7D",
+            "8C",
+            "QC",
+            "QD",
+            "KH"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          17,
+          11
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "0": 11,
+          "1": 7,
+          "2": 6,
+          "3": 4
         }
       }
     },
@@ -32075,6 +35178,84 @@
           "1": 11,
           "0": 12,
           "3": 5
+        }
+      }
+    },
+    {
+      "game_id": "39",
+      "log_file": "../../logs/game28/mcts_games\\game_39_20250825_105002_924591.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "JD",
+            "10H",
+            "KC",
+            "9S",
+            "KS",
+            "KD",
+            "9H"
+          ],
+          "1": [
+            "AH",
+            "8C",
+            "7D",
+            "JC",
+            "10C",
+            "AD",
+            "JH",
+            "AC"
+          ],
+          "2": [
+            "QS",
+            "7S",
+            "7H",
+            "QC",
+            "JS",
+            "10S",
+            "AS",
+            "8D"
+          ],
+          "3": [
+            "9D",
+            "QH",
+            "8H",
+            "7C",
+            "KH",
+            "8S",
+            "10D",
+            "9C"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.75  p30=11.00  std=7.07\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: p30 11.00 < 15; conf_mean 11.22 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=11.00, conf_mean=11.22 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 11.22 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=13.25  p30=10.00  std=4.38\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: p30 10.00 < 15; conf_mean 11.06 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=10.00, conf_mean=11.06 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 10.00 < 15, conf_mean 11.06 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          10,
+          18
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "1": 12,
+          "0": 10,
+          "3": 6
         }
       }
     },
@@ -34363,6 +37544,84 @@
       }
     },
     {
+      "game_id": "40",
+      "log_file": "../../logs/game28/mcts_games\\game_40_20250825_105727_306722.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "8S",
+            "KD",
+            "10D",
+            "KH",
+            "9S",
+            "AC",
+            "7D"
+          ],
+          "1": [
+            "8C",
+            "QD",
+            "8H",
+            "9C",
+            "10C",
+            "7H",
+            "7C",
+            "QH"
+          ],
+          "2": [
+            "QC",
+            "JS",
+            "9H",
+            "10H",
+            "KC",
+            "KS",
+            "JD",
+            "QS"
+          ],
+          "3": [
+            "8D",
+            "JH",
+            "AD",
+            "9D",
+            "JC",
+            "AH",
+            "10S",
+            "7S"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.50  p30=7.00  std=7.95\n    failed_checks:\n      H: p30 7.00 < 15; conf_mean 10.52 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=7.00, conf_mean=10.52 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 7.00 < 15, conf_mean 10.52 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=18.38  p30=14.00  std=5.05\n    suit_stats:\n      D: pts=[25, 16, 18, 17, 20, 19 ...]  avg=18.38  p30=14.00  std=5.05\n      H: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: p30 14.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=15.85 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          17,
+          11
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "2": 10,
+          "3": 11,
+          "0": 7
+        }
+      }
+    },
+    {
       "game_id": "unknown",
       "log_file": "../../logs/game28/mcts_games\\game_41_20250819_155640_582678.log",
       "bidding": {
@@ -34750,6 +38009,91 @@
       }
     },
     {
+      "game_id": "41",
+      "log_file": "../../logs/game28/mcts_games\\game_41_20250825_110444_777630.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 24,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "JD",
+            "7D",
+            "QH",
+            "KC",
+            "AC",
+            "7S",
+            "9D",
+            "10D"
+          ],
+          "1": [
+            "8H",
+            "JC",
+            "8C",
+            "AS",
+            "QS",
+            "AH",
+            "9C",
+            "QC"
+          ],
+          "2": [
+            "10C",
+            "10H",
+            "KS",
+            "9H",
+            "10S",
+            "7C",
+            "JH"
+          ],
+          "3": [
+            "8S",
+            "9S",
+            "7H",
+            "QD",
+            "KH",
+            "JS",
+            "KD",
+            "8D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 17\n    overall: avg=18.75  p30=15.00  std=4.21\n    suit_stats:\n      D: pts=[14, 19, 19, 14, 19, 17 ...]  avg=18.75  p30=15.00  std=4.21\n      H: pts=[]\n      C: pts=[]\n    reason: Bid: Suit D meets thresholds (p30=15.00, conf_mean=16.65 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "bid",
+            "bid_value": 24,
+            "analysis": "present_suits: H, D, C, S\n    current_high=17  min_allowed=18  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 24\n    overall: avg=24.00  p30=24.00  std=0.00\n    suit_stats:\n      H: pts=[5]  avg=5.00  p30=5.00  std=0.00\n      S: pts=[17]  avg=17.00  p30=17.00  std=0.00\n      C: pts=[12]  avg=12.00  p30=12.00  std=0.00\n      D: pts=[24]  avg=24.00  p30=24.00  std=0.00\n    reason: Bid: Suit D meets thresholds (p30=24.00, conf_mean=24.00 >= min_allowed=18); conservative mapping max(p30, avg-1) -> 24. (current_high=17, raise_delta=+1)"
+          },
+          {
+            "player": 3,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=24  min_allowed=25  raise_delta=1\n    overall: avg=15.31  p30=11.00  std=5.02\n    suit_stats:\n      D: pts=[7, 16, 24, 15, 9, 16 ...]  avg=15.31  p30=11.00  std=5.02\n      H: pts=[]\n      C: pts=[]\n    failed_checks:\n      H: p30 0.00 < 24; conf_mean 0.00 < 24\n      D: p30 11.00 < 24; conf_mean 12.80 < 24\n      C: p30 0.00 < 24; conf_mean 0.00 < 24\n    reason: Pass: No suit meets thresholds. Best suit D has p30=11.00, conf_mean=12.80 below min_allowed=25 (current_high=24, raise_delta=+1). Failed checks for best suit: p30 11.00 < 24, conf_mean 12.80 < 24."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          18,
+          10
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "0": 13,
+          "3": 9,
+          "1": 1,
+          "2": 5
+        }
+      }
+    },
+    {
       "game_id": "unknown",
       "log_file": "../../logs/game28/mcts_games\\game_42_20250819_155640_589293.log",
       "bidding": {
@@ -35132,6 +38476,84 @@
           "3": 6,
           "1": 4,
           "0": 1
+        }
+      }
+    },
+    {
+      "game_id": "42",
+      "log_file": "../../logs/game28/mcts_games\\game_42_20250825_111208_335830.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "8S",
+            "7H",
+            "QC",
+            "10H",
+            "9D",
+            "AS",
+            "AH"
+          ],
+          "1": [
+            "9H",
+            "9C",
+            "10C",
+            "8C",
+            "AC",
+            "JS",
+            "8H",
+            "8D"
+          ],
+          "2": [
+            "KC",
+            "9S",
+            "JH",
+            "KH",
+            "QD",
+            "QS",
+            "JC",
+            "QH"
+          ],
+          "3": [
+            "AD",
+            "JD",
+            "7S",
+            "10D",
+            "7D",
+            "KS",
+            "7C",
+            "10S"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 16\n    overall: avg=15.00  p30=15.00  std=0.00\n    reason: Bid (precomputed): Suit D meets thresholds (p30=15.00, conf_mean=15.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=16  min_allowed=17  raise_delta=1\n    overall: avg=15.88  p30=15.00  std=4.65\n    failed_checks:\n      C: p30 0.00 < 16; conf_mean 0.00 < 16\n      S: p30 15.00 < 16; conf_mean 13.55 < 16\n    reason: Pass: No suit meets thresholds. Best suit S has p30=15.00, conf_mean=13.55 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: p30 15.00 < 16, conf_mean 13.55 < 16."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          8,
+          20
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "1": 5,
+          "3": 15,
+          "0": 8
         }
       }
     },
@@ -35529,6 +38951,85 @@
       }
     },
     {
+      "game_id": "43",
+      "log_file": "../../logs/game28/mcts_games\\game_43_20250825_111718_376437.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 21,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "JC",
+            "10H",
+            "JS",
+            "7H",
+            "10D",
+            "8H",
+            "8C",
+            "AS"
+          ],
+          "1": [
+            "QC",
+            "8S",
+            "7C",
+            "KS",
+            "7S",
+            "9H",
+            "KH",
+            "9S"
+          ],
+          "2": [
+            "7D",
+            "QS",
+            "JH",
+            "KD",
+            "AD",
+            "JD",
+            "QH"
+          ],
+          "3": [
+            "KC",
+            "QD",
+            "9C",
+            "10S",
+            "9D",
+            "AC",
+            "AH",
+            "8D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=13.19  p30=11.00  std=5.46\n    suit_stats:\n      S: pts=[8, 12, 18, 13, 15, 14 ...]  avg=13.19  p30=11.00  std=5.46\n      C: pts=[3]  avg=3.00  p30=3.00  std=0.00\n    failed_checks:\n      C: p30 3.00 < 15; conf_mean 3.00 < 15\n      S: p30 11.00 < 15; conf_mean 10.46 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=11.00, conf_mean=10.46 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 10.46 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 21,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: C\n    proposed_bid: 21\n    overall: avg=21.00  p30=21.00  std=0.00\n    reason: Bid (precomputed): Suit C meets thresholds (p30=21.00, conf_mean=21.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 21. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          14,
+          10
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "0": 7,
+          "2": 7,
+          "1": 0,
+          "3": 10
+        }
+      }
+    },
+    {
       "game_id": "unknown",
       "log_file": "../../logs/game28/mcts_games\\game_44_20250819_155640_973735.log",
       "bidding": {
@@ -35909,6 +39410,85 @@
         "player_points": {
           "2": 24,
           "1": 4
+        }
+      }
+    },
+    {
+      "game_id": "44",
+      "log_file": "../../logs/game28/mcts_games\\game_44_20250825_112308_460558.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 16,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "8S",
+            "7H",
+            "10S",
+            "7D",
+            "8H",
+            "QC",
+            "AH",
+            "QH"
+          ],
+          "1": [
+            "8C",
+            "KS",
+            "JH",
+            "7S",
+            "QD",
+            "8D",
+            "9S",
+            "9C"
+          ],
+          "2": [
+            "JS",
+            "AS",
+            "KC",
+            "AD",
+            "AC",
+            "9D",
+            "QS"
+          ],
+          "3": [
+            "KD",
+            "10D",
+            "KH",
+            "10H",
+            "JD",
+            "7C",
+            "10C",
+            "JC"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=9.50  p30=9.00  std=6.02\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 9.00 < 15; conf_mean 6.49 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit C has p30=9.00, conf_mean=6.49 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 9.00 < 15, conf_mean 6.49 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 16,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 16\n    overall: avg=17.88  p30=15.00  std=4.15\n    suit_stats:\n      S: pts=[14, 17, 17, 17, 18, 11 ...]  avg=17.88  p30=15.00  std=4.15\n      H: pts=[]\n      C: pts=[]\n    reason: Bid: Suit S meets thresholds (p30=15.00, conf_mean=15.80 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          17,
+          11
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "2": 13,
+          "3": 7,
+          "1": 4,
+          "0": 4
         }
       }
     },
@@ -36301,6 +39881,85 @@
       }
     },
     {
+      "game_id": "45",
+      "log_file": "../../logs/game28/mcts_games\\game_45_20250825_113025_048391.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "7C",
+            "9S",
+            "QC",
+            "JS",
+            "7D",
+            "AH",
+            "10C"
+          ],
+          "1": [
+            "10D",
+            "KS",
+            "KD",
+            "JH",
+            "8D",
+            "QD",
+            "7H",
+            "7S"
+          ],
+          "2": [
+            "JC",
+            "10H",
+            "8H",
+            "KC",
+            "QH",
+            "8C",
+            "8S",
+            "AC"
+          ],
+          "3": [
+            "9D",
+            "10S",
+            "QS",
+            "9C",
+            "KH",
+            "9H",
+            "JD",
+            "AD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=16.50  p30=12.00  std=5.83\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: p30 12.00 < 15; conf_mean 13.58 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=12.00, conf_mean=13.58 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 13.58 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          20,
+          8
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "2": 11,
+          "1": 5,
+          "0": 9,
+          "3": 3
+        }
+      }
+    },
+    {
       "game_id": "unknown",
       "log_file": "../../logs/game28/mcts_games\\game_46_20250819_155641_430179.log",
       "bidding": {
@@ -36686,6 +40345,85 @@
       }
     },
     {
+      "game_id": "46",
+      "log_file": "../../logs/game28/mcts_games\\game_46_20250825_113345_992382.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "KD",
+            "KH",
+            "8H",
+            "KC",
+            "AS",
+            "JD",
+            "QS"
+          ],
+          "1": [
+            "7H",
+            "AH",
+            "QD",
+            "10C",
+            "9S",
+            "AC",
+            "JH",
+            "8S"
+          ],
+          "2": [
+            "JC",
+            "7D",
+            "10H",
+            "7C",
+            "8D",
+            "JS",
+            "QC",
+            "QH"
+          ],
+          "3": [
+            "10S",
+            "9D",
+            "9H",
+            "10D",
+            "KS",
+            "AD",
+            "7S",
+            "8C"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.12  p30=10.00  std=6.05\n    failed_checks:\n      H: p30 10.00 < 15; conf_mean 11.10 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=10.00, conf_mean=11.10 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 10.00 < 15, conf_mean 11.10 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: n/a."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          18,
+          10
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "3": 5,
+          "2": 11,
+          "0": 7,
+          "1": 5
+        }
+      }
+    },
+    {
       "game_id": "47",
       "log_file": "../../logs/game28/mcts_games\\game_47_20250819_181431_971805.log",
       "bidding": {
@@ -37057,6 +40795,84 @@
           "1": 9,
           "3": 4,
           "2": 3
+        }
+      }
+    },
+    {
+      "game_id": "47",
+      "log_file": "../../logs/game28/mcts_games\\game_47_20250825_113658_575369.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "JH",
+            "KD",
+            "QC",
+            "7S",
+            "JC",
+            "7H",
+            "8D"
+          ],
+          "1": [
+            "8H",
+            "QS",
+            "8C",
+            "7C",
+            "8S",
+            "AH",
+            "9D",
+            "KH"
+          ],
+          "2": [
+            "10S",
+            "9H",
+            "10H",
+            "AD",
+            "AS",
+            "KS",
+            "JD",
+            "QH"
+          ],
+          "3": [
+            "7D",
+            "QD",
+            "AC",
+            "9S",
+            "9C",
+            "JS",
+            "10C",
+            "10D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=13.88  p30=13.00  std=4.08\n    failed_checks:\n      H: p30 13.00 < 15; conf_mean 11.84 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=13.00, conf_mean=11.84 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 11.84 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: n/a."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          15,
+          13
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "0": 15,
+          "1": 7,
+          "3": 6
         }
       }
     },
@@ -37434,6 +41250,84 @@
       }
     },
     {
+      "game_id": "48",
+      "log_file": "../../logs/game28/mcts_games\\game_48_20250825_123102_809224.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 21,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "JC",
+            "10S",
+            "QH",
+            "KC",
+            "9D",
+            "8S",
+            "7D"
+          ],
+          "1": [
+            "8C",
+            "QS",
+            "9C",
+            "8H",
+            "9S",
+            "JS",
+            "QC",
+            "7S"
+          ],
+          "2": [
+            "KH",
+            "7C",
+            "7H",
+            "AS",
+            "AC",
+            "AH",
+            "AD",
+            "JD"
+          ],
+          "3": [
+            "10D",
+            "KD",
+            "9H",
+            "KS",
+            "JH",
+            "10H",
+            "10C",
+            "QD"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 21,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: D\n    proposed_bid: 21\n    overall: avg=21.00  p30=21.00  std=0.00\n    suit_stats:\n      C: pts=[19]  avg=19.00  p30=19.00  std=0.00\n      D: pts=[21]  avg=21.00  p30=21.00  std=0.00\n      H: pts=[18]  avg=18.00  p30=18.00  std=0.00\n      S: pts=[14]  avg=14.00  p30=14.00  std=0.00\n    reason: Bid: Suit D meets thresholds (p30=21.00, conf_mean=21.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 21. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=21  min_allowed=22  raise_delta=1\n    overall: avg=0.00  p30=0.00  std=0.00\n    failed_checks:\n      H: p30 0.00 < 21; conf_mean 0.00 < 21\n      S: p30 0.00 < 21; conf_mean 0.00 < 21\n    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=22 (current_high=21, raise_delta=+1). Failed checks for best suit: p30 0.00 < 21, conf_mean 0.00 < 21."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          20,
+          8
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "0": 15,
+          "2": 5,
+          "3": 8
+        }
+      }
+    },
+    {
       "game_id": "49",
       "log_file": "../../logs/game28/mcts_games\\game_49_20250819_181432_039947.log",
       "bidding": {
@@ -37798,6 +41692,83 @@
           "1": 14,
           "2": 4,
           "3": 10
+        }
+      }
+    },
+    {
+      "game_id": "49",
+      "log_file": "../../logs/game28/mcts_games\\game_49_20250825_123424_630778.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "D",
+        "player_hands": {
+          "0": [
+            "7H",
+            "AC",
+            "JS",
+            "9C",
+            "JD",
+            "AH",
+            "9D"
+          ],
+          "1": [
+            "KH",
+            "QS",
+            "8S",
+            "KC",
+            "7D",
+            "QD",
+            "8C",
+            "7C"
+          ],
+          "2": [
+            "8H",
+            "AD",
+            "9S",
+            "JH",
+            "QH",
+            "QC",
+            "8D",
+            "10S"
+          ],
+          "3": [
+            "10D",
+            "10H",
+            "KS",
+            "AS",
+            "JC",
+            "7S",
+            "10C",
+            "9H"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=12.88  p30=9.00  std=5.81\n    suit_stats:\n      S: pts=[3, 4, 23, 21, 7, 9 ...]  avg=12.88  p30=9.00  std=5.81\n      H: pts=[]\n      C: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 9.00 < 15; conf_mean 9.97 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=9.00, conf_mean=9.97 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 9.00 < 15, conf_mean 9.97 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.56  p30=11.00  std=5.29\n    suit_stats:\n      S: pts=[24, 21, 16, 19, 11, 8 ...]  avg=14.56  p30=11.00  std=5.29\n      H: pts=[]\n      D: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 11.00 < 15; conf_mean 11.92 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=11.00, conf_mean=11.92 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 11.92 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          20,
+          8
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "3": 8,
+          "0": 20
         }
       }
     },
@@ -39661,6 +43632,24 @@
           "0": 16,
           "2": 2
         }
+      }
+    },
+    {
+      "game_id": "unknown",
+      "log_file": "../../logs/game28/mcts_games\\game_50_20250825_123908_767977.log",
+      "bidding": {
+        "auction_winner": null,
+        "winning_bid": null,
+        "trump_suit": null,
+        "player_hands": {},
+        "bidding_rounds": []
+      },
+      "outcome": {
+        "final_scores": null,
+        "bid_success": null,
+        "game_score_delta": null,
+        "game_complete": false,
+        "player_points": {}
       }
     },
     {
@@ -44006,21 +47995,81 @@
       }
     },
     {
-      "game_id": "unknown",
+      "game_id": "5",
       "log_file": "../../logs/game28/mcts_games\\game_5_20250823_171410_367243.log",
       "bidding": {
-        "auction_winner": null,
-        "winning_bid": null,
-        "trump_suit": null,
-        "player_hands": {},
-        "bidding_rounds": []
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "8S",
+            "8H",
+            "AH",
+            "9C",
+            "AD",
+            "7C",
+            "KC"
+          ],
+          "1": [
+            "8D",
+            "9H",
+            "KH",
+            "KS",
+            "7S",
+            "7H",
+            "9S",
+            "JS"
+          ],
+          "2": [
+            "8C",
+            "QS",
+            "JH",
+            "AS",
+            "QD",
+            "7D",
+            "KD",
+            "QC"
+          ],
+          "3": [
+            "10H",
+            "10D",
+            "9D",
+            "AC",
+            "JC",
+            "QH",
+            "JD",
+            "10S"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=13.42  p30=10.00  std=6.11\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 10.00 < 15; conf_mean 10.36 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=10.00, conf_mean=10.36 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 10.00 < 15, conf_mean 10.36 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=16.06  p30=15.00  std=4.56\n    suit_stats:\n      D: pts=[15, 10, 16, 13, 15, 19 ...]  avg=16.06  p30=15.00  std=4.56\n      H: pts=[]\n      C: pts=[]\n    failed_checks:\n      H: p30 0.00 < 15; conf_mean 0.00 < 15\n      D: conf_mean 13.78 < 15\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit D has p30=15.00, conf_mean=13.78 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: conf_mean 13.78 < 15."
+          }
+        ]
       },
       "outcome": {
-        "final_scores": null,
-        "bid_success": null,
-        "game_score_delta": null,
-        "game_complete": false,
-        "player_points": {}
+        "final_scores": [
+          24,
+          4
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "3": 4,
+          "2": 6,
+          "0": 18
+        }
       }
     },
     {
@@ -47220,6 +51269,85 @@
       }
     },
     {
+      "game_id": "6",
+      "log_file": "../../logs/game28/mcts_games\\game_6_20250823_171809_976503.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 16,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "10S",
+            "7S",
+            "8C",
+            "9S",
+            "KC",
+            "8H",
+            "QD"
+          ],
+          "1": [
+            "KH",
+            "JH",
+            "10D",
+            "8D",
+            "7D",
+            "10C",
+            "QS",
+            "AD"
+          ],
+          "2": [
+            "9C",
+            "KD",
+            "QC",
+            "AS",
+            "AH",
+            "10H",
+            "JD",
+            "8S"
+          ],
+          "3": [
+            "AC",
+            "7H",
+            "9D",
+            "7C",
+            "JS",
+            "9H",
+            "JC",
+            "KS"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=14.75  p30=9.00  std=5.77\n    suit_stats:\n      H: pts=[12, 17, 13, 23, 22, 14 ...]  avg=14.75  p30=9.00  std=5.77\n      D: pts=[6]  avg=6.00  p30=6.00  std=0.00\n    failed_checks:\n      H: p30 9.00 < 15; conf_mean 11.86 < 15\n      D: p30 6.00 < 15; conf_mean 6.00 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=9.00, conf_mean=11.86 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 9.00 < 15, conf_mean 11.86 < 15."
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=12.00  p30=5.00  std=8.08\n    failed_checks:\n      H: p30 5.00 < 15; conf_mean 7.96 < 15\n      D: p30 0.00 < 15; conf_mean 7.86 < 15\n      C: p30 1.00 < 15; conf_mean 1.50 < 15\n    reason: Pass: No suit meets thresholds. Best suit H has p30=5.00, conf_mean=7.96 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 5.00 < 15, conf_mean 7.96 < 15."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          12,
+          16
+        ],
+        "bid_success": false,
+        "game_score_delta": -1,
+        "game_complete": true,
+        "player_points": {
+          "3": 13,
+          "2": 11,
+          "1": 3,
+          "0": 1
+        }
+      }
+    },
+    {
       "game_id": "70",
       "log_file": "../../logs/game28/mcts_games\\game_70_20250819_181432_656640.log",
       "bidding": {
@@ -49490,6 +53618,83 @@
       }
     },
     {
+      "game_id": "7",
+      "log_file": "../../logs/game28/mcts_games\\game_7_20250823_172243_743951.log",
+      "bidding": {
+        "auction_winner": 1,
+        "winning_bid": 18,
+        "trump_suit": "S",
+        "player_hands": {
+          "0": [
+            "8S",
+            "QH",
+            "8H",
+            "9D",
+            "10C",
+            "KH",
+            "7C",
+            "7D"
+          ],
+          "1": [
+            "JS",
+            "JD",
+            "9H",
+            "9S",
+            "7S",
+            "10D",
+            "8C"
+          ],
+          "2": [
+            "JC",
+            "QC",
+            "AH",
+            "7H",
+            "AS",
+            "AC",
+            "10S",
+            "9C"
+          ],
+          "3": [
+            "10H",
+            "QD",
+            "KC",
+            "KD",
+            "AD",
+            "JH",
+            "QS",
+            "8D"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 18,
+            "analysis": "present_suits: H, D, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 18\n    overall: avg=19.81  p30=16.00  std=5.50\n    suit_stats:\n      S: pts=[18, 28, 26, 25, 11, 13 ...]  avg=19.81  p30=16.00  std=5.50\n      H: pts=[]\n      D: pts=[]\n    reason: Bid: Suit S meets thresholds (p30=16.00, conf_mean=17.06 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 18. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 2,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, D, C\n    current_high=18  min_allowed=19  raise_delta=1\n    overall: avg=14.75  p30=12.00  std=3.83\n    failed_checks:\n      H: p30 0.00 < 18; conf_mean 0.00 < 18\n      C: p30 12.00 < 18; conf_mean 12.83 < 18\n    reason: Pass: No suit meets thresholds. Best suit C has p30=12.00, conf_mean=12.83 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 12.00 < 18, conf_mean 12.83 < 18."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          4,
+          24
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "1": 24,
+          "2": 4
+        }
+      }
+    },
+    {
       "game_id": "80",
       "log_file": "../../logs/game28/mcts_games\\game_80_20250819_181433_044091.log",
       "bidding": {
@@ -51581,6 +55786,84 @@
       }
     },
     {
+      "game_id": "8",
+      "log_file": "../../logs/game28/mcts_games\\game_8_20250823_173430_853765.log",
+      "bidding": {
+        "auction_winner": 0,
+        "winning_bid": 17,
+        "trump_suit": "C",
+        "player_hands": {
+          "0": [
+            "7D",
+            "AS",
+            "7H",
+            "KS",
+            "7S",
+            "QC",
+            "JH"
+          ],
+          "1": [
+            "10C",
+            "JD",
+            "10D",
+            "8H",
+            "QH",
+            "9D",
+            "9S",
+            "AD"
+          ],
+          "2": [
+            "7C",
+            "JS",
+            "9H",
+            "KH",
+            "AC",
+            "9C",
+            "JC",
+            "10S"
+          ],
+          "3": [
+            "8D",
+            "KD",
+            "QS",
+            "8C",
+            "8S",
+            "10H",
+            "QD",
+            "AH"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "bid",
+            "bid_value": 17,
+            "analysis": "present_suits: H, D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: S\n    proposed_bid: 17\n    overall: avg=17.00  p30=17.00  std=0.00\n    suit_stats:\n      D: pts=[16]  avg=16.00  p30=16.00  std=0.00\n      C: pts=[16]  avg=16.00  p30=16.00  std=0.00\n      H: pts=[13]  avg=13.00  p30=13.00  std=0.00\n      S: pts=[17]  avg=17.00  p30=17.00  std=0.00\n    reason: Bid: Suit S meets thresholds (p30=17.00, conf_mean=17.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)"
+          },
+          {
+            "player": 1,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: H, C, S\n    current_high=17  min_allowed=18  raise_delta=1\n    overall: avg=15.19  p30=12.00  std=4.73\n    suit_stats:\n      H: pts=[8, 15, 22, 15, 17, 15 ...]  avg=15.19  p30=12.00  std=4.73\n      C: pts=[]\n      S: pts=[]\n    failed_checks:\n      H: p30 12.00 < 17; conf_mean 12.82 < 17\n      C: p30 0.00 < 17; conf_mean 0.00 < 17\n      S: p30 0.00 < 17; conf_mean 0.00 < 17\n    reason: Pass: No suit meets thresholds. Best suit H has p30=12.00, conf_mean=12.82 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 12.00 < 17, conf_mean 12.82 < 17."
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          26,
+          2
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "2": 22,
+          "0": 4,
+          "1": 2
+        }
+      }
+    },
+    {
       "game_id": "90",
       "log_file": "../../logs/game28/mcts_games\\game_90_20250819_181433_216037.log",
       "bidding": {
@@ -53592,6 +57875,84 @@
         "player_points": {
           "0": 9,
           "2": 19
+        }
+      }
+    },
+    {
+      "game_id": "9",
+      "log_file": "../../logs/game28/mcts_games\\game_9_20250823_174301_695916.log",
+      "bidding": {
+        "auction_winner": 2,
+        "winning_bid": 19,
+        "trump_suit": "H",
+        "player_hands": {
+          "0": [
+            "9C",
+            "KH",
+            "8S",
+            "AH",
+            "10H",
+            "8D",
+            "10C",
+            "KD"
+          ],
+          "1": [
+            "KC",
+            "7S",
+            "10D",
+            "AD",
+            "QD",
+            "AS",
+            "JD",
+            "AC"
+          ],
+          "2": [
+            "8C",
+            "7H",
+            "9H",
+            "9S",
+            "7D",
+            "7C",
+            "JS"
+          ],
+          "3": [
+            "KS",
+            "QC",
+            "9D",
+            "QS",
+            "10S",
+            "8H",
+            "JC",
+            "QH"
+          ]
+        },
+        "bidding_rounds": [
+          {
+            "player": 0,
+            "action": "pass",
+            "bid_value": null,
+            "analysis": "present_suits: D, C, S\n    current_high=0  min_allowed=16  raise_delta=1\n    overall: avg=9.38  p30=3.00  std=6.52\n    failed_checks:\n      C: p30 0.00 < 15; conf_mean 0.00 < 15\n      S: p30 3.00 < 15; conf_mean 6.12 < 15\n    reason: Pass: No suit meets thresholds. Best suit S has p30=3.00, conf_mean=6.12 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 3.00 < 15, conf_mean 6.12 < 15."
+          },
+          {
+            "player": 2,
+            "action": "bid",
+            "bid_value": 19,
+            "analysis": "present_suits: H, C\n    current_high=0  min_allowed=16  raise_delta=1\n    chosen_suit: H\n    proposed_bid: 19\n    overall: avg=20.50  p30=19.00  std=3.69\n    suit_stats:\n      H: pts=[19, 21, 28, 19, 21, 17 ...]  avg=20.50  p30=19.00  std=3.69\n      C: pts=[]\n    reason: Bid: Suit H meets thresholds (p30=19.00, conf_mean=18.65 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 19. (current_high=0, raise_delta=+1)"
+          }
+        ]
+      },
+      "outcome": {
+        "final_scores": [
+          20,
+          8
+        ],
+        "bid_success": true,
+        "game_score_delta": 1,
+        "game_complete": true,
+        "player_points": {
+          "0": 7,
+          "2": 13,
+          "3": 8
         }
       }
     }

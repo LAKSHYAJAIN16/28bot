@@ -1,0 +1,2593 @@
+
+===== GAME 4 (20250825_113100_377) =====
+Player 0 initial hand (bidding): ['7C', 'AH', 'QS', 'KS']
+Player 1 initial hand (bidding): ['7D', 'AD', 'QD', '8C']
+Player 2 initial hand (bidding): ['JS', 'AC', 'AS', 'KD']
+Player 3 initial hand (bidding): ['QC', 'JD', '9S', '8S']
+
+===== AUCTION =====
+[DEBUG] BIDDING ANALYSIS - Player 0 (Belief Master)
+[DEBUG]   Bidding hand: ['7C', 'AH', 'QS', 'KS']
+[DEBUG]   Hand strength: 0.036
+[DEBUG]   Current bid: 16
+[DEBUG]   Present suits: ['C', 'S', 'H']
+[DEBUG]   Point prediction: -0.0 points
+
+=== RAW OUTPUT: Belief Model Outputs - Player 0 ===
+{'trump_suit_probs': [0.1297389268875122, 0.24385634064674377, 0.16510437428951263, 0.4613003730773926], 'uncertainty': 0.4744102954864502, 'opponent_hands_shape': {1: torch.Size([1, 32]), 2: torch.Size([1, 32]), 3: torch.Size([1, 32])}, 'void_suits_shape': {1: torch.Size([1, 4]), 2: torch.Size([1, 4]), 3: torch.Size([1, 4])}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0.12973893 0.24385634 0.16510437 0.46130037]
+[DEBUG]     Predicted trump: S
+[DEBUG]     Confidence: 0.4613
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 1: 0.4128
+[DEBUG]     Opponent 2: 0.4128
+[DEBUG]     Opponent 3: 0.4128
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 1 void in: []
+[DEBUG]     Opponent 2 void in: []
+[DEBUG]     Opponent 3 void in: []
+[DEBUG]   Uncertainty: 0.4744
+[DEBUG]     Strategy: Belief Model Bidding (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating bid -1 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4613):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4128):
+[DEBUG]         Weak opponents + passing: no bonus
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 1: no void suits
+[DEBUG]         Opponent 2: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4744):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.01171891763806343):
+[DEBUG]         Low predicted points (-0.01171891763806343) when passing: no penalty
+[DEBUG]       Final score for bid -1: 0.0000
+[DEBUG]     Pass evaluation score: 0.000
+[DEBUG]     Evaluating bid 17 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4613):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4128):
+[DEBUG]         Weak opponents + bidding: +1.1743
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 1: no void suits
+[DEBUG]         Opponent 2: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4744):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.01171891763806343):
+[DEBUG]         Predicted points (-0.01171891763806343) < bid (17): -2.0000
+[DEBUG]       Final score for bid 17: -0.8257
+[DEBUG]     Bid 17 evaluation score: -0.826
+[DEBUG]     Evaluating bid 18 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4613):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4128):
+[DEBUG]         Weak opponents + bidding: +1.1743
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 1: no void suits
+[DEBUG]         Opponent 2: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4744):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.01171891763806343):
+[DEBUG]         Predicted points (-0.01171891763806343) < bid (18): -2.0000
+[DEBUG]       Final score for bid 18: -0.8257
+[DEBUG]     Bid 18 evaluation score: -0.826
+[DEBUG]     Evaluating bid 19 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4613):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4128):
+[DEBUG]         Weak opponents + bidding: +1.1743
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 1: no void suits
+[DEBUG]         Opponent 2: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4744):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.01171891763806343):
+[DEBUG]         Predicted points (-0.01171891763806343) < bid (19): -2.0000
+[DEBUG]       Final score for bid 19: -0.8257
+[DEBUG]     Bid 19 evaluation score: -0.826
+[DEBUG]     Best decision: PASS (score: 0.000)
+Pass: Player 0 (min_allowed=17)
+[DEBUG] BIDDING ANALYSIS - Player 1 (Belief Expert)
+[DEBUG]   Bidding hand: ['7D', 'AD', 'QD', '8C']
+[DEBUG]   Hand strength: 0.036
+[DEBUG]   Current bid: 16
+[DEBUG]   Present suits: ['D', 'C']
+[DEBUG]   Point prediction: -0.0 points
+
+=== RAW OUTPUT: Belief Model Outputs - Player 1 ===
+{'trump_suit_probs': [0.1285828799009323, 0.2817777395248413, 0.17489361763000488, 0.4147457778453827], 'uncertainty': 0.471804678440094, 'opponent_hands_shape': {0: torch.Size([1, 32]), 2: torch.Size([1, 32]), 3: torch.Size([1, 32])}, 'void_suits_shape': {0: torch.Size([1, 4]), 2: torch.Size([1, 4]), 3: torch.Size([1, 4])}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0.12858288 0.28177774 0.17489362 0.41474578]
+[DEBUG]     Predicted trump: S
+[DEBUG]     Confidence: 0.4147
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 0: 0.4135
+[DEBUG]     Opponent 2: 0.4135
+[DEBUG]     Opponent 3: 0.4135
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 0 void in: []
+[DEBUG]     Opponent 2 void in: []
+[DEBUG]     Opponent 3 void in: []
+[DEBUG]   Uncertainty: 0.4718
+[DEBUG]     Strategy: Belief Model Bidding (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating bid -1 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4147):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4135):
+[DEBUG]         Weak opponents + passing: no bonus
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 0: no void suits
+[DEBUG]         Opponent 2: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4718):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.011611513793468475):
+[DEBUG]         Low predicted points (-0.011611513793468475) when passing: no penalty
+[DEBUG]       Final score for bid -1: 0.0000
+[DEBUG]     Pass evaluation score: 0.000
+[DEBUG]     Evaluating bid 17 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4147):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4135):
+[DEBUG]         Weak opponents + bidding: +1.1730
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 0: no void suits
+[DEBUG]         Opponent 2: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4718):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.011611513793468475):
+[DEBUG]         Predicted points (-0.011611513793468475) < bid (17): -2.0000
+[DEBUG]       Final score for bid 17: -0.8270
+[DEBUG]     Bid 17 evaluation score: -0.827
+[DEBUG]     Evaluating bid 18 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4147):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4135):
+[DEBUG]         Weak opponents + bidding: +1.1730
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 0: no void suits
+[DEBUG]         Opponent 2: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4718):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.011611513793468475):
+[DEBUG]         Predicted points (-0.011611513793468475) < bid (18): -2.0000
+[DEBUG]       Final score for bid 18: -0.8270
+[DEBUG]     Bid 18 evaluation score: -0.827
+[DEBUG]     Evaluating bid 19 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4147):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4135):
+[DEBUG]         Weak opponents + bidding: +1.1730
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 0: no void suits
+[DEBUG]         Opponent 2: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4718):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.011611513793468475):
+[DEBUG]         Predicted points (-0.011611513793468475) < bid (19): -2.0000
+[DEBUG]       Final score for bid 19: -0.8270
+[DEBUG]     Bid 19 evaluation score: -0.827
+[DEBUG]     Best decision: PASS (score: 0.000)
+Pass: Player 1 (min_allowed=17)
+[DEBUG] BIDDING ANALYSIS - Player 2 (Belief Pro)
+[DEBUG]   Bidding hand: ['JS', 'AC', 'AS', 'KD']
+[DEBUG]   Hand strength: 0.179
+[DEBUG]   Current bid: 16
+[DEBUG]   Present suits: ['D', 'C', 'S']
+[DEBUG]   Point prediction: -0.0 points
+
+=== RAW OUTPUT: Belief Model Outputs - Player 2 ===
+{'trump_suit_probs': [0.1297389268875122, 0.24385634064674377, 0.16510437428951263, 0.4613003730773926], 'uncertainty': 0.4744102954864502, 'opponent_hands_shape': {0: torch.Size([1, 32]), 1: torch.Size([1, 32]), 3: torch.Size([1, 32])}, 'void_suits_shape': {0: torch.Size([1, 4]), 1: torch.Size([1, 4]), 3: torch.Size([1, 4])}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0.12973893 0.24385634 0.16510437 0.46130037]
+[DEBUG]     Predicted trump: S
+[DEBUG]     Confidence: 0.4613
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 0: 0.4128
+[DEBUG]     Opponent 1: 0.4128
+[DEBUG]     Opponent 3: 0.4128
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 0 void in: []
+[DEBUG]     Opponent 1 void in: []
+[DEBUG]     Opponent 3 void in: []
+[DEBUG]   Uncertainty: 0.4744
+[DEBUG]     Strategy: Belief Model Bidding (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating bid -1 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4613):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4128):
+[DEBUG]         Weak opponents + passing: no bonus
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 0: no void suits
+[DEBUG]         Opponent 1: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4744):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.012736603617668152):
+[DEBUG]         Low predicted points (-0.012736603617668152) when passing: no penalty
+[DEBUG]       Final score for bid -1: 0.0000
+[DEBUG]     Pass evaluation score: 0.000
+[DEBUG]     Evaluating bid 17 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4613):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4128):
+[DEBUG]         Weak opponents + bidding: +1.1743
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 0: no void suits
+[DEBUG]         Opponent 1: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4744):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.012736603617668152):
+[DEBUG]         Predicted points (-0.012736603617668152) < bid (17): -2.0000
+[DEBUG]       Final score for bid 17: -0.8257
+[DEBUG]     Bid 17 evaluation score: -0.826
+[DEBUG]     Evaluating bid 18 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4613):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4128):
+[DEBUG]         Weak opponents + bidding: +1.1743
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 0: no void suits
+[DEBUG]         Opponent 1: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4744):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.012736603617668152):
+[DEBUG]         Predicted points (-0.012736603617668152) < bid (18): -2.0000
+[DEBUG]       Final score for bid 18: -0.8257
+[DEBUG]     Bid 18 evaluation score: -0.826
+[DEBUG]     Evaluating bid 19 with belief model:
+[DEBUG]       Starting score: 0.0
+[DEBUG]       1. Trump prediction factor (confidence: 0.4613):
+[DEBUG]         Low confidence, no trump factor
+[DEBUG]       2. Opponent strength factor (avg: 0.4128):
+[DEBUG]         Weak opponents + bidding: +1.1743
+[DEBUG]       3. Void suit factor:
+[DEBUG]         Opponent 0: no void suits
+[DEBUG]         Opponent 1: no void suits
+[DEBUG]         Opponent 3: no void suits
+[DEBUG]       4. Uncertainty factor (uncertainty: 0.4744):
+[DEBUG]         Low uncertainty, no factor
+[DEBUG]       5. Point prediction factor (prediction: -0.012736603617668152):
+[DEBUG]         Predicted points (-0.012736603617668152) < bid (19): -2.0000
+[DEBUG]       Final score for bid 19: -0.8257
+[DEBUG]     Bid 19 evaluation score: -0.826
+[DEBUG]     Best decision: PASS (score: 0.000)
+Pass: Player 2 (min_allowed=17)
+Auction winner: Player 3 with bid 16
+[DEBUG] TRUMP SELECTION - Player 3 (Belief Champion)
+[DEBUG]   Hand: ['QC', 'JD', '9S', '8S']
+[DEBUG]     Strategy: Belief-based trump selection
+[DEBUG]     Selected trump: S (score: 4.20)
+[DEBUG]   Belief model selected trump: S
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Full hands (8 cards each):
+Player 0 full hand: ['7C', 'AH', 'QS', 'KS', '10D', '9C', '10S', '10C']
+Player 1 full hand: ['7D', 'AD', 'QD', '8C', '9D', '7H', '7S', '9H']
+Player 2 full hand: ['JS', 'AC', 'AS', 'KD', 'JH', 'QH', 'KC', 'JC']
+Player 3 full hand: ['QC', 'JD', '8S', '8D', '8H', '10H', 'KH']
+
+Player 0 (auction 4 cards): ['7C', 'AH', 'QS', 'KS']
+Player 1 (auction 4 cards): ['7D', 'AD', 'QD', '8C']
+Player 2 (auction 4 cards): ['JS', 'AC', 'AS', 'KD']
+Player 3 (auction 4 cards): ['QC', 'JD', '8S', '8D']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: [face-down trump]
+
+[DEBUG]   Player 0 (Belief Master) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['7C', 'AH', 'QS', 'KS', '10D', '9C', '10S', '10C']
+[DEBUG]     Legal cards (5): ['7C', 'AH', '10D', '9C', '10C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/5: 7C
+[DEBUG]       Evaluating card 7C with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7283):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3753):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4891):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 7C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 2/5: AH
+[DEBUG]       Evaluating card AH with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7283):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3753):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4891):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, high card bonus: +1.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for AH: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 3/5: 10D
+[DEBUG]       Evaluating card 10D with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7283):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3753):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4891):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10D: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 4/5: 9C
+[DEBUG]       Evaluating card 9C with belief model:
+[DEBUG]         Base score from card value: 2
+[DEBUG]         1. Trump factor (confidence: 0.7283):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3753):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4891):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 9C: 3.0000
+[DEBUG]       Belief model score: 3.000
+[DEBUG]     Evaluating card 5/5: 10C
+[DEBUG]       Evaluating card 10C with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7283):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3753):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4891):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 9C (score: 3.000)
+[DEBUG]   Player 1 (Belief Expert) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['7D', 'AD', 'QD', '8C', '9D', '7H', '7S', '9H']
+[DEBUG]     Legal cards (1): ['8C']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: 8C
+[DEBUG]       Evaluating card 8C with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7316):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3791):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4898):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 8C: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 8C (score: 2.000)
+[DEBUG]   Player 2 (Belief Pro) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['JS', 'AC', 'AS', 'KD', 'JH', 'QH', 'KC', 'JC']
+[DEBUG]     Legal cards (3): ['AC', 'KC', 'JC']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/3: AC
+[DEBUG]       Evaluating card AC with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7119):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3816):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4906):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, high card bonus: +1.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for AC: 3.0000
+[DEBUG]       Belief model score: 3.000
+[DEBUG]     Evaluating card 2/3: KC
+[DEBUG]       Evaluating card KC with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7119):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3816):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4906):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, high card bonus: +1.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for KC: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 3/3: JC
+[DEBUG]       Evaluating card JC with belief model:
+[DEBUG]         Base score from card value: 3
+[DEBUG]         1. Trump factor (confidence: 0.7119):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Can win the trick! Bonus: +5.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3816):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4906):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for JC: 8.0000
+[DEBUG]       Belief model score: 8.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: JC (score: 8.000)
+[DEBUG]   Player 3 (Belief Champion) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['QC', 'JD', '8S', '8D', '8H', '10H', 'KH']
+[DEBUG]     Legal cards (1): ['QC']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: QC
+[DEBUG]       Evaluating card QC with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7163):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3780):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4888):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for QC: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: QC (score: 1.000)
+Player 2 won the hand: 5 points
+
+[DEBUG]   Player 0 (Belief Master) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['7C', 'AH', 'QS', 'KS', '10D', '10S', '10C']
+[DEBUG]     Legal cards (4): ['7C', 'AH', '10D', '10C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/4: 7C
+[DEBUG]       Evaluating card 7C with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7046):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3806):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4904):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 7C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 2/4: AH
+[DEBUG]       Evaluating card AH with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7046):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3806):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4904):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, high card bonus: +1.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for AH: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 3/4: 10D
+[DEBUG]       Evaluating card 10D with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7046):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3806):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4904):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10D: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 4/4: 10C
+[DEBUG]       Evaluating card 10C with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7046):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3806):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4904):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: AH (score: 2.000)
+[DEBUG]   Player 1 (Belief Expert) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['7D', 'AD', 'QD', '9D', '7H', '7S', '9H']
+[DEBUG]     Legal cards (2): ['7H', '9H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/2: 7H
+[DEBUG]       Evaluating card 7H with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6924):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: H
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3783):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4882):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7H: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 2/2: 9H
+[DEBUG]       Evaluating card 9H with belief model:
+[DEBUG]         Base score from card value: 2
+[DEBUG]         1. Trump factor (confidence: 0.6924):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: H
+[DEBUG]           Can win the trick! Bonus: +5.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3783):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4882):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 9H: 8.0000
+[DEBUG]       Belief model score: 8.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 9H (score: 8.000)
+[DEBUG]   Player 2 (Belief Pro) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['JS', 'AC', 'AS', 'KD', 'JH', 'QH', 'KC']
+[DEBUG]     Legal cards (2): ['JH', 'QH']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/2: JH
+[DEBUG]       Evaluating card JH with belief model:
+[DEBUG]         Base score from card value: 3
+[DEBUG]         1. Trump factor (confidence: 0.6877):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: H
+[DEBUG]           Can win the trick! Bonus: +5.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3847):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4907):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for JH: 8.0000
+[DEBUG]       Belief model score: 8.000
+[DEBUG]     Evaluating card 2/2: QH
+[DEBUG]       Evaluating card QH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6877):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: H
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3847):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4907):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for QH: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: JH (score: 8.000)
+[DEBUG]   Player 3 (Belief Champion) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['JD', '8S', '8D', '8H', '10H', 'KH']
+[DEBUG]     Legal cards (3): ['8H', '10H', 'KH']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/3: 8H
+[DEBUG]       Evaluating card 8H with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6863):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: H
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3833):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4894):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 8H: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 2/3: 10H
+[DEBUG]       Evaluating card 10H with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6863):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: H
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3833):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4894):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 10H: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 3/3: KH
+[DEBUG]       Evaluating card KH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6863):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: H
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3833):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4894):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, high card bonus: +1.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for KH: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 8H (score: 2.000)
+Player 2 won the hand: 6 points
+
+[DEBUG]   Player 0 (Belief Master) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['7C', 'QS', 'KS', '10D', '10S', '10C']
+[DEBUG]     Legal cards (3): ['7C', '10D', '10C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/3: 7C
+[DEBUG]       Evaluating card 7C with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6870):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3806):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4900):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 7C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 2/3: 10D
+[DEBUG]       Evaluating card 10D with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6870):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3806):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4900):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10D: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 3/3: 10C
+[DEBUG]       Evaluating card 10C with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6870):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3806):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4900):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 7C (score: 1.000)
+[DEBUG]   Player 1 (Belief Expert) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['7D', 'AD', 'QD', '9D', '7H', '7S']
+[DEBUG]     Legal cards (6): ['7D', 'AD', 'QD', '9D', '7H', '7S']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/6: 7D
+[DEBUG]       Evaluating card 7D with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6934):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3769):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4887):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7D: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 2/6: AD
+[DEBUG]       Evaluating card AD with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6934):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3769):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4887):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, high card bonus: +1.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for AD: 2.5000
+[DEBUG]       Belief model score: 2.500
+[DEBUG]     Evaluating card 3/6: QD
+[DEBUG]       Evaluating card QD with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6934):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3769):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4887):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for QD: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Evaluating card 4/6: 9D
+[DEBUG]       Evaluating card 9D with belief model:
+[DEBUG]         Base score from card value: 2
+[DEBUG]         1. Trump factor (confidence: 0.6934):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3769):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4887):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 9D: 3.5000
+[DEBUG]       Belief model score: 3.500
+[DEBUG]     Evaluating card 5/6: 7H
+[DEBUG]       Evaluating card 7H with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6934):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3769):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4887):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 6/6: 7S
+[DEBUG]       Evaluating card 7S with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6934):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, trump bonus: +3.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3769):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4887):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.CONCEALED):
+[DEBUG]           Concealed phase, but not a high card
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7S: 4.0000
+[DEBUG]       Belief model score: 4.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 7S (score: 4.000)
+-- Phase 2 begins: Trump revealed as S by Player 1 on trick 3 --
+[DEBUG] TRUMP REVEALED!
+[DEBUG]   Player 1 revealed trump S
+[DEBUG]   Trick number: 3
+[DEBUG]   Card played: 7S
+[DEBUG]   Game phase changed from CONCEALED to REVEALED
+[DEBUG]   Player 2 (Belief Pro) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['JS', 'AC', 'AS', 'KD', 'QH', 'KC']
+[DEBUG]     Legal cards (2): ['AC', 'KC']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/2: AC
+[DEBUG]       Evaluating card AC with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6984):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Can win the trick! Bonus: +5.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3726):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4913):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for AC: 6.0000
+[DEBUG]       Belief model score: 6.000
+[DEBUG]     Evaluating card 2/2: KC
+[DEBUG]       Evaluating card KC with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6984):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3726):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4913):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for KC: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: AC (score: 6.000)
+[DEBUG]   Player 3 (Belief Champion) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['JD', '8S', '8D', '10H', 'KH', '9S']
+[DEBUG]     Legal cards (6): ['JD', '8S', '8D', '10H', 'KH', '9S']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/6: JD
+[DEBUG]       Evaluating card JD with belief model:
+[DEBUG]         Base score from card value: 3
+[DEBUG]         1. Trump factor (confidence: 0.6851):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3743):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4898):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Can win the trick! Bonus: +4.0000
+[DEBUG]         Final score for JD: 7.5000
+[DEBUG]       Belief model score: 7.500
+[DEBUG]     Evaluating card 2/6: 8S
+[DEBUG]       Evaluating card 8S with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6851):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, trump bonus: +3.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for S
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3743):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4898):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 8S: 6.0000
+[DEBUG]       Belief model score: 6.000
+[DEBUG]     Evaluating card 3/6: 8D
+[DEBUG]       Evaluating card 8D with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6851):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3743):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4898):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 8D: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 4/6: 10H
+[DEBUG]       Evaluating card 10H with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6851):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3743):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4898):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 10H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 5/6: KH
+[DEBUG]       Evaluating card KH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6851):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3743):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4898):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for KH: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Evaluating card 6/6: 9S
+[DEBUG]       Evaluating card 9S with belief model:
+[DEBUG]         Base score from card value: 2
+[DEBUG]         1. Trump factor (confidence: 0.6851):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, trump bonus: +3.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for S
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3743):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4898):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Can win the trick! Bonus: +4.0000
+[DEBUG]         Final score for 9S: 12.0000
+[DEBUG]       Belief model score: 12.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 9S (score: 12.000)
+Player 3 won the hand: 3 points
+
+[DEBUG]   Player 0 (Belief Master) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['QS', 'KS', '10D', '10S', '10C']
+[DEBUG]     Legal cards (5): ['QS', 'KS', '10D', '10S', '10C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/5: QS
+[DEBUG]       Evaluating card QS with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6958):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3655):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4906):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for QS: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 2/5: KS
+[DEBUG]       Evaluating card KS with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6958):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3655):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4906):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for KS: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 3/5: 10D
+[DEBUG]       Evaluating card 10D with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6958):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3655):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4906):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10D: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 4/5: 10S
+[DEBUG]       Evaluating card 10S with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6958):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3655):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4906):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10S: 3.0000
+[DEBUG]       Belief model score: 3.000
+[DEBUG]     Evaluating card 5/5: 10C
+[DEBUG]       Evaluating card 10C with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6958):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3655):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4906):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 10S (score: 3.000)
+[DEBUG]   Player 1 (Belief Expert) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['7D', 'AD', 'QD', '9D', '7H']
+[DEBUG]     Legal cards (5): ['7D', 'AD', 'QD', '9D', '7H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/5: 7D
+[DEBUG]       Evaluating card 7D with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6999):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3618):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4895):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7D: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 2/5: AD
+[DEBUG]       Evaluating card AD with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6999):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3618):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4895):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for AD: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 3/5: QD
+[DEBUG]       Evaluating card QD with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6999):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3618):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4895):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for QD: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Evaluating card 4/5: 9D
+[DEBUG]       Evaluating card 9D with belief model:
+[DEBUG]         Base score from card value: 2
+[DEBUG]         1. Trump factor (confidence: 0.6999):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3618):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4895):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 9D: 3.5000
+[DEBUG]       Belief model score: 3.500
+[DEBUG]     Evaluating card 5/5: 7H
+[DEBUG]       Evaluating card 7H with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6999):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3618):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4895):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 9D (score: 3.500)
+[DEBUG]   Player 2 (Belief Pro) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['JS', 'AS', 'KD', 'QH', 'KC']
+[DEBUG]     Legal cards (2): ['JS', 'AS']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/2: JS
+[DEBUG]       Evaluating card JS with belief model:
+[DEBUG]         Base score from card value: 3
+[DEBUG]         1. Trump factor (confidence: 0.7031):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Can win the trick! Bonus: +5.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for S
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3625):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4903):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for JS: 10.0000
+[DEBUG]       Belief model score: 10.000
+[DEBUG]     Evaluating card 2/2: AS
+[DEBUG]       Evaluating card AS with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7031):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for S
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3625):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4903):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for AS: 4.0000
+[DEBUG]       Belief model score: 4.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: JS (score: 10.000)
+[DEBUG]   Player 3 (Belief Champion) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['JD', '8S', '8D', '10H', 'KH']
+[DEBUG]     Legal cards (1): ['8S']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: 8S
+[DEBUG]       Evaluating card 8S with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6862):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for S
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3645):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4895):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 8S: 4.0000
+[DEBUG]       Belief model score: 4.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 8S (score: 4.000)
+Player 2 won the hand: 6 points
+
+[DEBUG]   Player 0 (Belief Master) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['QS', 'KS', '10D', '10C']
+[DEBUG]     Legal cards (4): ['QS', 'KS', '10D', '10C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/4: QS
+[DEBUG]       Evaluating card QS with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6855):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3521):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4866):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for QS: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 2/4: KS
+[DEBUG]       Evaluating card KS with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6855):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3521):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4866):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for KS: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 3/4: 10D
+[DEBUG]       Evaluating card 10D with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6855):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3521):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4866):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10D: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 4/4: 10C
+[DEBUG]       Evaluating card 10C with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6855):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3521):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4866):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: QS (score: 2.000)
+[DEBUG]   Player 1 (Belief Expert) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['7D', 'AD', 'QD', '7H']
+[DEBUG]     Legal cards (4): ['7D', 'AD', 'QD', '7H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/4: 7D
+[DEBUG]       Evaluating card 7D with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6724):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3534):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4869):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7D: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 2/4: AD
+[DEBUG]       Evaluating card AD with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6724):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3534):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4869):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for AD: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 3/4: QD
+[DEBUG]       Evaluating card QD with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6724):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3534):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4869):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for QD: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Evaluating card 4/4: 7H
+[DEBUG]       Evaluating card 7H with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6724):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3534):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4869):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 7D (score: 1.500)
+[DEBUG]   Player 2 (Belief Pro) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['AS', 'KD', 'QH', 'KC']
+[DEBUG]     Legal cards (1): ['AS']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: AS
+[DEBUG]       Evaluating card AS with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7087):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Can win the trick! Bonus: +5.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for S
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3324):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4824):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for AS: 8.0000
+[DEBUG]       Belief model score: 8.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: AS (score: 8.000)
+[DEBUG]   Player 3 (Belief Champion) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['JD', '8D', '10H', 'KH']
+[DEBUG]     Legal cards (4): ['JD', '8D', '10H', 'KH']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/4: JD
+[DEBUG]       Evaluating card JD with belief model:
+[DEBUG]         Base score from card value: 3
+[DEBUG]         1. Trump factor (confidence: 0.6717):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3359):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4806):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Can win the trick! Bonus: +4.0000
+[DEBUG]         Final score for JD: 7.5000
+[DEBUG]       Belief model score: 7.500
+[DEBUG]     Evaluating card 2/4: 8D
+[DEBUG]       Evaluating card 8D with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6717):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3359):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4806):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 8D: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 3/4: 10H
+[DEBUG]       Evaluating card 10H with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6717):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3359):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4806):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 10H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 4/4: KH
+[DEBUG]       Evaluating card KH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6717):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3359):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4806):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for KH: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: JD (score: 7.500)
+Player 2 won the hand: 4 points
+
+[DEBUG]   Player 0 (Belief Master) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['KS', '10D', '10C']
+[DEBUG]     Legal cards (3): ['KS', '10D', '10C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/3: KS
+[DEBUG]       Evaluating card KS with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6887):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for S
+[DEBUG]           Opponent 2: no void bonus for S
+[DEBUG]           Opponent 3: no void bonus for S
+[DEBUG]         4. Opponent strength factor (avg: 0.3279):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4814):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, trump bonus: +2.0000
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for KS: 2.0000
+[DEBUG]       Belief model score: 2.000
+[DEBUG]     Evaluating card 2/3: 10D
+[DEBUG]       Evaluating card 10D with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6887):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3279):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4814):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10D: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 3/3: 10C
+[DEBUG]       Evaluating card 10C with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6887):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3279):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4814):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: KS (score: 2.000)
+[DEBUG]   Player 1 (Belief Expert) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['AD', 'QD', '7H']
+[DEBUG]     Legal cards (3): ['AD', 'QD', '7H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/3: AD
+[DEBUG]       Evaluating card AD with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.6747):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3244):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4800):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for AD: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 2/3: QD
+[DEBUG]       Evaluating card QD with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6747):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3244):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4800):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for QD: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Evaluating card 3/3: 7H
+[DEBUG]       Evaluating card 7H with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.6747):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3244):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4800):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: AD (score: 1.500)
+[DEBUG]   Player 2 (Belief Pro) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['KD', 'QH', 'KC']
+[DEBUG]     Legal cards (3): ['KD', 'QH', 'KC']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/3: KD
+[DEBUG]       Evaluating card KD with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7244):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3012):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4784):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for KD: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Evaluating card 2/3: QH
+[DEBUG]       Evaluating card QH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7244):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3012):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4784):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for QH: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Evaluating card 3/3: KC
+[DEBUG]       Evaluating card KC with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7244):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.3012):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4784):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for KC: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: KD (score: 0.500)
+[DEBUG]   Player 3 (Belief Champion) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['8D', '10H', 'KH']
+[DEBUG]     Legal cards (3): ['8D', '10H', 'KH']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/3: 8D
+[DEBUG]       Evaluating card 8D with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7056):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.3064):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4769):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 8D: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 2/3: 10H
+[DEBUG]       Evaluating card 10H with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7056):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3064):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4769):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 10H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 3/3: KH
+[DEBUG]       Evaluating card KH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7056):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: S
+[DEBUG]           Void in S, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.3064):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4769):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for KH: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 8D (score: 1.500)
+Player 0 won the hand: 1 points
+
+[DEBUG]   Player 0 (Belief Master) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['10D', '10C']
+[DEBUG]     Legal cards (2): ['10D', '10C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/2: 10D
+[DEBUG]       Evaluating card 10D with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7447):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.2809):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4758):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10D: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Evaluating card 2/2: 10C
+[DEBUG]       Evaluating card 10C with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7447):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 2: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.2809):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4758):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10C: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 10D (score: 1.000)
+[DEBUG]   Player 1 (Belief Expert) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['QD', '7H']
+[DEBUG]     Legal cards (1): ['QD']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: QD
+[DEBUG]       Evaluating card QD with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7281):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: D
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for D
+[DEBUG]           Opponent 2: no void bonus for D
+[DEBUG]           Opponent 3: no void bonus for D
+[DEBUG]         4. Opponent strength factor (avg: 0.2812):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4727):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for QD: 1.0000
+[DEBUG]       Belief model score: 1.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: QD (score: 1.000)
+[DEBUG]   Player 2 (Belief Pro) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['QH', 'KC']
+[DEBUG]     Legal cards (2): ['QH', 'KC']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/2: QH
+[DEBUG]       Evaluating card QH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7300):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: D
+[DEBUG]           Void in D, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.2771):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4722):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for QH: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Evaluating card 2/2: KC
+[DEBUG]       Evaluating card KC with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7300):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: D
+[DEBUG]           Void in D, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for C
+[DEBUG]           Opponent 1: no void bonus for C
+[DEBUG]           Opponent 3: no void bonus for C
+[DEBUG]         4. Opponent strength factor (avg: 0.2771):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4722):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for KC: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: QH (score: 0.500)
+[DEBUG]   Player 3 (Belief Champion) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['10H', 'KH']
+[DEBUG]     Legal cards (2): ['10H', 'KH']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/2: 10H
+[DEBUG]       Evaluating card 10H with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7128):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: D
+[DEBUG]           Void in D, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.2793):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4696):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for 10H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Evaluating card 2/2: KH
+[DEBUG]       Evaluating card KH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7128):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: D
+[DEBUG]           Void in D, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.2793):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4696):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for KH: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 10H (score: 1.500)
+Player 0 won the hand: 2 points
+
+[DEBUG]   Player 0 (Belief Master) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['10C']
+[DEBUG]     Legal cards (1): ['10C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: 10C
+[DEBUG]       Evaluating card 10C with belief model:
+[DEBUG]         Base score from card value: 1
+[DEBUG]         1. Trump factor (confidence: 0.7791):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           No current trick
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 1 void in C! Bonus: +2.0000
+[DEBUG]           Opponent 2 void in C! Bonus: +2.0000
+[DEBUG]           Opponent 3 void in C! Bonus: +2.0000
+[DEBUG]         4. Opponent strength factor (avg: 0.2419):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4665):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           No current trick
+[DEBUG]         Final score for 10C: 7.0000
+[DEBUG]       Belief model score: 7.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 10C (score: 7.000)
+[DEBUG]   Player 1 (Belief Expert) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['7H']
+[DEBUG]     Legal cards (1): ['7H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: 7H
+[DEBUG]       Evaluating card 7H with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7621):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]           Opponent 3: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.2429):
+[DEBUG]           Weak opponents, low card bonus: +1.0000
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4640):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 1
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for 7H: 1.5000
+[DEBUG]       Belief model score: 1.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: 7H (score: 1.500)
+[DEBUG]   Player 2 (Belief Pro) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['KC']
+[DEBUG]     Legal cards (1): ['KC']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: KC
+[DEBUG]       Evaluating card KC with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7611):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Following suit, small bonus: +1.0000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0 void in C! Bonus: +2.0000
+[DEBUG]           Opponent 1 void in C! Bonus: +2.0000
+[DEBUG]           Opponent 3 void in C! Bonus: +2.0000
+[DEBUG]         4. Opponent strength factor (avg: 0.2449):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4654):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 2
+[DEBUG]           Middle position, no position factor
+[DEBUG]         Final score for KC: 7.0000
+[DEBUG]       Belief model score: 7.000
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: KC (score: 7.000)
+[DEBUG]   Player 3 (Belief Champion) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['KH']
+[DEBUG]     Legal cards (1): ['KH']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Strategy: Belief Model Card Selection (NO HEURISTICS)
+[DEBUG]     Belief model predictions obtained
+[DEBUG]     Evaluating card 1/1: KH
+[DEBUG]       Evaluating card KH with belief model:
+[DEBUG]         Base score from card value: 0
+[DEBUG]         1. Trump factor (confidence: 0.7389):
+[DEBUG]           Not a high-confidence trump card
+[DEBUG]         2. Lead suit factor:
+[DEBUG]           Lead suit: C
+[DEBUG]           Void in C, discard bonus: +0.5000
+[DEBUG]         3. Opponent void factor:
+[DEBUG]           Opponent 0: no void bonus for H
+[DEBUG]           Opponent 1: no void bonus for H
+[DEBUG]           Opponent 2: no void bonus for H
+[DEBUG]         4. Opponent strength factor (avg: 0.2468):
+[DEBUG]           Weak opponents, but not a low card
+[DEBUG]         5. Uncertainty factor (uncertainty: 0.4624):
+[DEBUG]           Low uncertainty, no uncertainty factor
+[DEBUG]         6. Game phase factor (phase: GamePhase.REVEALED):
+[DEBUG]           Revealed phase, but not trump
+[DEBUG]         7. Trick position factor:
+[DEBUG]           Position in trick: 3
+[DEBUG]           Last to play, but can't win
+[DEBUG]         Final score for KH: 0.5000
+[DEBUG]       Belief model score: 0.500
+[DEBUG]     Belief model evaluation completed
+[DEBUG]     Best card: KH (score: 0.500)
+Player 0 won the hand: 1 points
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 25 points
+Team B (Players 1 & 3): 3 points
+Bidder: Player 3 (Team B)
+Winning Bid: 16
+Bid Success: NO
+Game Winner: Team B (Players 1 & 3)
+Total Tricks: 8

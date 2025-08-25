@@ -213,7 +213,7 @@ class PointPredictionModel(nn.Module):
         
         # Hand representation layers
         self.hand_conv = nn.Sequential(
-            nn.Conv1d(7, 32, kernel_size=3, padding=1),
+            nn.Conv1d(4, 32, kernel_size=3, padding=1),  # 4 cards, not 7 ranks
             nn.ReLU(),
             nn.Conv1d(32, 64, kernel_size=3, padding=1),
             nn.ReLU(),
@@ -238,7 +238,7 @@ class PointPredictionModel(nn.Module):
     
     def forward(self, hand_tensor, features):
         # Process hand
-        hand_flat = hand_tensor.view(hand_tensor.size(0), 7, -1)  # (batch, 7, 8)
+        hand_flat = hand_tensor.view(hand_tensor.size(0), 4, -1)  # (batch, 4, 13) - 4 cards, 13 ranks
         hand_features = self.hand_conv(hand_flat).squeeze(-1)  # (batch, 64)
         
         # Process additional features

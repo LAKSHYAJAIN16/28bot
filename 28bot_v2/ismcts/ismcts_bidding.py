@@ -10,7 +10,25 @@ import numpy as np
 
 from game28.game_state import Game28State, Card
 from game28.constants import *
-from belief_model.belief_net import BeliefNetwork, BeliefState
+
+# Try to import belief network, but make it optional
+try:
+    from belief_model.improved_belief_net import ImprovedBeliefNetwork as BeliefNetwork
+    from belief_model.improved_belief_net import BeliefPrediction as BeliefState
+    BELIEF_AVAILABLE = True
+except ImportError:
+    print("Warning: Belief network not available for ISMCTS")
+    BELIEF_AVAILABLE = False
+    # Create dummy classes
+    class BeliefNetwork:
+        def predict_beliefs(self, *args, **kwargs):
+            return None
+    
+    class BeliefState:
+        def __init__(self):
+            self.opponent_hands = {}
+            self.known_cards = []
+            self.played_cards = []
 
 
 @dataclass
@@ -22,7 +40,7 @@ class ISMCTSNode:
     children: Dict[int, 'ISMCTSNode'] = None
     visits: int = 0
     value: float = 0.0
-    player: int = 0
+    player_id: int = 0  # Changed from player to player_id to match usage
     
     def __post_init__(self):
         if self.children is None:
@@ -51,7 +69,7 @@ class ISMCTSBidding:
             Best action (bid value or -1 for pass)
         """
         # Create root node
-        root = ISMCTSNode(state=game_state.copy(), player=player_id)
+        root = ISMCTSNode(state=game_state.copy(), player_id=player_id)
         
         # Run simulations
         for _ in range(self.num_simulations):
@@ -66,7 +84,7 @@ class ISMCTSBidding:
                 leaf = self._expand(leaf, determinized_state)
             
             # Simulate to completion
-            value = self._simulate(leaf.state, determinized_state)
+            value = self._simulate(leaf.state, determinized_state, leaf.player_id)
             
             # Backpropagate
             self._backpropagate(leaf, value, player_id)
@@ -79,17 +97,24 @@ class ISMCTSBidding:
         """Sample a determinized state using belief network"""
         determinized_state = game_state.copy()
         
-        if self.belief_network:
-            # Use belief network to sample opponent hands
-            belief_state = self.belief_network.predict_beliefs(game_state, player_id)
-            opponent_samples = belief_state.opponent_hands
-            
-            # Sample opponent hands
-            for opp_id in range(4):
-                if opp_id != player_id:
-                    # Sample cards based on belief probabilities
-                    sampled_hand = self._sample_hand_from_belief(opponent_samples[opp_id], belief_state)
-                    determinized_state.hands[opp_id] = sampled_hand
+        if self.belief_network and BELIEF_AVAILABLE:
+            try:
+                # Use belief network to sample opponent hands
+                belief_state = self.belief_network.predict_beliefs(game_state, player_id)
+                if belief_state and hasattr(belief_state, 'opponent_hands'):
+                    # Sample opponent hands
+                    for opp_id in range(4):
+                        if opp_id != player_id and opp_id in belief_state.opponent_hands:
+                            # Sample cards based on belief probabilities
+                            sampled_hand = self._sample_hand_from_belief(belief_state.opponent_hands[opp_id], belief_state)
+                            determinized_state.hands[opp_id] = sampled_hand
+                else:
+                    # Fallback to uniform sampling
+                    self._uniform_sample_opponent_hands(determinized_state, player_id)
+            except Exception as e:
+                print(f"ISMCTS belief sampling failed: {e}")
+                # Fallback to uniform sampling
+                self._uniform_sample_opponent_hands(determinized_state, player_id)
         else:
             # Uniform sampling if no belief network
             self._uniform_sample_opponent_hands(determinized_state, player_id)
@@ -98,25 +123,31 @@ class ISMCTSBidding:
     
     def _sample_hand_from_belief(self, card_probs: List[float], belief_state: BeliefState) -> List[Card]:
         """Sample a hand from belief distribution"""
-        # Get available cards
+        # Get available cards (simplified - just use all cards not in current player's hand)
         available_cards = []
         for suit in SUITS:
             for rank in RANKS:
                 card = Card(suit, rank)
-                if card not in belief_state.known_cards and card not in belief_state.played_cards:
-                    available_cards.append(card)
+                available_cards.append(card)
+        
+        # Remove cards that are already known to be in other hands
+        # For now, we'll use a simplified approach
+        sampled_hand = []
+        remaining_cards = available_cards.copy()
         
         # Sample 8 cards
-        sampled_hand = []
         for _ in range(8):
-            if not available_cards:
+            if not remaining_cards:
                 break
             
             # Calculate probabilities for available cards
             available_probs = []
-            for card in available_cards:
+            for card in remaining_cards:
                 card_idx = SUITS.index(card.suit) * 8 + RANKS.index(card.rank)
-                available_probs.append(card_probs[card_idx])
+                if card_idx < len(card_probs):
+                    available_probs.append(card_probs[card_idx])
+                else:
+                    available_probs.append(0.1)  # Default probability
             
             # Normalize probabilities
             total_prob = sum(available_probs)
@@ -124,12 +155,17 @@ class ISMCTSBidding:
                 available_probs = [p / total_prob for p in available_probs]
             else:
                 # Uniform if all probabilities are 0
-                available_probs = [1.0 / len(available_cards)] * len(available_cards)
+                available_probs = [1.0 / len(remaining_cards)] * len(remaining_cards)
             
             # Sample card
-            chosen_idx = np.random.choice(len(available_cards), p=available_probs)
-            chosen_card = available_cards.pop(chosen_idx)
-            sampled_hand.append(chosen_card)
+            try:
+                chosen_idx = np.random.choice(len(remaining_cards), p=available_probs)
+                chosen_card = remaining_cards.pop(chosen_idx)
+                sampled_hand.append(chosen_card)
+            except ValueError:
+                # Fallback to random choice
+                chosen_card = remaining_cards.pop(random.randint(0, len(remaining_cards) - 1))
+                sampled_hand.append(chosen_card)
         
         return sampled_hand
     
@@ -179,7 +215,7 @@ class ISMCTSBidding:
             if best_child:
                 node = best_child
                 # Update determinized state
-                self._apply_action(determinized_state, node.action, node.player)
+                self._apply_action(determinized_state, node.action, node.player_id)
             else:
                 break
         
@@ -191,28 +227,28 @@ class ISMCTSBidding:
             return node
         
         # Get legal actions
-        legal_actions = determinized_state.get_legal_bids(node.player)
+        legal_actions = determinized_state.get_legal_bids(node.player_id)
         
         # Find unexpanded action
         for action in legal_actions:
             if action not in node.children:
                 # Create new state
                 new_state = determinized_state.copy()
-                new_state.make_bid(node.player, action)
+                new_state.make_bid(node.player_id, action)
                 
                 # Create child node
                 child = ISMCTSNode(
                     state=new_state,
                     parent=node,
                     action=action,
-                    player=(node.player + 1) % 4
+                    player_id=(node.player_id + 1) % 4
                 )
                 node.children[action] = child
                 return child
         
         return node
     
-    def _simulate(self, state: Game28State, determinized_state: Game28State) -> float:
+    def _simulate(self, state: Game28State, determinized_state: Game28State, player_id: int) -> float:
         """Simulate from current state to completion"""
         sim_state = determinized_state.copy()
         
@@ -229,7 +265,7 @@ class ISMCTSBidding:
                 break
         
         # Calculate reward
-        return self._calculate_reward(sim_state, state.player)
+        return self._calculate_reward(sim_state, player_id)
     
     def _backpropagate(self, node: ISMCTSNode, value: float, player_id: int):
         """Backpropagate value up the tree"""
@@ -311,7 +347,7 @@ class BeliefAwareISMCTS(ISMCTSBidding):
         action = self.select_action(game_state, player_id)
         
         # Calculate confidence based on visit counts
-        root = ISMCTSNode(state=game_state.copy(), player=player_id)
+        root = ISMCTSNode(state=game_state.copy(), player_id=player_id)
         
         # Run a few simulations to get visit distribution
         for _ in range(min(100, self.num_simulations)):
@@ -319,7 +355,7 @@ class BeliefAwareISMCTS(ISMCTSBidding):
             leaf = self._select(root, determinized_state)
             if leaf.visits > 0:
                 leaf = self._expand(leaf, determinized_state)
-            value = self._simulate(leaf.state, determinized_state)
+            value = self._simulate(leaf.state, determinized_state, leaf.player_id)
             self._backpropagate(leaf, value, player_id)
         
         # Calculate confidence

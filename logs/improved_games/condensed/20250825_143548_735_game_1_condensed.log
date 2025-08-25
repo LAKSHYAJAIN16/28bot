@@ -1,0 +1,29 @@
+
+===== GAME 1 (20250825_143548_735) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=17)
+Pass (locked): Player 1 (min_allowed=17)
+Pass (locked): Player 2 (min_allowed=17)
+AUCTION WINNER: Player 3 with bid 16; chooses trump [to be determined]
+AUCTION WINNER: Player 3 with bid 16; chooses trump C
+
+Player 0 (auction 4 cards): ['KH', '8D', 'QC', '7C']
+Player 1 (auction 4 cards): ['JD', '8C', '7H', '10C']
+Player 2 (auction 4 cards): ['8S', '9S', 'KD', '8H']
+Player 3 (auction 4 cards): ['7S', 'KC', 'JS', 'AH']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Trump revealed by Player 0: C
+-- Phase 2 begins: Trump revealed as C by Player 0 on trick 1 --
+Player 0 won the hand: 6 points
+Player 1 won the hand: 6 points
+Player 2 won the hand: 6 points
+Player 1 won the hand: 3 points
+Player 3 won the hand: 1 points
+Player 2 won the hand: 2 points
+Player 1 won the hand: 1 points
+=== GAME SUMMARY ===
+Game 1 final points: Team A=14, Team B=11

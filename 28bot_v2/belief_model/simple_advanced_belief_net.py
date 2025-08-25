@@ -208,7 +208,7 @@ class SimpleAdvancedBeliefNetwork(nn.Module):
         
         return predictions
     
-    def _encode_card_features(self, game_state: GameState, player_id: int) -> torch.Tensor:
+    def _encode_card_features(self, game_state: Game28State, player_id: int) -> torch.Tensor:
         """Encode card features for all 32 cards"""
         features = torch.zeros(32, 6)
         
@@ -217,15 +217,15 @@ class SimpleAdvancedBeliefNetwork(nn.Module):
             rank_idx = card_idx % 8
             
             # Basic card features
-            features[card_idx, 0] = suit_idx  # Suit
-            features[card_idx, 1] = rank_idx  # Rank
-            features[card_idx, 2] = CARD_VALUES[RANKS[rank_idx]]  # Point value
-            features[card_idx, 3] = TRICK_RANKINGS[RANKS[rank_idx]]  # Trick ranking
+            features[card_idx, 0] = suit_idx / 3.0  # Suit (normalized)
+            features[card_idx, 1] = rank_idx / 7.0  # Rank (normalized)
+            features[card_idx, 2] = CARD_VALUES[RANKS[rank_idx]] / 10.0  # Point value (normalized)
+            features[card_idx, 3] = TRICK_RANKINGS[RANKS[rank_idx]] / 7.0  # Trick ranking (normalized)
             
             # Trump ranking
             if game_state.trump_suit:
                 trump_rank = TRICK_RANKINGS[RANKS[rank_idx]] if SUITS[suit_idx] == game_state.trump_suit else 0
-                features[card_idx, 4] = trump_rank
+                features[card_idx, 4] = trump_rank / 7.0
             else:
                 features[card_idx, 4] = 0
             
@@ -234,21 +234,21 @@ class SimpleAdvancedBeliefNetwork(nn.Module):
         
         return features
     
-    def _encode_player_features(self, game_state: GameState, player_id: int) -> torch.Tensor:
+    def _encode_player_features(self, game_state: Game28State, player_id: int) -> torch.Tensor:
         """Encode player features for all 4 players"""
         features = torch.zeros(4, 15)
         
         for pid in range(4):
-            if pid in game_state.hands:
+            if pid < len(game_state.hands):
                 hand = game_state.hands[pid]
                 
                 # Basic hand features
-                features[pid, 0] = len(hand)  # Hand size
+                features[pid, 0] = len(hand) / 8.0  # Hand size (normalized)
                 
                 # Suit counts
                 for suit_idx, suit in enumerate(SUITS):
                     suit_count = sum(1 for card in hand if card.suit == suit)
-                    features[pid, 1 + suit_idx] = suit_count
+                    features[pid, 1 + suit_idx] = suit_count / 8.0  # Normalized
                 
                 # Void suits
                 for suit_idx, suit in enumerate(SUITS):
@@ -257,19 +257,19 @@ class SimpleAdvancedBeliefNetwork(nn.Module):
                 
                 # High cards
                 high_cards = sum(1 for card in hand if card.rank in ['A', 'K', 'Q', 'J'])
-                features[pid, 9] = high_cards
+                features[pid, 9] = high_cards / 8.0  # Normalized
                 
                 # Trump cards
                 if game_state.trump_suit:
                     trump_cards = sum(1 for card in hand if card.suit == game_state.trump_suit)
-                    features[pid, 10] = trump_cards
+                    features[pid, 10] = trump_cards / 8.0  # Normalized
                 else:
                     features[pid, 10] = 0
                 
                 # Bidding features
-                if game_state.bidding_history:
-                    player_bids = [bid for player, bid in game_state.bidding_history if player == pid]
-                    features[pid, 11] = max(player_bids) if player_bids else 0
+                if game_state.bid_history:
+                    player_bids = [bid for player, bid in game_state.bid_history if player == pid]
+                    features[pid, 11] = max(player_bids) / 28.0 if player_bids else 0  # Normalized
                 else:
                     features[pid, 11] = 0
                 
@@ -285,106 +285,121 @@ class SimpleAdvancedBeliefNetwork(nn.Module):
                 
                 # Score features
                 if pid in [0, 2]:
-                    features[pid, 13] = game_state.team_a_score
+                    features[pid, 13] = game_state.team_scores.get('A', 0) / 100.0  # Normalized
                 else:
-                    features[pid, 13] = game_state.team_b_score
+                    features[pid, 13] = game_state.team_scores.get('B', 0) / 100.0  # Normalized
                 
-                # Tricks won
-                tricks_won = sum(1 for play in game_state.played_cards if play.player_id == pid and play.won_trick)
-                features[pid, 14] = tricks_won
+                # Tricks won (simplified - count from completed tricks)
+                tricks_won = 0
+                for trick in game_state.tricks:
+                    if trick.winner == pid:
+                        tricks_won += 1
+                features[pid, 14] = tricks_won / 8.0  # Normalized
         
         return features
     
-    def _encode_game_features(self, game_state: GameState) -> torch.Tensor:
-        """Encode game-level features"""
+    def _encode_game_features(self, game_state: Game28State) -> torch.Tensor:
+        """Encode game-level features for Game28State"""
         features = torch.zeros(20)
         
+        # Calculate game progress based on available attributes
+        game_progress = 0.0
+        if game_state.phase == GamePhase.BIDDING:
+            game_progress = 0.0
+        elif game_state.phase == GamePhase.CONCEALED:
+            game_progress = 0.5
+        else:  # REVEALED
+            game_progress = 0.5 + (len(game_state.tricks) / 8.0) * 0.5
+        
         # Phase encoding
-        phase_map = {'bidding': 0, 'concealed': 1, 'revealed': 2}
-        features[0] = phase_map.get(game_state.phase, 0)
+        if game_state.phase == GamePhase.BIDDING:
+            features[0] = 0.0
+        elif game_state.phase == GamePhase.CONCEALED:
+            features[0] = 0.5
+        else:  # REVEALED
+            features[0] = 1.0
         
         # Trump encoding
         if game_state.trump_suit:
             trump_idx = SUITS.index(game_state.trump_suit)
-            features[1] = trump_idx
+            features[1] = trump_idx / 3.0
         else:
-            features[1] = 4  # Unknown
+            features[1] = 0.0
         
         # Game progress
-        features[2] = game_state.game_progress
+        features[2] = game_progress
         
         # Scores
-        features[3] = game_state.team_a_score
-        features[4] = game_state.team_b_score
+        features[3] = game_state.team_scores.get('A', 0) / 100.0
+        features[4] = game_state.team_scores.get('B', 0) / 100.0
         
         # Bidding information
-        features[5] = game_state.current_bid
-        features[6] = game_state.bidder if game_state.bidder is not None else -1
+        features[5] = game_state.current_bid / 28.0
+        features[6] = game_state.bidder / 3.0 if game_state.bidder is not None else 0.0
         
         # Trick information
-        features[7] = game_state.tricks_played
-        features[8] = game_state.cards_played
+        features[7] = len(game_state.tricks) / 8.0
+        features[8] = sum(len(trick.cards) for trick in game_state.tricks) / 32.0
         
         # Trump revelation
         features[9] = 1.0 if game_state.trump_revealed else 0.0
-        features[10] = game_state.trump_revealer if game_state.trump_revealer is not None else -1
+        features[10] = 0.0  # No trump revealer tracking in Game28State
         
         # Game pressure
-        features[11] = game_state.game_progress * 10
+        features[11] = game_progress * 10
         
         # Risk level
-        features[12] = abs(game_state.team_a_score - game_state.team_b_score) / 28.0
+        features[12] = abs(game_state.team_scores.get('A', 0) - game_state.team_scores.get('B', 0)) / 100.0
         
         # Expected value
-        features[13] = (game_state.team_a_score + game_state.team_b_score) / 28.0
+        features[13] = (game_state.team_scores.get('A', 0) + game_state.team_scores.get('B', 0)) / 100.0
         
         # Variance
         features[14] = 0.5
         
         # Information entropy
-        features[15] = 1.0 - game_state.game_progress
+        features[15] = 1.0 - game_progress
         
         # Time remaining
-        features[16] = 1.0 - game_state.game_progress
+        features[16] = 1.0 - game_progress
         
         # Lead suit
         if game_state.current_trick and game_state.current_trick.cards:
-            lead_suit = game_state.current_trick.cards[0][1].suit
-            features[17] = SUITS.index(lead_suit)
+            lead_suit = game_state.current_trick.lead_suit
+            if lead_suit:
+                features[17] = SUITS.index(lead_suit) / 3.0
+            else:
+                features[17] = 0.0
         else:
-            features[17] = -1
+            features[17] = 0.0
         
         # Current player
-        features[18] = game_state.current_player
+        features[18] = game_state.current_player / 3.0
         
         # Game completion
-        features[19] = game_state.game_progress
+        features[19] = game_progress
         
         return features
     
-    def _encode_temporal_features(self, game_state: GameState) -> torch.Tensor:
-        """Encode temporal features from move history"""
+    def _encode_temporal_features(self, game_state: Game28State) -> torch.Tensor:
+        """Encode temporal features from move history for Game28State"""
         max_moves = 20  # Fixed sequence length
         
-        if not game_state.played_cards:
-            return torch.zeros(max_moves, 10)  # Empty sequence padded
-        
-        # Take last 20 moves
-        recent_moves = game_state.played_cards[-max_moves:]
-        
+        # Create a simple temporal representation from completed tricks
         features = torch.zeros(max_moves, 10)
         
-        for i, move in enumerate(recent_moves):
-            # Move features
-            features[i, 0] = move.player_id
-            features[i, 1] = SUITS.index(move.card.suit)
-            features[i, 2] = RANKS.index(move.card.rank)
-            features[i, 3] = move.trick_number
-            features[i, 4] = move.position_in_trick
-            features[i, 5] = 1.0 if move.won_trick else 0.0
-            features[i, 6] = move.points_earned
-            features[i, 7] = 1.0 if move.trump_played else 0.0
-            features[i, 8] = 1.0 if move.high_card_played else 0.0
-            features[i, 9] = 1.0 if move.forced_play else 0.0
+        # Fill with basic game state information since Game28State doesn't have detailed move history
+        for i in range(max_moves):
+            # Move features (simplified)
+            features[i, 0] = game_state.current_player / 3.0  # Current player (normalized)
+            features[i, 1] = 0.0  # No detailed suit info
+            features[i, 2] = 0.0  # No detailed rank info
+            features[i, 3] = len(game_state.tricks) / 8.0  # Trick number (normalized)
+            features[i, 4] = 0.0  # No position info
+            features[i, 5] = 0.0  # No win info
+            features[i, 6] = 0.0  # No points info
+            features[i, 7] = 0.0  # No trump info
+            features[i, 8] = 0.0  # No high card info
+            features[i, 9] = 0.0  # No forced play info
         
         return features

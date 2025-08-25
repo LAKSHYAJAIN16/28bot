@@ -1,0 +1,344 @@
+
+===== GAME 5 (20250825_143552_117) =====
+Player 0 initial hand (bidding): ['7H', '10H', 'QS', '8H']
+Player 1 initial hand (bidding): ['8D', '7C', 'AC', 'AH']
+Player 2 initial hand (bidding): ['QH', 'KS', '10S', '8C']
+Player 3 initial hand (bidding): ['8S', 'KH', '7S', '10D']
+
+===== AUCTION =====
+[DEBUG] BIDDING ANALYSIS - Player 0 (Hybrid Master)
+[DEBUG]   Bidding hand: ['7H', '10H', 'QS', '8H']
+[DEBUG]   Hand strength: 0.036
+[DEBUG]   Current bid: 16
+[DEBUG]   Present suits: ['S', 'H']
+[DEBUG]   Point prediction: 4.9 points
+[DEBUG]   All bidding strategies failed, passing
+Pass: Player 0 (min_allowed=17)
+[DEBUG] BIDDING ANALYSIS - Player 1 (Hybrid Expert)
+[DEBUG]   Bidding hand: ['8D', '7C', 'AC', 'AH']
+[DEBUG]   Hand strength: 0.071
+[DEBUG]   Current bid: 16
+[DEBUG]   Present suits: ['H', 'D', 'C']
+[DEBUG]   Point prediction: 3.5 points
+[DEBUG]   All bidding strategies failed, passing
+Pass: Player 1 (min_allowed=17)
+[DEBUG] BIDDING ANALYSIS - Player 2 (Hybrid Pro)
+[DEBUG]   Bidding hand: ['QH', 'KS', '10S', '8C']
+[DEBUG]   Hand strength: 0.036
+[DEBUG]   Current bid: 16
+[DEBUG]   Present suits: ['S', 'H', 'C']
+[DEBUG]   Point prediction: 8.5 points
+[DEBUG]   All bidding strategies failed, passing
+Pass: Player 2 (min_allowed=17)
+Auction winner: Player 3 with bid 16
+[DEBUG] TRUMP SELECTION - Player 3 (Hybrid Champion)
+[DEBUG]   Hand: ['8S', 'KH', '7S', '10D']
+[DEBUG]   Hybrid agent selected trump: S (method: belief_model)
+[DEBUG]   Confidence: 0.300
+[DEBUG]   Reasoning: Fallback to suit with most cards: {'H': 1, 'D': 1, 'C': 0, 'S': 2}
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Full hands (8 cards each):
+Player 0 full hand: ['7H', '10H', 'QS', '8H', '9S', '9D', 'JC', '9H']
+Player 1 full hand: ['8D', '7C', 'AC', 'AH', 'QC', 'QD', 'KC', 'JS']
+Player 2 full hand: ['QH', 'KS', '10S', '8C', '7D', 'JD', 'AS', '10C']
+Player 3 full hand: ['KH', '7S', '10D', 'KD', 'AD', '9C', 'JH']
+
+Player 0 (auction 4 cards): ['7H', '10H', 'QS', '8H']
+Player 1 (auction 4 cards): ['8D', '7C', 'AC', 'AH']
+Player 2 (auction 4 cards): ['QH', 'KS', '10S', '8C']
+Player 3 (auction 4 cards): ['KH', '7S', '10D', 'KD']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: [face-down trump]
+
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['KH', '7S', '10D', 'KD', 'AD', '9C', 'JH']
+[DEBUG]     Legal cards (6): ['KH', '10D', 'KD', 'AD', '9C', 'JH']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: JH (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['7H', '10H', 'QS', '8H', '9S', '9D', 'JC', '9H']
+[DEBUG]     Legal cards (4): ['7H', '10H', '8H', '9H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Trump reveal selected by hybrid agent
+[DEBUG]     Hybrid agent selected card: 9S (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Reveal chosen (score 0.250 > 0.200)
+-- Phase 2 begins: Trump revealed as S by Player 0 on trick 1 --
+[DEBUG] TRUMP REVEALED!
+[DEBUG]   Player 0 revealed trump S
+[DEBUG]   Trick number: 1
+[DEBUG]   Card played: 9S
+[DEBUG]   Game phase changed from CONCEALED to REVEALED
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['8D', '7C', 'AC', 'AH', 'QC', 'QD', 'KC', 'JS']
+[DEBUG]     Legal cards (1): ['AH']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: AH (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['QH', 'KS', '10S', '8C', '7D', 'JD', 'AS', '10C']
+[DEBUG]     Legal cards (1): ['QH']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: QH (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+Player 0 won the hand: 6 points
+
+
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['7H', '10H', 'QS', '8H', '9D', 'JC', '9H']
+[DEBUG]     Legal cards (6): ['7H', '10H', '8H', '9D', 'JC', '9H']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: JC (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['8D', '7C', 'AC', 'QC', 'QD', 'KC', 'JS']
+[DEBUG]     Legal cards (4): ['7C', 'AC', 'QC', 'KC']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: AC (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['KS', '10S', '8C', '7D', 'JD', 'AS', '10C']
+[DEBUG]     Legal cards (2): ['8C', '10C']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 10C (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['KH', '7S', '10D', 'KD', 'AD', '9C']
+[DEBUG]     Legal cards (1): ['9C']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 9C (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+Player 0 won the hand: 7 points
+
+
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['7H', '10H', 'QS', '8H', '9D', '9H']
+[DEBUG]     Legal cards (5): ['7H', '10H', '8H', '9D', '9H']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 9D (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['8D', '7C', 'QC', 'QD', 'KC', 'JS']
+[DEBUG]     Legal cards (2): ['8D', 'QD']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 8D (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['KS', '10S', '8C', '7D', 'JD', 'AS']
+[DEBUG]     Legal cards (2): ['7D', 'JD']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: JD (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['KH', '7S', '10D', 'KD', 'AD']
+[DEBUG]     Legal cards (3): ['10D', 'KD', 'AD']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 10D (method: belief_model)
+[DEBUG]     Confidence: 0.200
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+Player 2 won the hand: 6 points
+
+
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['KS', '10S', '8C', '7D', 'AS']
+[DEBUG]     Legal cards (2): ['8C', '7D']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 8C (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(8C, 0.200) vs ISMCTS(8C, 0.240)
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['KH', '7S', 'KD', 'AD']
+[DEBUG]     Legal cards (4): ['KH', '7S', 'KD', 'AD']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: AD (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(AD, 0.200) vs ISMCTS(AD, 0.240)
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['7H', '10H', 'QS', '8H', '9H']
+[DEBUG]     Legal cards (5): ['7H', '10H', 'QS', '8H', '9H']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 9H (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(9H, 0.200) vs ISMCTS(9H, 0.240)
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['7C', 'QC', 'QD', 'KC', 'JS']
+[DEBUG]     Legal cards (3): ['7C', 'QC', 'KC']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 7C (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(7C, 0.200) vs ISMCTS(7C, 0.240)
+Player 2 won the hand: 3 points
+
+
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['KS', '10S', '7D', 'AS']
+[DEBUG]     Legal cards (1): ['7D']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 7D (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(7D, 0.200) vs ISMCTS(7D, 0.240)
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['KH', '7S', 'KD']
+[DEBUG]     Legal cards (1): ['KD']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: KD (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(KD, 0.200) vs ISMCTS(KD, 0.240)
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['7H', '10H', 'QS', '8H']
+[DEBUG]     Legal cards (4): ['7H', '10H', 'QS', '8H']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 10H (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(10H, 0.200) vs ISMCTS(10H, 0.240)
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['QC', 'QD', 'KC', 'JS']
+[DEBUG]     Legal cards (1): ['QD']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: QD (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(QD, 0.200) vs ISMCTS(QD, 0.240)
+Player 3 won the hand: 1 points
+
+
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['KH', '7S']
+[DEBUG]     Legal cards (1): ['KH']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: KH (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(KH, 0.200) vs ISMCTS(KH, 0.240)
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['7H', 'QS', '8H']
+[DEBUG]     Legal cards (2): ['7H', '8H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 7H (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(7H, 0.200) vs ISMCTS(7H, 0.240)
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['QC', 'KC', 'JS']
+[DEBUG]     Legal cards (3): ['QC', 'KC', 'JS']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: JS (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(JS, 0.200) vs ISMCTS(JS, 0.240)
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['KS', '10S', 'AS']
+[DEBUG]     Legal cards (3): ['KS', '10S', 'AS']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 10S (method: hybrid)
+[DEBUG]     Confidence: 0.220
+[DEBUG]     Reasoning: Hybrid card: Belief(10S, 0.200) vs ISMCTS(10S, 0.240)
+Player 1 won the hand: 4 points
+
+
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['QC', 'KC']
+[DEBUG]     Legal cards (2): ['QC', 'KC']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: QC (method: ismcts)
+[DEBUG]     Confidence: 0.240
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['KS', 'AS']
+[DEBUG]     Legal cards (2): ['KS', 'AS']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: AS (method: ismcts)
+[DEBUG]     Confidence: 0.240
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['7S']
+[DEBUG]     Legal cards (1): ['7S']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: 7S (method: ismcts)
+[DEBUG]     Confidence: 0.240
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['QS', '8H']
+[DEBUG]     Legal cards (2): ['QS', '8H']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: QS (method: ismcts)
+[DEBUG]     Confidence: 0.240
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+Player 2 won the hand: 1 points
+
+
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['KS']
+[DEBUG]     Legal cards (1): ['KS']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: S
+[DEBUG]     Hybrid agent selected card: KS (method: ismcts)
+[DEBUG]     Confidence: 0.240
+[DEBUG]     Reasoning: Fallback to highest value card due to error: 'NoneType' object has no attribute 'predict_beliefs'
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 23 points
+Team B (Players 1 & 3): 5 points
+Bidder: Player 3 (Team B)
+Winning Bid: 16
+Bid Success: NO
+Game Winner: Tie
+Total Tricks: 7

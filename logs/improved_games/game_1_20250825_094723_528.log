@@ -1,0 +1,709 @@
+
+===== GAME 1 (20250825_094723_528) =====
+Player 0 initial hand (bidding): ['9H', '7H', 'AC', 'JC']
+Player 1 initial hand (bidding): ['JH', 'AD', '7S', '7C']
+Player 2 initial hand (bidding): ['QS', '10S', '8H', 'AS']
+Player 3 initial hand (bidding): ['10C', '8C', '8D', 'JD']
+
+  Player 0 (Belief Master) analyzing bid:
+    Bidding hand (first 4): ['9H', '7H', 'AC', 'JC']
+    Hand strength: 0.214
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Pass evaluation score: 0.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 17 evaluation score: -1.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 18 evaluation score: -1.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 0 (min_allowed=17)
+  Player 1 (Belief Expert) analyzing bid:
+    Bidding hand (first 4): ['JH', 'AD', '7S', '7C']
+    Hand strength: 0.143
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Pass evaluation score: 0.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 17 evaluation score: -1.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 18 evaluation score: -1.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 1 (min_allowed=17)
+  Player 2 (Belief Pro) analyzing bid:
+    Bidding hand (first 4): ['QS', '10S', '8H', 'AS']
+    Hand strength: 0.071
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Pass evaluation score: 0.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 17 evaluation score: -1.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 18 evaluation score: -1.000
+      Belief model evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 2 (min_allowed=17)
+Auction winner: Player 3 with bid 16
+    Strategy: Belief-based trump selection
+    Belief-based trump selection error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Full hands (8 cards each):
+Player 0 full hand: ['9H', '7H', 'AC', 'JC', 'KD', 'KC', '9C', 'QH']
+Player 1 full hand: ['JH', 'AD', '7S', '7C', '9D', 'JS', 'QD', '10H']
+Player 2 full hand: ['QS', '10S', '8H', 'AS', '9S', 'QC', '7D', 'KS']
+Player 3 full hand: ['10C', '8C', '8D', 'KH', '8S', '10D', 'AH']
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (8 cards): ['9H', '7H', 'AC', 'JC', 'KD', 'KC', '9C', 'QH']
+    Legal cards (7): ['9H', '7H', 'AC', 'JC', 'KC', '9C', 'QH']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/7: 9H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 2.000
+    Evaluating card 2/7: 7H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 3/7: AC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 4/7: JC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 3.000
+    Evaluating card 5/7: KC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 6/7: 9C
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 2.000
+    Evaluating card 7/7: QH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: JC (score: 3.000)
+Player 0 plays JC
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (8 cards): ['JH', 'AD', '7S', '7C', '9D', 'JS', 'QD', '10H']
+    Legal cards (1): ['7C']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 7C
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 7C (score: 0.000)
+Player 1 plays 7C
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (8 cards): ['QS', '10S', '8H', 'AS', '9S', 'QC', '7D', 'KS']
+    Legal cards (1): ['QC']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: QC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: QC (score: 0.000)
+Player 2 plays QC
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (7 cards): ['10C', '8C', '8D', 'KH', '8S', '10D', 'AH']
+    Legal cards (2): ['10C', '8C']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 10C
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 2/2: 8C
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 10C (score: 1.000)
+Player 3 plays 10C
+Player 0 won the hand: 4 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (7 cards): ['9H', '7H', 'AC', 'KD', 'KC', '9C', 'QH']
+    Legal cards (6): ['9H', '7H', 'AC', 'KC', '9C', 'QH']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/6: 9H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 2.000
+    Evaluating card 2/6: 7H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 3/6: AC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 4/6: KC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 5/6: 9C
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 2.000
+    Evaluating card 6/6: QH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 9H (score: 2.000)
+Player 0 plays 9H
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (7 cards): ['JH', 'AD', '7S', '9D', 'JS', 'QD', '10H']
+    Legal cards (2): ['JH', '10H']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: JH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 3.000
+    Evaluating card 2/2: 10H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: JH (score: 3.000)
+Player 1 plays JH
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (7 cards): ['QS', '10S', '8H', 'AS', '9S', '7D', 'KS']
+    Legal cards (1): ['8H']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 8H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 8H (score: 0.000)
+Player 2 plays 8H
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (6 cards): ['8C', '8D', 'KH', '8S', '10D', 'AH']
+    Legal cards (2): ['KH', 'AH']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: KH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/2: AH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: AH (score: 1.000)
+Player 3 plays AH
+Player 1 won the hand: 6 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (6 cards): ['7H', 'AC', 'KD', 'KC', '9C', 'QH']
+    Legal cards (5): ['7H', 'AC', 'KC', '9C', 'QH']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/5: 7H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/5: AC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 3/5: KC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 4/5: 9C
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 2.000
+    Evaluating card 5/5: QH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 9C (score: 2.000)
+Player 0 plays 9C
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (6 cards): ['AD', '7S', '9D', 'JS', 'QD', '10H']
+    Legal cards (6): ['AD', '7S', '9D', 'JS', 'QD', '10H']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/6: AD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 2/6: 7S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 3/6: 9D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 2.000
+    Evaluating card 4/6: JS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 3.000
+    Evaluating card 5/6: QD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 6/6: 10H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: JS (score: 3.000)
+Player 1 plays JS
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (6 cards): ['QS', '10S', 'AS', '9S', '7D', 'KS']
+    Legal cards (6): ['QS', '10S', 'AS', '9S', '7D', 'KS']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/6: QS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/6: 10S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 3/6: AS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 4/6: 9S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 2.000
+    Evaluating card 5/6: 7D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 6/6: KS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 9S (score: 2.000)
+Player 2 plays 9S
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (5 cards): ['8C', '8D', 'KH', '8S', '10D']
+    Legal cards (1): ['8C']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 8C
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 8C (score: 0.000)
+Player 3 plays 8C
+Player 0 won the hand: 7 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (5 cards): ['7H', 'AC', 'KD', 'KC', 'QH']
+    Legal cards (4): ['7H', 'AC', 'KC', 'QH']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: 7H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/4: AC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 3/4: KC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 4/4: QH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: AC (score: 1.000)
+Player 0 plays AC
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (5 cards): ['AD', '7S', '9D', 'QD', '10H']
+    Legal cards (5): ['AD', '7S', '9D', 'QD', '10H']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/5: AD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 2/5: 7S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 3/5: 9D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 2.000
+    Evaluating card 4/5: QD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 5/5: 10H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 9D (score: 2.000)
+-- Phase 2 begins: Trump revealed as D by Player 1 on trick 4 --
+Player 1 plays 9D
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (5 cards): ['QS', '10S', 'AS', '7D', 'KS']
+    Legal cards (5): ['QS', '10S', 'AS', '7D', 'KS']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/5: QS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/5: 10S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 3/5: AS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 4/5: 7D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 5/5: KS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 10S (score: 1.000)
+Player 2 plays 10S
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (5 cards): ['8D', 'KH', '8S', '10D', 'JD']
+    Legal cards (5): ['8D', 'KH', '8S', '10D', 'JD']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/5: 8D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/5: KH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 3/5: 8S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 4/5: 10D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 5/5: JD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 3.000
+    Belief model evaluation completed
+    Best card: JD (score: 3.000)
+Player 3 plays JD
+Player 3 won the hand: 7 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (4 cards): ['7H', 'KD', 'KC', 'QH']
+    Legal cards (4): ['7H', 'KD', 'KC', 'QH']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: 7H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/4: KD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 3/4: KC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 4/4: QH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 7H (score: 0.000)
+Player 0 plays 7H
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (4 cards): ['AD', '7S', 'QD', '10H']
+    Legal cards (1): ['10H']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 10H
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 10H (score: 1.000)
+Player 1 plays 10H
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (4 cards): ['QS', 'AS', '7D', 'KS']
+    Legal cards (4): ['QS', 'AS', '7D', 'KS']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: QS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/4: AS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 3/4: 7D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 4/4: KS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: AS (score: 1.000)
+Player 2 plays AS
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (4 cards): ['8D', 'KH', '8S', '10D']
+    Legal cards (1): ['KH']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: KH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: KH (score: 0.000)
+Player 3 plays KH
+Player 1 won the hand: 2 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (3 cards): ['KD', 'KC', 'QH']
+    Legal cards (3): ['KD', 'KC', 'QH']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/3: KD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/3: KC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 3/3: QH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: KD (score: 0.000)
+Player 0 plays KD
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (3 cards): ['AD', '7S', 'QD']
+    Legal cards (2): ['AD', 'QD']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: AD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Evaluating card 2/2: QD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: AD (score: 1.000)
+Player 1 plays AD
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (3 cards): ['QS', '7D', 'KS']
+    Legal cards (1): ['7D']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 7D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 7D (score: 0.000)
+Player 2 plays 7D
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (3 cards): ['8D', '8S', '10D']
+    Legal cards (2): ['8D', '10D']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 8D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/2: 10D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 10D (score: 1.000)
+Player 3 plays 10D
+Player 1 won the hand: 2 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (2 cards): ['KC', 'QH']
+    Legal cards (2): ['KC', 'QH']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: KC
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/2: QH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: KC (score: 0.000)
+Player 0 plays KC
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (2 cards): ['7S', 'QD']
+    Legal cards (2): ['7S', 'QD']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 7S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/2: QD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 7S (score: 0.000)
+Player 1 plays 7S
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (2 cards): ['QS', 'KS']
+    Legal cards (2): ['QS', 'KS']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: QS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/2: KS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: QS (score: 0.000)
+Player 2 plays QS
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (2 cards): ['8D', '8S']
+    Legal cards (2): ['8D', '8S']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 8D
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Evaluating card 2/2: 8S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 8D (score: 0.000)
+Player 3 plays 8D
+Player 3 won the hand: 0 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (1 cards): ['QH']
+    Legal cards (1): ['QH']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: QH
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: QH (score: 0.000)
+Player 0 plays QH
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (1 cards): ['QD']
+    Legal cards (1): ['QD']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: QD
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: QD (score: 0.000)
+Player 1 plays QD
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (1 cards): ['KS']
+    Legal cards (1): ['KS']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: KS
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: KS (score: 0.000)
+Player 2 plays KS
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (1 cards): ['8S']
+    Legal cards (1): ['8S']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 8S
+      Belief model card evaluation error: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 8S (score: 0.000)
+Player 3 plays 8S
+Player 1 won the hand: 0 points
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 11 points
+Team B (Players 1 & 3): 17 points
+Bidder: Player 3 (Team B)
+Winning Bid: 16
+Bid Success: YES
+Game Winner: Team B (Players 1 & 3)
+Total Tricks: 8

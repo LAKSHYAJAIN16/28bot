@@ -1,0 +1,682 @@
+
+===== GAME 1 (20250825_095132_497) =====
+Player 0 initial hand (bidding): ['AH', '7D', '8S', '7C']
+Player 1 initial hand (bidding): ['9H', 'JH', '10C', 'JC']
+Player 2 initial hand (bidding): ['JD', 'KC', 'KD', '10H']
+Player 3 initial hand (bidding): ['KS', 'QS', '9D', '10D']
+
+  Player 0 (Belief Master) analyzing bid:
+    Bidding hand (first 4): ['AH', '7D', '8S', '7C']
+    Hand strength: 0.036
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Pass evaluation score: 0.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 17 evaluation score: -1.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 18 evaluation score: -1.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 0 (min_allowed=17)
+  Player 1 (Belief Expert) analyzing bid:
+    Bidding hand (first 4): ['9H', 'JH', '10C', 'JC']
+    Hand strength: 0.321
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Pass evaluation score: 0.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 17 evaluation score: -1.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 18 evaluation score: -1.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 1 (min_allowed=17)
+  Player 2 (Belief Pro) analyzing bid:
+    Bidding hand (first 4): ['JD', 'KC', 'KD', '10H']
+    Hand strength: 0.143
+    Current bid: 16
+    Point prediction: -0.0 points
+    Belief model: Opponent hand probabilities calculated
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model predictions obtained
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Pass evaluation score: 0.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 17 evaluation score: -1.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 18 evaluation score: -1.000
+      Belief model evaluation error: only length-1 arrays can be converted to Python scalars
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 2 (min_allowed=17)
+Auction winner: Player 3 with bid 16
+    Strategy: Belief-based trump selection
+    Belief-based trump selection error: only length-1 arrays can be converted to Python scalars
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Full hands (8 cards each):
+Player 0 full hand: ['AH', '7D', '8S', '7C', 'AD', 'JS', 'QH', 'QC']
+Player 1 full hand: ['9H', 'JH', '10C', 'JC', '9S', 'AS', '8D', '8C']
+Player 2 full hand: ['JD', 'KC', 'KD', '10H', '10S', 'AC', '9C', 'KH']
+Player 3 full hand: ['KS', 'QS', '10D', '7H', '8H', '7S', 'QD']
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (8 cards): ['AH', '7D', '8S', '7C', 'AD', 'JS', 'QH', 'QC']
+    Legal cards (6): ['AH', '8S', '7C', 'JS', 'QH', 'QC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/6: AH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 2/6: 8S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/6: 7C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 4/6: JS
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 3.000
+    Evaluating card 5/6: QH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 6/6: QC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: JS (score: 3.000)
+Player 0 plays JS
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (8 cards): ['9H', 'JH', '10C', 'JC', '9S', 'AS', '8D', '8C']
+    Legal cards (2): ['9S', 'AS']
+    Current trick: 1 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 9S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 2.000
+    Evaluating card 2/2: AS
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 9S (score: 2.000)
+Player 1 plays 9S
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (8 cards): ['JD', 'KC', 'KD', '10H', '10S', 'AC', '9C', 'KH']
+    Legal cards (1): ['10S']
+    Current trick: 2 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 10S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: 10S (score: 1.000)
+Player 2 plays 10S
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (7 cards): ['KS', 'QS', '10D', '7H', '8H', '7S', 'QD']
+    Legal cards (3): ['KS', 'QS', '7S']
+    Current trick: 3 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/3: KS
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/3: QS
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/3: 7S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: KS (score: 0.000)
+Player 3 plays KS
+Player 0 won the hand: 6 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (7 cards): ['AH', '7D', '8S', '7C', 'AD', 'QH', 'QC']
+    Legal cards (5): ['AH', '8S', '7C', 'QH', 'QC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/5: AH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 2/5: 8S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/5: 7C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 4/5: QH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 5/5: QC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: AH (score: 1.000)
+Player 0 plays AH
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (7 cards): ['9H', 'JH', '10C', 'JC', 'AS', '8D', '8C']
+    Legal cards (2): ['9H', 'JH']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 9H
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 2.000
+    Evaluating card 2/2: JH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 3.000
+    Belief model evaluation completed
+    Best card: JH (score: 3.000)
+Player 1 plays JH
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (7 cards): ['JD', 'KC', 'KD', '10H', 'AC', '9C', 'KH']
+    Legal cards (2): ['10H', 'KH']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 10H
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 2/2: KH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 10H (score: 1.000)
+Player 2 plays 10H
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (6 cards): ['QS', '10D', '7H', '8H', '7S', 'QD']
+    Legal cards (2): ['7H', '8H']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 7H
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/2: 8H
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 7H (score: 0.000)
+Player 3 plays 7H
+Player 1 won the hand: 5 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (6 cards): ['7D', '8S', '7C', 'AD', 'QH', 'QC']
+    Legal cards (4): ['8S', '7C', 'QH', 'QC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: 8S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/4: 7C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/4: QH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 4/4: QC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 8S (score: 0.000)
+Player 0 plays 8S
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (6 cards): ['9H', '10C', 'JC', 'AS', '8D', '8C']
+    Legal cards (1): ['AS']
+    Current trick: 1 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: AS
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: AS (score: 1.000)
+Player 1 plays AS
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (6 cards): ['JD', 'KC', 'KD', 'AC', '9C', 'KH']
+    Legal cards (6): ['JD', 'KC', 'KD', 'AC', '9C', 'KH']
+    Current trick: 2 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/6: JD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 3.000
+    Evaluating card 2/6: KC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/6: KD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 4/6: AC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 5/6: 9C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 2.000
+    Evaluating card 6/6: KH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: JD (score: 3.000)
+-- Phase 2 begins: Trump revealed as D by Player 2 on trick 3 --
+Player 2 plays JD
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (6 cards): ['QS', '10D', '8H', '7S', 'QD', '9D']
+    Legal cards (2): ['QS', '7S']
+    Current trick: 3 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: QS
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/2: 7S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: QS (score: 0.000)
+Player 3 plays QS
+Player 2 won the hand: 4 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (5 cards): ['7D', '7C', 'AD', 'QH', 'QC']
+    Legal cards (5): ['7D', '7C', 'AD', 'QH', 'QC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/5: 7D
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/5: 7C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/5: AD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 4/5: QH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 5/5: QC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: AD (score: 1.000)
+Player 0 plays AD
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (5 cards): ['9H', '10C', 'JC', '8D', '8C']
+    Legal cards (1): ['8D']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 8D
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 8D (score: 0.000)
+Player 1 plays 8D
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (5 cards): ['KC', 'KD', 'AC', '9C', 'KH']
+    Legal cards (1): ['KD']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: KD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: KD (score: 0.000)
+Player 2 plays KD
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (5 cards): ['10D', '8H', '7S', 'QD', '9D']
+    Legal cards (3): ['10D', 'QD', '9D']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/3: 10D
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 2/3: QD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/3: 9D
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 2.000
+    Belief model evaluation completed
+    Best card: 9D (score: 2.000)
+Player 3 plays 9D
+Player 3 won the hand: 3 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (4 cards): ['7D', '7C', 'QH', 'QC']
+    Legal cards (4): ['7D', '7C', 'QH', 'QC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: 7D
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/4: 7C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/4: QH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 4/4: QC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 7D (score: 0.000)
+Player 0 plays 7D
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (4 cards): ['9H', '10C', 'JC', '8C']
+    Legal cards (4): ['9H', '10C', 'JC', '8C']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: 9H
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 2.000
+    Evaluating card 2/4: 10C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 3/4: JC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 3.000
+    Evaluating card 4/4: 8C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: JC (score: 3.000)
+Player 1 plays JC
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (4 cards): ['KC', 'AC', '9C', 'KH']
+    Legal cards (4): ['KC', 'AC', '9C', 'KH']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/4: KC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/4: AC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 3/4: 9C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 2.000
+    Evaluating card 4/4: KH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 9C (score: 2.000)
+Player 2 plays 9C
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (4 cards): ['10D', '8H', '7S', 'QD']
+    Legal cards (2): ['10D', 'QD']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 10D
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 2/2: QD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 10D (score: 1.000)
+Player 3 plays 10D
+Player 3 won the hand: 6 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (3 cards): ['7C', 'QH', 'QC']
+    Legal cards (3): ['7C', 'QH', 'QC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/3: 7C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/3: QH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/3: QC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 7C (score: 0.000)
+Player 0 plays 7C
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (3 cards): ['9H', '10C', '8C']
+    Legal cards (2): ['10C', '8C']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 10C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Evaluating card 2/2: 8C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 10C (score: 1.000)
+Player 1 plays 10C
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (3 cards): ['KC', 'AC', 'KH']
+    Legal cards (2): ['KC', 'AC']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: KC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/2: AC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 1.000
+    Belief model evaluation completed
+    Best card: AC (score: 1.000)
+Player 2 plays AC
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (3 cards): ['8H', '7S', 'QD']
+    Legal cards (3): ['8H', '7S', 'QD']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/3: 8H
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/3: 7S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 3/3: QD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 8H (score: 0.000)
+Player 3 plays 8H
+Player 2 won the hand: 2 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (2 cards): ['QH', 'QC']
+    Legal cards (2): ['QH', 'QC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: QH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/2: QC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: QH (score: 0.000)
+Player 0 plays QH
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (2 cards): ['9H', '8C']
+    Legal cards (1): ['9H']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 9H
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 2.000
+    Belief model evaluation completed
+    Best card: 9H (score: 2.000)
+Player 1 plays 9H
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (2 cards): ['KC', 'KH']
+    Legal cards (1): ['KH']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: KH
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: KH (score: 0.000)
+Player 2 plays KH
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (2 cards): ['7S', 'QD']
+    Legal cards (2): ['7S', 'QD']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/2: 7S
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Evaluating card 2/2: QD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 7S (score: 0.000)
+Player 3 plays 7S
+Player 1 won the hand: 2 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (1 cards): ['QC']
+    Legal cards (1): ['QC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: QC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: QC (score: 0.000)
+Player 0 plays QC
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (1 cards): ['8C']
+    Legal cards (1): ['8C']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: 8C
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: 8C (score: 0.000)
+Player 1 plays 8C
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (1 cards): ['KC']
+    Legal cards (1): ['KC']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: KC
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: KC (score: 0.000)
+Player 2 plays KC
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (1 cards): ['QD']
+    Legal cards (1): ['QD']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model predictions obtained
+    Evaluating card 1/1: QD
+      Belief model card evaluation error: only length-1 arrays can be converted to Python scalars
+      Belief model score: 0.000
+    Belief model evaluation completed
+    Best card: QD (score: 0.000)
+Player 3 plays QD
+Player 3 won the hand: 0 points
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 12 points
+Team B (Players 1 & 3): 16 points
+Bidder: Player 3 (Team B)
+Winning Bid: 16
+Bid Success: YES
+Game Winner: Team B (Players 1 & 3)
+Total Tricks: 8
