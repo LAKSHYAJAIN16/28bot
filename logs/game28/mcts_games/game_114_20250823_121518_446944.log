@@ -1,0 +1,116 @@
+
+===== GAME 114 (20250823_121518_446944) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=12.25  p30=11.00  std=6.42
+    failed_checks:
+      D: p30 11.00 < 15; conf_mean 9.04 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=11.00, conf_mean=9.04 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 9.04 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15.
+Bid: Player 2 proposes 18 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: S
+    proposed_bid: 18
+    overall: avg=18.00  p30=18.00  std=0.00
+    suit_stats:
+      S: pts=[18]  avg=18.00  p30=18.00  std=0.00
+      H: pts=[16]  avg=16.00  p30=16.00  std=0.00
+      D: pts=[13]  avg=13.00  p30=13.00  std=0.00
+      C: pts=[11]  avg=11.00  p30=11.00  std=0.00
+    reason: Bid: Suit S meets thresholds (p30=18.00, conf_mean=18.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 18. (current_high=0, raise_delta=+1)
+Pass (locked): Player 3 (min_allowed=19)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=18  min_allowed=19  raise_delta=1
+    overall: avg=15.56  p30=14.00  std=4.64
+    suit_stats:
+      H: pts=[12, 14, 21, 19, 21, 18 ...]  avg=15.56  p30=14.00  std=4.64
+      C: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 14.00 < 18; conf_mean 13.24 < 18
+      C: p30 0.00 < 18; conf_mean 0.00 < 18
+      S: p30 0.00 < 18; conf_mean 0.00 < 18
+    reason: Pass: No suit meets thresholds. Best suit H has p30=14.00, conf_mean=13.24 below min_allowed=19 (current_high=18, raise_delta=+1). Failed checks for best suit: p30 14.00 < 18, conf_mean 13.24 < 18.
+
+AUCTION WINNER: Player 2 with bid 18; chooses trump H 
+Details={'chosen': 'H', 'estimates': {'C': 14.0, 'S': 14.0, 'H': 26.0, 'D': 19.0}}
+Player 0 hand :  ['KH', 'QD', '8H', '9S', '7S', '9H', 'KD', 'QH']
+Player 1 hand :  ['7H', '10C', '8C', 'JD', '10D', '10S', 'QC', 'KS']
+Player 2 hand :  ['7C', 'QS', '7D', 'JS', 'AD', 'AC', 'JC']
+Player 3 hand :  ['8S', 'JH', '10H', 'KC', '8D', '9D', 'AS', '9C']
+Player 0 (auction 4 cards): ['KH', 'QD', '8H', '9S']
+Player 1 (auction 4 cards): ['7H', '10C', '8C', 'JD']
+Player 2 (auction 4 cards): ['7C', 'AH', 'QS', '7D']
+Player 3 (auction 4 cards): ['8S', 'JH', '10H', 'KC']
+Auction winner (bidder): Player 2 with bid 18
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: AH
+
+Player 0 plays KH
+Player 1 plays 7H
+Player 2 plays 7C
+Player 3 plays JH
+Player 3 won the hand: 3 points
+
+Player 3 plays 8S
+Player 0 plays 9S
+Player 1 plays 10S
+Player 2 plays QS
+Player 0 won the hand: 3 points
+
+Player 0 plays QD
+Player 1 plays JD
+Player 2 plays 7D
+Player 3 plays 8D
+Player 1 won the hand: 3 points
+
+Player 1 plays 10C
+Player 2 plays AC
+Player 3 plays KC
+-- Phase 2 begins: Trump revealed as H by Player 0 on trick 4 --
+Player 0 plays 8H
+Player 0 won the hand: 2 points
+
+Player 0 plays 7S
+Player 1 plays KS
+Player 2 plays JS
+Player 3 plays AS
+Player 2 won the hand: 4 points
+
+Player 2 plays AD
+Player 3 plays 9D
+Player 0 plays KD
+Player 1 plays 10D
+Player 3 won the hand: 4 points
+
+Player 3 plays 10H
+Player 0 plays 9H
+Player 1 plays 8C
+Player 2 plays AH
+Player 0 won the hand: 4 points
+
+Player 0 plays QH
+Player 1 plays QC
+Player 2 plays JC
+Player 3 plays 9C
+Player 0 won the hand: 5 points
+
+Game 114 final points: Team A=18, Team B=10
+Series cumulative game score so far: Team A=-9, Team B=-3
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_114_20250823_121518_446944.log

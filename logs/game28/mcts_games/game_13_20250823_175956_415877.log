@@ -1,0 +1,112 @@
+
+===== GAME 13 (20250823_175956_415877) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: n/a.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.94  p30=13.00  std=6.32
+    suit_stats:
+      D: pts=[16, 20, 8, 26, 15, 27 ...]  avg=16.94  p30=13.00  std=6.32
+      C: pts=[]
+    failed_checks:
+      D: p30 13.00 < 15; conf_mean 13.78 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=13.78 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 13.78 < 15.
+Bid: Player 2 proposes 22 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: C
+    proposed_bid: 22
+    overall: avg=22.00  p30=22.00  std=0.00
+    suit_stats:
+      H: pts=[22, 14, 23, 24, 14, 17 ...]  avg=19.56  p30=17.00  std=4.05
+      C: pts=[22]  avg=22.00  p30=22.00  std=0.00
+    reason: Bid: Suit C meets thresholds (p30=22.00, conf_mean=22.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 22. (current_high=0, raise_delta=+1)
+Pass (locked): Player 3 (min_allowed=23)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=22  min_allowed=23  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      H: p30 0.00 < 22; conf_mean 0.00 < 22
+      D: p30 0.00 < 22; conf_mean 0.00 < 22
+    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=23 (current_high=22, raise_delta=+1). Failed checks for best suit: p30 0.00 < 22, conf_mean 0.00 < 22.
+
+AUCTION WINNER: Player 2 with bid 22; chooses trump H 
+Details={'chosen': 'H', 'estimates': {'C': 20.0, 'H': 24.0}}
+Player 0 hand :  ['9H', 'KH', '7S', '10C', 'QH', 'JS', '8S', 'JD']
+Player 1 hand :  ['7D', 'KD', 'AD', 'QC', 'QD', 'KS', 'AH', '9S']
+Player 2 hand :  ['JC', '9C', '8H', '8C', '9D', 'AS', 'AC']
+Player 3 hand :  ['7C', '10D', 'KC', '10H', 'QS', '8D', '7H', '10S']
+Player 0 (auction 4 cards): ['9H', 'KH', '7S', '10C']
+Player 1 (auction 4 cards): ['7D', 'KD', 'AD', 'QC']
+Player 2 (auction 4 cards): ['JC', '9C', 'JH', '8H']
+Player 3 (auction 4 cards): ['7C', '10D', 'KC', '10H']
+Auction winner (bidder): Player 2 with bid 22
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: JH
+
+Player 0 plays 9H
+Player 1 plays AH
+Player 2 plays 8H
+Player 3 plays 10H
+Player 0 won the hand: 4 points
+
+Player 0 plays KH
+Player 1 plays 7D
+Player 2 plays JC
+Player 3 plays 7H
+Player 0 won the hand: 3 points
+
+Player 0 plays 7S
+Player 1 plays KS
+Player 2 plays AS
+Player 3 plays QS
+Player 2 won the hand: 1 points
+
+Player 2 plays 9C
+Player 3 plays 7C
+Player 0 plays 10C
+Player 1 plays QC
+Player 2 won the hand: 3 points
+
+Player 2 plays 8C
+Player 3 plays KC
+-- Phase 2 begins: Trump revealed as H by Player 0 on trick 5 --
+Player 0 plays QH
+Player 1 plays KD
+Player 0 won the hand: 0 points
+
+Player 0 plays JS
+Player 1 plays 9S
+Player 2 plays 9D
+Player 3 plays 10S
+Player 0 won the hand: 8 points
+
+Player 0 plays 8S
+Player 1 plays AD
+Player 2 plays AC
+Player 3 plays 10D
+Player 0 won the hand: 3 points
+
+Player 0 plays JD
+Player 1 plays QD
+Player 2 plays JH
+Player 3 plays 8D
+Player 2 won the hand: 6 points
+
+Game 13 final points: Team A=28, Team B=0
+Series cumulative game score so far: Team A=-1, Team B=0
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_13_20250823_175956_415877.log

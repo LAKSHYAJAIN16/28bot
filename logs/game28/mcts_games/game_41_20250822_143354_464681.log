@@ -1,0 +1,114 @@
+
+===== GAME 41 (20250822_143354_464681) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=14.38  p30=11.00  std=5.10
+    suit_stats:
+      C: pts=[23, 11, 14, 14, 4, 23 ...]  avg=14.38  p30=11.00  std=5.10
+      H: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 11.00 < 15; conf_mean 11.83 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=11.00, conf_mean=11.83 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 11.83 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=18.94  p30=14.00  std=4.89
+    suit_stats:
+      D: pts=[21, 13, 25, 22, 11, 23 ...]  avg=18.94  p30=14.00  std=4.89
+      S: pts=[]
+    failed_checks:
+      D: p30 14.00 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=16.49 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: n/a.
+Bid: Player 3 proposes 20 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: S
+    proposed_bid: 20
+    overall: avg=20.38  p30=20.00  std=2.96
+    reason: Bid (precomputed): Suit S meets thresholds (p30=20.00, conf_mean=18.90 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 20. (current_high=0, raise_delta=+1)
+
+AUCTION WINNER: Player 3 with bid 20; chooses trump S 
+Details={'chosen': 'S', 'estimates': {'H': 0.0, 'S': 20.375}}
+Player 0 hand :  ['7C', 'QC', 'JH', '7S', '8D', 'KC', '9D', '10C']
+Player 1 hand :  ['9S', 'JD', '10D', 'KD', 'JC', '9C', 'KH', 'KS']
+Player 2 hand :  ['AH', '10H', '7D', 'AC', 'QD', '8S', 'JS', '8H']
+Player 3 hand :  ['QH', '7H', '9H', 'AS', 'QS', '8C', 'AD']
+Player 0 (auction 4 cards): ['7C', 'QC', 'JH', '7S']
+Player 1 (auction 4 cards): ['9S', 'JD', '10D', 'KD']
+Player 2 (auction 4 cards): ['AH', '10H', '7D', 'AC']
+Player 3 (auction 4 cards): ['QH', '7H', '9H', '10S']
+Auction winner (bidder): Player 3 with bid 20
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: 10S
+
+Player 0 plays 7C
+Player 1 plays JC
+Player 2 plays AC
+Player 3 plays 8C
+Player 1 won the hand: 4 points
+
+Player 1 plays 9S
+Player 2 plays 8S
+Player 3 plays AS
+Player 0 plays 7S
+Player 1 won the hand: 3 points
+
+Player 1 plays JD
+Player 2 plays 7D
+Player 3 plays AD
+Player 0 plays 8D
+Player 1 won the hand: 4 points
+
+Player 1 plays 10D
+Player 2 plays QD
+Player 3 plays QH
+Player 0 plays 9D
+Player 0 won the hand: 3 points
+
+Player 0 plays QC
+Player 1 plays 9C
+Player 2 plays AH
+Player 3 plays 7H
+Player 1 won the hand: 3 points
+
+Player 1 plays KD
+Player 2 plays 10H
+Player 3 plays 9H
+Player 0 plays JH
+Player 1 won the hand: 6 points
+
+Player 1 plays KH
+Player 2 plays 8H
+-- Phase 2 begins: Trump revealed as S by Player 3 on trick 7 --
+Player 3 plays QS
+Player 0 plays KC
+Player 3 won the hand: 0 points
+
+Player 3 plays 10S
+Player 0 plays 10C
+Player 1 plays KS
+Player 2 plays JS
+Player 2 won the hand: 5 points
+
+Game 41 final points: Team A=8, Team B=20
+Series cumulative game score so far: Team A=-9, Team B=5
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_41_20250822_143354_464681.log

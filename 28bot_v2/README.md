@@ -1,214 +1,189 @@
+# 28Bot v2 - Game 28 AI Bot
 
-28bot v2 — Deep Learning Bidding AI for 28
+A comprehensive AI bot for the Game 28 card game, featuring multiple AI approaches including Reinforcement Learning, MCTS, and Point Prediction models.
 
-A research-ready system to explore bidding in imperfect information trick-taking games.
+## 📁 Project Structure
 
-🎯 Project Objective
-
-Build a high-quality, modular AI system for the game of 28 with a focus on bidding, using:
-
-Reinforcement Learning (PPO, NFSP)
-
-Belief Modeling (opponent hand inference)
-
-Joint Policy Optimization
-
-Auction Theory Concepts (bid shading, confidence)
-
-Monte Carlo Tree Search (belief-aware)
-
-Visual and Explainable AI for strategy interpretation
-
-Theoretical rigor (exploitability, convergence, generalization)
-
-🎮 Game: What is "28"?
-Game 28 - A Trick-Taking Card Game
-Game 28 is a 4-player trick-taking card game with bidding and trump mechanics. Here's how it works:
-Basic Setup
-Players: 4 players (teams of 2, players 0&2 vs 1&3)
-Deck: 32 cards (7, 8, 9, 10, J, Q, K, A of each suit: Hearts, Diamonds, Clubs, Spades)
-Dealing: Two-stage deal - first 4 cards to each player, then bidding, then 4 more cards
-Card Values & Rankings
-Point Values: J=3, 9=2, 10=1, A=1, 7=0, 8=0, Q=0, K=0
-Trick Strength (highest to lowest): J > 9 > A > 10 > K > Q > 8 > 7
-Total Points: 28 points per round (hence the name "28")
-Game Phases
-1. Bidding Phase
-Players bid starting from 16 points (minimum bid)
-Bids range from 16-28
-Players can pass or raise the current bid
-Winner becomes the "bidder" and chooses trump suit
-Stakes: Bids ≥20 double the round value
-2. Concealed Phase
-Trump suit is chosen but not revealed to other players
-Bidder must place their highest trump card face-down
-Bidder cannot lead trump unless they only have trump cards
-Game continues with trump hidden
-3. Revealed Phase
-Triggered when a player cannot follow suit and plays trump
-Trump suit is now revealed to all players
-Face-down trump card is returned to bidder's hand
-Trump now functions normally in trick-taking
-Trick-Taking Rules
-Follow Suit
-Players must follow the lead suit if possible
-If unable to follow suit, can play any card (can choose to reveal trump if this is suitable)
-Winning Tricks
-Concealed Phase: Only same-suit cards can win (no trump)
-Revealed Phase: Trump cards beat non-trump; highest trump wins
-Scoring
-Each trick awards points based on card values played
-Team scores accumulate throughout the round
-Bid Success: If bidder's team meets/exceeds their bid → +1 game point
-Bid Failure: If bidder's team falls short → -1 game point
-Special Rules
-Invalid Rounds
-If trump is never exposed by the 7th trick, round is invalid
-No game points awarded, round is replayed
-Bidder Restrictions
-Cannot lead trump during concealed phase (unless only trump remains)
-Must place highest trump face-down at start
-Team Play
-Players 0&2 form Team A
-Players 1&3 form Team B
-Teams compete for points and game wins
-Game Flow
-Deal 4 cards each → Bidding → Choose trump → Place face-down trump
-Deal 4 more cards each → Play begins
-8 tricks total (all 32 cards played)
-Determine bid success/failure
-Award game points
-Repeat for multiple rounds
-Key Strategic Elements
-Trump Management: When to expose trump vs. when to conserve
-Bidding Strategy: Balancing hand strength with risk
-Team Coordination: Supporting partner's leads and plays
-Hand Reading: Inferring opponent holdings from plays
-Point Management: Timing high-value card plays
-This creates a complex strategic game where information asymmetry (concealed trump) and team coordination play crucial roles in success.
-
-📂 Project Structure
+```
 28bot_v2/
-├── rl_bidding/
-│   ├── train_policy.py        # PPO/NFSP training
-│   └── env_adapter.py         # RL environment wrapper
-│
-├── belief_model/
-│   ├── belief_net.py          # Predicts unseen cards
-│   └── train_beliefs.py
-│
-├── ismcts/
-│   ├── ismcts_bidding.py      # Belief-aware MCTS bidding
-│   └── ismcts_play.py
-│
-├── jps/
-│   └── refine_bids.py         # Joint Policy Search optimizer
-│
-├── viz/
-│   └── render.py              # Bid + belief explanation
-│
-├── experiments/
-│   ├── exploitability.py
-│   └── compare_methods.py
-│
-├── data/
-│   ├── logs/
-│   └── saved_models/
-└── README.md
+├── 📚 docs/                    # Documentation and guides
+│   ├── README.md              # Main project documentation
+│   ├── QUICKSTART.md          # Quick start guide
+│   ├── BIDDING_MODEL_USAGE.md # Basic bidding model usage
+│   ├── IMPROVED_MODEL_USAGE.md # Improved bidding model usage
+│   ├── POINT_PREDICTION_APPROACH.md # Point prediction approach
+│   ├── FIRST_4_CARDS_ANALYSIS.md # First 4 cards analysis
+│   └── ...                    # Other documentation files
+├── 🔧 scripts/                 # Main training and analysis scripts
+│   ├── improved_bidding_trainer.py # Train improved bidding model
+│   ├── analyze_mcts_data.py   # Analyze MCTS game data
+│   ├── point_prediction_model.py # Point prediction model
+│   ├── bidding_advisor.py     # Bidding advisor utility
+│   ├── run_training.py        # Run training pipeline
+│   └── run_game.py            # Run game simulation
+├── 💡 examples/                # Usage examples and demos
+│   ├── use_improved_bidding_model.py # Use improved model
+│   ├── use_bidding_model.py   # Use basic bidding model
+│   ├── use_point_prediction.py # Use point prediction
+│   ├── simple_improved_bidding_example.py # Simple example
+│   └── example_usage.py       # General usage examples
+├── 🧪 tests/                   # Testing and debugging scripts
+│   ├── test_env.py            # Environment testing
+│   ├── test_improved_env.py   # Improved environment testing
+│   ├── test_env_minimal.py    # Minimal environment test
+│   ├── debug_observation.py   # Debug observation space
+│   └── debug_model_behavior.py # Debug model behavior
+├── 📊 data/                    # Data files
+│   └── mcts_bidding_analysis.json # MCTS analysis data
+├── 🤖 models/                  # Trained model files
+│   ├── bidding_policy/        # Bidding models
+│   └── point_prediction_model.pth # Point prediction model
+├── 📈 logs/                    # Training logs and TensorBoard data
+├── 🎮 game28/                  # Core game logic
+├── 🧠 rl_bidding/             # RL environment and training
+├── 🌳 ismcts/                 # MCTS implementation
+├── 🧮 belief_model/           # Belief network models
+├── 🔬 experiments/            # Experimental code
+├── 🎨 viz/                    # Visualization tools
+├── requirements.txt           # Python dependencies
+└── setup.py                   # Package setup
+```
 
-🛠️ Development Plan (Step-by-Step)
-✅ 1. Train a Deep RL Bidding Agent
+## 🚀 Quick Start
 
-Use self-play with PPO/NFSP
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-Action space = legal bids (14–28, pass)
+### 2. Train the Models
+```bash
+# Train the improved bidding model
+python scripts/improved_bidding_trainer.py
 
-Observations = 4-card hand, bidding history, position
+# Train the belief model
+python scripts/train_belief_model.py
+```
 
-Reward = +1 if win, −1 if lose
+### 3. Use the Models
+```bash
+# Use the improved bidding model
+python examples/use_improved_bidding_model.py
 
-✅ 2. Build Opponent Belief Model
+# Use the belief model
+python examples/use_belief_model.py
 
-Input: cards played, auction behavior, lead patterns
+# Run a complete game simulation
+python simple_game_simulation.py
+```
 
-Output: likelihood of each card in each opponent's hand
+## 🎯 Main Features
 
-Train via simulation
+### 🤖 AI Models
+- **Improved Bidding Model**: MCTS-enhanced RL model for bidding decisions
+- **Point Prediction Model**: Neural network for predicting game outcomes
+- **MCTS Bot**: Monte Carlo Tree Search implementation
+- **Belief Network**: Probabilistic modeling of opponent hands
 
-Use this for sampling in MCTS and bidding confidence
+### 📊 Analysis Tools
+- **MCTS Data Analysis**: Analyze patterns from MCTS games
+- **First 4 Cards Analysis**: Focus on bidding-relevant cards only
+- **Model Evaluation**: Comprehensive evaluation scripts
 
-✅ 3. Belief-Aware MCTS
+### 🎮 Game Features
+- **Complete Game 28 Implementation**: Full game logic
+- **Multiple AI Opponents**: Different AI strategies
+- **Interactive Play**: Play against AI bots
+- **Performance Analysis**: Win rates and statistics
 
-Modify ISMCTS to sample using belief net
+## 📖 Documentation
 
-Adjust rollouts using inferred hands
+### Getting Started
+- [Quick Start Guide](docs/QUICKSTART.md) - Get up and running quickly
+- [Main README](docs/README.md) - Detailed project overview
 
-Use to validate bids and play moves
+### Model Usage
+- [Basic Bidding Model](docs/BIDDING_MODEL_USAGE.md) - Use the basic RL bidding model
+- [Improved Bidding Model](docs/IMPROVED_MODEL_USAGE.md) - Use the MCTS-enhanced model
+- [Belief Model Training](docs/BELIEF_MODEL_TRAINING.md) - Train and use the belief network
+- [Point Prediction](docs/POINT_PREDICTION_APPROACH.md) - Use point prediction models
 
-✅ 4. Joint Policy Search (JPS)
+### Technical Details
+- [First 4 Cards Analysis](docs/FIRST_4_CARDS_ANALYSIS.md) - Why only first 4 cards matter
+- [MCTS Integration](docs/IMPROVING_BIDDING_MODEL_WITH_MCTS.md) - How MCTS improves RL
+- [Model Issues](docs/ANALYSIS_BIDDING_MODEL_ISSUES.md) - Analysis of model problems
 
-Refine partner coordination
+## 🔧 Scripts Overview
 
-Alternate optimizing partner/bidder
+### Training Scripts
+- `scripts/improved_bidding_trainer.py` - Train the main improved bidding model
+- `scripts/train_belief_model.py` - Train the belief network model
+- `scripts/point_prediction_model.py` - Train point prediction models
+- `scripts/run_training.py` - Run complete training pipeline
 
-Use JPS to improve team bidding synergy
+### Analysis Scripts
+- `scripts/analyze_mcts_data.py` - Analyze MCTS game patterns
+- `scripts/bidding_advisor.py` - Get bidding advice for specific hands
 
-✅ 5. Auction-Theoretic Bidding Logic
+### Game Scripts
+- `scripts/run_game.py` - Run full game simulations
+- `simple_game_simulation.py` - Complete 4-agent game simulation
 
-Add risk thresholds & confidence-based shading
+## 💡 Examples
 
-Avoid overbidding when belief is uncertain
+### Basic Usage
+```python
+# Use improved bidding model
+from examples.use_improved_bidding_model import ImprovedBiddingModel
 
-Experiment with bluffing / bid manipulation
+model = ImprovedBiddingModel()
+suggestion = model.get_bid_suggestion(hand, current_bid, bid_history, position)
+```
 
-✅ 6. Bid Explanation Visualization
+### Training
+```python
+# Train improved model
+from scripts.improved_bidding_trainer import ImprovedBiddingTrainer
 
-Show:
+trainer = ImprovedBiddingTrainer()
+model = trainer.train_with_mcts_data()
+```
 
-Inferred hand strength
+## 🧪 Testing
 
-Trump estimate
+### Environment Tests
+```bash
+python tests/test_env.py              # Test basic environment
+python tests/test_improved_env.py     # Test improved environment
+python tests/test_env_minimal.py      # Minimal environment test
+```
 
-Conservative vs. aggressive threshold
+### Debug Scripts
+```bash
+python tests/debug_observation.py     # Debug observation space
+python tests/debug_model_behavior.py  # Debug model behavior
+```
 
-Why a bid was chosen
+## 📊 Data
 
-✅ 7. Experimental Evaluation
+The project uses MCTS analysis data stored in `data/mcts_bidding_analysis.json` which contains:
+- 901 analyzed MCTS games
+- Bidding patterns and success rates
+- Hand strength analysis (first 4 cards only)
+- Trump suit preferences
 
-Compare:
+## 🤝 Contributing
 
-RL vs. analytical vs. hybrid bidding
+1. Follow the organized structure
+2. Put new scripts in appropriate directories
+3. Update documentation in `docs/`
+4. Add tests in `tests/`
+5. Update this README if needed
 
-With/without belief
+## 📝 License
 
-Metrics:
+This project is for educational and research purposes.
 
-Win rate
+---
 
-Overbid frequency
-
-Average score margin
-
-Exploitability under best-response opponents
-
-📚 References
-
-Deep Bidding Policies in Skat
-
-Joint Policy Search for Bridge
-
-ReBeL (Search + Learning for Poker)
-
-NFSP in Poker
-
-📦 Deliverables
-
-policy.pt — RL-trained bidding policy
-
-belief_model.pt — Belief network for hidden cards
-
-render.py — Visual explanation of bids
-
-exploitability.py — Evaluation scripts
-
-Full game logs with bidding decisions
+**Note**: This project focuses on the first 4 cards for bidding decisions, as the remaining 4 cards are dealt after bidding in Game 28.

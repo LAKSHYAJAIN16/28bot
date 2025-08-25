@@ -1,5 +1,5 @@
 """
-Training script for belief network
+Training script for belief network using real game data from logs
 """
 
 import os
@@ -8,245 +8,277 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
-from typing import List, Tuple, Dict
-import random
+from typing import List, Tuple, Dict, Optional
+import re
+import glob
 from tqdm import tqdm
 
-from belief_model.belief_net import BeliefNetwork
-from game28.game_state import Game28State
+from .belief_net import BeliefNetwork
+from game28.game_state import Game28State, Card
 from game28.constants import *
 
 
-class BeliefDataset(Dataset):
-    """
-    Dataset for training belief network
-    """
+class RealGameLogParser:
+    """Parser for real game logs"""
     
-    def __init__(self, num_games: int = 10000):
-        self.data = []
-        self._generate_data(num_games)
+    def __init__(self):
+        self.card_pattern = re.compile(r'(10|[2-9TJQKA])([HDCS])')
     
-    def _generate_data(self, num_games: int):
-        """Generate training data from simulated games"""
-        print(f"Generating {num_games} training games...")
+    def parse_card(self, card_str: str) -> Card:
+        """Parse card string to Card object"""
+        match = self.card_pattern.match(card_str)
+        if match:
+            rank, suit = match.groups()
+            return Card(suit, rank)  # Note: Card constructor expects (suit, rank)
+        raise ValueError(f"Invalid card format: {card_str}")
+    
+    def parse_hand(self, hand_str: str) -> List[Card]:
+        """Parse hand string to list of Card objects"""
+        # Extract cards from format like "['JD', '10C', '8C', 'QS']"
+        cards = re.findall(r"'([^']+)'", hand_str)
+        return [self.parse_card(card) for card in cards]
+    
+    def parse_game_log(self, log_path: str) -> List[Dict]:
+        """Parse a single game log file and extract training examples"""
+        examples = []
         
-        for _ in tqdm(range(num_games)):
-            # Create game state
-            game_state = Game28State()
-            
-            # Simulate bidding
-            self._simulate_bidding(game_state)
-            
-            # Simulate play
-            self._simulate_play(game_state)
-            
-            # Extract training examples
-            self._extract_examples(game_state)
-    
-    def _simulate_bidding(self, game_state: Game28State):
-        """Simulate bidding phase"""
-        current_bid = MIN_BID
+        with open(log_path, 'r') as f:
+            content = f.read()
         
-        for player in range(4):
-            if game_state.game_over:
+        # Extract initial hands - try multiple patterns
+        hand_patterns = [
+            r"Player (\d+) hand\s*:\s*\[(.*?)\]",  # Newer format
+            r"Player (\d+) hand\s*:\s*\[(.*?)\]"   # Older format (same but different context)
+        ]
+        
+        hand_matches = []
+        for pattern in hand_patterns:
+            matches = re.findall(pattern, content)
+            if len(matches) == 4:  # Found all 4 players
+                hand_matches = matches
                 break
-            
-            # Simple heuristic bidding
-            hand_strength = self._calculate_hand_strength(game_state.hands[player])
-            
-            if hand_strength > 0.6:
-                # Strong hand - bid aggressively
-                if current_bid < MAX_BID:
-                    current_bid = min(MAX_BID, current_bid + 2)
-                    game_state.make_bid(player, current_bid)
-                else:
-                    game_state.make_bid(player, -1)  # Pass
-            elif hand_strength > 0.4:
-                # Medium hand - bid moderately
-                if current_bid < MAX_BID - 1:
-                    current_bid = min(MAX_BID, current_bid + 1)
-                    game_state.make_bid(player, current_bid)
-                else:
-                    game_state.make_bid(player, -1)  # Pass
-            else:
-                # Weak hand - pass
-                game_state.make_bid(player, -1)
         
-        # Set trump if bidding completed
-        if game_state.bidder is not None:
-            # Choose trump based on bidder's hand
-            trump_suit = self._choose_trump(game_state.hands[game_state.bidder])
-            game_state.set_trump(trump_suit)
-    
-    def _simulate_play(self, game_state: Game28State):
-        """Simulate play phase"""
-        while not game_state.game_over and len(game_state.tricks) < 8:
-            current_player = game_state.current_player
-            legal_cards = game_state.get_legal_plays(current_player)
-            
-            if legal_cards:
-                # Simple heuristic play
-                card = self._choose_card(legal_cards, game_state)
-                game_state.play_card(current_player, card)
-    
-    def _calculate_hand_strength(self, hand: List) -> float:
-        """Calculate hand strength for bidding"""
-        total_points = sum(CARD_VALUES[card.rank] for card in hand)
-        return total_points / TOTAL_POINTS
-    
-    def _choose_trump(self, hand: List) -> str:
-        """Choose trump suit based on hand"""
-        suit_counts = {suit: 0 for suit in SUITS}
-        suit_points = {suit: 0 for suit in SUITS}
+        if len(hand_matches) != 4:
+            return examples  # Skip incomplete games
         
-        for card in hand:
-            suit_counts[card.suit] += 1
-            suit_points[card.suit] += CARD_VALUES[card.rank]
+        # Parse all hands
+        hands = {}
+        for player_id, hand_str in hand_matches:
+            try:
+                hands[int(player_id)] = self.parse_hand(hand_str)
+            except:
+                continue
         
-        # Choose suit with most points
-        best_suit = max(suit_points, key=suit_points.get)
-        return best_suit
-    
-    def _choose_card(self, legal_cards: List, game_state: Game28State):
-        """Choose card to play"""
-        if not game_state.current_trick.cards:
-            # Leading - play highest card
-            return max(legal_cards, key=lambda c: TRICK_RANKINGS[c.rank])
-        else:
-            # Following - try to win if possible
-            lead_suit = game_state.current_trick.lead_suit
-            trump_suit = game_state.trump_suit
-            
-            # Find highest card that can win
-            winning_cards = []
-            for card in legal_cards:
-                if self._can_win(card, game_state.current_trick, trump_suit, game_state.trump_revealed):
-                    winning_cards.append(card)
-            
-            if winning_cards:
-                return max(winning_cards, key=lambda c: TRICK_RANKINGS[c.rank])
-            else:
-                # Can't win - play lowest card
-                return min(legal_cards, key=lambda c: TRICK_RANKINGS[c.rank])
-    
-    def _can_win(self, card, current_trick, trump_suit, trump_revealed):
-        """Check if card can win the current trick"""
-        if not current_trick.cards:
-            return True
+        if len(hands) != 4:
+            return examples
         
-        winning_card = current_trick.cards[0][1]
+        # Extract trump suit - try multiple patterns
+        trump_patterns = [
+            r"AUCTION WINNER:\s*Player (\d+) with bid (\d+); chooses trump ([HDCS])",  # Newer format
+            r"Auction winner:\s*Player (\d+) with bid (\d+); chooses trump ([HDCS])",  # Older format
+            r"trump suit:\s*([HDCS])",  # Alternative
+            r"chooses trump ([HDCS])",  # Alternative
+            r"concealed trump suit:\s*([HDCS])"  # Alternative
+        ]
         
-        # If trump is not revealed, only same suit can win
-        if not trump_revealed:
-            if card.suit == current_trick.lead_suit and winning_card.suit != current_trick.lead_suit:
-                return True
-            if card.suit != current_trick.lead_suit and winning_card.suit == current_trick.lead_suit:
-                return False
-            if card.suit != current_trick.lead_suit and winning_card.suit != current_trick.lead_suit:
-                return False
+        trump_suit = None
+        for pattern in trump_patterns:
+            trump_match = re.search(pattern, content)
+            if trump_match:
+                if len(trump_match.groups()) == 3:  # First two patterns
+                    trump_suit = trump_match.group(3)
+                else:  # Other patterns
+                    trump_suit = trump_match.group(1)
+                break
         
-        # Trump revealed or same suit comparison
-        if trump_suit and card.suit == trump_suit and winning_card.suit != trump_suit:
-            return True
-        if trump_suit and card.suit != trump_suit and winning_card.suit == trump_suit:
-            return False
+        # Extract played cards
+        play_pattern = r"Player (\d+) plays ([2-9TJQKA][HDCS])"
+        play_matches = re.findall(play_pattern, content)
         
-        # Same suit comparison
-        if card.suit == winning_card.suit:
-            return TRICK_RANKINGS[card.rank] > TRICK_RANKINGS[winning_card.rank]
+        played_cards = []
+        for player_id, card_str in play_matches:
+            try:
+                card = self.parse_card(card_str)
+                played_cards.append((int(player_id), card))
+            except:
+                continue
         
-        return False
-    
-    def _extract_examples(self, game_state: Game28State):
-        """Extract training examples from game state"""
-        # Extract examples at different points in the game
+        # Extract bidding information - try multiple patterns
+        bid_patterns = [
+            r"Bid:\s*Player (\d+) proposes (\d+)",  # Both formats
+            r"Pass:\s*Player (\d+)",  # Pass bids
+            r"Pass \(locked\):\s*Player (\d+)"  # Locked passes
+        ]
+        
+        bidding_history = []
+        for pattern in bid_patterns:
+            bid_matches = re.findall(pattern, content)
+            for match in bid_matches:
+                if len(match) == 2:  # Actual bid
+                    player_id, bid = match
+                    bidding_history.append((int(player_id), int(bid)))
+                else:  # Pass
+                    player_id = match[0]
+                    # For passes, we'll use 0 as the bid value
+                    bidding_history.append((int(player_id), 0))
+        
+        # Also extract auction winner
+        winner_patterns = [
+            r"AUCTION WINNER:\s*Player (\d+) with bid (\d+)",  # Newer format
+            r"Auction winner:\s*Player (\d+) with bid (\d+)"   # Older format
+        ]
+        
+        for pattern in winner_patterns:
+            winner_match = re.search(pattern, content)
+            if winner_match:
+                winner_id, winner_bid = winner_match.groups()
+                bidding_history.append((int(winner_id), int(winner_bid)))
+                break
+        
+        # Create training examples for each player at different game stages
         for player_id in range(4):
-            # Example 1: After initial deal
-            if len(game_state.tricks) == 0 and game_state.phase == GamePhase.CONCEALED:
-                self._add_example(game_state, player_id)
+            # Example 1: After initial deal (before any plays)
+            if len(played_cards) >= 0:
+                example = self._create_example(
+                    player_id, hands, trump_suit, played_cards[:0], bidding_history, 0
+                )
+                if example:
+                    examples.append(example)
             
-            # Example 2: After first trick
-            if len(game_state.tricks) == 1:
-                self._add_example(game_state, player_id)
+            # Example 2: After first trick (4 cards played)
+            if len(played_cards) >= 4:
+                example = self._create_example(
+                    player_id, hands, trump_suit, played_cards[:4], bidding_history, 1
+                )
+                if example:
+                    examples.append(example)
             
-            # Example 3: After half the tricks
-            if len(game_state.tricks) == 4:
-                self._add_example(game_state, player_id)
+            # Example 3: After half the tricks (16 cards played)
+            if len(played_cards) >= 16:
+                example = self._create_example(
+                    player_id, hands, trump_suit, played_cards[:16], bidding_history, 4
+                )
+                if example:
+                    examples.append(example)
+        
+        return examples
     
-    def _add_example(self, game_state: Game28State, player_id: int):
-        """Add training example"""
-        # Create input features
-        input_features = self._encode_game_state(game_state, player_id)
-        
-        # Create target labels
-        target_hands = {}
-        for opp_id in range(4):
-            if opp_id != player_id:
-                target_hands[opp_id] = self._encode_hand(game_state.hands[opp_id])
-        
-        # Create trump target
-        trump_target = np.zeros(4)
-        if game_state.trump_suit:
-            trump_target[SUITS.index(game_state.trump_suit)] = 1.0
-        
-        self.data.append({
-            'input': input_features,
-            'target_hands': target_hands,
-            'target_trump': trump_target,
-            'player_id': player_id
-        })
+    def _create_example(self, player_id: int, hands: Dict[int, List[Card]], 
+                       trump_suit: Optional[str], played_cards: List[Tuple[int, Card]], 
+                       bidding_history: List[Tuple[int, int]], num_tricks: int) -> Optional[Dict]:
+        """Create a training example from game state"""
+        try:
+            # Create input features
+            input_features = self._encode_game_state(player_id, hands, trump_suit, played_cards, bidding_history, num_tricks)
+            
+            # Create target labels
+            target_hands = {}
+            for opp_id in range(4):
+                if opp_id != player_id:
+                    target_hands[str(opp_id)] = self._encode_hand(hands[opp_id])  # Use string keys
+            
+            # Create trump target
+            trump_target = np.zeros(4)
+            if trump_suit:
+                trump_target[SUITS.index(trump_suit)] = 1.0
+            
+            return {
+                'input': input_features,
+                'target_hands': target_hands,
+                'target_trump': trump_target,
+                'player_id': player_id,
+                'num_tricks': num_tricks
+            }
+        except Exception as e:
+            print(f"Error creating example: {e}")
+            return None
     
-    def _encode_game_state(self, game_state: Game28State, player_id: int) -> np.ndarray:
+    def _encode_game_state(self, player_id: int, hands: Dict[int, List[Card]], 
+                          trump_suit: Optional[str], played_cards: List[Tuple[int, Card]], 
+                          bidding_history: List[Tuple[int, int]], num_tricks: int) -> np.ndarray:
         """Encode game state into features"""
         # Hand encoding
         hand_encoding = np.zeros(32)
-        for card in game_state.hands[player_id]:
+        for card in hands[player_id]:
             card_idx = SUITS.index(card.suit) * 8 + RANKS.index(card.rank)
             hand_encoding[card_idx] = 1
         
-        # Bidding history encoding
-        bidding_history = np.zeros(4)
-        for i, (player, bid) in enumerate(game_state.bid_history[-4:]):
-            bidding_history[i] = bid if bid != -1 else 0
+        # Bidding history encoding (last 4 bids)
+        bidding_history_encoding = np.zeros(4)
+        for i, (player, bid) in enumerate(bidding_history[-4:]):
+            bidding_history_encoding[i] = bid
         
         # Played cards encoding
         played_encoding = np.zeros(32)
-        for trick in game_state.tricks:
-            for _, card in trick.cards:
-                card_idx = SUITS.index(card.suit) * 8 + RANKS.index(card.rank)
-                played_encoding[card_idx] = 1
-        for _, card in game_state.current_trick.cards:
+        for _, card in played_cards:
             card_idx = SUITS.index(card.suit) * 8 + RANKS.index(card.rank)
             played_encoding[card_idx] = 1
         
         # Game state encoding
         game_state_encoding = np.array([
-            game_state.current_bid,
+            bidding_history[-1][1] if bidding_history else 0,  # current bid
             player_id,
-            list(GamePhase).index(game_state.phase),
-            4 if game_state.trump_suit is None else SUITS.index(game_state.trump_suit),
-            int(game_state.trump_revealed),
-            4 if game_state.bidder is None else game_state.bidder,
-            game_state.winning_bid if game_state.winning_bid else 0,
-            game_state.team_scores['A'],
-            game_state.team_scores['B'],
-            len(game_state.tricks)
+            0,  # phase (concealed)
+            4 if trump_suit is None else SUITS.index(trump_suit),
+            0,  # trump revealed
+            4 if not bidding_history else bidding_history[-1][0],  # bidder
+            bidding_history[-1][1] if bidding_history else 0,  # winning bid
+            0,  # team A score
+            0,  # team B score
+            num_tricks
         ])
         
         return np.concatenate([
             hand_encoding,
-            bidding_history,
+            bidding_history_encoding,
             played_encoding,
             game_state_encoding
         ])
     
-    def _encode_hand(self, hand: List) -> np.ndarray:
+    def _encode_hand(self, hand: List[Card]) -> np.ndarray:
         """Encode hand as one-hot vector"""
         encoding = np.zeros(32)
         for card in hand:
             card_idx = SUITS.index(card.suit) * 8 + RANKS.index(card.rank)
             encoding[card_idx] = 1
         return encoding
+
+
+class RealGameDataset(Dataset):
+    """Dataset for training belief network using real game data"""
+    
+    def __init__(self, log_dirs: List[str], max_games: Optional[int] = None):
+        self.data = []
+        self.parser = RealGameLogParser()
+        self._load_data(log_dirs, max_games)
+    
+    def _load_data(self, log_dirs: List[str], max_games: Optional[int]):
+        """Load training data from log directories"""
+        print("Loading real game data from logs...")
+        
+        total_examples = 0
+        for log_dir in log_dirs:
+            if not os.path.exists(log_dir):
+                print(f"Warning: Log directory {log_dir} not found")
+                continue
+            
+            # Find all log files
+            log_files = glob.glob(os.path.join(log_dir, "*.log"))
+            print(f"Found {len(log_files)} log files in {log_dir}")
+            
+            for log_file in tqdm(log_files, desc=f"Processing {os.path.basename(log_dir)}"):
+                try:
+                    examples = self.parser.parse_game_log(log_file)
+                    self.data.extend(examples)
+                    total_examples += len(examples)
+                    
+                    if max_games and total_examples >= max_games:
+                        break
+                except Exception as e:
+                    print(f"Error processing {log_file}: {e}")
+                    continue
+        
+        print(f"Loaded {len(self.data)} training examples from real games")
     
     def __len__(self):
         return len(self.data)
@@ -256,17 +288,19 @@ class BeliefDataset(Dataset):
 
 
 def train_belief_model(
-    num_games: int = 10000,
+    log_dirs: List[str] = ["logs/game28/mcts_games", "logs/improved_games"],
+    max_games: Optional[int] = None,
     batch_size: int = 64,
     learning_rate: float = 1e-3,
     num_epochs: int = 50,
     save_dir: str = "models/belief_model"
 ):
     """
-    Train the belief network
+    Train the belief network using real game data
     
     Args:
-        num_games: Number of games to generate for training
+        log_dirs: List of log directories to load data from
+        max_games: Maximum number of games to load (None for all)
         batch_size: Batch size for training
         learning_rate: Learning rate
         num_epochs: Number of training epochs
@@ -281,8 +315,41 @@ def train_belief_model(
     print(f"Using device: {device}")
     
     # Create dataset
-    dataset = BeliefDataset(num_games=num_games)
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    dataset = RealGameDataset(log_dirs, max_games)
+    
+    def custom_collate(batch):
+        """Custom collate function to handle variable target_hands keys"""
+        # Get all unique keys from target_hands across the batch
+        all_keys = set()
+        for item in batch:
+            all_keys.update(item['target_hands'].keys())
+        
+        # Create batched data
+        batched = {
+            'input': torch.stack([torch.tensor(item['input'], dtype=torch.float32) for item in batch]),
+            'target_trump': torch.stack([torch.tensor(item['target_trump'], dtype=torch.float32) for item in batch]),
+            'player_id': torch.tensor([item['player_id'] for item in batch]),
+            'target_hands': {}
+        }
+        
+        # Handle target_hands for each key
+        for key in all_keys:
+            target_hands_list = []
+            for item in batch:
+                if key in item['target_hands']:
+                    target_hands_list.append(torch.tensor(item['target_hands'][key], dtype=torch.float32))
+                else:
+                    # Create zero tensor if key doesn't exist
+                    target_hands_list.append(torch.zeros(32, dtype=torch.float32))
+            batched['target_hands'][key] = torch.stack(target_hands_list)
+        
+        return batched
+    
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, collate_fn=custom_collate)
+    
+    if len(dataset) == 0:
+        print("No training data found! Check log directories.")
+        return None
     
     # Create model
     model = BeliefNetwork().to(device)
@@ -293,7 +360,7 @@ def train_belief_model(
     trump_loss_fn = nn.CrossEntropyLoss()
     
     # Training loop
-    print(f"Starting training for {num_epochs} epochs...")
+    print(f"Starting training for {num_epochs} epochs with {len(dataset)} examples...")
     
     for epoch in range(num_epochs):
         model.train()
@@ -350,13 +417,14 @@ def train_belief_model(
     return model
 
 
-def evaluate_belief_model(model_path: str, num_test_games: int = 1000):
+def evaluate_belief_model(model_path: str, log_dirs: List[str] = ["logs/game28/mcts_games"], num_test_games: int = 100):
     """
-    Evaluate the trained belief model
+    Evaluate the trained belief model using real game data
     
     Args:
         model_path: Path to the trained model
-        num_test_games: Number of test games
+        log_dirs: List of log directories to load test data from
+        num_test_games: Number of test games to use
     """
     
     # Load model
@@ -366,7 +434,11 @@ def evaluate_belief_model(model_path: str, num_test_games: int = 1000):
     model.eval()
     
     # Create test dataset
-    test_dataset = BeliefDataset(num_games=num_test_games)
+    test_dataset = RealGameDataset(log_dirs, max_games=num_test_games)
+    
+    if len(test_dataset) == 0:
+        print("No test data found!")
+        return {}
     
     # Evaluation metrics
     hand_accuracy = 0.0
@@ -406,7 +478,7 @@ def evaluate_belief_model(model_path: str, num_test_games: int = 1000):
     
     print(f"Evaluation Results:")
     print(f"  Hand Prediction Accuracy: {hand_accuracy:.3f}")
-    print(f"  Trump Prediction Accuracy: {trump_accuracy:.3f}")
+    print(f"  Trump Prediction Accuracy: {float(trump_accuracy):.3f}")
     
     return {
         'hand_accuracy': hand_accuracy,
@@ -415,13 +487,17 @@ def evaluate_belief_model(model_path: str, num_test_games: int = 1000):
 
 
 if __name__ == "__main__":
-    # Train the belief model
+    # Train the belief model using real game data
     model = train_belief_model(
-        num_games=5000,
-        batch_size=64,
+        log_dirs=["../logs/game28/mcts_games"],  # Correct path from belief_model directory
+        max_games=10,  # Test with 10 games
+        batch_size=32,
         learning_rate=1e-3,
-        num_epochs=30
+        num_epochs=5
     )
     
     # Evaluate the trained model
-    results = evaluate_belief_model("models/belief_model/belief_model_final.pt", num_test_games=500)
+    if model:
+        results = evaluate_belief_model("models/belief_model/belief_model_final.pt", 
+                                      log_dirs=["../logs/game28/mcts_games"], 
+                                      num_test_games=20)

@@ -1,0 +1,772 @@
+
+===== GAME 1 (20250823_155408_659) =====
+Player 0 initial hand (bidding): ['8H', 'JH', '10H', '7C']
+Player 1 initial hand (bidding): ['10C', '9C', 'QD', '9D']
+Player 2 initial hand (bidding): ['9H', '10D', 'JS', 'QS']
+Player 3 initial hand (bidding): ['KS', 'KH', '7S', 'KD']
+
+Full hands (8 cards each):
+Player 0 full hand: ['8H', 'JH', '10H', '7C']
+Player 1 full hand: ['10C', '9C', 'QD', '9D']
+Player 2 full hand: ['9H', '10D', 'JS', 'QS']
+Player 3 full hand: ['KS', 'KH', '7S', 'KD']
+
+  Player 0 (AI Master) analyzing bid:
+    Bidding hand (first 4): ['8H', 'JH', '10H', '7C']
+    Full hand (8 cards): ['8H', 'JH', '10H', '7C']
+    Hand strength: 0.143
+    Current bid: 16
+    Point prediction: 14.1 points
+    Strategy: REAL ISMCTS bidding (700 iterations, 32 samples)
+    MCTS state prepared with 4 cards
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Pass evaluation score: 0.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 17 evaluation score: -1.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 18 evaluation score: -1.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 0 (min_allowed=17)
+  Player 1 (RL Expert) analyzing bid:
+    Bidding hand (first 4): ['10C', '9C', 'QD', '9D']
+    Full hand (8 cards): ['10C', '9C', 'QD', '9D']
+    Hand strength: 0.179
+    Current bid: 16
+    Point prediction: 13.4 points
+    Strategy: REAL ISMCTS bidding (700 iterations, 32 samples)
+    MCTS state prepared with 4 cards
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Pass evaluation score: 0.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 17 evaluation score: -1.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 18 evaluation score: -1.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 1 (min_allowed=17)
+  Player 2 (MCTS Master) analyzing bid:
+    Bidding hand (first 4): ['9H', '10D', 'JS', 'QS']
+    Full hand (8 cards): ['9H', '10D', 'JS', 'QS']
+    Hand strength: 0.214
+    Current bid: 16
+    Point prediction: 14.5 points
+    Strategy: REAL ISMCTS bidding (700 iterations, 32 samples)
+    MCTS state prepared with 4 cards
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Pass evaluation score: 0.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 17 evaluation score: -1.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 18 evaluation score: -1.000
+      REAL ISMCTS evaluation error: unsupported operand type(s) for %: 'NoneType' and 'int'
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 2 (min_allowed=17)
+Auction winner: Player 3 with bid 16
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: [face-down trump]
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (8 cards): ['8H', 'JH', '10H', '7C', 'AD', '9S', 'AH', 'AC']
+    Legal cards (7): ['8H', 'JH', '10H', '7C', 'AD', 'AH', 'AC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/7: 8H
+      REAL ISMCTS card evaluation completed in 7.920s, best action: KH
+      ISMCTS stats: {'KH': 1.0, 'QH': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 2/7: JH
+      REAL ISMCTS card evaluation completed in 8.146s, best action: KH
+      ISMCTS stats: {'KH': 1.0, 'QH': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 3/7: 10H
+      REAL ISMCTS card evaluation completed in 7.798s, best action: KH
+      ISMCTS stats: {'KH': 1.0, 'QH': 0.0}
+      ISMCTS score: 1.000
+    Evaluating card 4/7: 7C
+      REAL ISMCTS card evaluation completed in 8.571s, best action: QC
+      ISMCTS stats: {'QC': 1.0, 'JC': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 5/7: AD
+      REAL ISMCTS card evaluation completed in 10.531s, best action: KD
+      ISMCTS stats: {'KD': 1.0, 'JD': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 6/7: AH
+      REAL ISMCTS card evaluation completed in 7.435s, best action: KH
+      ISMCTS stats: {'KH': 1.0, 'QH': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 7/7: AC
+      REAL ISMCTS card evaluation completed in 8.495s, best action: QC
+      ISMCTS stats: {'QC': 1.0, 'JC': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 58.900s
+    Best card: JH (score: 3.000)
+Player 0 plays JH
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (8 cards): ['10C', '9C', 'QD', '9D', '7H', 'AS', 'KC', '8D']
+    Legal cards (1): ['7H']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: 7H
+      REAL ISMCTS card evaluation completed in 11.949s, best action: 8H
+      ISMCTS stats: {'8H': 1.0, '10H': 0.0, 'AH': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 11.950s
+    Best card: 7H (score: 0.000)
+Player 1 plays 7H
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (8 cards): ['9H', '10D', 'JS', 'QS', '8C', '10S', '7D', '8S']
+    Legal cards (1): ['9H']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: 9H
+      REAL ISMCTS card evaluation completed in 11.954s, best action: 10C
+      ISMCTS stats: {'10C': 1.0, '9C': 0.0, 'QD': 0.0, '9D': 0.0, 'AS': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 2.000
+    ISMCTS evaluation completed in 11.955s
+    Best card: 9H (score: 2.000)
+Player 2 plays 9H
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (7 cards): ['KH', '7S', 'KD', 'QC', 'QH', 'JC', 'JD']
+    Legal cards (2): ['KH', 'QH']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/2: KH
+      REAL ISMCTS card evaluation completed in 35.580s, best action: 10D
+      ISMCTS stats: {'10D': 1.0, 'JS': 0.0, 'QS': 0.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 2/2: QH
+      REAL ISMCTS card evaluation completed in 32.321s, best action: 10D
+      ISMCTS stats: {'10D': 1.0, 'JS': 0.0, 'QS': 0.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 2.000
+    ISMCTS evaluation completed in 67.902s
+    Best card: KH (score: 2.000)
+Player 3 plays KH
+Player 0 won the hand: 5 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (7 cards): ['8H', '10H', '7C', 'AD', '9S', 'AH', 'AC']
+    Legal cards (6): ['8H', '10H', '7C', 'AD', 'AH', 'AC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/6: 8H
+      REAL ISMCTS card evaluation completed in 6.948s, best action: 8H
+      ISMCTS stats: {'8H': 1.0, '10H': 0.0, 'AH': 0.0}
+      ISMCTS score: 10.000
+    Evaluating card 2/6: 10H
+      REAL ISMCTS card evaluation completed in 7.139s, best action: 8H
+      ISMCTS stats: {'8H': 1.0, '10H': 0.0, 'AH': 0.0}
+      ISMCTS score: 1.000
+    Evaluating card 3/6: 7C
+      REAL ISMCTS card evaluation completed in 8.202s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 10.000
+    Evaluating card 4/6: AD
+      REAL ISMCTS card evaluation completed in 7.202s, best action: AD
+      ISMCTS stats: {'AD': 1.0}
+      ISMCTS score: 13.000
+    Evaluating card 5/6: AH
+      REAL ISMCTS card evaluation completed in 6.753s, best action: 8H
+      ISMCTS stats: {'8H': 1.0, '10H': 0.0, 'AH': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 6/6: AC
+      REAL ISMCTS card evaluation completed in 6.874s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 43.123s
+    Best card: AD (score: 13.000)
+Player 0 plays AD
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (7 cards): ['10C', '9C', 'QD', '9D', 'AS', 'KC', '8D']
+    Legal cards (3): ['QD', '9D', '8D']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/3: QD
+      REAL ISMCTS card evaluation completed in 6.925s, best action: QD
+      ISMCTS stats: {'QD': 1.0, '9D': 0.0, '8D': 0.0}
+      ISMCTS score: 12.000
+    Evaluating card 2/3: 9D
+      REAL ISMCTS card evaluation completed in 7.799s, best action: QD
+      ISMCTS stats: {'QD': 1.0, '9D': 0.0, '8D': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 3/3: 8D
+      REAL ISMCTS card evaluation completed in 7.014s, best action: QD
+      ISMCTS stats: {'QD': 1.0, '9D': 0.0, '8D': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 21.739s
+    Best card: QD (score: 12.000)
+Player 1 plays QD
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (7 cards): ['10D', 'JS', 'QS', '8C', '10S', '7D', '8S']
+    Legal cards (2): ['10D', '7D']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/2: 10D
+      REAL ISMCTS card evaluation completed in 6.719s, best action: 10D
+      ISMCTS stats: {'10D': 1.0, '7D': 0.0}
+      ISMCTS score: 11.000
+    Evaluating card 2/2: 7D
+      REAL ISMCTS card evaluation completed in 6.629s, best action: 10D
+      ISMCTS stats: {'10D': 1.0, '7D': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 13.349s
+    Best card: 10D (score: 11.000)
+Player 2 plays 10D
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (6 cards): ['7S', 'KD', 'QC', 'QH', 'JC', 'JD']
+    Legal cards (2): ['KD', 'JD']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/2: KD
+      REAL ISMCTS card evaluation completed in 15.968s, best action: KD
+      ISMCTS stats: {'KD': 1.0, 'JD': 0.0}
+      ISMCTS score: 12.000
+    Evaluating card 2/2: JD
+      REAL ISMCTS card evaluation completed in 16.803s, best action: KD
+      ISMCTS stats: {'KD': 1.0, 'JD': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 32.774s
+    Best card: KD (score: 12.000)
+Player 3 plays KD
+Player 0 won the hand: 2 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (6 cards): ['8H', '10H', '7C', '9S', 'AH', 'AC']
+    Legal cards (5): ['8H', '10H', '7C', 'AH', 'AC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/5: 8H
+      REAL ISMCTS card evaluation completed in 7.466s, best action: 8H
+      ISMCTS stats: {'8H': 1.0, '10H': 0.0, 'AH': 0.0}
+      ISMCTS score: 10.000
+    Evaluating card 2/5: 10H
+      REAL ISMCTS card evaluation completed in 6.527s, best action: 8H
+      ISMCTS stats: {'8H': 1.0, '10H': 0.0, 'AH': 0.0}
+      ISMCTS score: 1.000
+    Evaluating card 3/5: 7C
+      REAL ISMCTS card evaluation completed in 6.850s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 10.000
+    Evaluating card 4/5: AH
+      REAL ISMCTS card evaluation completed in 6.327s, best action: 8H
+      ISMCTS stats: {'8H': 1.0, '10H': 0.0, 'AH': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 5/5: AC
+      REAL ISMCTS card evaluation completed in 6.451s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 33.623s
+    Best card: 8H (score: 10.000)
+Player 0 plays 8H
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (6 cards): ['10C', '9C', '9D', 'AS', 'KC', '8D']
+    Legal cards (6): ['10C', '9C', '9D', 'AS', 'KC', '8D']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/6: 10C
+      REAL ISMCTS card evaluation completed in 6.223s, best action: 10C
+      ISMCTS stats: {'10C': 1.0, '9C': 0.0, '9D': 0.0, 'AS': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 11.000
+    Evaluating card 2/6: 9C
+      REAL ISMCTS card evaluation completed in 6.801s, best action: 10C
+      ISMCTS stats: {'10C': 1.0, '9C': 0.0, '9D': 0.0, 'AS': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 3/6: 9D
+      REAL ISMCTS card evaluation completed in 6.548s, best action: 10C
+      ISMCTS stats: {'10C': 1.0, '9C': 0.0, '9D': 0.0, 'AS': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 4/6: AS
+      REAL ISMCTS card evaluation completed in 6.719s, best action: 10C
+      ISMCTS stats: {'10C': 1.0, '9C': 0.0, '9D': 0.0, 'AS': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 3.500
+    Evaluating card 5/6: KC
+      REAL ISMCTS card evaluation completed in 7.281s, best action: 10C
+      ISMCTS stats: {'10C': 1.0, '9C': 0.0, '9D': 0.0, 'AS': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 6/6: 8D
+      REAL ISMCTS card evaluation completed in 6.876s, best action: 10C
+      ISMCTS stats: {'10C': 1.0, '9C': 0.0, '9D': 0.0, 'AS': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 40.454s
+    Best card: 10C (score: 11.000)
+Player 1 plays 10C
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (6 cards): ['JS', 'QS', '8C', '10S', '7D', '8S']
+    Legal cards (6): ['JS', 'QS', '8C', '10S', '7D', '8S']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/6: JS
+      REAL ISMCTS card evaluation completed in 7.065s, best action: JS
+      ISMCTS stats: {'JS': 1.0, 'QS': 0.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 14.500
+    Evaluating card 2/6: QS
+      REAL ISMCTS card evaluation completed in 6.597s, best action: JS
+      ISMCTS stats: {'JS': 1.0, 'QS': 0.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 3/6: 8C
+      REAL ISMCTS card evaluation completed in 6.237s, best action: JS
+      ISMCTS stats: {'JS': 1.0, 'QS': 0.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 4/6: 10S
+      REAL ISMCTS card evaluation completed in 6.227s, best action: JS
+      ISMCTS stats: {'JS': 1.0, 'QS': 0.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 1.500
+    Evaluating card 5/6: 7D
+      REAL ISMCTS card evaluation completed in 6.432s, best action: JS
+      ISMCTS stats: {'JS': 1.0, 'QS': 0.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 6/6: 8S
+      REAL ISMCTS card evaluation completed in 6.750s, best action: JS
+      ISMCTS stats: {'JS': 1.0, 'QS': 0.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 39.311s
+    Best card: JS (score: 14.500)
+-- Phase 2 begins: Trump revealed as S by Player 2 on trick 3 --
+Player 2 plays JS
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (6 cards): ['7S', 'QC', 'QH', 'JC', 'JD', 'KS']
+    Legal cards (1): ['QH']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: QH
+      REAL ISMCTS card evaluation completed in 14.178s, best action: QH
+      ISMCTS stats: {'QH': 1.0}
+      ISMCTS score: 12.000
+    ISMCTS evaluation completed in 14.179s
+    Best card: QH (score: 12.000)
+Player 3 plays QH
+Player 2 won the hand: 4 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (5 cards): ['10H', '7C', '9S', 'AH', 'AC']
+    Legal cards (5): ['10H', '7C', '9S', 'AH', 'AC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/5: 10H
+      REAL ISMCTS card evaluation completed in 5.840s, best action: QS
+      ISMCTS stats: {'QS': 1.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 1.000
+    Evaluating card 2/5: 7C
+      REAL ISMCTS card evaluation completed in 6.369s, best action: 8C
+      ISMCTS stats: {'8C': 1.0}
+      ISMCTS score: 0.000
+    Evaluating card 3/5: 9S
+      REAL ISMCTS card evaluation completed in 6.387s, best action: QS
+      ISMCTS stats: {'QS': 1.0, '10S': 0.0, '8S': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 4/5: AH
+      REAL ISMCTS card evaluation completed in 6.121s, best action: QS
+      ISMCTS stats: {'QS': 1.0, '8C': 0.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 5/5: AC
+      REAL ISMCTS card evaluation completed in 5.684s, best action: 8C
+      ISMCTS stats: {'8C': 1.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 30.403s
+    Best card: 9S (score: 3.000)
+Player 0 plays 9S
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (5 cards): ['9C', '9D', 'AS', 'KC', '8D']
+    Legal cards (1): ['AS']
+    Current trick: 1 cards played
+    Lead suit: S
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: AS
+      REAL ISMCTS card evaluation completed in 5.672s, best action: 7S
+      ISMCTS stats: {'7S': 1.0, 'KS': 0.0}
+      ISMCTS score: 3.500
+    ISMCTS evaluation completed in 5.672s
+    Best card: AS (score: 3.500)
+Player 1 plays AS
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (5 cards): ['QS', '8C', '10S', '7D', '8S']
+    Legal cards (3): ['QS', '10S', '8S']
+    Current trick: 2 cards played
+    Lead suit: S
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/3: QS
+      REAL ISMCTS card evaluation completed in 6.629s, best action: 10H
+      ISMCTS stats: {'10H': 1.0, '7C': 0.0, 'AH': 0.0, 'AC': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 2/3: 10S
+      REAL ISMCTS card evaluation completed in 7.198s, best action: 10H
+      ISMCTS stats: {'10H': 1.0, '7C': 0.0, 'AH': 0.0, 'AC': 0.0}
+      ISMCTS score: 1.500
+    Evaluating card 3/3: 8S
+      REAL ISMCTS card evaluation completed in 5.890s, best action: 10H
+      ISMCTS stats: {'10H': 1.0, '7C': 0.0, 'AH': 0.0, 'AC': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 19.718s
+    Best card: QS (score: 2.000)
+Player 2 plays QS
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (5 cards): ['7S', 'QC', 'JC', 'JD', 'KS']
+    Legal cards (2): ['7S', 'KS']
+    Current trick: 3 cards played
+    Lead suit: S
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/2: 7S
+      REAL ISMCTS card evaluation completed in 10.259s, best action: 9C
+      ISMCTS stats: {'9C': 1.0, '9D': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 2/2: KS
+      REAL ISMCTS card evaluation completed in 11.638s, best action: 9C
+      ISMCTS stats: {'9C': 1.0, '9D': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 2.000
+    ISMCTS evaluation completed in 21.900s
+    Best card: KS (score: 2.000)
+Player 3 plays KS
+Player 0 won the hand: 3 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (4 cards): ['10H', '7C', 'AH', 'AC']
+    Legal cards (4): ['10H', '7C', 'AH', 'AC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/4: 10H
+      REAL ISMCTS card evaluation completed in 5.673s, best action: 10H
+      ISMCTS stats: {'10H': 1.0, 'AH': 0.0}
+      ISMCTS score: 11.000
+    Evaluating card 2/4: 7C
+      REAL ISMCTS card evaluation completed in 6.654s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 10.000
+    Evaluating card 3/4: AH
+      REAL ISMCTS card evaluation completed in 6.301s, best action: 10H
+      ISMCTS stats: {'10H': 1.0, 'AH': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 4/4: AC
+      REAL ISMCTS card evaluation completed in 5.379s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 24.009s
+    Best card: 10H (score: 11.000)
+Player 0 plays 10H
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (4 cards): ['9C', '9D', 'KC', '8D']
+    Legal cards (4): ['9C', '9D', 'KC', '8D']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/4: 9C
+      REAL ISMCTS card evaluation completed in 5.271s, best action: 9C
+      ISMCTS stats: {'9C': 1.0, '9D': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 12.000
+    Evaluating card 2/4: 9D
+      REAL ISMCTS card evaluation completed in 5.253s, best action: 9C
+      ISMCTS stats: {'9C': 1.0, '9D': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 3/4: KC
+      REAL ISMCTS card evaluation completed in 5.391s, best action: 9C
+      ISMCTS stats: {'9C': 1.0, '9D': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 4/4: 8D
+      REAL ISMCTS card evaluation completed in 5.208s, best action: 9C
+      ISMCTS stats: {'9C': 1.0, '9D': 0.0, 'KC': 0.0, '8D': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 21.124s
+    Best card: 9C (score: 12.000)
+Player 1 plays 9C
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (4 cards): ['8C', '10S', '7D', '8S']
+    Legal cards (4): ['8C', '10S', '7D', '8S']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/4: 8C
+      REAL ISMCTS card evaluation completed in 5.120s, best action: 8C
+      ISMCTS stats: {'8C': 1.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 10.000
+    Evaluating card 2/4: 10S
+      REAL ISMCTS card evaluation completed in 5.391s, best action: 8C
+      ISMCTS stats: {'8C': 1.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 1.500
+    Evaluating card 3/4: 7D
+      REAL ISMCTS card evaluation completed in 5.206s, best action: 8C
+      ISMCTS stats: {'8C': 1.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 4/4: 8S
+      REAL ISMCTS card evaluation completed in 5.165s, best action: 8C
+      ISMCTS stats: {'8C': 1.0, '10S': 0.0, '7D': 0.0, '8S': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 20.884s
+    Best card: 8C (score: 10.000)
+Player 2 plays 8C
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (4 cards): ['7S', 'QC', 'JC', 'JD']
+    Legal cards (4): ['7S', 'QC', 'JC', 'JD']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/4: 7S
+      REAL ISMCTS card evaluation completed in 7.948s, best action: 7S
+      ISMCTS stats: {'7S': 1.0, 'QC': 0.0, 'JC': 0.0, 'JD': 0.0}
+      ISMCTS score: 10.000
+    Evaluating card 2/4: QC
+      REAL ISMCTS card evaluation completed in 7.763s, best action: 7S
+      ISMCTS stats: {'7S': 1.0, 'QC': 0.0, 'JC': 0.0, 'JD': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 3/4: JC
+      REAL ISMCTS card evaluation completed in 7.792s, best action: 7S
+      ISMCTS stats: {'7S': 1.0, 'QC': 0.0, 'JC': 0.0, 'JD': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 4/4: JD
+      REAL ISMCTS card evaluation completed in 7.757s, best action: 7S
+      ISMCTS stats: {'7S': 1.0, 'QC': 0.0, 'JC': 0.0, 'JD': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 31.261s
+    Best card: 7S (score: 10.000)
+Player 3 plays 7S
+Player 3 won the hand: 3 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (3 cards): ['7C', 'AH', 'AC']
+    Legal cards (3): ['7C', 'AH', 'AC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/3: 7C
+      REAL ISMCTS card evaluation completed in 5.053s, best action: QC
+      ISMCTS stats: {'QC': 1.0, 'JC': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 2/3: AH
+      REAL ISMCTS card evaluation completed in 4.810s, best action: QC
+      ISMCTS stats: {'QC': 1.0, 'JC': 0.0, 'JD': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 3/3: AC
+      REAL ISMCTS card evaluation completed in 5.061s, best action: QC
+      ISMCTS stats: {'QC': 1.0, 'JC': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 14.927s
+    Best card: AH (score: 3.000)
+Player 0 plays AH
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (3 cards): ['9D', 'KC', '8D']
+    Legal cards (3): ['9D', 'KC', '8D']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/3: 9D
+      REAL ISMCTS card evaluation completed in 4.637s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 2/3: KC
+      REAL ISMCTS card evaluation completed in 4.685s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 3/3: 8D
+      REAL ISMCTS card evaluation completed in 4.682s, best action: 7C
+      ISMCTS stats: {'7C': 1.0, 'AC': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 14.007s
+    Best card: 9D (score: 2.000)
+Player 1 plays 9D
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (3 cards): ['10S', '7D', '8S']
+    Legal cards (3): ['10S', '7D', '8S']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/3: 10S
+      REAL ISMCTS card evaluation completed in 4.821s, best action: KC
+      ISMCTS stats: {'KC': 1.0, '8D': 0.0}
+      ISMCTS score: 1.500
+    Evaluating card 2/3: 7D
+      REAL ISMCTS card evaluation completed in 4.852s, best action: KC
+      ISMCTS stats: {'KC': 1.0, '8D': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 3/3: 8S
+      REAL ISMCTS card evaluation completed in 4.868s, best action: KC
+      ISMCTS stats: {'KC': 1.0, '8D': 0.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 14.542s
+    Best card: 10S (score: 1.500)
+Player 2 plays 10S
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (3 cards): ['QC', 'JC', 'JD']
+    Legal cards (3): ['QC', 'JC', 'JD']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/3: QC
+      REAL ISMCTS card evaluation completed in 5.931s, best action: 7D
+      ISMCTS stats: {'7D': 1.0, '8S': 0.0}
+      ISMCTS score: 2.000
+    Evaluating card 2/3: JC
+      REAL ISMCTS card evaluation completed in 6.024s, best action: 7D
+      ISMCTS stats: {'7D': 1.0, '8S': 0.0}
+      ISMCTS score: 3.000
+    Evaluating card 3/3: JD
+      REAL ISMCTS card evaluation completed in 5.987s, best action: 7D
+      ISMCTS stats: {'7D': 1.0, '8S': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 17.943s
+    Best card: JC (score: 3.000)
+Player 3 plays JC
+Player 2 won the hand: 7 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (2 cards): ['7C', 'AC']
+    Legal cards (2): ['7C', 'AC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/2: 7C
+      REAL ISMCTS card evaluation completed in 4.991s, best action: 7D
+      ISMCTS stats: {'7D': 1.0, '8S': 0.0}
+      ISMCTS score: 0.000
+    Evaluating card 2/2: AC
+      REAL ISMCTS card evaluation completed in 4.479s, best action: 7D
+      ISMCTS stats: {'7D': 1.0, '8S': 0.0}
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 9.470s
+    Best card: AC (score: 3.000)
+Player 0 plays AC
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (2 cards): ['KC', '8D']
+    Legal cards (1): ['KC']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: KC
+      REAL ISMCTS card evaluation completed in 4.275s, best action: QC
+      ISMCTS stats: {'QC': 1.0}
+      ISMCTS score: 2.000
+    ISMCTS evaluation completed in 4.275s
+    Best card: KC (score: 2.000)
+Player 1 plays KC
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (2 cards): ['7D', '8S']
+    Legal cards (2): ['7D', '8S']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/2: 7D
+      REAL ISMCTS card evaluation completed in 4.187s, best action: 7C
+      ISMCTS stats: {'7C': 1.0}
+      ISMCTS score: 0.000
+    Evaluating card 2/2: 8S
+      REAL ISMCTS card evaluation completed in 4.419s, best action: 7C
+      ISMCTS stats: {'7C': 1.0}
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 8.608s
+    Best card: 7D (score: 0.000)
+Player 2 plays 7D
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (2 cards): ['QC', 'JD']
+    Legal cards (1): ['QC']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: QC
+      REAL ISMCTS card evaluation completed in 5.180s, best action: 8D
+      ISMCTS stats: {'8D': 1.0}
+      ISMCTS score: 2.000
+    ISMCTS evaluation completed in 5.180s
+    Best card: QC (score: 2.000)
+Player 3 plays QC
+Player 0 won the hand: 1 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (1 cards): ['7C']
+    Legal cards (1): ['7C']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: 7C
+      REAL ISMCTS card evaluation completed in 4.904s, best action: 7C
+      ISMCTS stats: {'7C': 1.0}
+      ISMCTS score: 10.000
+    ISMCTS evaluation completed in 4.904s
+    Best card: 7C (score: 10.000)
+Player 0 plays 7C
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (1 cards): ['8D']
+    Legal cards (1): ['8D']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: 8D
+      REAL ISMCTS card evaluation completed in 4.771s, best action: 8D
+      ISMCTS stats: {'8D': 1.0}
+      ISMCTS score: 10.000
+    ISMCTS evaluation completed in 4.772s
+    Best card: 8D (score: 10.000)
+Player 1 plays 8D
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (1 cards): ['8S']
+    Legal cards (1): ['8S']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: 8S
+      REAL ISMCTS card evaluation completed in 5.043s, best action: 8S
+      ISMCTS stats: {'8S': 1.0}
+      ISMCTS score: 10.000
+    ISMCTS evaluation completed in 5.044s
+    Best card: 8S (score: 10.000)
+Player 2 plays 8S
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (1 cards): ['JD']
+    Legal cards (1): ['JD']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: REAL ISMCTS card selection (700 iterations, 32 samples)
+    Evaluating card 1/1: JD
+      REAL ISMCTS card evaluation completed in 5.229s, best action: JD
+      ISMCTS stats: {'JD': 1.0}
+      ISMCTS score: 13.000
+    ISMCTS evaluation completed in 5.229s
+    Best card: JD (score: 13.000)
+Player 3 plays JD
+Player 2 won the hand: 3 points
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 25 points
+Team B (Players 1 & 3): 3 points
+Bidder: Player 3 (Team B)
+Winning Bid: 16
+Bid Success: NO
+Game Winner: Team B (Players 1 & 3)
+Total Tricks: 8

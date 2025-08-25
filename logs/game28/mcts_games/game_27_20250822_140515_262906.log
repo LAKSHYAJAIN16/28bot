@@ -1,0 +1,111 @@
+
+===== GAME 27 (20250822_140515_262906) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=5.00  p30=3.00  std=2.00
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 1.95 < 15
+      D: p30 3.00 < 15; conf_mean 4.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=3.00, conf_mean=4.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 3.00 < 15, conf_mean 4.00 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.75  p30=10.00  std=5.72
+    suit_stats:
+      H: pts=[13, 17, 9, 10, 15, 20 ...]  avg=15.75  p30=10.00  std=5.72
+      D: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 10.00 < 15; conf_mean 12.89 < 15
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=10.00, conf_mean=12.89 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 10.00 < 15, conf_mean 12.89 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.38  p30=14.00  std=5.72
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 14.00 < 15; conf_mean 13.51 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=14.00, conf_mean=13.51 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 13.51 < 15.
+Bid: Player 3 proposes 17 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: D
+    proposed_bid: 17
+    overall: avg=17.00  p30=17.00  std=0.00
+    reason: Bid (precomputed): Suit D meets thresholds (p30=17.00, conf_mean=17.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)
+
+AUCTION WINNER: Player 3 with bid 17; chooses trump C 
+Details={'chosen': 'C', 'estimates': {'D': 17.0, 'C': 23.833333333333332}}
+Player 0 hand :  ['7S', 'AH', '7D', '10S', 'AD', 'QD', 'KS', '10D']
+Player 1 hand :  ['9H', '8D', '8C', 'KH', 'AS', '9C', '7H', 'KC']
+Player 2 hand :  ['7C', '8S', '10C', 'KD', '10H', 'JS', 'QS', '9S']
+Player 3 hand :  ['JC', 'JD', '9D', 'AC', 'JH', '8H', 'QH']
+Player 0 (auction 4 cards): ['7S', 'AH', '7D', '10S']
+Player 1 (auction 4 cards): ['9H', '8D', '8C', 'KH']
+Player 2 (auction 4 cards): ['7C', '8S', '10C', 'KD']
+Player 3 (auction 4 cards): ['JC', 'JD', '9D', 'QC']
+Auction winner (bidder): Player 3 with bid 17
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: QC
+
+Player 0 plays 7S
+Player 1 plays AS
+Player 2 plays 8S
+-- Phase 2 begins: Trump revealed as C by Player 3 on trick 1 --
+Player 3 plays JC
+Player 3 won the hand: 4 points
+
+Player 3 plays JD
+Player 0 plays 7D
+Player 1 plays 8D
+Player 2 plays KD
+Player 3 won the hand: 3 points
+
+Player 3 plays 9D
+Player 0 plays AD
+Player 1 plays 9H
+Player 2 plays 7C
+Player 2 won the hand: 5 points
+
+Player 2 plays 10C
+Player 3 plays AC
+Player 0 plays AH
+Player 1 plays 8C
+Player 3 won the hand: 3 points
+
+Player 3 plays JH
+Player 0 plays 10S
+Player 1 plays KH
+Player 2 plays 10H
+Player 3 won the hand: 5 points
+
+Player 3 plays 8H
+Player 0 plays QD
+Player 1 plays 7H
+Player 2 plays JS
+Player 3 won the hand: 3 points
+
+Player 3 plays QH
+Player 0 plays KS
+Player 1 plays 9C
+Player 2 plays QS
+Player 1 won the hand: 2 points
+
+Player 1 plays KC
+Player 2 plays 9S
+Player 3 plays QC
+Player 0 plays 10D
+Player 1 won the hand: 3 points
+
+Game 27 final points: Team A=5, Team B=23
+Series cumulative game score so far: Team A=-4, Team B=2
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_27_20250822_140515_262906.log

@@ -1,0 +1,111 @@
+
+===== GAME 63 (20250822_151605_808101) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.38  p30=13.00  std=6.28
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      D: p30 13.00 < 15; conf_mean 13.23 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=13.00, conf_mean=13.23 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 13.23 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=14.56  p30=11.00  std=6.80
+    suit_stats:
+      S: pts=[1, 10, 15, 6, 18, 22 ...]  avg=14.56  p30=11.00  std=6.80
+      H: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 11.00 < 15; conf_mean 11.16 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=11.00, conf_mean=11.16 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 11.16 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.19  p30=12.00  std=5.28
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 12.00 < 15; conf_mean 12.55 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=12.00, conf_mean=12.55 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 12.55 < 15.
+Bid: Player 3 proposes 16 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: D
+    proposed_bid: 16
+    overall: avg=16.50  p30=15.00  std=1.50
+    reason: Bid (precomputed): Suit D meets thresholds (p30=15.00, conf_mean=15.75 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)
+
+AUCTION WINNER: Player 3 with bid 16; chooses trump D 
+Details={'chosen': 'D', 'estimates': {'D': 16.5, 'C': 14.833333333333334}}
+Player 0 hand :  ['KS', '8D', '8H', 'AD', '7D', 'JS', 'QS', '9C']
+Player 1 hand :  ['7S', '9S', '8C', 'KH', 'QH', 'JD', '7H', 'KD']
+Player 2 hand :  ['KC', '10C', 'AS', '10H', 'JC', '9H', 'QD', '8S']
+Player 3 hand :  ['AC', '9D', '7C', 'AH', 'JH', 'QC', '10S']
+Player 0 (auction 4 cards): ['KS', '8D', '8H', 'AD']
+Player 1 (auction 4 cards): ['7S', '9S', '8C', 'KH']
+Player 2 (auction 4 cards): ['KC', '10C', 'AS', '10H']
+Player 3 (auction 4 cards): ['10D', 'AC', '9D', '7C']
+Auction winner (bidder): Player 3 with bid 16
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: 10D
+
+Player 0 plays KS
+Player 1 plays 7S
+Player 2 plays AS
+Player 3 plays 10S
+Player 2 won the hand: 2 points
+
+Player 2 plays KC
+Player 3 plays AC
+Player 0 plays 9C
+Player 1 plays 8C
+Player 0 won the hand: 3 points
+
+Player 0 plays 8D
+Player 1 plays JD
+Player 2 plays QD
+Player 3 plays 9D
+Player 1 won the hand: 5 points
+
+Player 1 plays 9S
+Player 2 plays 8S
+Player 3 plays 7C
+Player 0 plays JS
+Player 0 won the hand: 5 points
+
+Player 0 plays 8H
+Player 1 plays KH
+Player 2 plays 10H
+Player 3 plays AH
+Player 3 won the hand: 2 points
+
+Player 3 plays JH
+-- Phase 2 begins: Trump revealed as D by Player 0 on trick 6 --
+Player 0 plays AD
+Player 1 plays QH
+Player 2 plays 9H
+Player 0 won the hand: 6 points
+
+Player 0 plays 7D
+Player 1 plays KD
+Player 2 plays 10C
+Player 3 plays 10D
+Player 3 won the hand: 2 points
+
+Player 3 plays QC
+Player 0 plays QS
+Player 1 plays 7H
+Player 2 plays JC
+Player 2 won the hand: 3 points
+
+Game 63 final points: Team A=19, Team B=9
+Series cumulative game score so far: Team A=-10, Team B=2
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_63_20250822_151605_808101.log

@@ -1,0 +1,744 @@
+
+===== GAME 1 (20250823_154826_218) =====
+Player 0 initial hand (bidding): ['9D', '9C', 'KC', '10C']
+Player 1 initial hand (bidding): ['AD', '8D', 'KH', 'JD']
+Player 2 initial hand (bidding): ['AS', 'AC', 'JH', 'AH']
+Player 3 initial hand (bidding): ['KS', '10S', 'KD', '10H']
+
+Full hands (8 cards each):
+Player 0 full hand: ['9D', '9C', 'KC', '10C']
+Player 1 full hand: ['AD', '8D', 'KH', 'JD']
+Player 2 full hand: ['AS', 'AC', 'JH', 'AH']
+Player 3 full hand: ['KS', '10S', 'KD', '10H']
+
+  Player 0 (AI Master) analyzing bid:
+    Bidding hand (first 4): ['9D', '9C', 'KC', '10C']
+    Full hand (8 cards): ['9D', '9C', 'KC', '10C']
+    Hand strength: 0.179
+    Current bid: 16
+    Point prediction: 14.0 points
+    Strategy: ISMCTS bidding (2000 iterations, 8 samples)
+    MCTS state prepared with 4 cards
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Pass evaluation score: 0.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 17 evaluation score: -1.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 18 evaluation score: -1.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 0 (min_allowed=17)
+  Player 1 (RL Expert) analyzing bid:
+    Bidding hand (first 4): ['AD', '8D', 'KH', 'JD']
+    Full hand (8 cards): ['AD', '8D', 'KH', 'JD']
+    Hand strength: 0.143
+    Current bid: 16
+    Point prediction: 13.7 points
+    Strategy: ISMCTS bidding (1500 iterations, 6 samples)
+    MCTS state prepared with 4 cards
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Pass evaluation score: 0.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 17 evaluation score: -1.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 18 evaluation score: -1.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 1 (min_allowed=17)
+  Player 2 (MCTS Master) analyzing bid:
+    Bidding hand (first 4): ['AS', 'AC', 'JH', 'AH']
+    Full hand (8 cards): ['AS', 'AC', 'JH', 'AH']
+    Hand strength: 0.214
+    Current bid: 16
+    Point prediction: 14.2 points
+    Strategy: ISMCTS bidding (3000 iterations, 10 samples)
+    MCTS state prepared with 4 cards
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Pass evaluation score: 0.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 17 evaluation score: -1.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 18 evaluation score: -1.000
+      ISMCTS evaluation error: 'TwentyEightEnv' object has no attribute 'game_score'
+    Bid 19 evaluation score: -1.000
+    Best decision: PASS (score: 0.000)
+Pass: Player 2 (min_allowed=17)
+Auction winner: Player 3 with bid 16
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: [face-down trump]
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (8 cards): ['9D', '9C', 'KC', '10C', 'JC', '7D', 'QS', 'QC']
+    Legal cards (7): ['9D', '9C', 'KC', '10C', 'JC', '7D', 'QC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: ISMCTS card selection (2000 iterations, 8 samples)
+    Evaluating card 1/7: 9D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 2/7: 9C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 3/7: KC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 4/7: 10C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 5/7: JC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 3.000
+    Evaluating card 6/7: 7D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 7/7: QC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.003s
+    Best card: JC (score: 3.000)
+Player 0 plays JC
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (8 cards): ['AD', '8D', 'KH', 'JD', '7S', '7C', '9H', 'JS']
+    Legal cards (1): ['7C']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1500 iterations, 6 samples)
+    Evaluating card 1/1: 7C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.000s
+    Best card: 7C (score: 0.000)
+Player 1 plays 7C
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (8 cards): ['AS', 'AC', 'JH', 'AH', '9S', '8H', 'QH', '8C']
+    Legal cards (2): ['AC', '8C']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (3000 iterations, 10 samples)
+    Evaluating card 1/2: AC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 2/2: 8C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: AC (score: 2.000)
+Player 2 plays AC
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (7 cards): ['KS', 'KD', '10H', '10D', '8S', '7H', 'QD']
+    Legal cards (7): ['KS', 'KD', '10H', '10D', '8S', '7H', 'QD']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1800 iterations, 7 samples)
+    Evaluating card 1/7: KS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 2/7: KD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 3/7: 10H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 4/7: 10D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 5/7: 8S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 6/7: 7H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 7/7: QD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.003s
+    Best card: KS (score: 1.000)
+-- Phase 2 begins: Trump revealed as S by Player 3 on trick 1 --
+Player 3 plays KS
+Player 3 won the hand: 4 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (7 cards): ['9D', '9C', 'KC', '10C', '7D', 'QS', 'QC']
+    Legal cards (7): ['9D', '9C', 'KC', '10C', '7D', 'QS', 'QC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: ISMCTS card selection (2000 iterations, 8 samples)
+    Evaluating card 1/7: 9D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 2/7: 9C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 3/7: KC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 4/7: 10C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 5/7: 7D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 6/7: QS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 7/7: QC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.002s
+    Best card: 9D (score: 2.000)
+Player 0 plays 9D
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (7 cards): ['AD', '8D', 'KH', 'JD', '7S', '9H', 'JS']
+    Legal cards (3): ['AD', '8D', 'JD']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: ISMCTS card selection (1500 iterations, 6 samples)
+    Evaluating card 1/3: AD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 2/3: 8D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 3/3: JD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 3.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: JD (score: 3.000)
+Player 1 plays JD
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (7 cards): ['AS', 'JH', 'AH', '9S', '8H', 'QH', '8C']
+    Legal cards (7): ['AS', 'JH', 'AH', '9S', '8H', 'QH', '8C']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: ISMCTS card selection (3000 iterations, 10 samples)
+    Evaluating card 1/7: AS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.500
+    Evaluating card 2/7: JH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 3.000
+    Evaluating card 3/7: AH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 4/7: 9S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 3.000
+    Evaluating card 5/7: 8H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 6/7: QH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 7/7: 8C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.003s
+    Best card: JH (score: 3.000)
+Player 2 plays JH
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (7 cards): ['KD', '10H', '10D', '8S', '7H', 'QD', '10S']
+    Legal cards (3): ['KD', '10D', 'QD']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: ISMCTS card selection (1800 iterations, 7 samples)
+    Evaluating card 1/3: KD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 2/3: 10D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 3/3: QD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: KD (score: 1.000)
+Player 3 plays KD
+Player 1 won the hand: 8 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (6 cards): ['9C', 'KC', '10C', '7D', 'QS', 'QC']
+    Legal cards (6): ['9C', 'KC', '10C', '7D', 'QS', 'QC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: ISMCTS card selection (2000 iterations, 8 samples)
+    Evaluating card 1/6: 9C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 2/6: KC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 3/6: 10C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 4/6: 7D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 5/6: QS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 6/6: QC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.002s
+    Best card: 9C (score: 2.000)
+Player 0 plays 9C
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (6 cards): ['AD', '8D', 'KH', '7S', '9H', 'JS']
+    Legal cards (6): ['AD', '8D', 'KH', '7S', '9H', 'JS']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1500 iterations, 6 samples)
+    Evaluating card 1/6: AD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 2/6: 8D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 3/6: KH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 4/6: 7S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 5/6: 9H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 6/6: JS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 4.500
+    ISMCTS evaluation completed in 0.003s
+    Best card: JS (score: 4.500)
+Player 1 plays JS
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (6 cards): ['AS', 'AH', '9S', '8H', 'QH', '8C']
+    Legal cards (1): ['8C']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (3000 iterations, 10 samples)
+    Evaluating card 1/1: 8C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.000s
+    Best card: 8C (score: 0.000)
+Player 2 plays 8C
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (6 cards): ['10H', '10D', '8S', '7H', 'QD', '10S']
+    Legal cards (6): ['10H', '10D', '8S', '7H', 'QD', '10S']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1800 iterations, 7 samples)
+    Evaluating card 1/6: 10H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 2/6: 10D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 3/6: 8S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 4/6: 7H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 5/6: QD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 6/6: 10S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.500
+    ISMCTS evaluation completed in 0.002s
+    Best card: 10S (score: 1.500)
+Player 3 plays 10S
+Player 1 won the hand: 6 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (5 cards): ['KC', '10C', '7D', 'QS', 'QC']
+    Legal cards (5): ['KC', '10C', '7D', 'QS', 'QC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: ISMCTS card selection (2000 iterations, 8 samples)
+    Evaluating card 1/5: KC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 2/5: 10C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 3/5: 7D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 4/5: QS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 5/5: QC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.002s
+    Best card: KC (score: 1.000)
+Player 0 plays KC
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (5 cards): ['AD', '8D', 'KH', '7S', '9H']
+    Legal cards (5): ['AD', '8D', 'KH', '7S', '9H']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1500 iterations, 6 samples)
+    Evaluating card 1/5: AD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 2/5: 8D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 3/5: KH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 4/5: 7S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 5/5: 9H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    ISMCTS evaluation completed in 0.002s
+    Best card: AD (score: 2.000)
+Player 1 plays AD
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (5 cards): ['AS', 'AH', '9S', '8H', 'QH']
+    Legal cards (5): ['AS', 'AH', '9S', '8H', 'QH']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (3000 iterations, 10 samples)
+    Evaluating card 1/5: AS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.500
+    Evaluating card 2/5: AH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 3/5: 9S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 3.000
+    Evaluating card 4/5: 8H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 5/5: QH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.002s
+    Best card: 9S (score: 3.000)
+Player 2 plays 9S
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (5 cards): ['10H', '10D', '8S', '7H', 'QD']
+    Legal cards (5): ['10H', '10D', '8S', '7H', 'QD']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1800 iterations, 7 samples)
+    Evaluating card 1/5: 10H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 2/5: 10D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 3/5: 8S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 4/5: 7H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 5/5: QD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.002s
+    Best card: 10H (score: 1.000)
+Player 3 plays 10H
+Player 2 won the hand: 4 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (4 cards): ['10C', '7D', 'QS', 'QC']
+    Legal cards (4): ['10C', '7D', 'QS', 'QC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: ISMCTS card selection (2000 iterations, 8 samples)
+    Evaluating card 1/4: 10C
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 2/4: 7D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 3/4: QS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 4/4: QC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: 10C (score: 1.000)
+Player 0 plays 10C
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (4 cards): ['8D', 'KH', '7S', '9H']
+    Legal cards (4): ['8D', 'KH', '7S', '9H']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1500 iterations, 6 samples)
+    Evaluating card 1/4: 8D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 2/4: KH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 3/4: 7S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 4/4: 9H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: 9H (score: 2.000)
+Player 1 plays 9H
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (4 cards): ['AS', 'AH', '8H', 'QH']
+    Legal cards (4): ['AS', 'AH', '8H', 'QH']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (3000 iterations, 10 samples)
+    Evaluating card 1/4: AS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.500
+    Evaluating card 2/4: AH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 3/4: 8H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 4/4: QH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: AS (score: 2.500)
+Player 2 plays AS
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (4 cards): ['10D', '8S', '7H', 'QD']
+    Legal cards (4): ['10D', '8S', '7H', 'QD']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1800 iterations, 7 samples)
+    Evaluating card 1/4: 10D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 2/4: 8S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 3/4: 7H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 4/4: QD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: 10D (score: 1.000)
+Player 3 plays 10D
+Player 2 won the hand: 5 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (3 cards): ['7D', 'QS', 'QC']
+    Legal cards (3): ['7D', 'QS', 'QC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: ISMCTS card selection (2000 iterations, 8 samples)
+    Evaluating card 1/3: 7D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 2/3: QS
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    Evaluating card 3/3: QC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: QS (score: 1.000)
+Player 0 plays QS
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (3 cards): ['8D', 'KH', '7S']
+    Legal cards (1): ['7S']
+    Current trick: 1 cards played
+    Lead suit: S
+    Trump suit: S
+    Strategy: ISMCTS card selection (1500 iterations, 6 samples)
+    Evaluating card 1/1: 7S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.000s
+    Best card: 7S (score: 0.000)
+Player 1 plays 7S
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (3 cards): ['AH', '8H', 'QH']
+    Legal cards (3): ['AH', '8H', 'QH']
+    Current trick: 2 cards played
+    Lead suit: S
+    Trump suit: S
+    Strategy: ISMCTS card selection (3000 iterations, 10 samples)
+    Evaluating card 1/3: AH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 2.000
+    Evaluating card 2/3: 8H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 3/3: QH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: AH (score: 2.000)
+Player 2 plays AH
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (3 cards): ['8S', '7H', 'QD']
+    Legal cards (1): ['8S']
+    Current trick: 3 cards played
+    Lead suit: S
+    Trump suit: S
+    Strategy: ISMCTS card selection (1800 iterations, 7 samples)
+    Evaluating card 1/1: 8S
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.000s
+    Best card: 8S (score: 0.000)
+Player 3 plays 8S
+Player 0 won the hand: 1 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (2 cards): ['7D', 'QC']
+    Legal cards (2): ['7D', 'QC']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: ISMCTS card selection (2000 iterations, 8 samples)
+    Evaluating card 1/2: 7D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 2/2: QC
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: QC (score: 1.000)
+Player 0 plays QC
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (2 cards): ['8D', 'KH']
+    Legal cards (2): ['8D', 'KH']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1500 iterations, 6 samples)
+    Evaluating card 1/2: 8D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 2/2: KH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: KH (score: 1.000)
+Player 1 plays KH
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (2 cards): ['8H', 'QH']
+    Legal cards (2): ['8H', 'QH']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (3000 iterations, 10 samples)
+    Evaluating card 1/2: 8H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 2/2: QH
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: QH (score: 1.000)
+Player 2 plays QH
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (2 cards): ['7H', 'QD']
+    Legal cards (2): ['7H', 'QD']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: S
+    Strategy: ISMCTS card selection (1800 iterations, 7 samples)
+    Evaluating card 1/2: 7H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    Evaluating card 2/2: QD
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 1.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: QD (score: 1.000)
+Player 3 plays QD
+Player 0 won the hand: 0 points
+
+  Player 0 (AI Master) choosing card:
+    Remaining hand (1 cards): ['7D']
+    Legal cards (1): ['7D']
+    Current trick: 0 cards played
+    Trump suit: S
+    Strategy: ISMCTS card selection (2000 iterations, 8 samples)
+    Evaluating card 1/1: 7D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.000s
+    Best card: 7D (score: 0.000)
+Player 0 plays 7D
+  Player 1 (RL Expert) choosing card:
+    Remaining hand (1 cards): ['8D']
+    Legal cards (1): ['8D']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: ISMCTS card selection (1500 iterations, 6 samples)
+    Evaluating card 1/1: 8D
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.000s
+    Best card: 8D (score: 0.000)
+Player 1 plays 8D
+  Player 2 (MCTS Master) choosing card:
+    Remaining hand (1 cards): ['8H']
+    Legal cards (1): ['8H']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: ISMCTS card selection (3000 iterations, 10 samples)
+    Evaluating card 1/1: 8H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.000s
+    Best card: 8H (score: 0.000)
+Player 2 plays 8H
+  Player 3 (Hybrid AI) choosing card:
+    Remaining hand (1 cards): ['7H']
+    Legal cards (1): ['7H']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: S
+    Strategy: ISMCTS card selection (1800 iterations, 7 samples)
+    Evaluating card 1/1: 7H
+      ISMCTS card evaluation error: not enough values to unpack (expected 5, got 4)
+      ISMCTS score: 0.000
+    ISMCTS evaluation completed in 0.001s
+    Best card: 7H (score: 0.000)
+Player 3 plays 7H
+Player 1 won the hand: 0 points
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 10 points
+Team B (Players 1 & 3): 18 points
+Bidder: Player 3 (Team B)
+Winning Bid: 16
+Bid Success: YES
+Game Winner: Team B (Players 1 & 3)
+Total Tricks: 8

@@ -1,0 +1,354 @@
+
+===== GAME 2 (20250824_143715_738) =====
+Player 0 initial hand (bidding): ['10D', 'JS', '9H', '7H']
+Player 1 initial hand (bidding): ['7C', 'AS', 'KD', '8H']
+Player 2 initial hand (bidding): ['8D', '10H', 'AD', '9C']
+Player 3 initial hand (bidding): ['QD', '9D', '7D', 'QH']
+
+  Player 0 (Belief Master) analyzing bid:
+    Bidding hand (first 4): ['10D', 'JS', '9H', '7H']
+    Hand strength: 0.214
+    Current bid: 16
+Point prediction error: shape '[1, 7, -1]' is invalid for input of size 52
+    Point prediction: 0.0 points
+    Belief model failed: 'Game28State' object has no attribute 'game_progress'
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model bidding error: 'Game28State' object has no attribute 'game_progress'
+Pass: Player 0 (min_allowed=17)
+  Player 1 (Belief Expert) analyzing bid:
+    Bidding hand (first 4): ['7C', 'AS', 'KD', '8H']
+    Hand strength: 0.036
+    Current bid: 16
+Point prediction error: shape '[1, 7, -1]' is invalid for input of size 52
+    Point prediction: 0.0 points
+    Belief model failed: 'Game28State' object has no attribute 'game_progress'
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model bidding error: 'Game28State' object has no attribute 'game_progress'
+Pass: Player 1 (min_allowed=17)
+  Player 2 (Belief Pro) analyzing bid:
+    Bidding hand (first 4): ['8D', '10H', 'AD', '9C']
+    Hand strength: 0.143
+    Current bid: 16
+Point prediction error: shape '[1, 7, -1]' is invalid for input of size 52
+    Point prediction: 0.0 points
+    Belief model failed: 'Game28State' object has no attribute 'game_progress'
+    Strategy: Belief Model Bidding (NO HEURISTICS)
+    Belief model bidding error: 'Game28State' object has no attribute 'game_progress'
+Pass: Player 2 (min_allowed=17)
+Auction winner: Player 3 with bid 16
+    Strategy: Belief-based trump selection
+    Belief-based trump selection error: 'Game28State' object has no attribute 'game_progress'
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Full hands (8 cards each):
+Player 0 full hand: ['10D', 'JS', '9H', '7H', 'KS', 'JH', 'KH', 'KC']
+Player 1 full hand: ['7C', 'AS', 'KD', '8H', 'QS', 'JD', '10C', '10S']
+Player 2 full hand: ['8D', '10H', 'AD', '9C', '8C', '9S', 'QC', '8S']
+Player 3 full hand: ['QD', '7D', 'QH', 'AH', 'JC', 'AC', '7S']
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (8 cards): ['10D', 'JS', '9H', '7H', 'KS', 'JH', 'KH', 'KC']
+    Legal cards (7): ['JS', '9H', '7H', 'KS', 'JH', 'KH', 'KC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 0 plays JS
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (8 cards): ['7C', 'AS', 'KD', '8H', 'QS', 'JD', '10C', '10S']
+    Legal cards (3): ['AS', 'QS', '10S']
+    Current trick: 1 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 1 plays AS
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (8 cards): ['8D', '10H', 'AD', '9C', '8C', '9S', 'QC', '8S']
+    Legal cards (2): ['9S', '8S']
+    Current trick: 2 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 2 plays 9S
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (7 cards): ['QD', '7D', 'QH', 'AH', 'JC', 'AC', '7S']
+    Legal cards (1): ['7S']
+    Current trick: 3 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 3 plays 7S
+Player 0 won the hand: 6 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (7 cards): ['10D', '9H', '7H', 'KS', 'JH', 'KH', 'KC']
+    Legal cards (6): ['9H', '7H', 'KS', 'JH', 'KH', 'KC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 0 plays JH
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (7 cards): ['7C', 'KD', '8H', 'QS', 'JD', '10C', '10S']
+    Legal cards (1): ['8H']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 1 plays 8H
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (7 cards): ['8D', '10H', 'AD', '9C', '8C', 'QC', '8S']
+    Legal cards (1): ['10H']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 2 plays 10H
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (6 cards): ['QD', '7D', 'QH', 'AH', 'JC', 'AC']
+    Legal cards (2): ['QH', 'AH']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 3 plays AH
+Player 0 won the hand: 5 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (6 cards): ['10D', '9H', '7H', 'KS', 'KH', 'KC']
+    Legal cards (5): ['9H', '7H', 'KS', 'KH', 'KC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 0 plays 9H
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (6 cards): ['7C', 'KD', 'QS', 'JD', '10C', '10S']
+    Legal cards (6): ['7C', 'KD', 'QS', 'JD', '10C', '10S']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+-- Phase 2 begins: Trump revealed as D by Player 1 on trick 3 --
+Player 1 plays JD
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (6 cards): ['8D', 'AD', '9C', '8C', 'QC', '8S']
+    Legal cards (6): ['8D', 'AD', '9C', '8C', 'QC', '8S']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 2 plays 9C
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (6 cards): ['QD', '7D', 'QH', 'JC', 'AC', '9D']
+    Legal cards (1): ['QH']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 3 plays QH
+Player 1 won the hand: 7 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (5 cards): ['10D', '7H', 'KS', 'KH', 'KC']
+    Legal cards (5): ['10D', '7H', 'KS', 'KH', 'KC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 0 plays 10D
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (5 cards): ['7C', 'KD', 'QS', '10C', '10S']
+    Legal cards (1): ['KD']
+    Current trick: 1 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 1 plays KD
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (5 cards): ['8D', 'AD', '8C', 'QC', '8S']
+    Legal cards (2): ['8D', 'AD']
+    Current trick: 2 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 2 plays AD
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (5 cards): ['QD', '7D', 'JC', 'AC', '9D']
+    Legal cards (3): ['QD', '7D', '9D']
+    Current trick: 3 cards played
+    Lead suit: D
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 3 plays 9D
+Player 3 won the hand: 4 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (4 cards): ['7H', 'KS', 'KH', 'KC']
+    Legal cards (4): ['7H', 'KS', 'KH', 'KC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 0 plays 7H
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (4 cards): ['7C', 'QS', '10C', '10S']
+    Legal cards (4): ['7C', 'QS', '10C', '10S']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 1 plays 10C
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (4 cards): ['8D', '8C', 'QC', '8S']
+    Legal cards (4): ['8D', '8C', 'QC', '8S']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 2 plays 8D
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (4 cards): ['QD', '7D', 'JC', 'AC']
+    Legal cards (4): ['QD', '7D', 'JC', 'AC']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 3 plays JC
+Player 2 won the hand: 4 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (3 cards): ['KS', 'KH', 'KC']
+    Legal cards (3): ['KS', 'KH', 'KC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 0 plays KS
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (3 cards): ['7C', 'QS', '10S']
+    Legal cards (2): ['QS', '10S']
+    Current trick: 1 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 1 plays 10S
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (3 cards): ['8C', 'QC', '8S']
+    Legal cards (1): ['8S']
+    Current trick: 2 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 2 plays 8S
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (3 cards): ['QD', '7D', 'AC']
+    Legal cards (3): ['QD', '7D', 'AC']
+    Current trick: 3 cards played
+    Lead suit: S
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 3 plays AC
+Player 1 won the hand: 2 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (2 cards): ['KH', 'KC']
+    Legal cards (2): ['KH', 'KC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 0 plays KH
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (2 cards): ['7C', 'QS']
+    Legal cards (2): ['7C', 'QS']
+    Current trick: 1 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 1 plays 7C
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (2 cards): ['8C', 'QC']
+    Legal cards (2): ['8C', 'QC']
+    Current trick: 2 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 2 plays 8C
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (2 cards): ['QD', '7D']
+    Legal cards (2): ['QD', '7D']
+    Current trick: 3 cards played
+    Lead suit: H
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 3 plays QD
+Player 3 won the hand: 0 points
+
+  Player 0 (Belief Master) choosing card:
+    Remaining hand (1 cards): ['KC']
+    Legal cards (1): ['KC']
+    Current trick: 0 cards played
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 0 plays KC
+  Player 1 (Belief Expert) choosing card:
+    Remaining hand (1 cards): ['QS']
+    Legal cards (1): ['QS']
+    Current trick: 1 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 1 plays QS
+  Player 2 (Belief Pro) choosing card:
+    Remaining hand (1 cards): ['QC']
+    Legal cards (1): ['QC']
+    Current trick: 2 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 2 plays QC
+  Player 3 (Belief Champion) choosing card:
+    Remaining hand (1 cards): ['7D']
+    Legal cards (1): ['7D']
+    Current trick: 3 cards played
+    Lead suit: C
+    Trump suit: D
+    Strategy: Belief Model Card Selection (NO HEURISTICS)
+    Belief model card selection error: 'Game28State' object has no attribute 'game_progress'
+Player 3 plays 7D
+Player 3 won the hand: 0 points
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 15 points
+Team B (Players 1 & 3): 13 points
+Bidder: Player 3 (Team B)
+Winning Bid: 16
+Bid Success: NO
+Game Winner: Team B (Players 1 & 3)
+Total Tricks: 8

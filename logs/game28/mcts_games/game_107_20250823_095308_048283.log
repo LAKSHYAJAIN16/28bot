@@ -1,0 +1,111 @@
+
+===== GAME 107 (20250823_095308_048283) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.50  p30=13.00  std=3.89
+    failed_checks:
+      C: p30 13.00 < 15; conf_mean 13.56 < 15
+      S: p30 13.00 < 15; conf_mean 13.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=13.00, conf_mean=13.56 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 13.56 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=11.50  p30=0.00  std=11.52
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 0.00 < 15; conf_mean 5.74 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=0.00, conf_mean=5.74 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 5.74 < 15.
+Bid: Player 2 proposes 16 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: D
+    proposed_bid: 16
+    overall: avg=17.50  p30=15.00  std=4.33
+    reason: Bid (precomputed): Suit D meets thresholds (p30=15.00, conf_mean=15.33 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)
+Pass (locked): Player 3 (min_allowed=17)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=16  min_allowed=17  raise_delta=1
+    overall: avg=13.31  p30=10.00  std=6.17
+    suit_stats:
+      D: pts=[21, 15, 19, 22, 18, 12 ...]  avg=13.31  p30=10.00  std=6.17
+      H: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 0.00 < 16; conf_mean 0.00 < 16
+      D: p30 10.00 < 16; conf_mean 10.23 < 16
+      S: p30 0.00 < 16; conf_mean 0.00 < 16
+    reason: Pass: No suit meets thresholds. Best suit D has p30=10.00, conf_mean=10.23 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: p30 10.00 < 16, conf_mean 10.23 < 16.
+
+AUCTION WINNER: Player 2 with bid 16; chooses trump D 
+Details={'chosen': 'D', 'estimates': {'H': 0.0, 'D': 17.5}}
+Player 0 hand :  ['10C', '8C', 'KS', 'JS', '8S', '10D', 'JD', 'AC']
+Player 1 hand :  ['AD', 'AS', 'JH', 'QS', '9D', '7D', 'QC', '8H']
+Player 2 hand :  ['QH', '10H', '7H', '7C', 'JC', '9S', 'KC']
+Player 3 hand :  ['7S', 'QD', 'KH', '8D', '9C', '9H', '10S', 'AH']
+Player 0 (auction 4 cards): ['10C', '8C', 'KS', 'JS']
+Player 1 (auction 4 cards): ['AD', 'AS', 'JH', 'QS']
+Player 2 (auction 4 cards): ['QH', '10H', '7H', 'KD']
+Player 3 (auction 4 cards): ['7S', 'QD', 'KH', '8D']
+Auction winner (bidder): Player 2 with bid 16
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: KD
+
+Player 0 plays 10C
+Player 1 plays QC
+Player 2 plays 7C
+Player 3 plays 9C
+Player 3 won the hand: 3 points
+
+Player 3 plays 7S
+Player 0 plays KS
+Player 1 plays AS
+Player 2 plays 9S
+Player 2 won the hand: 3 points
+
+Player 2 plays QH
+Player 3 plays KH
+Player 0 plays 8C
+Player 1 plays JH
+Player 1 won the hand: 3 points
+
+Player 1 plays AD
+Player 2 plays 10H
+Player 3 plays QD
+Player 0 plays 10D
+Player 1 won the hand: 3 points
+
+Player 1 plays QS
+Player 2 plays 7H
+Player 3 plays 10S
+Player 0 plays JS
+Player 0 won the hand: 4 points
+
+Player 0 plays 8S
+-- Phase 2 begins: Trump revealed as D by Player 1 on trick 6 --
+Player 1 plays 9D
+Player 2 plays JC
+Player 3 plays 8D
+Player 1 won the hand: 5 points
+
+Player 1 plays 7D
+Player 2 plays KD
+Player 3 plays 9H
+Player 0 plays JD
+Player 0 won the hand: 5 points
+
+Player 0 plays AC
+Player 1 plays 8H
+Player 2 plays KC
+Player 3 plays AH
+Player 0 won the hand: 2 points
+
+Game 107 final points: Team A=14, Team B=14
+Series cumulative game score so far: Team A=-13, Team B=-1
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_107_20250823_095308_048283.log
