@@ -10,6 +10,7 @@ import numpy as np
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 import random
+import os
 
 from game28.game_state import Game28State, Card, Trick
 from game28.constants import *
@@ -491,12 +492,33 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
                                training_data: List[Tuple[Game28State, int, Dict]],
                                epochs: int = 100,
                                learning_rate: float = 0.001,
-                               use_amp: bool = True) -> ImprovedBeliefNetwork:
+                               use_amp: bool = True,
+                               save_dir: str = "models/belief_model",
+                               save_every_epoch: bool = True,
+                               compile_model: bool = True) -> ImprovedBeliefNetwork:
     """Train the improved belief model on realistic data (GPU+AMP aware)."""
 
-    device = next(model.parameters()).device
+    # Device and backend optimizations
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    torch.backends.cudnn.benchmark = torch.cuda.is_available()
+    try:
+        torch.set_float32_matmul_precision('high')
+    except Exception:
+        pass
+
+    # Move model to device
+    model = model.to(device)
+
+    # Optional compile (PyTorch 2.x)
+    if compile_model:
+        try:
+            model = torch.compile(model)  # type: ignore[attr-defined]
+        except Exception:
+            pass
+
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
     criterion = nn.BCELoss()
+    os.makedirs(save_dir, exist_ok=True)
     
     # Backwards compatible AMP setup
     if use_amp and device.type == 'cuda':
@@ -510,9 +532,11 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
         scaler = None
 
     model.train()
+    best_loss = float('inf')
 
     for epoch in range(epochs):
         total_loss = 0.0
+        random.shuffle(training_data)
 
         for game_state, player_id, target_beliefs in training_data:
             optimizer.zero_grad(set_to_none=True)
@@ -545,8 +569,25 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
 
             total_loss += float(loss.item())
 
-        if epoch % 10 == 0:
-            print(f"Epoch {epoch}, Loss: {total_loss / max(1,len(training_data)):.4f}")
+        avg_loss = total_loss / max(1, len(training_data))
+        print(f"Epoch {epoch+1}/{epochs}, Avg Loss: {avg_loss:.6f}")
+
+        # Save checkpoints
+        if save_every_epoch:
+            checkpoint = {
+                'epoch': epoch + 1,
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'avg_loss': avg_loss,
+            }
+            epoch_path = os.path.join(save_dir, f"improved_belief_model_epoch_{epoch+1}.pt")
+            torch.save(checkpoint, epoch_path)
+            last_path = os.path.join(save_dir, "improved_belief_model_last.pt")
+            torch.save(checkpoint, last_path)
+            if avg_loss < best_loss:
+                best_loss = avg_loss
+                best_path = os.path.join(save_dir, "improved_belief_model_best.pt")
+                torch.save(checkpoint, best_path)
 
     return model
 
