@@ -1,6 +1,6 @@
 # 28Bot v2 - Advanced Multi-Agent AI System for Imperfect Information Games
 
-### Couldn't beat my grandfather, so I decided to build a comprehensive AI system for the card game 28 that combines belief networks, Monte Carlo Tree Search, and reinforcement learning.
+### Couldn't beat my grandfather at 28 normally, so I decided to build a comprehensive AI system that combines belief networks, Monte Carlo Tree Search, and reinforcement learning.
 
 ### Highlights
 - **Advanced Belief Network**: Can predict what cards your opponent is the most likely to have + what the trump suit might be, based on bids and card play.
