@@ -97,6 +97,8 @@ def test_improved_belief_model():
         training_data, 
         epochs=50,  # Reduced for faster training
         learning_rate=0.001,
+        compile_model=False,  # Disable torch.compile to avoid compiler issues
+        batch_size=64,  # Larger batch size for faster training
     )
     
     print("Testing model predictions...")

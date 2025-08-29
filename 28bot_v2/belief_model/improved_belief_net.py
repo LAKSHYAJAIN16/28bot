@@ -11,6 +11,7 @@ from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 import random
 import os
+from tqdm import tqdm
 
 from game28.game_state import Game28State, Card, Trick
 from game28.constants import *
@@ -166,12 +167,14 @@ class ImprovedBeliefNetwork(nn.Module):
                 # Remove cards we know are in our hand
                 for card in our_hand:
                     card_idx = self._card_to_index(card)
+                    opp_hand_probs = opp_hand_probs.clone()
                     opp_hand_probs[card_idx] = 0.0
                 
                 # Remove cards we've seen played
                 for trick in game_state.tricks:
                     for _, card in trick.cards:
                         card_idx = self._card_to_index(card)
+                        opp_hand_probs = opp_hand_probs.clone()
                         opp_hand_probs[card_idx] = 0.0
                 
                 # Normalize probabilities
@@ -179,6 +182,39 @@ class ImprovedBeliefNetwork(nn.Module):
                     opp_hand_probs = opp_hand_probs / opp_hand_probs.sum()
                 
                 opponent_hands[opp_id] = opp_hand_probs
+        
+        return BeliefPrediction(
+            opponent_hands=opponent_hands,
+            trump_suit=trump_probs,
+            void_suits={opp_id: void_probs for opp_id in range(4) if opp_id != player_id},
+            uncertainty=uncertainty
+        )
+    
+    def _forward_from_features(self, game_features: torch.Tensor, hand_features: torch.Tensor, 
+                              trick_features: torch.Tensor, player_id: int) -> BeliefPrediction:
+        """Forward pass using pre-encoded features for faster training"""
+        # Concatenate features
+        combined_features = torch.cat([game_features, hand_features, trick_features], dim=-1)
+        
+        # Feature fusion
+        fused_features = self.feature_fusion(combined_features)
+        
+        # Multi-layer processing
+        processed_features = fused_features
+        for layer in self.layers:
+            processed_features = layer(processed_features)
+        
+        # Make predictions
+        hand_probs = self.hand_predictor(processed_features)
+        trump_probs = self.trump_predictor(processed_features)
+        void_probs = self.void_predictor(processed_features)
+        uncertainty = self.uncertainty_predictor(processed_features)
+        
+        # Create opponent hand predictions (simplified for training speed)
+        opponent_hands = {}
+        for opp_id in range(4):
+            if opp_id != player_id:
+                opponent_hands[opp_id] = hand_probs.clone()
         
         return BeliefPrediction(
             opponent_hands=opponent_hands,
@@ -495,11 +531,24 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
                                use_amp: bool = True,
                                save_dir: str = "models/belief_model",
                                save_every_epoch: bool = True,
-                               compile_model: bool = True) -> ImprovedBeliefNetwork:
+                               compile_model: bool = True,
+                               batch_size: int = 32) -> ImprovedBeliefNetwork:
     """Train the improved belief model on realistic data (GPU+AMP aware)."""
 
-    # Device and backend optimizations
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # Device and backend optimizations (CUDA -> DirectML -> CPU)
+    device: torch.device
+    using_directml = False
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+    else:
+        # Try DirectML (works on Qualcomm/AMD/Intel GPUs on Windows)
+        try:
+            import torch_directml  # type: ignore
+            device = torch_directml.device()
+            using_directml = True
+            print("Using DirectML device for acceleration")
+        except Exception:
+            device = torch.device("cpu")
     torch.backends.cudnn.benchmark = torch.cuda.is_available()
     try:
         torch.set_float32_matmul_precision('high')
@@ -510,7 +559,7 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
     model = model.to(device)
 
     # Optional compile (PyTorch 2.x)
-    if compile_model:
+    if compile_model and not using_directml:
         try:
             model = torch.compile(model)  # type: ignore[attr-defined]
         except Exception:
@@ -521,7 +570,7 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
     os.makedirs(save_dir, exist_ok=True)
     
     # Backwards compatible AMP setup
-    if use_amp and device.type == 'cuda':
+    if use_amp and (not using_directml) and device.type == 'cuda':
         try:
             # Try new API first (PyTorch 2.0+)
             scaler = torch.amp.GradScaler('cuda')
@@ -534,42 +583,53 @@ def train_improved_belief_model(model: ImprovedBeliefNetwork,
     model.train()
     best_loss = float('inf')
 
+    # Simple training loop without complex batching to avoid gradient issues
+    print(f"Training with {len(training_data)} examples")
+
     for epoch in range(epochs):
         total_loss = 0.0
         random.shuffle(training_data)
 
-        for game_state, player_id, target_beliefs in training_data:
+        # Process in smaller batches to avoid memory issues
+        for i in range(0, len(training_data), batch_size):
+            batch_data = training_data[i:i + batch_size]
+            
             optimizer.zero_grad(set_to_none=True)
+            batch_loss = 0.0
 
-            # Forward pass with backwards compatible autocast
-            if use_amp and device.type == 'cuda':
-                try:
-                    # Try new API first (PyTorch 2.0+)
-                    with torch.amp.autocast('cuda'):
-                        predictions = model(game_state, player_id)
-                        loss = _calculate_loss(predictions, target_beliefs, criterion, device)
-                except:
-                    # Fallback to old API (PyTorch 1.x)
-                    with torch.cuda.amp.autocast():
-                        predictions = model(game_state, player_id)
-                        loss = _calculate_loss(predictions, target_beliefs, criterion, device)
-            else:
-                # CPU training
-                predictions = model(game_state, player_id)
-                loss = _calculate_loss(predictions, target_beliefs, criterion, device)
+            # Process batch
+            for game_state, player_id, target_beliefs in batch_data:
+                # Forward pass
+                if use_amp and device.type == 'cuda':
+                    try:
+                        with torch.amp.autocast('cuda'):
+                            predictions = model(game_state, player_id)
+                            loss = _calculate_loss(predictions, target_beliefs, criterion, device)
+                    except:
+                        with torch.cuda.amp.autocast():
+                            predictions = model(game_state, player_id)
+                            loss = _calculate_loss(predictions, target_beliefs, criterion, device)
+                else:
+                    predictions = model(game_state, player_id)
+                    loss = _calculate_loss(predictions, target_beliefs, criterion, device)
+
+                batch_loss += loss
+
+            # Average loss over batch
+            avg_batch_loss = batch_loss / len(batch_data)
 
             # Backward + step
             if scaler is not None:
-                scaler.scale(loss).backward()
+                scaler.scale(avg_batch_loss).backward()
                 scaler.step(optimizer)
                 scaler.update()
             else:
-                loss.backward()
+                avg_batch_loss.backward()
                 optimizer.step()
 
-            total_loss += float(loss.item())
+            total_loss += float(avg_batch_loss.item()) * len(batch_data)
 
-        avg_loss = total_loss / max(1, len(training_data))
+        avg_loss = total_loss / len(training_data)
         print(f"Epoch {epoch+1}/{epochs}, Avg Loss: {avg_loss:.6f}")
 
         # Save checkpoints
