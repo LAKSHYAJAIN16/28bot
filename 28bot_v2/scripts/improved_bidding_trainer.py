@@ -22,7 +22,25 @@ class ImprovedBiddingTrainer:
     """Improved trainer that uses MCTS data for better training"""
     
     def __init__(self, mcts_data_file: str = "data/mcts_bidding_analysis.json"):
-        self.mcts_data_file = mcts_data_file
+        # Try multiple possible paths for the MCTS data file
+        possible_paths = [
+            mcts_data_file,
+            "28bot_v2/data/mcts_bidding_analysis.json",
+            "28bot_v2/scripts/mcts_bidding_analysis.json",
+            "../data/mcts_bidding_analysis.json",
+            "../mcts_bidding_analysis.json"
+        ]
+        
+        self.mcts_data_file = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                self.mcts_data_file = path
+                break
+        
+        if not self.mcts_data_file:
+            print(f"Warning: MCTS data file not found. Tried paths: {possible_paths}")
+            self.mcts_data_file = mcts_data_file  # Keep original for error messages
+        
         self.mcts_data = None
         self.load_mcts_data()
         

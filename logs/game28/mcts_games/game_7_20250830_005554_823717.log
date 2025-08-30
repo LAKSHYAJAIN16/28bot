@@ -1,0 +1,113 @@
+
+===== GAME 7 (20250830_005554_823717) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=10.50  p30=9.00  std=3.04
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      D: p30 9.00 < 15; conf_mean 8.98 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=9.00, conf_mean=8.98 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 9.00 < 15, conf_mean 8.98 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=11.38  p30=9.00  std=5.41
+    failed_checks:
+      D: p30 9.00 < 15; conf_mean 9.00 < 15
+      C: p30 9.00 < 15; conf_mean 8.67 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=9.00, conf_mean=8.67 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 9.00 < 15, conf_mean 8.67 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=14.56  p30=11.00  std=6.80
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 11.00 < 15; conf_mean 11.16 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=11.00, conf_mean=11.16 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 11.16 < 15.
+Pass (locked): Player 3 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.00  p30=14.00  std=4.91
+    suit_stats:
+      H: pts=[16, 20, 14, 13, 17, 13 ...]  avg=16.00  p30=14.00  std=4.91
+      D: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 14.00 < 15; conf_mean 13.54 < 15
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=14.00, conf_mean=13.54 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 13.54 < 15.
+Forced bid: All players passed. Player 0 takes minimum bid 16.
+
+AUCTION WINNER: Player 0 with bid 16; chooses trump C 
+Details={'chosen': 'C', 'estimates': {'H': 0.0, 'D': 10.5, 'C': 16.5}}
+Player 0 hand :  ['10C', '9D', '10H', 'AC', '9H', 'QS', '8S']
+Player 1 hand :  ['KD', '8C', 'QC', '7D', '9C', 'JS', 'AS', 'JD']
+Player 2 hand :  ['8D', 'KH', '7S', '9S', 'QH', '8H', 'JH', '7C']
+Player 3 hand :  ['JC', 'QD', 'AH', '7H', 'AD', '10S', '10D', 'KS']
+Player 0 (auction 4 cards): ['10C', '9D', 'KC', '10H']
+Player 1 (auction 4 cards): ['KD', '8C', 'QC', '7D']
+Player 2 (auction 4 cards): ['8D', 'KH', '7S', '9S']
+Player 3 (auction 4 cards): ['JC', 'QD', 'AH', '7H']
+Auction winner (bidder): Player 0 with bid 16
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: KC
+
+Player 0 plays 9D
+Player 1 plays KD
+Player 2 plays 8D
+Player 3 plays QD
+Player 0 won the hand: 2 points
+
+Player 0 plays 10H
+-- Phase 2 begins: Trump revealed as C by Player 1 on trick 2 --
+Player 1 plays 8C
+Player 2 plays KH
+Player 3 plays AH
+Player 1 won the hand: 2 points
+
+Player 1 plays QC
+Player 2 plays 7C
+Player 3 plays JC
+Player 0 plays 10C
+Player 3 won the hand: 4 points
+
+Player 3 plays 7H
+Player 0 plays 9H
+Player 1 plays 7D
+Player 2 plays QH
+Player 0 won the hand: 2 points
+
+Player 0 plays AC
+Player 1 plays 9C
+Player 2 plays 7S
+Player 3 plays AD
+Player 1 won the hand: 4 points
+
+Player 1 plays JS
+Player 2 plays 9S
+Player 3 plays 10S
+Player 0 plays QS
+Player 1 won the hand: 6 points
+
+Player 1 plays AS
+Player 2 plays 8H
+Player 3 plays KS
+Player 0 plays 8S
+Player 1 won the hand: 1 points
+
+Player 1 plays JD
+Player 2 plays JH
+Player 3 plays 10D
+Player 0 plays KC
+Player 0 won the hand: 7 points
+
+Game 7 final points: Team A=11, Team B=17
+Series cumulative game score so far: Team A=-1, Team B=-2
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_7_20250830_005554_823717.log

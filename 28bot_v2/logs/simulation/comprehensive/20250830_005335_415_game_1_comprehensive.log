@@ -1,0 +1,584 @@
+
+===== GAME 1 (20250830_005335_415) =====
+Player 0 initial hand (bidding): ['9C', 'QD', '10C', '10D']
+Player 1 initial hand (bidding): ['8C', 'QH', '9S', '8S']
+Player 2 initial hand (bidding): ['7S', 'JD', '9D', '7H']
+Player 3 initial hand (bidding): ['KH', 'AS', 'KS', 'KC']
+
+===== AUCTION =====
+[DEBUG] BIDDING ANALYSIS - Player 0 (Hybrid Master)
+[DEBUG]   Bidding hand: ['9C', 'QD', '10C', '10D']
+[DEBUG]   Hand strength: 0.143
+[DEBUG]   Current bid: 16
+[DEBUG]   Present suits: ['D', 'C']
+[DEBUG]   Point prediction: 3.2 points
+[DEBUG]     Updated beliefs for current game state
+[DEBUG]     Game phase: GamePhase.BIDDING
+[DEBUG]     Current trick: 0 cards
+[DEBUG]     Completed tricks: 0
+
+=== RAW OUTPUT: Belief Model Outputs - Player 0 ===
+{'phase': 'GamePhase.BIDDING', 'trump_suit_probs': [0.0, 1.0, 0.0, 0.0], 'uncertainty': 0.0, 'void_suits': {1: [0.0, 1.0, 1.0, 1.0], 2: [0.0, 1.0, 1.0, 1.0], 3: [0.0, 1.0, 1.0, 1.0]}, 'opponent_hand_probs': {1: [0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625], 2: [0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625], 3: [0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625]}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0. 1. 0. 0.]
+[DEBUG]     Predicted trump: D
+[DEBUG]     Confidence: 1.0000
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 1: 0.0402
+[DEBUG]     Opponent 2: 0.0402
+[DEBUG]     Opponent 3: 0.0402
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 1 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 2 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 3 void in: ['D', 'C', 'S']
+[DEBUG]   Uncertainty: 0.0000
+[DEBUG]     Strategy: Smart ISMCTS + Belief Model Bidding
+[DEBUG]     Using ISMCTS for strategic bidding decision
+[DEBUG]     Running ISMCTS with 1000 simulations...
+[DEBUG]     ISMCTS completed, best action: 17
+Bid: Player 0 proposes 17 (min_allowed=17) – hand_strength=0.143
+[DEBUG] BIDDING ANALYSIS - Player 1 (Hybrid Expert)
+[DEBUG]   Bidding hand: ['8C', 'QH', '9S', '8S']
+[DEBUG]   Hand strength: 0.071
+[DEBUG]   Current bid: 17
+[DEBUG]   Present suits: ['S', 'C', 'H']
+[DEBUG]   Point prediction: 6.4 points
+[DEBUG]     Updated beliefs for current game state
+[DEBUG]     Game phase: GamePhase.BIDDING
+[DEBUG]     Current trick: 0 cards
+[DEBUG]     Completed tricks: 0
+
+=== RAW OUTPUT: Belief Model Outputs - Player 1 ===
+{'phase': 'GamePhase.BIDDING', 'trump_suit_probs': [0.0, 1.0, 0.0, 0.0], 'uncertainty': 0.0, 'void_suits': {0: [0.0, 1.0, 1.0, 1.0], 2: [0.0, 1.0, 1.0, 1.0], 3: [0.0, 1.0, 1.0, 1.0]}, 'opponent_hand_probs': {0: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428], 2: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428], 3: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428]}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0. 1. 0. 0.]
+[DEBUG]     Predicted trump: D
+[DEBUG]     Confidence: 1.0000
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 0: 0.0452
+[DEBUG]     Opponent 2: 0.0452
+[DEBUG]     Opponent 3: 0.0452
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 0 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 2 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 3 void in: ['D', 'C', 'S']
+[DEBUG]   Uncertainty: 0.0000
+[DEBUG]     Strategy: Smart ISMCTS + Belief Model Bidding
+[DEBUG]     Using ISMCTS for strategic bidding decision
+[DEBUG]     Running ISMCTS with 1000 simulations...
+[DEBUG]     ISMCTS completed, best action: 17
+Pass: Player 1 (min_allowed=18)
+[DEBUG] BIDDING ANALYSIS - Player 2 (Hybrid Pro)
+[DEBUG]   Bidding hand: ['7S', 'JD', '9D', '7H']
+[DEBUG]   Hand strength: 0.179
+[DEBUG]   Current bid: 17
+[DEBUG]   Present suits: ['S', 'D', 'H']
+[DEBUG]   Point prediction: 6.3 points
+[DEBUG]     Updated beliefs for current game state
+[DEBUG]     Game phase: GamePhase.BIDDING
+[DEBUG]     Current trick: 0 cards
+[DEBUG]     Completed tricks: 0
+
+=== RAW OUTPUT: Belief Model Outputs - Player 2 ===
+{'phase': 'GamePhase.BIDDING', 'trump_suit_probs': [0.0, 1.0, 0.0, 0.0], 'uncertainty': 0.0, 'void_suits': {0: [0.0, 1.0, 1.0, 1.0], 1: [0.0, 1.0, 1.0, 1.0], 3: [0.0, 1.0, 1.0, 1.0]}, 'opponent_hand_probs': {0: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428], 1: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428], 3: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428]}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0. 1. 0. 0.]
+[DEBUG]     Predicted trump: D
+[DEBUG]     Confidence: 1.0000
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 0: 0.0333
+[DEBUG]     Opponent 1: 0.0333
+[DEBUG]     Opponent 3: 0.0333
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 0 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 1 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 3 void in: ['D', 'C', 'S']
+[DEBUG]   Uncertainty: 0.0000
+[DEBUG]     Strategy: Smart ISMCTS + Belief Model Bidding
+[DEBUG]     Using ISMCTS for strategic bidding decision
+[DEBUG]     Running ISMCTS with 1000 simulations...
+[DEBUG]     ISMCTS completed, best action: 17
+Pass: Player 2 (min_allowed=18)
+[DEBUG] BIDDING ANALYSIS - Player 3 (Hybrid Champion)
+[DEBUG]   Bidding hand: ['KH', 'AS', 'KS', 'KC']
+[DEBUG]   Hand strength: 0.036
+[DEBUG]   Current bid: 17
+[DEBUG]   Present suits: ['S', 'C', 'H']
+[DEBUG]   Point prediction: 5.7 points
+[DEBUG]     Updated beliefs for current game state
+[DEBUG]     Game phase: GamePhase.BIDDING
+[DEBUG]     Current trick: 0 cards
+[DEBUG]     Completed tricks: 0
+
+=== RAW OUTPUT: Belief Model Outputs - Player 3 ===
+{'phase': 'GamePhase.BIDDING', 'trump_suit_probs': [0.0, 1.0, 0.0, 0.0], 'uncertainty': 0.0, 'void_suits': {0: [0.0, 1.0, 1.0, 1.0], 1: [0.0, 1.0, 1.0, 1.0], 2: [0.0, 1.0, 1.0, 1.0]}, 'opponent_hand_probs': {0: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0], 1: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0], 2: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0]}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0. 1. 0. 0.]
+[DEBUG]     Predicted trump: D
+[DEBUG]     Confidence: 1.0000
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 0: 0.0429
+[DEBUG]     Opponent 1: 0.0429
+[DEBUG]     Opponent 2: 0.0429
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 0 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 1 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 2 void in: ['D', 'C', 'S']
+[DEBUG]   Uncertainty: 0.0000
+[DEBUG]     Strategy: Smart ISMCTS + Belief Model Bidding
+[DEBUG]     Using ISMCTS for strategic bidding decision
+[DEBUG]     Running ISMCTS with 1000 simulations...
+[DEBUG]     ISMCTS completed, best action: 17
+Pass: Player 3 (min_allowed=18)
+Auction winner: Player 0 with bid 17
+[DEBUG] TRUMP SELECTION - Player 0 (Hybrid Master)
+[DEBUG]   Hand: ['9C', 'QD', '10C', '10D']
+[DEBUG]   Hybrid agent selected trump: D (method: belief_model)
+[DEBUG]   Confidence: 1.000
+[DEBUG]   Reasoning: Trump probabilities: {'H': np.float32(0.0), 'D': np.float32(1.0), 'C': np.float32(0.0), 'S': np.float32(0.0)}
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: trump_revealed
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Full hands (8 cards each):
+Player 0 full hand: ['9C', 'QD', '10C', '9H', '10H', '7C', 'JH']
+Player 1 full hand: ['8C', 'QH', '9S', '8S', 'QC', '7D', 'JC', 'AH']
+Player 2 full hand: ['7S', 'JD', '9D', '7H', 'QS', 'AC', 'KD', 'JS']
+Player 3 full hand: ['KH', 'AS', 'KS', 'KC', '8D', '8H', 'AD', '10S']
+
+Player 0 (auction 4 cards): ['9C', 'QD', '10C', '9H']
+Player 1 (auction 4 cards): ['8C', 'QH', '9S', '8S']
+Player 2 (auction 4 cards): ['7S', 'JD', '9D', '7H']
+Player 3 (auction 4 cards): ['KH', 'AS', 'KS', 'KC']
+Auction winner (bidder): Player 0 with bid 17
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['9C', 'QD', '10C', '9H', '10H', '7C', 'JH']
+[DEBUG]     Legal cards (6): ['9C', '10C', '9H', '10H', '7C', 'JH']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: JH (method: belief_model)
+[DEBUG]     Confidence: 0.650
+[DEBUG]     Reasoning: Card evaluation score: 3.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['8C', 'QH', '9S', '8S', 'QC', '7D', 'JC', 'AH']
+[DEBUG]     Legal cards (2): ['QH', 'AH']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: AH (method: belief_model)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Card evaluation score: 1.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['7S', 'JD', '9D', '7H', 'QS', 'AC', 'KD', 'JS']
+[DEBUG]     Legal cards (1): ['7H']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 7H (method: belief_model)
+[DEBUG]     Confidence: 0.500
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['KH', 'AS', 'KS', 'KC', '8D', '8H', 'AD', '10S']
+[DEBUG]     Legal cards (2): ['KH', '8H']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: KH (method: belief_model)
+[DEBUG]     Confidence: 0.500
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Trick 1 order: P0:JH, P1:AH, P2:7H, P3:KH
+Player 0 won the hand: 4 points
+
+
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['9C', 'QD', '10C', '9H', '10H', '7C']
+[DEBUG]     Legal cards (5): ['9C', '10C', '9H', '10H', '7C']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 9C (method: belief_model)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 2.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['8C', 'QH', '9S', '8S', 'QC', '7D', 'JC']
+[DEBUG]     Legal cards (3): ['8C', 'QC', 'JC']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: JC (method: belief_model)
+[DEBUG]     Confidence: 0.900
+[DEBUG]     Reasoning: Card evaluation score: 8.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['7S', 'JD', '9D', 'QS', 'AC', 'KD', 'JS']
+[DEBUG]     Legal cards (1): ['AC']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: AC (method: belief_model)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Card evaluation score: 1.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['AS', 'KS', 'KC', '8D', '8H', 'AD', '10S']
+[DEBUG]     Legal cards (1): ['KC']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: KC (method: belief_model)
+[DEBUG]     Confidence: 0.500
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Trick 2 order: P0:9C, P1:JC, P2:AC, P3:KC
+Player 1 won the hand: 6 points
+
+
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['8C', 'QH', '9S', '8S', 'QC', '7D']
+[DEBUG]     Legal cards (5): ['8C', 'QH', '9S', '8S', 'QC']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 9S (method: belief_model)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 2.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['7S', 'JD', '9D', 'QS', 'KD', 'JS']
+[DEBUG]     Legal cards (3): ['7S', 'QS', 'JS']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: JS (method: belief_model)
+[DEBUG]     Confidence: 0.900
+[DEBUG]     Reasoning: Card evaluation score: 8.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['AS', 'KS', '8D', '8H', 'AD', '10S']
+[DEBUG]     Legal cards (3): ['AS', 'KS', '10S']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: AS (method: belief_model)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Card evaluation score: 1.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['QD', '10C', '9H', '10H', '7C']
+[DEBUG]     Legal cards (5): ['QD', '10C', '9H', '10H', '7C']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 9H (method: belief_model)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 2.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Trick 3 order: P1:9S, P2:JS, P3:AS, P0:9H
+Player 2 won the hand: 8 points
+
+
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['7S', 'JD', '9D', 'QS', 'KD']
+[DEBUG]     Legal cards (2): ['7S', 'QS']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 7S (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(7S, 0.500) vs ISMCTS(7S, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['KS', '8D', '8H', 'AD', '10S']
+[DEBUG]     Legal cards (2): ['KS', '10S']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 10S (method: hybrid)
+[DEBUG]     Confidence: 0.875
+[DEBUG]     Reasoning: Hybrid card: Belief(10S, 0.800) vs ISMCTS(10S, 0.950)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['QD', '10C', '10H', '7C']
+[DEBUG]     Legal cards (4): ['QD', '10C', '10H', '7C']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 10C (method: hybrid)
+[DEBUG]     Confidence: 0.605
+[DEBUG]     Reasoning: Hybrid card: Belief(10C, 0.550) vs ISMCTS(10C, 0.660)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['8C', 'QH', '8S', 'QC', '7D']
+[DEBUG]     Legal cards (1): ['8S']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 8S (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(8S, 0.500) vs ISMCTS(8S, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Trick 4 order: P2:7S, P3:10S, P0:10C, P1:8S
+Player 3 won the hand: 2 points
+
+
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['KS', '8D', '8H', 'AD']
+[DEBUG]     Legal cards (2): ['KS', '8H']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: KS (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(KS, 0.500) vs ISMCTS(KS, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['QD', '10H', '7C']
+[DEBUG]     Legal cards (3): ['QD', '10H', '7C']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 10H (method: hybrid)
+[DEBUG]     Confidence: 0.605
+[DEBUG]     Reasoning: Hybrid card: Belief(10H, 0.550) vs ISMCTS(10H, 0.660)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['8C', 'QH', 'QC', '7D']
+[DEBUG]     Legal cards (4): ['8C', 'QH', 'QC', '7D']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 8C (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(8C, 0.500) vs ISMCTS(8C, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['JD', '9D', 'QS', 'KD']
+[DEBUG]     Legal cards (1): ['QS']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: QS (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(QS, 0.500) vs ISMCTS(QS, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Trick 5 order: P3:KS, P0:10H, P1:8C, P2:QS
+Player 3 won the hand: 1 points
+
+
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['8D', '8H', 'AD']
+[DEBUG]     Legal cards (1): ['8H']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 8H (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(8H, 0.500) vs ISMCTS(8H, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['QD', '7C']
+[DEBUG]     Legal cards (2): ['QD', '7C']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: QD (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(QD, 0.500) vs ISMCTS(QD, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+-- Phase 2 begins: Trump revealed as D by Player 0 on trick 6 --
+[DEBUG] TRUMP REVEALED!
+[DEBUG]   Player 0 revealed trump D
+[DEBUG]   Trick number: 6
+[DEBUG]   Card played: QD
+[DEBUG]   Game phase changed from CONCEALED to REVEALED
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['QH', 'QC', '7D']
+[DEBUG]     Legal cards (1): ['QH']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: QH (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(QH, 0.500) vs ISMCTS(QH, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['JD', '9D', 'KD']
+[DEBUG]     Legal cards (3): ['JD', '9D', 'KD']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: JD (method: hybrid)
+[DEBUG]     Confidence: 0.875
+[DEBUG]     Reasoning: Hybrid card: Belief(JD, 0.800) vs ISMCTS(JD, 0.950)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Trick 6 order: P3:8H, P0:QD, P1:QH, P2:JD
+Player 2 won the hand: 3 points
+
+
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['9D', 'KD']
+[DEBUG]     Legal cards (2): ['9D', 'KD']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 9D (method: ismcts)
+[DEBUG]     Confidence: 0.840
+[DEBUG]     Reasoning: Card evaluation score: 4.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['8D', 'AD']
+[DEBUG]     Legal cards (2): ['8D', 'AD']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: AD (method: ismcts)
+[DEBUG]     Confidence: 0.720
+[DEBUG]     Reasoning: Card evaluation score: 2.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['7C', '10D']
+[DEBUG]     Legal cards (1): ['10D']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 10D (method: ismcts)
+[DEBUG]     Confidence: 0.720
+[DEBUG]     Reasoning: Card evaluation score: 2.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['QC', '7D']
+[DEBUG]     Legal cards (1): ['7D']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 7D (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Trick 7 order: P2:9D, P3:AD, P0:10D, P1:7D
+Player 2 won the hand: 4 points
+
+
+[DEBUG]   Player 2 (Hybrid Pro) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['KD']
+[DEBUG]     Legal cards (1): ['KD']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: KD (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 3 (Hybrid Champion) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['8D']
+[DEBUG]     Legal cards (1): ['8D']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 8D (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 0 (Hybrid Master) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['7C']
+[DEBUG]     Legal cards (1): ['7C']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 7C (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+[DEBUG]   Player 1 (Hybrid Expert) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['QC']
+[DEBUG]     Legal cards (1): ['QC']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: QC (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model update failed: 'Trick' object has no attribute 'copy'
+Trick 8 order: P2:KD, P3:8D, P0:7C, P1:QC
+Player 2 won the hand: 0 points
+
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 19 points
+Team B (Players 1 & 3): 9 points
+Bidder: Player 0 (Team A)
+Winning Bid: 17
+Bid Success: YES
+Game Winner: Team A (Players 0 & 2)
+Total Tricks: 8

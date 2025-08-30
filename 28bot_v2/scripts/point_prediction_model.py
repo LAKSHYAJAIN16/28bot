@@ -117,9 +117,28 @@ class PointPredictionDataset(Dataset):
     """Dataset for point prediction training"""
     
     def __init__(self, mcts_data_file: str = "mcts_bidding_analysis.json"):
+        # Try multiple possible paths for the MCTS data file
+        possible_paths = [
+            mcts_data_file,
+            "28bot_v2/data/mcts_bidding_analysis.json",
+            "28bot_v2/scripts/mcts_bidding_analysis.json",
+            "../data/mcts_bidding_analysis.json",
+            "../mcts_bidding_analysis.json"
+        ]
+        
+        actual_mcts_data_file = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                actual_mcts_data_file = path
+                break
+        
+        if not actual_mcts_data_file:
+            print(f"Warning: MCTS data file not found. Tried paths: {possible_paths}")
+            actual_mcts_data_file = mcts_data_file  # Keep original for error messages
+        
         self.canonicalizer = HandCanonicalizer()
         self.data = []
-        self.load_mcts_data(mcts_data_file)
+        self.load_mcts_data(actual_mcts_data_file)
     
     def load_mcts_data(self, mcts_data_file: str):
         """Load and process MCTS data for point prediction"""

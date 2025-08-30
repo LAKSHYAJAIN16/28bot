@@ -1,0 +1,595 @@
+
+===== GAME 49 (20250830_025039_874) =====
+Player 0 initial hand (bidding): ['9C', '8C', 'QS', 'QH']
+Player 1 initial hand (bidding): ['JS', 'QD', '9H', '7H']
+Player 2 initial hand (bidding): ['AH', 'KD', 'KC', '9S']
+Player 3 initial hand (bidding): ['KH', '10C', 'JH', '7D']
+
+===== AUCTION =====
+[DEBUG] BIDDING ANALYSIS - Player 0 (Hybrid Agent 0)
+[DEBUG]   Bidding hand: ['9C', '8C', 'QS', 'QH']
+[DEBUG]   Hand strength: 0.071
+[DEBUG]   Current bid: 16
+[DEBUG]   Present suits: ['C', 'H', 'S']
+[DEBUG]   Point prediction: 4.1 points
+[DEBUG]     Updated beliefs for current game state
+[DEBUG]     Game phase: GamePhase.BIDDING
+[DEBUG]     Current trick: 0 cards
+[DEBUG]     Completed tricks: 0
+
+=== RAW OUTPUT: Belief Model Outputs - Player 0 ===
+{'phase': 'GamePhase.BIDDING', 'trump_suit_probs': [0.0, 1.0, 0.0, 0.0], 'uncertainty': 0.0, 'void_suits': {1: [0.0, 1.0, 1.0, 1.0], 2: [0.0, 1.0, 1.0, 1.0], 3: [0.0, 1.0, 1.0, 1.0]}, 'opponent_hand_probs': {1: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428], 2: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428], 3: [0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428, 0.0, 0.0, 0.06666667014360428, 0.0, 0.06666667014360428, 0.0, 0.0, 0.0, 0.0, 0.06666667014360428, 0.06666667014360428]}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0. 1. 0. 0.]
+[DEBUG]     Predicted trump: D
+[DEBUG]     Confidence: 1.0000
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 1: 0.0452
+[DEBUG]     Opponent 2: 0.0452
+[DEBUG]     Opponent 3: 0.0452
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 1 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 2 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 3 void in: ['D', 'C', 'S']
+[DEBUG]   Uncertainty: 0.0000
+[DEBUG]     Strategy: Smart ISMCTS + Belief Model Bidding
+[DEBUG]     Using ISMCTS for strategic bidding decision
+[DEBUG]     Running ISMCTS with 1000 simulations...
+[DEBUG]     ISMCTS completed, best action: 17
+Bid: Player 0 proposes 17 (min_allowed=17) – hand_strength=0.071
+[DEBUG] BIDDING ANALYSIS - Player 1 (Hybrid Agent 1)
+[DEBUG]   Bidding hand: ['JS', 'QD', '9H', '7H']
+[DEBUG]   Hand strength: 0.179
+[DEBUG]   Current bid: 17
+[DEBUG]   Present suits: ['D', 'H', 'S']
+[DEBUG]   Point prediction: 10.0 points
+[DEBUG]     Updated beliefs for current game state
+[DEBUG]     Game phase: GamePhase.BIDDING
+[DEBUG]     Current trick: 0 cards
+[DEBUG]     Completed tricks: 0
+
+=== RAW OUTPUT: Belief Model Outputs - Player 1 ===
+{'phase': 'GamePhase.BIDDING', 'trump_suit_probs': [0.0, 1.0, 0.0, 0.0], 'uncertainty': 0.0, 'void_suits': {0: [0.0, 1.0, 1.0, 1.0], 2: [0.0, 1.0, 1.0, 1.0], 3: [0.0, 1.0, 1.0, 1.0]}, 'opponent_hand_probs': {0: [0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625], 2: [0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625], 3: [0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625]}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0. 1. 0. 0.]
+[DEBUG]     Predicted trump: D
+[DEBUG]     Confidence: 1.0000
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 0: 0.0379
+[DEBUG]     Opponent 2: 0.0379
+[DEBUG]     Opponent 3: 0.0379
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 0 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 2 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 3 void in: ['D', 'C', 'S']
+[DEBUG]   Uncertainty: 0.0000
+[DEBUG]     Strategy: Smart ISMCTS + Belief Model Bidding
+[DEBUG]     Using ISMCTS for strategic bidding decision
+[DEBUG]     Running ISMCTS with 1000 simulations...
+[DEBUG]     ISMCTS completed, best action: 17
+Pass: Player 1 (min_allowed=18)
+[DEBUG] BIDDING ANALYSIS - Player 2 (Hybrid Agent 2)
+[DEBUG]   Bidding hand: ['AH', 'KD', 'KC', '9S']
+[DEBUG]   Hand strength: 0.107
+[DEBUG]   Current bid: 17
+[DEBUG]   Present suits: ['C', 'H', 'S', 'D']
+[DEBUG]   Point prediction: 7.1 points
+[DEBUG]     Updated beliefs for current game state
+[DEBUG]     Game phase: GamePhase.BIDDING
+[DEBUG]     Current trick: 0 cards
+[DEBUG]     Completed tricks: 0
+
+=== RAW OUTPUT: Belief Model Outputs - Player 2 ===
+{'phase': 'GamePhase.BIDDING', 'trump_suit_probs': [0.0, 1.0, 0.0, 0.0], 'uncertainty': 0.0, 'void_suits': {0: [0.0, 1.0, 1.0, 1.0], 1: [0.0, 1.0, 1.0, 1.0], 3: [0.0, 1.0, 1.0, 1.0]}, 'opponent_hand_probs': {0: [0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625], 1: [0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625], 3: [0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0625, 0.0625, 0.0, 0.0, 0.0625, 0.0, 0.0625, 0.0, 0.0, 0.0, 0.0625, 0.0625, 0.0625]}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0. 1. 0. 0.]
+[DEBUG]     Predicted trump: D
+[DEBUG]     Confidence: 1.0000
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 0: 0.0402
+[DEBUG]     Opponent 1: 0.0402
+[DEBUG]     Opponent 3: 0.0402
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 0 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 1 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 3 void in: ['D', 'C', 'S']
+[DEBUG]   Uncertainty: 0.0000
+[DEBUG]     Strategy: Smart ISMCTS + Belief Model Bidding
+[DEBUG]     Using ISMCTS for strategic bidding decision
+[DEBUG]     Running ISMCTS with 1000 simulations...
+[DEBUG]     ISMCTS completed, best action: 17
+Pass: Player 2 (min_allowed=18)
+[DEBUG] BIDDING ANALYSIS - Player 3 (Hybrid Agent 3)
+[DEBUG]   Bidding hand: ['KH', '10C', 'JH', '7D']
+[DEBUG]   Hand strength: 0.143
+[DEBUG]   Current bid: 17
+[DEBUG]   Present suits: ['C', 'H', 'D']
+[DEBUG]   Point prediction: 6.3 points
+[DEBUG]     Updated beliefs for current game state
+[DEBUG]     Game phase: GamePhase.BIDDING
+[DEBUG]     Current trick: 0 cards
+[DEBUG]     Completed tricks: 0
+
+=== RAW OUTPUT: Belief Model Outputs - Player 3 ===
+{'phase': 'GamePhase.BIDDING', 'trump_suit_probs': [0.0, 1.0, 0.0, 0.0], 'uncertainty': 0.0, 'void_suits': {0: [0.0, 1.0, 1.0, 1.0], 1: [0.0, 1.0, 1.0, 1.0], 2: [0.0, 1.0, 1.0, 1.0]}, 'opponent_hand_probs': {0: [0.0, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0714285746216774], 1: [0.0, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0714285746216774], 2: [0.0, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0714285746216774, 0.0, 0.0714285746216774, 0.0, 0.0, 0.0, 0.0714285746216774, 0.0714285746216774, 0.0714285746216774]}}
+==================================================
+[DEBUG]   Trump Analysis:
+[DEBUG]     Probabilities: [0. 1. 0. 0.]
+[DEBUG]     Predicted trump: D
+[DEBUG]     Confidence: 1.0000
+[DEBUG]   Opponent Strength Analysis:
+[DEBUG]     Opponent 0: 0.0383
+[DEBUG]     Opponent 1: 0.0383
+[DEBUG]     Opponent 2: 0.0383
+[DEBUG]   Void Suit Analysis:
+[DEBUG]     Opponent 0 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 1 void in: ['D', 'C', 'S']
+[DEBUG]     Opponent 2 void in: ['D', 'C', 'S']
+[DEBUG]   Uncertainty: 0.0000
+[DEBUG]     Strategy: Smart ISMCTS + Belief Model Bidding
+[DEBUG]     Using ISMCTS for strategic bidding decision
+[DEBUG]     Running ISMCTS with 1000 simulations...
+[DEBUG]     ISMCTS completed, best action: 17
+Pass: Player 3 (min_allowed=18)
+Auction winner: Player 0 with bid 17
+[DEBUG] TRUMP SELECTION - Player 0 (Hybrid Agent 0)
+[DEBUG]   Hand: ['9C', '8C', 'QS', 'QH']
+[DEBUG]   Hybrid agent selected trump: D (method: belief_model)
+[DEBUG]   Confidence: 1.000
+[DEBUG]   Reasoning: Trump probabilities: {'H': np.float32(0.0), 'D': np.float32(1.0), 'C': np.float32(0.0), 'S': np.float32(0.0)}
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: trump_revealed
+[DEBUG]         Trump suit set to D
+[DEBUG]       Belief model updated successfully
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Full hands (8 cards each):
+Player 0 full hand: ['9C', '8C', 'QS', 'QH', 'AC', '8D', 'JC', '9D']
+Player 1 full hand: ['JS', 'QD', '9H', '7H', '7C', 'JD', '10S', '10D']
+Player 2 full hand: ['AH', 'KD', 'KC', '9S', '10H', '8S', 'AS', 'AD']
+Player 3 full hand: ['KH', '10C', 'JH', '7D', 'KS', '7S', 'QC', '8H']
+
+Player 0 (auction 4 cards): ['9C', '8C', 'QS', 'QH']
+Player 1 (auction 4 cards): ['JS', 'QD', '9H', '7H']
+Player 2 (auction 4 cards): ['AH', 'KD', 'KC', '9S']
+Player 3 (auction 4 cards): ['KH', '10C', 'JH', '7D']
+Auction winner (bidder): Player 0 with bid 17
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+[DEBUG]   Player 0 (Hybrid Agent 0) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['9C', '8C', 'QS', 'QH', 'AC', '8D', 'JC', '9D']
+[DEBUG]     Legal cards (6): ['9C', '8C', 'QS', 'QH', 'AC', 'JC']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: JC (method: belief_model)
+[DEBUG]     Confidence: 0.650
+[DEBUG]     Reasoning: Card evaluation score: 3.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 1 (Hybrid Agent 1) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['JS', 'QD', '9H', '7H', '7C', 'JD', '10S', '10D']
+[DEBUG]     Legal cards (1): ['7C']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 7C (method: belief_model)
+[DEBUG]     Confidence: 0.500
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 2 (Hybrid Agent 2) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['AH', 'KD', 'KC', '9S', '10H', '8S', 'AS', 'AD']
+[DEBUG]     Legal cards (1): ['KC']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: KC (method: belief_model)
+[DEBUG]     Confidence: 0.500
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 3 (Hybrid Agent 3) choosing card:
+[DEBUG]     Remaining hand (8 cards): ['KH', '10C', 'JH', '7D', 'KS', '7S', 'QC', '8H']
+[DEBUG]     Legal cards (2): ['10C', 'QC']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 10C (method: belief_model)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Card evaluation score: 1.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+Trick 1 order: P0:JC, P1:7C, P2:KC, P3:10C
+Player 0 won the hand: 4 points
+
+
+[DEBUG]   Player 0 (Hybrid Agent 0) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['9C', '8C', 'QS', 'QH', 'AC', '8D', '9D']
+[DEBUG]     Legal cards (5): ['9C', '8C', 'QS', 'QH', 'AC']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 9C (method: belief_model)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 2.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 1 (Hybrid Agent 1) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['JS', 'QD', '9H', '7H', 'JD', '10S', '10D']
+[DEBUG]     Legal cards (7): ['JS', 'QD', '9H', '7H', 'JD', '10S', '10D']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: JD (method: belief_model)
+[DEBUG]     Confidence: 0.800
+[DEBUG]     Reasoning: Card evaluation score: 6.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Trump revealed! Phase updated to REVEALED
+[DEBUG]         Player 1 void in C (played D)
+[DEBUG]       Belief model updated successfully
+-- Phase 2 begins: Trump revealed as D by Player 1 on trick 2 --
+[DEBUG] TRUMP REVEALED!
+[DEBUG]   Player 1 revealed trump D
+[DEBUG]   Trick number: 2
+[DEBUG]   Card played: JD
+[DEBUG]   Game phase changed from CONCEALED to REVEALED
+[DEBUG]   Player 2 (Hybrid Agent 2) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['AH', 'KD', '9S', '10H', '8S', 'AS', 'AD']
+[DEBUG]     Legal cards (7): ['AH', 'KD', '9S', '10H', '8S', 'AS', 'AD']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 9S (method: belief_model)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 2.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Player 2 void in C (played S)
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 3 (Hybrid Agent 3) choosing card:
+[DEBUG]     Remaining hand (7 cards): ['KH', 'JH', '7D', 'KS', '7S', 'QC', '8H']
+[DEBUG]     Legal cards (1): ['QC']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: QC (method: belief_model)
+[DEBUG]     Confidence: 0.500
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+Trick 2 order: P0:9C, P1:JD, P2:9S, P3:QC
+Player 1 won the hand: 7 points
+
+
+[DEBUG]   Player 1 (Hybrid Agent 1) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['JS', 'QD', '9H', '7H', '10S', '10D']
+[DEBUG]     Legal cards (6): ['JS', 'QD', '9H', '7H', '10S', '10D']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: JS (method: belief_model)
+[DEBUG]     Confidence: 0.650
+[DEBUG]     Reasoning: Card evaluation score: 3.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 2 (Hybrid Agent 2) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['AH', 'KD', '10H', '8S', 'AS', 'AD']
+[DEBUG]     Legal cards (2): ['8S', 'AS']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: AS (method: belief_model)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Card evaluation score: 1.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 3 (Hybrid Agent 3) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['KH', 'JH', '7D', 'KS', '7S', '8H']
+[DEBUG]     Legal cards (2): ['KS', '7S']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: KS (method: belief_model)
+[DEBUG]     Confidence: 0.500
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 0 (Hybrid Agent 0) choosing card:
+[DEBUG]     Remaining hand (6 cards): ['8C', 'QS', 'QH', 'AC', '8D', '9D']
+[DEBUG]     Legal cards (1): ['QS']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: QS (method: belief_model)
+[DEBUG]     Confidence: 0.500
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+Trick 3 order: P1:JS, P2:AS, P3:KS, P0:QS
+Player 1 won the hand: 4 points
+
+
+[DEBUG]   Player 1 (Hybrid Agent 1) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['QD', '9H', '7H', '10S', '10D']
+[DEBUG]     Legal cards (5): ['QD', '9H', '7H', '10S', '10D']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 9H (method: hybrid)
+[DEBUG]     Confidence: 0.660
+[DEBUG]     Reasoning: Hybrid card: Belief(9H, 0.600) vs ISMCTS(9H, 0.720)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 2 (Hybrid Agent 2) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['AH', 'KD', '10H', '8S', 'AD']
+[DEBUG]     Legal cards (2): ['AH', '10H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: AH (method: hybrid)
+[DEBUG]     Confidence: 0.605
+[DEBUG]     Reasoning: Hybrid card: Belief(AH, 0.550) vs ISMCTS(AH, 0.660)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 3 (Hybrid Agent 3) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['KH', 'JH', '7D', '7S', '8H']
+[DEBUG]     Legal cards (3): ['KH', 'JH', '8H']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: JH (method: hybrid)
+[DEBUG]     Confidence: 0.925
+[DEBUG]     Reasoning: Hybrid card: Belief(JH, 0.900) vs ISMCTS(JH, 0.950)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 0 (Hybrid Agent 0) choosing card:
+[DEBUG]     Remaining hand (5 cards): ['8C', 'QH', 'AC', '8D', '9D']
+[DEBUG]     Legal cards (1): ['QH']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: QH (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(QH, 0.500) vs ISMCTS(QH, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+Trick 4 order: P1:9H, P2:AH, P3:JH, P0:QH
+Player 3 won the hand: 6 points
+
+
+[DEBUG]   Player 3 (Hybrid Agent 3) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['KH', '7D', '7S', '8H']
+[DEBUG]     Legal cards (4): ['KH', '7D', '7S', '8H']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: KH (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(KH, 0.500) vs ISMCTS(KH, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 0 (Hybrid Agent 0) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['8C', 'AC', '8D', '9D']
+[DEBUG]     Legal cards (4): ['8C', 'AC', '8D', '9D']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 9D (method: hybrid)
+[DEBUG]     Confidence: 0.770
+[DEBUG]     Reasoning: Hybrid card: Belief(9D, 0.700) vs ISMCTS(9D, 0.840)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Player 0 void in H (played D)
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 1 (Hybrid Agent 1) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['QD', '7H', '10S', '10D']
+[DEBUG]     Legal cards (1): ['7H']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 7H (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(7H, 0.500) vs ISMCTS(7H, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 2 (Hybrid Agent 2) choosing card:
+[DEBUG]     Remaining hand (4 cards): ['KD', '10H', '8S', 'AD']
+[DEBUG]     Legal cards (1): ['10H']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: H
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 10H (method: hybrid)
+[DEBUG]     Confidence: 0.875
+[DEBUG]     Reasoning: Hybrid card: Belief(10H, 0.800) vs ISMCTS(10H, 0.950)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+Trick 5 order: P3:KH, P0:9D, P1:7H, P2:10H
+Player 0 won the hand: 3 points
+
+
+[DEBUG]   Player 0 (Hybrid Agent 0) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['8C', 'AC', '8D']
+[DEBUG]     Legal cards (3): ['8C', 'AC', '8D']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: AC (method: hybrid)
+[DEBUG]     Confidence: 0.605
+[DEBUG]     Reasoning: Hybrid card: Belief(AC, 0.550) vs ISMCTS(AC, 0.660)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 1 (Hybrid Agent 1) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['QD', '10S', '10D']
+[DEBUG]     Legal cards (3): ['QD', '10S', '10D']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 10D (method: hybrid)
+[DEBUG]     Confidence: 0.660
+[DEBUG]     Reasoning: Hybrid card: Belief(10D, 0.600) vs ISMCTS(10D, 0.720)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Player 1 void in C (played D)
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 2 (Hybrid Agent 2) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['KD', '8S', 'AD']
+[DEBUG]     Legal cards (3): ['KD', '8S', 'AD']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: AD (method: hybrid)
+[DEBUG]     Confidence: 0.660
+[DEBUG]     Reasoning: Hybrid card: Belief(AD, 0.600) vs ISMCTS(AD, 0.720)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Player 2 void in C (played D)
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 3 (Hybrid Agent 3) choosing card:
+[DEBUG]     Remaining hand (3 cards): ['7D', '7S', '8H']
+[DEBUG]     Legal cards (3): ['7D', '7S', '8H']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: C
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 7D (method: hybrid)
+[DEBUG]     Confidence: 0.550
+[DEBUG]     Reasoning: Hybrid card: Belief(7D, 0.500) vs ISMCTS(7D, 0.600)
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Player 3 void in C (played D)
+[DEBUG]       Belief model updated successfully
+Trick 6 order: P0:AC, P1:10D, P2:AD, P3:7D
+Player 2 won the hand: 3 points
+
+
+[DEBUG]   Player 2 (Hybrid Agent 2) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['KD', '8S']
+[DEBUG]     Legal cards (2): ['KD', '8S']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: KD (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 3 (Hybrid Agent 3) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['7S', '8H']
+[DEBUG]     Legal cards (2): ['7S', '8H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 7S (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Player 3 void in D (played S)
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 0 (Hybrid Agent 0) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['8C', '8D']
+[DEBUG]     Legal cards (1): ['8D']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 8D (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 1 (Hybrid Agent 1) choosing card:
+[DEBUG]     Remaining hand (2 cards): ['QD', '10S']
+[DEBUG]     Legal cards (1): ['QD']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: D
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: QD (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+Trick 7 order: P2:KD, P3:7S, P0:8D, P1:QD
+Player 2 won the hand: 0 points
+
+
+[DEBUG]   Player 2 (Hybrid Agent 2) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['8S']
+[DEBUG]     Legal cards (1): ['8S']
+[DEBUG]     Current trick: 0 cards played
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 8S (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 3 (Hybrid Agent 3) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['8H']
+[DEBUG]     Legal cards (1): ['8H']
+[DEBUG]     Current trick: 1 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 8H (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Player 3 void in S (played H)
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 0 (Hybrid Agent 0) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['8C']
+[DEBUG]     Legal cards (1): ['8C']
+[DEBUG]     Current trick: 2 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 8C (method: ismcts)
+[DEBUG]     Confidence: 0.600
+[DEBUG]     Reasoning: Card evaluation score: 0.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]         Player 0 void in S (played C)
+[DEBUG]       Belief model updated successfully
+[DEBUG]   Player 1 (Hybrid Agent 1) choosing card:
+[DEBUG]     Remaining hand (1 cards): ['10S']
+[DEBUG]     Legal cards (1): ['10S']
+[DEBUG]     Current trick: 3 cards played
+[DEBUG]     Lead suit: S
+[DEBUG]     Trump suit: D
+[DEBUG]     Hybrid agent selected card: 10S (method: ismcts)
+[DEBUG]     Confidence: 0.950
+[DEBUG]     Reasoning: Card evaluation score: 6.000
+[DEBUG]     Updating belief model with new information:
+[DEBUG]       Action: card_played
+[DEBUG]       Belief model updated successfully
+Trick 8 order: P2:8S, P3:8H, P0:8C, P1:10S
+Player 1 won the hand: 1 points
+
+
+=== GAME SUMMARY ===
+Team A (Players 0 & 2): 10 points
+Team B (Players 1 & 3): 18 points
+Bidder: Player 0 (Team A)
+Winning Bid: 17
+Bid Success: NO
+Game Winner: Team A (Players 0 & 2)
+Total Tricks: 8

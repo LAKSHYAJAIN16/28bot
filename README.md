@@ -25,11 +25,10 @@
 
 ## Performance Results
 
-- **Win Rate**: 52.8% (25.4% improvement over baselines)
-- **Hand Prediction**: 77.5% accuracy across all opponents
+- **Win Rate**: 52.8% (25.4% improvement over baselines)s
 - **Trump Prediction**: 67.5% accuracy for suit selection
-- **Decision Time**: <10ms per prediction
-- **Training**: 17,768 example game states (all self-generated)
+- **Bidding**: 62.1% accuracy for bid accomplishment.
+- **Training**: 17,768 example  game states (all self-generated)
 ---
 
 ## Project Structure

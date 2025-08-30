@@ -1,0 +1,112 @@
+
+===== GAME 52 (20250830_050820_466800) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 23 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: S
+    proposed_bid: 23
+    overall: avg=23.00  p30=23.00  std=0.00
+    reason: Bid (precomputed): Suit S meets thresholds (p30=23.00, conf_mean=23.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 23. (current_high=0, raise_delta=+1)
+Pass (locked): Player 1 (min_allowed=24)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=23  min_allowed=24  raise_delta=1
+    overall: avg=13.88  p30=8.00  std=6.67
+    suit_stats:
+      D: pts=[14, 8, 16, 25, 18, 20 ...]  avg=13.88  p30=8.00  std=6.67
+      H: pts=[]
+      C: pts=[]
+    failed_checks:
+      H: p30 0.00 < 23; conf_mean 0.00 < 23
+      D: p30 8.00 < 23; conf_mean 10.54 < 23
+      C: p30 0.00 < 23; conf_mean 0.00 < 23
+    reason: Pass: No suit meets thresholds. Best suit D has p30=8.00, conf_mean=10.54 below min_allowed=24 (current_high=23, raise_delta=+1). Failed checks for best suit: p30 8.00 < 23, conf_mean 10.54 < 23.
+Pass (locked): Player 2 (min_allowed=24)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=23  min_allowed=24  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      D: p30 0.00 < 23; conf_mean 0.00 < 23
+      S: p30 0.00 < 23; conf_mean 0.00 < 23
+    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=24 (current_high=23, raise_delta=+1). Failed checks for best suit: n/a.
+Pass (locked): Player 3 (min_allowed=24)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=23  min_allowed=24  raise_delta=1
+    overall: avg=12.00  p30=11.00  std=5.22
+    failed_checks:
+      H: p30 0.00 < 23; conf_mean 0.00 < 23
+      D: p30 0.00 < 23; conf_mean 0.00 < 23
+      S: p30 11.00 < 23; conf_mean 9.39 < 23
+    reason: Pass: No suit meets thresholds. Best suit S has p30=11.00, conf_mean=9.39 below min_allowed=24 (current_high=23, raise_delta=+1). Failed checks for best suit: p30 11.00 < 23, conf_mean 9.39 < 23.
+
+AUCTION WINNER: Player 0 with bid 23; chooses trump S 
+Details={'chosen': 'S', 'estimates': {'H': 19.0, 'D': 16.0, 'C': 16.0, 'S': 23.0}}
+Player 0 hand :  ['8H', 'JD', 'JC', '7C', 'KD', '9H', 'QC']
+Player 1 hand :  ['10D', '8C', 'AD', 'KH', '7D', 'KC', '7S', 'JS']
+Player 2 hand :  ['QD', '10H', 'KS', 'AS', 'JH', '8D', '7H', '10S']
+Player 3 hand :  ['9D', '8S', 'QS', 'AH', 'AC', '10C', 'QH', '9C']
+Player 0 (auction 4 cards): ['8H', 'JD', 'JC', '9S']
+Player 1 (auction 4 cards): ['10D', '8C', 'AD', 'KH']
+Player 2 (auction 4 cards): ['QD', '10H', 'KS', 'AS']
+Player 3 (auction 4 cards): ['9D', '8S', 'QS', 'AH']
+Auction winner (bidder): Player 0 with bid 23
+Bidder sets concealed trump suit: S
+Phase: concealed, bidder concealed card: 9S
+
+Player 0 plays 8H
+Player 1 plays KH
+Player 2 plays 10H
+Player 3 plays AH
+Player 3 won the hand: 2 points
+
+Player 3 plays 9D
+Player 0 plays JD
+Player 1 plays 10D
+Player 2 plays QD
+Player 0 won the hand: 6 points
+
+Player 0 plays JC
+Player 1 plays 8C
+-- Phase 2 begins: Trump revealed as S by Player 2 on trick 3 --
+Player 2 plays KS
+Player 3 plays AC
+Player 2 won the hand: 4 points
+
+Player 2 plays AS
+Player 3 plays 8S
+Player 0 plays 9S
+Player 1 plays 7S
+Player 0 won the hand: 3 points
+
+Player 0 plays 7C
+Player 1 plays KC
+Player 2 plays JH
+Player 3 plays 10C
+Player 3 won the hand: 4 points
+
+Player 3 plays QS
+Player 0 plays KD
+Player 1 plays JS
+Player 2 plays 10S
+Player 1 won the hand: 4 points
+
+Player 1 plays AD
+Player 2 plays 8D
+Player 3 plays QH
+Player 0 plays 9H
+Player 1 won the hand: 3 points
+
+Player 1 plays 7D
+Player 2 plays 7H
+Player 3 plays 9C
+Player 0 plays QC
+Player 1 won the hand: 2 points
+
+Game 52 final points: Team A=13, Team B=15
+Series cumulative game score so far: Team A=-11, Team B=-21
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_52_20250830_050820_466800.log

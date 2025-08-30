@@ -68,8 +68,9 @@ class AgentConfig:
     use_mcts: bool = False
     use_point_prediction: bool = False
     use_hybrid: bool = False
-    mcts_iterations: int = 2000
-    mcts_samples: int = 8
+    mcts_iterations: int = 1000
+    mcts_samples: int = 32
+    mcts_c_puct: float = 2.0
 
 
 class GameAgent:
@@ -139,22 +140,48 @@ class GameAgent:
         # Load belief model (required)
         if self.config.use_belief_model and IMPROVED_MODEL_AVAILABLE:
             try:
-                belief_model_path = "models/improved_belief_model.pt"
-                if os.path.exists(belief_model_path):
+                # Try multiple possible paths for the belief model
+                possible_paths = [
+                    "models/improved_belief_model_fixed.pt",
+                    "28bot_v2/models/improved_belief_model_fixed.pt",
+                    "models/improved_belief_model.pt",
+                    "28bot_v2/models/improved_belief_model.pt",
+                    "28bot_v2/models/belief_model/improved_belief_model_last.pt",
+                    "28bot_v2/models/belief_model/improved_belief_model_epoch_50.pt"
+                ]
+                
+                belief_model_path = None
+                for path in possible_paths:
+                    if os.path.exists(path):
+                        belief_model_path = path
+                        break
+                
+                if belief_model_path:
                     self.belief_model = ImprovedBeliefNetwork()
                     self.belief_model.load_state_dict(torch.load(belief_model_path, map_location='cpu'))
                     self.belief_model.eval()
-                    self.log(f"✓ Loaded improved belief model for {self.name}")
+                    self.log(f"✓ Loaded improved belief model for {self.name} from {belief_model_path}")
                 else:
-                    raise FileNotFoundError(f"Improved belief model not found at {belief_model_path}")
+                    raise FileNotFoundError(f"Improved belief model not found. Tried paths: {possible_paths}")
             except Exception as e:
                 raise RuntimeError(f"Belief model required for {self.name} but failed to load: {e}")
         
         # Load point prediction model
         if self.config.use_point_prediction and IMPROVED_MODEL_AVAILABLE:
             try:
-                point_model_path = "models/point_prediction_model_fixed.pth"
-                if os.path.exists(point_model_path):
+                # Try multiple possible paths for the point prediction model
+                possible_point_paths = [
+                    "models/point_prediction_model_fixed.pth",
+                    "28bot_v2/models/point_prediction_model_fixed.pth"
+                ]
+                
+                point_model_path = None
+                for path in possible_point_paths:
+                    if os.path.exists(path):
+                        point_model_path = path
+                        break
+                
+                if point_model_path:
                     self.point_prediction_model = PointPredictionModel()
                     checkpoint = torch.load(point_model_path)
                     
@@ -165,9 +192,9 @@ class GameAgent:
                         self.point_prediction_model.load_state_dict(checkpoint)
                     
                     self.point_prediction_model.eval()
-                    self.log(f"✓ Loaded point prediction model for {self.name}")
+                    self.log(f"✓ Loaded point prediction model for {self.name} from {point_model_path}")
                 else:
-                    self.log(f"✗ Point prediction model not found at {point_model_path}")
+                    self.log(f"✗ Point prediction model not found. Tried paths: {possible_point_paths}")
             except Exception as e:
                 self.log(f"✗ Failed to load point prediction model for {self.name}: {e}")
                 # Continue without point prediction - belief model is the main component
@@ -176,17 +203,17 @@ class GameAgent:
         if self.config.use_mcts and MCTS_AVAILABLE:
             try:
                 self.mcts_engine = True
-                self.log(f"✓ Loaded ISMCTS engine for {self.name} ({self.config.mcts_iterations} iterations, {self.config.mcts_samples} samples)")
+                self.log(f"✓ Loaded ISMCTS engine for {self.name} ({self.config.mcts_iterations} iterations, {self.config.mcts_samples} samples, c_puct={self.config.mcts_c_puct})")
             except Exception as e:
                 self.log(f"✗ Failed to load MCTS engine for {self.name}: {e}")
         
         # Load hybrid agent
         if self.config.use_hybrid and HYBRID_AVAILABLE:
             try:
-                # Create ISMCTS for hybrid agent
+                # Create ISMCTS for hybrid agent with configurable parameters
                 ismcts = BeliefAwareISMCTS(
                     belief_network=self.belief_model,
-                    num_simulations=1000
+                    num_simulations=self.config.mcts_iterations
                 )
                 
                 # Create hybrid agent
@@ -431,11 +458,40 @@ class GameAgent:
     
     def _ismcts_bidding_strategy(self, game_state: Game28State, current_bid: int, hand_strength: float, 
                                 point_prediction: Optional[float], belief_predictions: Optional[Any]) -> int:
-        """Use belief model for bidding decisions - NO HEURISTICS"""
-        self.log_debug(f"    Strategy: Belief Model Bidding (NO HEURISTICS)")
+        """Use ISMCTS with belief model for bidding decisions - only when strategic"""
+        self.log_debug(f"    Strategy: Smart ISMCTS + Belief Model Bidding")
         
         try:
-            # Get belief predictions
+            # Only use ISMCTS in strategic situations
+            should_use_ismcts = self._should_use_ismcts_for_bidding(game_state, current_bid, hand_strength, point_prediction, belief_predictions)
+            
+            if should_use_ismcts and hasattr(self, 'hybrid_agent') and self.hybrid_agent and hasattr(self.hybrid_agent, 'ismcts'):
+                self.log_debug(f"    Using ISMCTS for strategic bidding decision")
+                
+                # Create a copy of game state for ISMCTS
+                ismcts_state = game_state.copy()
+                
+                # Run ISMCTS to get best action
+                self.log_debug(f"    Running ISMCTS with {self.hybrid_agent.ismcts.num_simulations} simulations...")
+                best_action = self.hybrid_agent.ismcts.select_action(ismcts_state, self.agent_id)
+                self.log_debug(f"    ISMCTS completed, best action: {best_action}")
+                
+                # Convert action to bid
+                if best_action == -1:
+                    self.log("Pass")
+                    return -1
+                else:
+                    # ISMCTS returns bid value directly
+                    if best_action > current_bid:
+                        self.log(f"Bid: {best_action}")
+                        return best_action
+                    else:
+                        self.log("Pass")
+                        return -1
+            else:
+                self.log_debug(f"    Using fast belief model only (ISMCTS not needed)")
+            
+            # Use belief model for decision
             if self.belief_model:
                 belief_predictions = self._get_current_beliefs(game_state)
                 self.log_debug(f"    Belief model predictions obtained")
@@ -473,8 +529,55 @@ class GameAgent:
             return best_bid
             
         except Exception as e:
-            self.log_debug(f"    Belief model bidding error: {e}")
+            self.log_debug(f"    ISMCTS + Belief model bidding error: {e}")
             return -1
+    
+    def _should_use_ismcts_for_bidding(self, game_state: Game28State, current_bid: int, hand_strength: float, 
+                                      point_prediction: Optional[float], belief_predictions: Optional[Any]) -> bool:
+        """Determine if ISMCTS should be used for bidding decision"""
+        try:
+            # Use ISMCTS more frequently for better decisions
+            
+            # 1. Decent hand strength (lower threshold)
+            if hand_strength >= 0.3:
+                return True  # Good enough hand to consider ISMCTS
+            
+            # 2. Competitive bidding situation (lower threshold)
+            if current_bid >= 16:
+                return True  # Moderate stakes, use ISMCTS
+            
+            # 3. Moderate point prediction (lower threshold)
+            if point_prediction is not None and point_prediction >= 15:
+                return True  # Moderate expected points, use ISMCTS
+            
+            # 4. Moderate uncertainty in belief model (lower threshold)
+            if belief_predictions:
+                uncertainty = belief_predictions.uncertainty.cpu().numpy().item()
+                if uncertainty >= 0.4:
+                    return True  # Moderate uncertainty, use ISMCTS
+            
+            # 5. Strategic bid level
+            if current_bid >= 20:
+                return True  # High stakes, use ISMCTS
+            
+            # 6. Have diamonds (potential trump)
+            diamond_cards = sum(1 for card in game_state.hands[self.agent_id] if card.suit == 'D')
+            if diamond_cards >= 2:
+                return True  # Have diamonds, strategic decision
+            
+            # 7. Close decision (belief model scores are close)
+            if belief_predictions:
+                # Quick evaluation of pass vs bid
+                pass_score = self._evaluate_bid_with_belief_model(game_state, -1, point_prediction, belief_predictions)
+                bid_score = self._evaluate_bid_with_belief_model(game_state, current_bid + 1, point_prediction, belief_predictions)
+                if abs(pass_score - bid_score) < 2.0:  # More generous threshold
+                    return True  # Close decision, use ISMCTS
+            
+            return False  # Default to fast belief model
+            
+        except Exception as e:
+            self.log_debug(f"    Error in ISMCTS decision logic: {e}")
+            return False
     
     def _evaluate_bid_with_belief_model(self, game_state: Game28State, bid: int, 
                                  point_prediction: Optional[float], belief_predictions: Optional[Any]) -> float:
@@ -849,10 +952,45 @@ class GameAgent:
             raise
     
     def _ismcts_card_strategy(self, game_state: Game28State, legal_cards: List[Card]) -> Card:
-        """Use belief model for card selection - NO HEURISTICS"""
-        self.log_debug(f"    Strategy: Belief Model Card Selection (NO HEURISTICS)")
+        """Use ISMCTS with belief model for card selection - only when strategic"""
+        self.log_debug(f"    Strategy: Smart ISMCTS + Belief Model Card Selection")
         
         try:
+            # Only use ISMCTS in strategic situations
+            should_use_ismcts = self._should_use_ismcts_for_card_selection(game_state, legal_cards)
+            
+            if should_use_ismcts and hasattr(self, 'hybrid_agent') and self.hybrid_agent and hasattr(self.hybrid_agent, 'ismcts'):
+                self.log_debug(f"    Using ISMCTS for strategic card selection")
+                
+                # Create a copy of game state for ISMCTS
+                ismcts_state = game_state.copy()
+                
+                # Convert legal cards to action indices for ISMCTS
+                card_to_action = {}
+                for i, card in enumerate(legal_cards):
+                    action_id = i
+                    card_to_action[card] = action_id
+                
+                # Run ISMCTS to get best action
+                self.log_debug(f"    Running ISMCTS with {self.hybrid_agent.ismcts.num_simulations} simulations...")
+                best_action = self.hybrid_agent.ismcts.select_action(ismcts_state, self.agent_id)
+                self.log_debug(f"    ISMCTS completed, best action: {best_action}")
+                
+                # Convert action back to card
+                if best_action in card_to_action.values():
+                    for card, action_id in card_to_action.items():
+                        if action_id == best_action:
+                            self.log(f"Player {self.agent_id} plays {card}")
+                            return card
+                
+                # Fallback to first legal card
+                fallback_card = legal_cards[0]
+                self.log(f"Player {self.agent_id} plays {fallback_card}")
+                return fallback_card
+            else:
+                self.log_debug(f"    Using fast belief model only (ISMCTS not needed)")
+            
+            # Use belief model for decision
             best_card = None
             best_score = float('-inf')
             
@@ -881,11 +1019,66 @@ class GameAgent:
             return best_card if best_card else legal_cards[0]
             
         except Exception as e:
-            self.log_debug(f"    Belief model card selection error: {e}")
+            self.log_debug(f"    ISMCTS + Belief model card selection error: {e}")
             # Fallback: choose highest value card
             fallback_card = max(legal_cards, key=lambda c: CARD_VALUES[c.rank])
             self.log(f"Player {self.agent_id} plays {fallback_card}")
             return fallback_card
+    
+    def _should_use_ismcts_for_card_selection(self, game_state: Game28State, legal_cards: List[Card]) -> bool:
+        """Determine if ISMCTS should be used for card selection"""
+        try:
+            # Use ISMCTS more frequently for better decisions
+            
+            # 1. Late game (few cards left) - more generous
+            cards_left = len(game_state.hands[self.agent_id])
+            if cards_left <= 6:
+                return True  # Late game, use ISMCTS
+            
+            # 2. Critical trick (last few tricks) - more generous
+            completed_tricks = len(game_state.tricks)
+            if completed_tricks >= 3:
+                return True  # Mid-late game, use ISMCTS
+            
+            # 3. High-value cards available - lower threshold
+            high_value_cards = [card for card in legal_cards if CARD_VALUES[card.rank] >= 8]
+            if len(high_value_cards) >= 1:
+                return True  # Have good cards, use ISMCTS
+            
+            # 4. Complex situation (multiple options)
+            if len(legal_cards) > 2:
+                return True  # Multiple options, use ISMCTS
+            
+            # 5. Trump situation
+            if game_state.trump_suit:
+                trump_cards = [card for card in legal_cards if card.suit == game_state.trump_suit]
+                if len(trump_cards) >= 1:
+                    return True  # Have trump, strategic decision
+            
+            # 6. Leading the trick
+            if game_state.current_trick and len(game_state.current_trick.cards) == 0:
+                return True  # Leading is always strategic
+            
+            # 7. Last to play in trick
+            if game_state.current_trick and len(game_state.current_trick.cards) == 3:
+                return True  # Last to play is strategic
+            
+            # 8. Close game (scores are close) - more generous
+            team_a_score = game_state.game_points.get('A', 0)
+            team_b_score = game_state.game_points.get('B', 0)
+            if abs(team_a_score - team_b_score) <= 10:
+                return True  # Close game, use ISMCTS
+            
+            # 9. Have diamonds (potential trump)
+            diamond_cards = [card for card in legal_cards if card.suit == 'D']
+            if len(diamond_cards) >= 1:
+                return True  # Have diamonds, strategic decision
+            
+            return False  # Default to fast belief model
+            
+        except Exception as e:
+            self.log_debug(f"    Error in ISMCTS card decision logic: {e}")
+            return False
     
     def _evaluate_card_with_belief_model(self, game_state: Game28State, card: Card, belief_predictions: Optional[Any]) -> float:
         """Evaluate a specific card using belief model - NO HEURISTICS"""
@@ -1143,8 +1336,26 @@ class GameAgent:
         updated_state.current_player = game_state.current_player
         updated_state.bidder = game_state.bidder
         updated_state.winning_bid = game_state.winning_bid
-        updated_state.tricks = game_state.tricks.copy() if game_state.tricks else []
-        updated_state.current_trick = game_state.current_trick.copy() if game_state.current_trick else None
+        # Copy tricks properly
+        updated_state.tricks = []
+        if game_state.tricks:
+            for trick in game_state.tricks:
+                new_trick = Trick()
+                new_trick.cards = trick.cards.copy() if trick.cards else []
+                new_trick.lead_suit = trick.lead_suit
+                new_trick.winner = trick.winner
+                new_trick.points = trick.points
+                updated_state.tricks.append(new_trick)
+        
+        # Copy current trick properly
+        if game_state.current_trick:
+            updated_state.current_trick = Trick()
+            updated_state.current_trick.cards = game_state.current_trick.cards.copy() if game_state.current_trick.cards else []
+            updated_state.current_trick.lead_suit = game_state.current_trick.lead_suit
+            updated_state.current_trick.winner = game_state.current_trick.winner
+            updated_state.current_trick.points = game_state.current_trick.points
+        else:
+            updated_state.current_trick = None
         updated_state.game_points = game_state.game_points.copy()
         
         # Add new information based on action taken
@@ -1196,14 +1407,25 @@ class GameAgent:
     
     def _get_current_beliefs(self, game_state: Game28State) -> Any:
         """Get current beliefs, updating if necessary"""
-        if hasattr(self, 'current_beliefs') and self.current_beliefs is not None:
-            return self.current_beliefs
-        else:
-            # Initial beliefs
-            if self.belief_model:
-                self.current_beliefs = self.belief_model.predict_beliefs(game_state, self.agent_id)
+        # Always get fresh beliefs based on current game state
+        if self.belief_model:
+            try:
+                # Create a copy of the game state to avoid modifying the original
+                current_state = game_state.copy()
+                
+                # Update beliefs based on current game state
+                self.current_beliefs = self.belief_model.predict_beliefs(current_state, self.agent_id)
+                
+                self.log_debug(f"    Updated beliefs for current game state")
+                self.log_debug(f"    Game phase: {current_state.phase}")
+                self.log_debug(f"    Current trick: {len(current_state.current_trick.cards) if current_state.current_trick else 0} cards")
+                self.log_debug(f"    Completed tricks: {len(current_state.tricks)}")
+                
                 return self.current_beliefs
-            return None
+            except Exception as e:
+                self.log_debug(f"    Error updating beliefs: {e}")
+                return None
+        return None
 
 
 class GameLogger:
@@ -1522,53 +1744,24 @@ class GameSimulator:
         self.comprehensive_logger.log(f"Total Tricks: {len(self.game_state.tricks)}")
 
 
-def create_agents() -> List[GameAgent]:
-    """Create the 4 advanced game agents with hybrid, belief models, and ISMCTS"""
+def create_agents(ismcts_iterations: int = 1000, ismcts_samples: int = 32, ismcts_c_puct: float = 2.0) -> List[GameAgent]:
+    """Create the 4 advanced game agents with configurable ISMCTS parameters"""
     agents = []
     
-    # Agent 0: Hybrid Agent (ISMCTS + Belief Model + Point Prediction)
-    agent0_config = AgentConfig(
-        agent_id=0,
-        name="Hybrid Master",
-        strategy="hybrid",
-        use_belief_model=True,
-        use_point_prediction=True,
-        use_hybrid=True
-    )
-    agents.append(GameAgent(agent0_config))
-    
-    # Agent 1: Hybrid Agent (ISMCTS + Belief Model + Point Prediction)
-    agent1_config = AgentConfig(
-        agent_id=1,
-        name="Hybrid Expert",
-        strategy="hybrid",
-        use_belief_model=True,
-        use_point_prediction=True,
-        use_hybrid=True
-    )
-    agents.append(GameAgent(agent1_config))
-    
-    # Agent 2: Hybrid Agent (ISMCTS + Belief Model + Point Prediction)
-    agent2_config = AgentConfig(
-        agent_id=2,
-        name="Hybrid Pro",
-        strategy="hybrid",
-        use_belief_model=True,
-        use_point_prediction=True,
-        use_hybrid=True
-    )
-    agents.append(GameAgent(agent2_config))
-    
-    # Agent 3: Hybrid Agent (ISMCTS + Belief Model + Point Prediction)
-    agent3_config = AgentConfig(
-        agent_id=3,
-        name="Hybrid Champion",
-        strategy="hybrid",
-        use_belief_model=True,
-        use_point_prediction=True,
-        use_hybrid=True
-    )
-    agents.append(GameAgent(agent3_config))
+    # All agents use the same hybrid strategy with configurable ISMCTS parameters
+    for i in range(4):
+        agent_config = AgentConfig(
+            agent_id=i,
+            name=f"Hybrid Agent {i}",
+            strategy="hybrid",
+            use_belief_model=True,
+            use_point_prediction=True,
+            use_hybrid=True,
+            mcts_iterations=ismcts_iterations,
+            mcts_samples=ismcts_samples,
+            mcts_c_puct=ismcts_c_puct
+        )
+        agents.append(GameAgent(agent_config))
     
     return agents
 
@@ -1589,12 +1782,38 @@ def run_multiple_games():
         except ValueError:
             print("Please enter a valid number.")
     
+    # Get ISMCTS parameters from user
+    print("\nISMCTS Configuration:")
+    print("(Press Enter to use defaults: iterations=1000, samples=32, c_puct=2.0)")
+    
+    try:
+        ismcts_iterations = input("ISMCTS iterations (default 1000): ").strip()
+        ismcts_iterations = int(ismcts_iterations) if ismcts_iterations else 1000
+    except ValueError:
+        print("Invalid input, using default: 1000")
+        ismcts_iterations = 1000
+    
+    try:
+        ismcts_samples = input("ISMCTS samples (default 32): ").strip()
+        ismcts_samples = int(ismcts_samples) if ismcts_samples else 32
+    except ValueError:
+        print("Invalid input, using default: 32")
+        ismcts_samples = 32
+    
+    try:
+        ismcts_c_puct = input("ISMCTS c_puct (default 2.0): ").strip()
+        ismcts_c_puct = float(ismcts_c_puct) if ismcts_c_puct else 2.0
+    except ValueError:
+        print("Invalid input, using default: 2.0")
+        ismcts_c_puct = 2.0
+    
+    print(f"\nUsing ISMCTS parameters: iterations={ismcts_iterations}, samples={ismcts_samples}, c_puct={ismcts_c_puct}")
     print(f"\nStarting simulation of {num_games} games...")
     print("="*80)
     
-    # Create agents once
+    # Create agents once with user-specified parameters
     print("Creating advanced AI agents...")
-    agents = create_agents()
+    agents = create_agents(ismcts_iterations, ismcts_samples, ismcts_c_puct)
     
     # Track overall statistics
     game_results = []
@@ -1611,7 +1830,7 @@ def run_multiple_games():
         print("="*80)
         
         # Create game simulator with unique ID
-        log_dir = os.path.join("..", "logs", "improved_games")
+        log_dir = os.path.join("28bot_v2", "logs", "simulation")
         simulator = GameSimulator(agents, game_id=game_id, log_dir=log_dir)
         
         # Simulate the game
@@ -1656,8 +1875,8 @@ def run_multiple_games():
         print(f"  Successful Bids: {successful_bids}/{total_bids} ({successful_bids/total_bids*100:.1f}%)")
     
     print(f"\nAll game logs saved to:")
-    print(f"  Condensed logs: {os.path.join('..', 'logs', 'condensed_games')}")
-    print(f"  Comprehensive logs: {os.path.join('..', 'logs', 'comprehensive_games')}")
+    print(f"  Condensed logs: {os.path.join('28bot_v2', 'logs', 'simulation', 'condensed')}")
+    print(f"  Comprehensive logs: {os.path.join('28bot_v2', 'logs', 'simulation', 'comprehensive')}")
     
     return game_results
 

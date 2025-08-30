@@ -1,0 +1,70 @@
+
+===== GAME 214 (20250830_082333_396) =====
+
+===== AUCTION =====
+Trump probs P0: {'H': 0.0, 'D': 1.0, 'C': 0.0, 'S': 0.0}
+Bid: 17
+Bid: Player 0 proposes 17 (min_allowed=17)
+Trump probs P1: {'H': 0.0, 'D': 1.0, 'C': 0.0, 'S': 0.0}
+Pass
+Pass (locked): Player 1 (min_allowed=18)
+Trump probs P2: {'H': 0.0, 'D': 1.0, 'C': 0.0, 'S': 0.0}
+Pass
+Pass (locked): Player 2 (min_allowed=18)
+Trump probs P3: {'H': 0.0, 'D': 1.0, 'C': 0.0, 'S': 0.0}
+Pass
+Pass (locked): Player 3 (min_allowed=18)
+AUCTION WINNER: Player 0 with bid 17; chooses trump [to be determined]
+AUCTION WINNER: Player 0 with bid 17; chooses trump D
+
+Player 0 (auction 4 cards): ['8C', 'QH', 'JC', '8S']
+Player 1 (auction 4 cards): ['9C', '8H', 'KC', 'AC']
+Player 2 (auction 4 cards): ['10H', '10D', 'QS', 'JH']
+Player 3 (auction 4 cards): ['9D', 'QD', 'KH', 'JD']
+Auction winner (bidder): Player 0 with bid 17
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: [face-down trump]
+
+Player 0 plays JC
+Player 1 plays 9C
+Player 2 plays JH
+Player 3 plays 10C
+Player 0 won the hand: 9 points
+Player 0 plays 8C
+Player 1 plays AC
+-- Phase 2 begins: Trump revealed as D by Player 2 on trick 2 --
+Player 2 plays 10D
+Player 3 plays JD
+Player 3 won the hand: 5 points
+Player 3 plays 9D
+Player 0 plays AD
+Player 1 plays 7D
+Player 2 plays KD
+Player 3 won the hand: 3 points
+Player 3 plays JS
+Player 0 plays 8S
+Player 1 plays KS
+Player 2 plays 9S
+Player 3 won the hand: 5 points
+Player 3 plays AS
+Player 0 plays 7S
+Player 1 plays 9H
+Player 2 plays 10S
+Player 3 won the hand: 4 points
+Player 3 plays QD
+Player 0 plays 8D
+Player 1 plays 8H
+Player 2 plays 10H
+Player 3 won the hand: 1 points
+Player 3 plays KH
+Player 0 plays QH
+Player 1 plays KC
+Player 2 plays AH
+Player 2 won the hand: 1 points
+Player 2 plays QS
+Player 3 plays 7H
+Player 0 plays QC
+Player 1 plays 7C
+Player 2 won the hand: 0 points
+=== GAME SUMMARY ===
+Game 214 final points: Team A=10, Team B=18

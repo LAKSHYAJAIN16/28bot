@@ -1,0 +1,111 @@
+
+===== GAME 30 (20250830_030211_441983) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=12.12  p30=8.00  std=5.91
+    suit_stats:
+      C: pts=[18, 19, 16, 4, 8, 15 ...]  avg=12.12  p30=8.00  std=5.91
+      H: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 8.00 < 15; conf_mean 9.17 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=8.00, conf_mean=9.17 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 8.00 < 15, conf_mean 9.17 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=3.50  p30=2.00  std=1.50
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 2.42 < 15
+      C: p30 2.00 < 15; conf_mean 2.75 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=2.00, conf_mean=2.75 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 2.00 < 15, conf_mean 2.75 < 15.
+Bid: Player 2 proposes 20 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: H
+    proposed_bid: 20
+    overall: avg=21.31  p30=19.00  std=4.00
+    reason: Bid (precomputed): Suit H meets thresholds (p30=19.00, conf_mean=19.31 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 20. (current_high=0, raise_delta=+1)
+Pass (locked): Player 3 (min_allowed=21)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=20  min_allowed=21  raise_delta=1
+    overall: avg=12.25  p30=10.00  std=5.47
+    failed_checks:
+      H: p30 0.00 < 20; conf_mean 0.00 < 20
+      D: p30 10.00 < 20; conf_mean 9.51 < 20
+    reason: Pass: No suit meets thresholds. Best suit D has p30=10.00, conf_mean=9.51 below min_allowed=21 (current_high=20, raise_delta=+1). Failed checks for best suit: p30 10.00 < 20, conf_mean 9.51 < 20.
+
+AUCTION WINNER: Player 2 with bid 20; chooses trump H 
+Details={'chosen': 'H', 'estimates': {'H': 21.3125, 'S': 0.0, 'C': 18.333333333333332}}
+Player 0 hand :  ['QH', '10C', 'QC', '10S', '9S', 'QD', 'QS', 'AC']
+Player 1 hand :  ['KS', '7C', '10D', '7D', '10H', '8D', '7H', '8S']
+Player 2 hand :  ['JS', 'JC', '7S', '9C', '9H', '8H', 'AS']
+Player 3 hand :  ['8C', 'KH', 'AH', 'KD', '9D', 'AD', 'JD', 'KC']
+Player 0 (auction 4 cards): ['QH', '10C', 'QC', '10S']
+Player 1 (auction 4 cards): ['KS', '7C', '10D', '7D']
+Player 2 (auction 4 cards): ['JS', 'JH', 'JC', '7S']
+Player 3 (auction 4 cards): ['8C', 'KH', 'AH', 'KD']
+Auction winner (bidder): Player 2 with bid 20
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: JH
+
+Player 0 plays QH
+Player 1 plays 10H
+Player 2 plays 9H
+Player 3 plays KH
+Player 2 won the hand: 3 points
+
+Player 2 plays JS
+Player 3 plays 8C
+Player 0 plays 10S
+Player 1 plays KS
+Player 2 won the hand: 4 points
+
+Player 2 plays JC
+Player 3 plays KC
+Player 0 plays 10C
+Player 1 plays 7C
+Player 2 won the hand: 4 points
+
+Player 2 plays 7S
+-- Phase 2 begins: Trump revealed as H by Player 3 on trick 4 --
+Player 3 plays AH
+Player 0 plays 9S
+Player 1 plays 8S
+Player 3 won the hand: 3 points
+
+Player 3 plays KD
+Player 0 plays QD
+Player 1 plays 10D
+Player 2 plays 9C
+Player 1 won the hand: 3 points
+
+Player 1 plays 7D
+Player 2 plays 8H
+Player 3 plays 9D
+Player 0 plays QC
+Player 2 won the hand: 2 points
+
+Player 2 plays AS
+Player 3 plays AD
+Player 0 plays QS
+Player 1 plays 8D
+Player 2 won the hand: 2 points
+
+Player 2 plays JH
+Player 3 plays JD
+Player 0 plays AC
+Player 1 plays 7H
+Player 2 won the hand: 7 points
+
+Game 30 final points: Team A=22, Team B=6
+Series cumulative game score so far: Team A=-1, Team B=-17
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_30_20250830_030211_441983.log
