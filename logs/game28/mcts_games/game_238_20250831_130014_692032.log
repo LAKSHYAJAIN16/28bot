@@ -1,0 +1,108 @@
+
+===== GAME 238 (20250831_130014_692032) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=6.75  p30=0.00  std=6.76
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      D: p30 0.00 < 15; conf_mean 3.37 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=0.00, conf_mean=3.37 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 3.37 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=17.00  p30=13.00  std=5.29
+    failed_checks:
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 13.00 < 15; conf_mean 14.35 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=13.00, conf_mean=14.35 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 13.00 < 15, conf_mean 14.35 < 15.
+Pass (locked): Player 3 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=13.88  p30=10.00  std=5.62
+    failed_checks:
+      D: p30 10.00 < 15; conf_mean 11.06 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=10.00, conf_mean=11.06 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 10.00 < 15, conf_mean 11.06 < 15.
+Forced bid: All players passed. Player 0 takes minimum bid 16.
+
+AUCTION WINNER: Player 0 with bid 16; chooses trump C 
+Details={'chosen': 'C', 'estimates': {'H': 0.0, 'D': 0.0, 'C': 14.833333333333334}}
+Player 0 hand :  ['9D', '10D', '10H', '10S', '7S', 'JD', '7H']
+Player 1 hand :  ['8H', 'KH', '8D', 'QC', 'KC', 'JH', 'JS', 'AC']
+Player 2 hand :  ['KS', '9H', 'JC', 'AS', '7C', 'KD', '7D', 'AH']
+Player 3 hand :  ['9S', '8S', '9C', 'AD', 'QH', 'QD', 'QS', '8C']
+Player 0 (auction 4 cards): ['9D', '10D', '10H', '10C']
+Player 1 (auction 4 cards): ['8H', 'KH', '8D', 'QC']
+Player 2 (auction 4 cards): ['KS', '9H', 'JC', 'AS']
+Player 3 (auction 4 cards): ['9S', '8S', '9C', 'AD']
+Auction winner (bidder): Player 0 with bid 16
+Bidder sets concealed trump suit: C
+Phase: concealed, bidder concealed card: 10C
+
+Player 0 plays 9D
+Player 1 plays 8D
+Player 2 plays KD
+Player 3 plays AD
+Player 0 won the hand: 3 points
+
+Player 0 plays 10D
+Player 1 plays 8H
+Player 2 plays 7D
+Player 3 plays QD
+Player 0 won the hand: 1 points
+
+Player 0 plays 10H
+Player 1 plays KH
+Player 2 plays 9H
+Player 3 plays QH
+Player 2 won the hand: 3 points
+
+Player 2 plays KS
+Player 3 plays 9S
+Player 0 plays 10S
+Player 1 plays JS
+Player 1 won the hand: 6 points
+
+Player 1 plays QC
+Player 2 plays JC
+Player 3 plays 9C
+Player 0 plays 7S
+Player 2 won the hand: 5 points
+
+Player 2 plays AS
+Player 3 plays 8S
+Player 0 plays JD
+-- Phase 2 begins: Trump revealed as C by Player 1 on trick 6 --
+Player 1 plays KC
+Player 1 won the hand: 4 points
+
+Player 1 plays JH
+Player 2 plays AH
+Player 3 plays QS
+Player 0 plays 7H
+Player 1 won the hand: 4 points
+
+Player 1 plays AC
+Player 2 plays 7C
+Player 3 plays 8C
+Player 0 plays 10C
+Player 1 won the hand: 2 points
+
+Game 238 final points: Team A=12, Team B=16
+Series cumulative game score so far: Team A=-49, Team B=-36
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_238_20250831_130014_692032.log

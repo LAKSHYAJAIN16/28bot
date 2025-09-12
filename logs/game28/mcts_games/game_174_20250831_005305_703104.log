@@ -1,0 +1,111 @@
+
+===== GAME 174 (20250831_005305_703104) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.12  p30=12.00  std=6.48
+    suit_stats:
+      C: pts=[19, 22, 11, 16, 14, 5 ...]  avg=16.12  p30=12.00  std=6.48
+      H: pts=[]
+      S: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 12.00 < 15; conf_mean 12.89 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=12.00, conf_mean=12.89 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 12.89 < 15.
+Bid: Player 1 proposes 16 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: C
+    proposed_bid: 16
+    overall: avg=15.00  p30=15.00  std=0.00
+    reason: Bid (precomputed): Suit C meets thresholds (p30=15.00, conf_mean=15.00 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 16. (current_high=0, raise_delta=+1)
+Pass (locked): Player 2 (min_allowed=17)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=16  min_allowed=17  raise_delta=1
+    overall: avg=14.06  p30=12.00  std=5.55
+    failed_checks:
+      H: p30 12.00 < 16; conf_mean 11.29 < 16
+      S: p30 0.00 < 16; conf_mean 0.00 < 16
+    reason: Pass: No suit meets thresholds. Best suit H has p30=12.00, conf_mean=11.29 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: p30 12.00 < 16, conf_mean 11.29 < 16.
+Pass (locked): Player 3 (min_allowed=17)
+  bidding analysis:
+    present_suits: D, C
+    current_high=16  min_allowed=17  raise_delta=1
+    overall: avg=18.56  p30=14.00  std=4.95
+    failed_checks:
+      D: p30 14.00 < 16
+      C: p30 0.00 < 16; conf_mean 0.00 < 16
+    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=16.09 below min_allowed=17 (current_high=16, raise_delta=+1). Failed checks for best suit: p30 14.00 < 16.
+
+AUCTION WINNER: Player 1 with bid 16; chooses trump D 
+Details={'chosen': 'D', 'estimates': {'H': 14.0, 'D': 15.083333333333334, 'C': 15.0, 'S': 13.0}}
+Player 0 hand :  ['9C', 'AH', 'AS', 'KC', 'QC', '10D', '7D', '7C']
+Player 1 hand :  ['KH', '10C', 'JS', '10S', '7H', 'QH', 'JC']
+Player 2 hand :  ['JH', 'KS', '8H', 'QD', '9S', '8S', '7S', 'AC']
+Player 3 hand :  ['KD', '8C', 'JD', 'AD', '9D', '10H', 'QS', '9H']
+Player 0 (auction 4 cards): ['9C', 'AH', 'AS', 'KC']
+Player 1 (auction 4 cards): ['8D', 'KH', '10C', 'JS']
+Player 2 (auction 4 cards): ['JH', 'KS', '8H', 'QD']
+Player 3 (auction 4 cards): ['KD', '8C', 'JD', 'AD']
+Auction winner (bidder): Player 1 with bid 16
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: 8D
+
+Player 0 plays 9C
+Player 1 plays 10C
+Player 2 plays AC
+Player 3 plays 8C
+Player 0 won the hand: 4 points
+
+Player 0 plays AH
+Player 1 plays KH
+Player 2 plays JH
+Player 3 plays 10H
+Player 2 won the hand: 5 points
+
+Player 2 plays KS
+Player 3 plays QS
+Player 0 plays AS
+Player 1 plays JS
+Player 1 won the hand: 4 points
+
+Player 1 plays 10S
+Player 2 plays 9S
+-- Phase 2 begins: Trump revealed as D by Player 3 on trick 4 --
+Player 3 plays KD
+Player 0 plays KC
+Player 3 won the hand: 3 points
+
+Player 3 plays JD
+Player 0 plays 10D
+Player 1 plays 8D
+Player 2 plays QD
+Player 3 won the hand: 4 points
+
+Player 3 plays AD
+Player 0 plays 7D
+Player 1 plays 7H
+Player 2 plays 8H
+Player 3 won the hand: 1 points
+
+Player 3 plays 9D
+Player 0 plays QC
+Player 1 plays QH
+Player 2 plays 8S
+Player 3 won the hand: 2 points
+
+Player 3 plays 9H
+Player 0 plays 7C
+Player 1 plays JC
+Player 2 plays 7S
+Player 3 won the hand: 5 points
+
+Game 174 final points: Team A=9, Team B=19
+Series cumulative game score so far: Team A=-31, Team B=-29
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_174_20250831_005305_703104.log

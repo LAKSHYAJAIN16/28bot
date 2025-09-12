@@ -1,0 +1,107 @@
+
+===== GAME 143 (20250830_212944_928713) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=13.62  p30=11.00  std=4.85
+    failed_checks:
+      H: p30 11.00 < 15; conf_mean 11.20 < 15
+      C: p30 8.00 < 15; conf_mean 8.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=11.00, conf_mean=11.20 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 11.20 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.38  p30=12.00  std=4.97
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      S: p30 12.00 < 15; conf_mean 12.89 < 15
+    reason: Pass: No suit meets thresholds. Best suit S has p30=12.00, conf_mean=12.89 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 12.00 < 15, conf_mean 12.89 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=12.00  p30=0.00  std=12.00
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 6.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=0.00, conf_mean=6.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 6.00 < 15.
+Pass (locked): Player 3 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, C
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=13.69  p30=11.00  std=4.38
+    suit_stats:
+      C: pts=[17, 18, 12, 12, 6, 12 ...]  avg=13.69  p30=11.00  std=4.38
+      H: pts=[]
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 11.00 < 15; conf_mean 11.50 < 15
+    reason: Pass: No suit meets thresholds. Best suit C has p30=11.00, conf_mean=11.50 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 11.50 < 15.
+Forced bid: All players passed. Player 0 takes minimum bid 16.
+
+AUCTION WINNER: Player 0 with bid 16; chooses trump H 
+Details={'chosen': 'H', 'estimates': {'H': 13.625, 'C': 8.0}}
+Player 0 hand :  ['7C', 'QH', 'KC', '9D', 'QS', '9S', '7S']
+Player 1 hand :  ['AS', 'AD', 'KD', 'JD', '7H', '8D', '8H', '10D']
+Player 2 hand :  ['7D', 'QD', 'JH', '9H', '8S', '10S', 'AC', 'KH']
+Player 3 hand :  ['8C', '10C', '10H', 'QC', 'JS', 'KS', '9C', 'JC']
+Player 0 (auction 4 cards): ['7C', 'QH', 'KC', 'AH']
+Player 1 (auction 4 cards): ['AS', 'AD', 'KD', 'JD']
+Player 2 (auction 4 cards): ['7D', 'QD', 'JH', '9H']
+Player 3 (auction 4 cards): ['8C', '10C', '10H', 'QC']
+Auction winner (bidder): Player 0 with bid 16
+Bidder sets concealed trump suit: H
+Phase: concealed, bidder concealed card: AH
+
+Player 0 plays 7C
+Player 1 plays AS
+Player 2 plays AC
+Player 3 plays 8C
+Player 2 won the hand: 2 points
+
+Player 2 plays 7D
+Player 3 plays 10C
+Player 0 plays 9D
+Player 1 plays AD
+Player 0 won the hand: 4 points
+
+Player 0 plays KC
+Player 1 plays KD
+Player 2 plays QD
+Player 3 plays QC
+Player 0 won the hand: 0 points
+
+Player 0 plays QS
+Player 1 plays JD
+Player 2 plays 8S
+Player 3 plays JS
+Player 3 won the hand: 6 points
+
+Player 3 plays 10H
+Player 0 plays QH
+Player 1 plays 7H
+Player 2 plays JH
+Player 2 won the hand: 4 points
+
+Player 2 plays 9H
+Player 3 plays KS
+Player 0 plays 9S
+Player 1 plays 8H
+Player 2 won the hand: 4 points
+
+Player 2 plays 10S
+Player 3 plays 9C
+Player 0 plays 7S
+Player 1 plays 8D
+Player 2 won the hand: 3 points
+
+Player 2 plays KH
+Player 3 plays JC
+Error during gameplay: Current player 0 has no cards but other players do
+No cards available, ending game
+Game 143 final points: Team A=17, Team B=6
+Series cumulative game score so far: Team A=-30, Team B=-25
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_143_20250830_212944_928713.log

@@ -1,0 +1,111 @@
+
+===== GAME 156 (20250830_230352_452113) =====
+
+===== AUCTION =====
+Bid: Player 0 proposes 17 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C
+    current_high=0  min_allowed=16  raise_delta=1
+    chosen_suit: D
+    proposed_bid: 17
+    overall: avg=18.56  p30=16.00  std=4.74
+    reason: Bid (precomputed): Suit D meets thresholds (p30=16.00, conf_mean=16.19 >= min_allowed=16); conservative mapping max(p30, avg-1) -> 17. (current_high=0, raise_delta=+1)
+Pass (locked): Player 1 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=17  min_allowed=18  raise_delta=1
+    overall: avg=18.00  p30=14.00  std=5.96
+    failed_checks:
+      H: p30 0.00 < 17; conf_mean 0.00 < 17
+      D: p30 14.00 < 17; conf_mean 15.02 < 17
+    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=15.02 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 14.00 < 17, conf_mean 15.02 < 17.
+Pass (locked): Player 2 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, C, S
+    current_high=17  min_allowed=18  raise_delta=1
+    overall: avg=15.62  p30=13.00  std=3.71
+    failed_checks:
+      H: p30 13.00 < 17; conf_mean 13.77 < 17
+      C: p30 0.00 < 17; conf_mean 0.00 < 17
+      S: p30 0.00 < 17; conf_mean 0.00 < 17
+    reason: Pass: No suit meets thresholds. Best suit H has p30=13.00, conf_mean=13.77 below min_allowed=18 (current_high=17, raise_delta=+1). Failed checks for best suit: p30 13.00 < 17, conf_mean 13.77 < 17.
+Bid: Player 3 proposes 28 (min_allowed=18)
+  bidding analysis:
+    present_suits: H, D, C, S
+    current_high=17  min_allowed=18  raise_delta=1
+    chosen_suit: D
+    proposed_bid: 28
+    overall: avg=28.00  p30=28.00  std=0.00
+    reason: Bid (precomputed): Suit D meets thresholds (p30=28.00, conf_mean=28.00 >= min_allowed=18); conservative mapping max(p30, avg-1) -> 28. (current_high=17, raise_delta=+1)
+Pass (locked): Player 0 (min_allowed=29)
+  bidding analysis:
+    present_suits: D, C
+    current_high=28  min_allowed=29  raise_delta=1
+    overall: avg=18.56  p30=16.00  std=4.74
+    failed_checks:
+      D: p30 16.00 < 28; conf_mean 16.19 < 28
+      C: p30 0.00 < 28; conf_mean 0.00 < 28
+    reason: Pass: No suit meets thresholds. Best suit D has p30=16.00, conf_mean=16.19 below min_allowed=29 (current_high=28, raise_delta=+1). Failed checks for best suit: p30 16.00 < 28, conf_mean 16.19 < 28.
+
+AUCTION WINNER: Player 3 with bid 28; chooses trump D 
+Details={'chosen': 'D', 'estimates': {'H': 16.0, 'D': 28.0, 'C': 19.0, 'S': 6.0}}
+Player 0 hand :  ['8D', 'KD', 'JC', '9D', '8H', 'QH', 'KS', 'AC']
+Player 1 hand :  ['8S', '9S', '9H', 'JD', '10S', 'QC', '8C', 'KC']
+Player 2 hand :  ['10C', '7H', 'JS', 'AH', '10H', '9C', 'QD', '7D']
+Player 3 hand :  ['AS', 'JH', '7C', 'AD', 'QS', '7S', 'KH']
+Player 0 (auction 4 cards): ['8D', 'KD', 'JC', '9D']
+Player 1 (auction 4 cards): ['8S', '9S', '9H', 'JD']
+Player 2 (auction 4 cards): ['10C', '7H', 'JS', 'AH']
+Player 3 (auction 4 cards): ['10D', 'AS', 'JH', '7C']
+Auction winner (bidder): Player 3 with bid 28
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: 10D
+
+Player 0 plays 8D
+Player 1 plays JD
+Player 2 plays QD
+Player 3 plays AD
+Player 1 won the hand: 4 points
+
+Player 1 plays 8S
+Player 2 plays JS
+Player 3 plays AS
+Player 0 plays KS
+Player 2 won the hand: 4 points
+
+Player 2 plays 10C
+Player 3 plays 7C
+Player 0 plays JC
+Player 1 plays QC
+Player 0 won the hand: 4 points
+
+Player 0 plays KD
+Player 1 plays 9S
+Player 2 plays 7D
+Player 3 plays JH
+Player 0 won the hand: 5 points
+
+Player 0 plays 9D
+Player 1 plays 9H
+Player 2 plays 7H
+Player 3 plays QS
+Player 0 won the hand: 4 points
+
+Player 0 plays 8H
+Player 1 plays 10S
+Player 2 plays AH
+Player 3 plays KH
+Player 2 won the hand: 2 points
+
+Player 2 plays 10H
+Player 3 plays 7S
+Player 0 plays QH
+Player 1 plays 8C
+Player 2 won the hand: 1 points
+
+Player 2 plays 9C
+Error during gameplay: Current player 3 has no cards but other players do
+No cards available, ending game
+Game 156 final points: Team A=20, Team B=4
+Series cumulative game score so far: Team A=-32, Team B=-30
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_156_20250830_230352_452113.log

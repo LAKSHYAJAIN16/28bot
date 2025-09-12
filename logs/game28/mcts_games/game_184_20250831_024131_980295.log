@@ -1,0 +1,108 @@
+
+===== GAME 184 (20250831_024131_980295) =====
+
+===== AUCTION =====
+Pass (locked): Player 0 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=14.62  p30=11.00  std=5.56
+    failed_checks:
+      D: p30 11.00 < 15; conf_mean 11.85 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=11.00, conf_mean=11.85 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 11.00 < 15, conf_mean 11.85 < 15.
+Pass (locked): Player 1 (min_allowed=16)
+  bidding analysis:
+    present_suits: D, C, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=0.00  p30=0.00  std=0.00
+    failed_checks:
+      D: p30 0.00 < 15; conf_mean 0.00 < 15
+      C: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=0.00, conf_mean=0.00 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 0.00 < 15, conf_mean 0.00 < 15.
+Pass (locked): Player 2 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=16.44  p30=14.00  std=5.21
+    failed_checks:
+      H: p30 14.00 < 15; conf_mean 13.83 < 15
+    reason: Pass: No suit meets thresholds. Best suit H has p30=14.00, conf_mean=13.83 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 13.83 < 15.
+Pass (locked): Player 3 (min_allowed=16)
+  bidding analysis:
+    present_suits: H, D, S
+    current_high=0  min_allowed=16  raise_delta=1
+    overall: avg=15.50  p30=14.00  std=5.02
+    failed_checks:
+      H: p30 0.00 < 15; conf_mean 0.00 < 15
+      D: p30 14.00 < 15; conf_mean 12.99 < 15
+      S: p30 0.00 < 15; conf_mean 0.00 < 15
+    reason: Pass: No suit meets thresholds. Best suit D has p30=14.00, conf_mean=12.99 below min_allowed=16 (current_high=0, raise_delta=+1). Failed checks for best suit: p30 14.00 < 15, conf_mean 12.99 < 15.
+Forced bid: All players passed. Player 0 takes minimum bid 16.
+
+AUCTION WINNER: Player 0 with bid 16; chooses trump D 
+Details={'chosen': 'D', 'estimates': {'D': 14.625, 'C': 0.0, 'S': 14.5}}
+Player 0 hand :  ['KC', '9S', '8C', '8S', 'JC', 'QH', 'QD']
+Player 1 hand :  ['JS', 'KD', '7D', '9C', 'QC', 'QS', 'AS', 'AC']
+Player 2 hand :  ['8H', '8D', 'JD', '9H', '10C', 'AD', '7C', '7H']
+Player 3 hand :  ['10H', '10S', 'JH', '9D', 'KS', 'AH', 'KH', '7S']
+Player 0 (auction 4 cards): ['KC', '9S', '10D', '8C']
+Player 1 (auction 4 cards): ['JS', 'KD', '7D', '9C']
+Player 2 (auction 4 cards): ['8H', '8D', 'JD', '9H']
+Player 3 (auction 4 cards): ['10H', '10S', 'JH', '9D']
+Auction winner (bidder): Player 0 with bid 16
+Bidder sets concealed trump suit: D
+Phase: concealed, bidder concealed card: 10D
+
+Player 0 plays KC
+Player 1 plays 9C
+Player 2 plays 10C
+Player 3 plays 10H
+Player 1 won the hand: 4 points
+
+Player 1 plays JS
+Player 2 plays 8H
+Player 3 plays 10S
+Player 0 plays 9S
+Player 1 won the hand: 6 points
+
+Player 1 plays KD
+Player 2 plays 8D
+Player 3 plays 9D
+Player 0 plays QD
+Player 3 won the hand: 2 points
+
+Player 3 plays JH
+Player 0 plays QH
+-- Phase 2 begins: Trump revealed as D by Player 1 on trick 4 --
+Player 1 plays 7D
+Player 2 plays 9H
+Player 1 won the hand: 5 points
+
+Player 1 plays QC
+Player 2 plays 7C
+Player 3 plays KS
+Player 0 plays 8C
+Player 1 won the hand: 0 points
+
+Player 1 plays QS
+Player 2 plays JD
+Player 3 plays 7S
+Player 0 plays 8S
+Player 2 won the hand: 3 points
+
+Player 2 plays AD
+Player 3 plays AH
+Player 0 plays 10D
+Player 1 plays AS
+Player 2 won the hand: 4 points
+
+Player 2 plays 7H
+Player 3 plays KH
+Player 0 plays JC
+Player 1 plays AC
+Player 3 won the hand: 4 points
+
+Game 184 final points: Team A=7, Team B=21
+Series cumulative game score so far: Team A=-35, Team B=-31
+Log saved to: c:\Users\laksh\Desktop\Projects\28bot\logs\game28\mcts_games\game_184_20250831_024131_980295.log
